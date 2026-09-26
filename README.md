@@ -57,6 +57,12 @@ Every server here:
 | --- | --- | --- |
 | [Vuln Priority](https://github.com/arhancanli/vuln-priority-mcp) | Which vulnerabilities to fix first: CISA KEV, EPSS, CVSS and CISA's SSVC decisions in one ranking. | `npx -y vuln-priority-mcp` |
 
+### Data and datasets
+
+| Server | What it does | Run |
+| --- | --- | --- |
+| [Contact Check](https://github.com/arhancanli/contact-check-mcp) | Validates and formats phone numbers, email addresses and postal addresses for any country. | `npx -y contact-check-mcp` |
+
 ### Productivity
 
 | Server | What it does | Run |

@@ -65,6 +65,36 @@
       ]
     },
     {
+      "name": "contact-check-mcp",
+      "title": "Contact Check",
+      "category": "data",
+      "summary": "Validates and formats phone numbers, email addresses and postal addresses for any country.",
+      "description": "Checks contact data the way a careful form would: phone numbers parsed, validated and formatted for their country with their type (mobile, fixed, toll-free), email addresses checked for syntax, a domain that accepts mail, disposable providers and likely typos, and postal addresses against each country's required fields, postcode pattern and regions, formatted as that country writes them. No key.",
+      "version": "0.1.0",
+      "repository": "https://github.com/arhancanli/contact-check-mcp",
+      "npm": "https://www.npmjs.com/package/contact-check-mcp",
+      "mcpName": "io.github.arhancanli/contact-check-mcp",
+      "hosts": [
+        "www.gstatic.com",
+        "cloudflare-dns.com",
+        "raw.githubusercontent.com"
+      ],
+      "tools": [
+        {
+          "name": "check_addresses",
+          "title": "Validate postal addresses"
+        },
+        {
+          "name": "check_emails",
+          "title": "Validate email addresses"
+        },
+        {
+          "name": "check_phones",
+          "title": "Validate phone numbers"
+        }
+      ]
+    },
+    {
       "name": "domain-health-mcp",
       "title": "Domain Health",
       "category": "developer-tools",

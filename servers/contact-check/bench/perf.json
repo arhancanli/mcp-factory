@@ -1,0 +1,50 @@
+{
+  "measured_on": "2026-09-26",
+  "where": "Dubai, home connection",
+  "node": "v24.19.0",
+  "runs": 5,
+  "tool_definition_chars": 1920,
+  "tools_list_chars": 3109,
+  "competitor": {
+    "label": "mcp-server-fetch (no open contact-validation server exists; this is what agents use today)",
+    "tool_definition_chars": 1105,
+    "tools_list_chars": 1104
+  },
+  "scenarios": [
+    {
+      "call": "check_phones: 7 numbers (UK, US, UAE, toll free, fictional, too short)",
+      "first_call_ms": 5,
+      "repeat_ms": 0.5,
+      "result_chars": 1216
+    },
+    {
+      "call": "check_emails: 9 addresses (typos, disposable, role, null MX, no domain)",
+      "first_call_ms": 1090,
+      "repeat_ms": 0.6,
+      "result_chars": 1730
+    },
+    {
+      "call": "check_addresses: 5 addresses (US, UK, bad state and ZIP, UAE, rules only)",
+      "first_call_ms": 281,
+      "repeat_ms": 0.6,
+      "result_chars": 681
+    }
+  ],
+  "example": {
+    "call": "check_phones: 7 numbers (UK, US, UAE, toll free, fictional, too short)",
+    "tool": "check_phones",
+    "arguments": {
+      "numbers": [
+        "+44 20 7946 0958",
+        "020 7946 0958",
+        "+1 202-555-0143",
+        "+971 50 123 4567",
+        "+1 800 555 0199",
+        "12345",
+        "+44 20 794"
+      ],
+      "country": "GB"
+    },
+    "result": "{\"valid\":5,\"results\":[{\"input\":\"+44 20 7946 0958\",\"valid\":true,\"e164\":\"+442079460958\",\"international\":\"+44 20 7946 0958\",\"national\":\"020 7946 0958\",\"country\":\"GB\",\"calling_code\":\"+44\",\"type\":\"fixed_line\"},{\"input\":\"020 7946 0958\",\"valid\":true,\"e164\":\"+442079460958\",\"international\":\"+44 20 7946 0958\",\"national\":\"020 7946 0958\",\"country\":\"GB\",\"calling_code\":\"+44\",\"type\":\"fixed_line\"},{\"input\":\"+1 202-555-0143\",\"valid\":true,\"e164\":\"+12025550143\",\"international\":\"+1 202 555 0143\",\"national\":\"(202) 555-0143\",\"country\":\"US\",\"calling_code\":\"+1\",\"type\":\"fixed_line_or_mobile\",\"note\":\"a number reserved for fiction (555-0100 to 555-0199)\"},{\"input\":\"+971 50 123 4567\",\"valid\":true,\"e164\":\"+971501234567\",\"international\":\"+971 50 123 4567\",\"national\":\"050 123 4567\",\"country\":\"AE\",\"calling_code\":\"+971\",\"type\":\"mobile\"},{\"input\":\"+1 800 555 0199\",\"valid\":true,\"e164\":\"+18005550199\",\"international\":\"+1 800 555 0199\",\"national\":\"(800) 555-0199\",\"country\":\"US\",\"calling_code\":\"+1\",\"type\":\"toll_free\",\"note\":\"a number reserved for fiction (555-0100 to 555-0199)\"},{\"input\":\"12345\",\"valid\":false,\"reason\":\"too short for its country\",\"country\":\"GB\"},{\"input\":\"+44 20 794\",\"valid\":false,\"reason\":\"too short for its country\"}]}"
+  }
+}

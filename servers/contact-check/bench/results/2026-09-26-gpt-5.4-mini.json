@@ -1,0 +1,346 @@
+{
+  "date": "2026-09-26",
+  "model": "gpt-5.4-mini",
+  "competitor_label": "mcp-server-fetch (no open contact-validation server exists; this is what agents use today)",
+  "rows": {
+    "ours": [
+      {
+        "id": "uk-e164",
+        "correct": true,
+        "answer": "+442079460958",
+        "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "check_phones",
+            "args": "{\"numbers\":[\"020 7946 0958\"],\"country\":\"GB\"}"
+          }
+        ],
+        "input": 1208,
+        "output": 39,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 2271
+      },
+      {
+        "id": "uae-type",
+        "correct": true,
+        "answer": "mobile",
+        "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "check_phones",
+            "args": "{\"numbers\":[\"+971 50 123 4567\"]}"
+          }
+        ],
+        "input": 1208,
+        "output": 33,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 2017
+      },
+      {
+        "id": "us-fiction",
+        "correct": true,
+        "answer": "yes",
+        "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "check_phones",
+            "args": "{\"numbers\":[\"(202) 555-0143\"],\"country\":\"US\"}"
+          }
+        ],
+        "input": 1234,
+        "output": 36,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 2008
+      },
+      {
+        "id": "example-mail",
+        "correct": true,
+        "answer": "no",
+        "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "check_emails",
+            "args": "{\"emails\":[\"someone@example.com\"]}"
+          }
+        ],
+        "input": 1171,
+        "output": 27,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 1743
+      },
+      {
+        "id": "yahooo-mail",
+        "correct": true,
+        "answer": "no",
+        "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "check_emails",
+            "args": "{\"emails\":[\"test@yahooo.com\"]}"
+          }
+        ],
+        "input": 1180,
+        "output": 28,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 2451
+      },
+      {
+        "id": "mailinator",
+        "correct": true,
+        "answer": "yes",
+        "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "check_emails",
+            "args": "{\"emails\":[\"test@mailinator.com\"]}"
+          }
+        ],
+        "input": 1173,
+        "output": 28,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 2508
+      },
+      {
+        "id": "gmial-typo",
+        "correct": true,
+        "answer": "jane@gmail.com",
+        "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "check_emails",
+            "args": "{\"emails\":[\"jane@gmial.com\"]}"
+          }
+        ],
+        "input": 1218,
+        "output": 32,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 2998
+      },
+      {
+        "id": "us-zip",
+        "correct": true,
+        "answer": "No",
+        "tool_calls": 0,
+        "trace": [],
+        "input": 540,
+        "output": 6,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 1154
+      },
+      {
+        "id": "de-region",
+        "correct": true,
+        "answer": "No",
+        "tool_calls": 0,
+        "trace": [],
+        "input": 548,
+        "output": 6,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 830
+      },
+      {
+        "id": "uk-postcode-line",
+        "correct": true,
+        "answer": "own line",
+        "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "check_addresses",
+            "args": "{\"addresses\":[{\"country\":\"GB\",\"street\":[\"10 Downing Street\"],\"city\":\"London\",\"postal_code\":\"SW1A 2AA\"}]}"
+          }
+        ],
+        "input": 1255,
+        "output": 50,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 2481
+      }
+    ],
+    "competitor": [
+      {
+        "id": "uk-e164",
+        "correct": true,
+        "answer": "+442079460958",
+        "tool_calls": 0,
+        "trace": [],
+        "input": 367,
+        "output": 10,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 806
+      },
+      {
+        "id": "uae-type",
+        "correct": true,
+        "answer": "mobile",
+        "tool_calls": 0,
+        "trace": [],
+        "input": 369,
+        "output": 12,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 824
+      },
+      {
+        "id": "us-fiction",
+        "correct": true,
+        "answer": "yes",
+        "tool_calls": 2,
+        "trace": [
+          {
+            "tool": "fetch",
+            "args": "{\"url\":\"https://en.wikipedia.org/wiki/555_(telephone_number)\",\"max_length\":4000}"
+          },
+          {
+            "tool": "fetch",
+            "args": "{\"url\":\"https://en.wikipedia.org/wiki/555_(North_American_Numbering_Plan)\",\"max_length\":5000}"
+          }
+        ],
+        "input": 3925,
+        "output": 84,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 6023
+      },
+      {
+        "id": "example-mail",
+        "correct": true,
+        "answer": "no",
+        "tool_calls": 2,
+        "trace": [
+          {
+            "tool": "fetch",
+            "args": "{\"url\":\"https://example.com\",\"max_length\":2000}"
+          },
+          {
+            "tool": "fetch",
+            "args": "{\"url\":\"https://iana.org/domains/example\",\"max_length\":4000}"
+          }
+        ],
+        "input": 1457,
+        "output": 59,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 8179
+      },
+      {
+        "id": "yahooo-mail",
+        "correct": true,
+        "answer": "no",
+        "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "fetch",
+            "args": "{\"url\":\"https://yahooo.com\",\"max_length\":4000,\"raw\":true}",
+            "error": "Failed to fetch robots.txt https://yahooo.com/robots.txt due to a connection issue"
+          }
+        ],
+        "input": 782,
+        "output": 43,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 2494
+      },
+      {
+        "id": "mailinator",
+        "correct": true,
+        "answer": "yes",
+        "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "fetch",
+            "args": "{\"url\":\"https://www.mailinator.com\",\"max_length\":4000}"
+          }
+        ],
+        "input": 1711,
+        "output": 33,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 4384
+      },
+      {
+        "id": "gmial-typo",
+        "correct": true,
+        "answer": "jane@gmail.com",
+        "tool_calls": 0,
+        "trace": [],
+        "input": 367,
+        "output": 8,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 1045
+      },
+      {
+        "id": "us-zip",
+        "correct": true,
+        "answer": "No",
+        "tool_calls": 0,
+        "trace": [],
+        "input": 357,
+        "output": 8,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 1027
+      },
+      {
+        "id": "de-region",
+        "correct": true,
+        "answer": "No",
+        "tool_calls": 0,
+        "trace": [],
+        "input": 365,
+        "output": 12,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 739
+      },
+      {
+        "id": "uk-postcode-line",
+        "correct": false,
+        "answer": "same line",
+        "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "fetch",
+            "args": "{\"url\":\"https://www.royalmail.com/find-a-postcode\", \"max_length\":2000}",
+            "error": "When fetching robots.txt (https://www.royalmail.com/robots.txt), received status 403 so assuming that autonomous fetching is not allowed, the user can try manually fetching by using the fetch prompt"
+          }
+        ],
+        "input": 884,
+        "output": 41,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 1978
+      }
+    ]
+  },
+  "summary": {
+    "ours": {
+      "tasks": 10,
+      "correct": 10,
+      "tokens_in": 10735,
+      "tokens_out": 285,
+      "cached_share": 0,
+      "tool_calls": 8,
+      "median_ms": 2271
+    },
+    "competitor": {
+      "tasks": 10,
+      "correct": 9,
+      "tokens_in": 10584,
+      "tokens_out": 310,
+      "cached_share": 0,
+      "tool_calls": 7,
+      "median_ms": 1978
+    }
+  }
+}

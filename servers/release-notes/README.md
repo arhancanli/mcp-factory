@@ -205,8 +205,8 @@ Tool definitions the model reads on every turn (name, description, input schema)
 - [License Check](https://github.com/arhancanli/license-check-mcp): Open source license answers: SPDX ids, copyleft, and whether a dependency's license fits yours.
 - [Package Truth](https://github.com/arhancanli/package-truth-mcp): Checks packages exist before install: version, deprecation, vulnerabilities, licence. 7 ecosystems.
 - [Citation Check](https://github.com/arhancanli/citation-check-mcp): Verifies citations: finds fabricated or mismatched references and retractions, returns clean BibTeX.
-- [Drug Label](https://github.com/arhancanli/drug-label-mcp): FDA drug label answers with section citations, RxNorm name resolution, recalls and shortages.
-- [The whole collection](https://github.com/arhancanli/mcp-factory#servers), 5 more
+- [Contact Check](https://github.com/arhancanli/contact-check-mcp): Validates and formats phone numbers, email addresses and postal addresses for any country.
+- [The whole collection](https://github.com/arhancanli/mcp-factory#servers), 6 more
 <!-- family:end -->
 
 ## License

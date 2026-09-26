@@ -1,0 +1,19 @@
+{
+  "competitor": {
+    "label": "mcp-server-fetch (no open contact-validation server exists; this is what agents use today)",
+    "command": "uvx",
+    "args": ["mcp-server-fetch"]
+  },
+  "tasks": [
+    { "id": "uk-e164", "prompt": "What is the E.164 form of the UK phone number 020 7946 0958? Give it only.", "expect": { "regex": "^\\W*\\+442079460958\\W*$" } },
+    { "id": "uae-type", "prompt": "Is the phone number +971 50 123 4567 a mobile or a fixed-line number? Answer mobile or fixed-line.", "expect": { "regex": "^\\W*mobile\\b" } },
+    { "id": "us-fiction", "prompt": "Is the US phone number (202) 555-0143 in the range reserved for fictional use? Answer yes or no.", "expect": { "regex": "^\\W*yes\\b" } },
+    { "id": "example-mail", "prompt": "Does the domain example.com accept email (can mail be delivered to someone@example.com)? Answer yes or no.", "expect": { "regex": "^\\W*no\\b" } },
+    { "id": "yahooo-mail", "prompt": "Does the domain yahooo.com (three o's) accept email? Answer yes or no.", "expect": { "regex": "^\\W*no\\b" } },
+    { "id": "mailinator", "prompt": "Is mailinator.com a disposable (throwaway) email provider? Answer yes or no.", "expect": { "regex": "^\\W*yes\\b" } },
+    { "id": "gmial-typo", "prompt": "A user typed the email address jane@gmial.com. What address did they most likely mean? Give the address only.", "expect": { "regex": "^\\W*jane@gmail\\.com\\W*$" } },
+    { "id": "us-zip", "prompt": "Is 1234 a valid US ZIP code? Answer yes or no.", "expect": { "regex": "^\\W*no\\b" } },
+    { "id": "de-region", "prompt": "Is the state (Bundesland) a required field of a postal address in Germany? Answer yes or no.", "expect": { "regex": "^\\W*no\\b" } },
+    { "id": "uk-postcode-line", "prompt": "Write the UK address 10 Downing Street, London, SW1A 2AA as Royal Mail formats it for international mail, and tell me: is the postcode on the same line as the town, or on its own line? Answer 'same line' or 'own line'.", "expect": { "regex": "own line" } }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "name": "contact-check-mcp",
+  "version": "0.1.0",
+  "description": "Checks contact data the way a careful form would: phone numbers parsed, validated and formatted for their country with their type (mobile, fixed, toll-free), email addresses checked for syntax, a domain that accepts mail, disposable providers and likely typos, and postal addresses against each country's required fields, postcode pattern and regions, formatted as that country writes them. No key.",
+  "type": "module",
+  "license": "MIT",
+  "author": { "name": "Arhan Canli", "url": "https://github.com/arhancanli" },
+  "bin": { "contact-check-mcp": "src/server.mjs" },
+  "files": ["src", "README.md", "LICENSE", "npm-shrinkwrap.json"],
+  "engines": { "node": ">=20" },
+  "scripts": { "test": "node --test test/*.test.mjs", "start": "node src/server.mjs" },
+  "dependencies": { "@modelcontextprotocol/sdk": "1.30.1", "libphonenumber-js": "1.13.14", "zod": "4.6.5" },
+  "mcpName": "io.github.arhancanli/contact-check-mcp",
+  "keywords": ["mcp", "model-context-protocol", "mcp-server", "data"],
+  "repository": { "type": "git", "url": "git+https://github.com/arhancanli/contact-check-mcp.git" },
+  "homepage": "https://github.com/arhancanli/contact-check-mcp#readme",
+  "bugs": { "url": "https://github.com/arhancanli/contact-check-mcp/issues" },
+  "factory": { "displayName": "Contact Check", "category": "data", "allowHosts": ["www.gstatic.com", "cloudflare-dns.com", "raw.githubusercontent.com"], "dependencyReasons": { "libphonenumber-js": "Google libphonenumber's numbering plans for every country (validity, number types, formats), maintained upstream; no keyless API carries them and a hand-written copy would go stale." }, "toolListBudget": 6000 }
+}

@@ -1,0 +1,59 @@
+{
+  "manifest_version": "0.3",
+  "name": "contact-check-mcp",
+  "display_name": "Contact Check",
+  "version": "0.1.0",
+  "description": "Checks contact data the way a careful form would: phone numbers parsed, validated and formatted for their country with their type (mobile, fixed, toll-free), email addresses checked for syntax, a domain that accepts mail, disposable providers and likely typos, and postal addresses against each country's required fields, postcode pattern and regions, formatted as that country writes them. No key.",
+  "author": {
+    "name": "Arhan Canli",
+    "url": "https://github.com/arhancanli"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/arhancanli/contact-check-mcp"
+  },
+  "homepage": "https://github.com/arhancanli/contact-check-mcp#readme",
+  "documentation": "https://github.com/arhancanli/contact-check-mcp#readme",
+  "support": "https://github.com/arhancanli/contact-check-mcp/issues",
+  "license": "MIT",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "mcp-server",
+    "data"
+  ],
+  "server": {
+    "type": "node",
+    "entry_point": "src/server.mjs",
+    "mcp_config": {
+      "command": "node",
+      "args": [
+        "${__dirname}/src/server.mjs"
+      ]
+    }
+  },
+  "tools": [
+    {
+      "name": "check_addresses",
+      "description": "Validate postal addresses"
+    },
+    {
+      "name": "check_emails",
+      "description": "Validate email addresses"
+    },
+    {
+      "name": "check_phones",
+      "description": "Validate phone numbers"
+    }
+  ],
+  "compatibility": {
+    "platforms": [
+      "darwin",
+      "win32",
+      "linux"
+    ],
+    "runtimes": {
+      "node": ">=20"
+    }
+  }
+}
