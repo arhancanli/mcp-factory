@@ -207,3 +207,18 @@ test("a Retry-After beyond the cap is not waited out: the answer comes back at o
   assert.equal(calls.length, 1);
   assert.ok(Date.now() - t < 1000);
 });
+
+test("a stalled read attempt is abandoned and retried within the deadline", async () => {
+  const hang = (_url, init) => new Promise((_, reject) => init.signal.addEventListener("abort", () => reject(init.signal.reason)));
+  const { impl, calls } = fakeFetch([hang, respond(200, '{"ok":true}')]);
+  const hold = setTimeout(() => {}, 5_000);
+  try {
+    const t = Date.now();
+    const res = await make(impl, { timeoutMs: 2_000, attemptTimeoutMs: 100 }).getJson("https://api.example.org/x");
+    assert.deepEqual(res.data, { ok: true });
+    assert.equal(calls.length, 2);
+    assert.ok(Date.now() - t < 1_500, "well before the overall deadline");
+  } finally {
+    clearTimeout(hold);
+  }
+});

@@ -1,0 +1,62 @@
+{
+  "name": "internet-standards-mcp",
+  "version": "0.1.0",
+  "description": "RFCs, errata and IANA registries for coding agents: exact section text, status and obsoleted-by chains to the current replacement, errata per section, and protocol registry entries with their defining references.",
+  "type": "module",
+  "license": "MIT",
+  "author": {
+    "name": "Arhan Canli",
+    "url": "https://github.com/arhancanli"
+  },
+  "bin": {
+    "internet-standards-mcp": "src/server.mjs"
+  },
+  "files": [
+    "src",
+    "README.md",
+    "LICENSE",
+    "npm-shrinkwrap.json"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.mjs",
+    "start": "node src/server.mjs"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "1.30.1",
+    "zod": "4.6.5"
+  },
+  "mcpName": "io.github.arhancanli/internet-standards-mcp",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "mcp-server",
+    "developer-tools",
+    "rfc",
+    "ietf",
+    "iana",
+    "http",
+    "standards",
+    "errata",
+    "protocols"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arhancanli/internet-standards-mcp.git"
+  },
+  "homepage": "https://github.com/arhancanli/internet-standards-mcp#readme",
+  "bugs": {
+    "url": "https://github.com/arhancanli/internet-standards-mcp/issues"
+  },
+  "factory": {
+    "displayName": "Internet Standards",
+    "category": "developer-tools",
+    "allowHosts": [
+      "www.rfc-editor.org",
+      "www.iana.org"
+    ],
+    "toolListBudget": 4000
+  }
+}

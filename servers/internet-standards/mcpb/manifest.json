@@ -1,0 +1,70 @@
+{
+  "manifest_version": "0.3",
+  "name": "internet-standards-mcp",
+  "display_name": "Internet Standards",
+  "version": "0.1.0",
+  "description": "RFCs, errata and IANA registries for coding agents: exact section text, status and obsoleted-by chains to the current replacement, errata per section, and protocol registry entries with their defining references.",
+  "author": {
+    "name": "Arhan Canli",
+    "url": "https://github.com/arhancanli"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/arhancanli/internet-standards-mcp"
+  },
+  "homepage": "https://github.com/arhancanli/internet-standards-mcp#readme",
+  "documentation": "https://github.com/arhancanli/internet-standards-mcp#readme",
+  "support": "https://github.com/arhancanli/internet-standards-mcp/issues",
+  "license": "MIT",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "mcp-server",
+    "developer-tools",
+    "rfc",
+    "ietf",
+    "iana",
+    "http",
+    "standards",
+    "errata",
+    "protocols"
+  ],
+  "server": {
+    "type": "node",
+    "entry_point": "src/server.mjs",
+    "mcp_config": {
+      "command": "node",
+      "args": [
+        "${__dirname}/src/server.mjs"
+      ]
+    }
+  },
+  "tools": [
+    {
+      "name": "iana_lookup",
+      "description": "IANA registry lookup"
+    },
+    {
+      "name": "rfc_info",
+      "description": "RFC status and replacements"
+    },
+    {
+      "name": "rfc_section",
+      "description": "Exact RFC section text"
+    },
+    {
+      "name": "search_rfcs",
+      "description": "Search RFCs"
+    }
+  ],
+  "compatibility": {
+    "platforms": [
+      "darwin",
+      "win32",
+      "linux"
+    ],
+    "runtimes": {
+      "node": ">=20"
+    }
+  }
+}

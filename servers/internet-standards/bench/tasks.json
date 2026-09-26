@@ -1,0 +1,19 @@
+{
+  "competitor": {
+    "label": "rfcxml-mcp, the most active RFC server",
+    "command": "npx",
+    "args": ["-y", "@shuji-bonji/rfcxml-mcp"]
+  },
+  "tasks": [
+    { "id": "obsolete-chain", "prompt": "RFC 2616 defined HTTP/1.1. Which RFCs replace it today (the current documents, not intermediate ones)? Give the RFC numbers only.", "expect": { "contains": ["9110", "9111", "9112"] } },
+    { "id": "is-current", "prompt": "Is RFC 7231 still the current specification? Answer yes or no.", "expect": { "regex": "^no\\b" } },
+    { "id": "section-title", "prompt": "What is the title of section 15.5.5 of RFC 9110? Give only the title.", "expect": { "contains": ["404 not found"] } },
+    { "id": "status-418", "prompt": "According to the IANA HTTP Status Code registry, what is status code 418 registered as today? Give the registry description only.", "expect": { "contains": ["unused"] } },
+    { "id": "media-type-ref", "prompt": "Which RFC defines the media type application/json according to IANA? Give the RFC number only.", "expect": { "number": 8259 } },
+    { "id": "port", "prompt": "Which service is registered with IANA on port 5432? Give only the service name.", "expect": { "contains": ["postgresql"] } },
+    { "id": "bcp14", "prompt": "Which RFCs make up BCP 14? Give the RFC numbers only.", "expect": { "contains": ["2119", "8174"] } },
+    { "id": "errata", "prompt": "Is there a verified technical erratum for RFC 9110 section 12.5.1? If so, give its errata id only.", "expect": { "number": 7138 } },
+    { "id": "draft", "prompt": "Which RFC was draft-ietf-httpbis-semantics published as? Give the RFC number only.", "expect": { "number": 9110 } },
+    { "id": "cipher", "prompt": "What is the IANA value of the TLS cipher suite TLS_AES_128_GCM_SHA256? Give it exactly as IANA writes it.", "expect": { "contains": ["0x13,0x01"] } }
+  ]
+}

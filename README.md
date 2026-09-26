@@ -19,6 +19,7 @@ Every server here:
 
 | Server | What it does | Run |
 | --- | --- | --- |
+| [Internet Standards](https://github.com/arhancanli/internet-standards-mcp) | RFC sections, status, obsoleted-by chains, errata and IANA registries for coding agents. | `npx -y internet-standards-mcp` |
 | [Package Truth](https://github.com/arhancanli/package-truth-mcp) | Checks packages exist before install: version, deprecation, vulnerabilities, licence. 7 ecosystems. | `npx -y package-truth-mcp` |
 
 ### Science and research

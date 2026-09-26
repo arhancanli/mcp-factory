@@ -92,5 +92,5 @@ measured against the best alternative before release. https://github.com/arhanca
 
 ## Cross-links
 
-Mention the collection in every post footer where it fits: 2 servers so far,
-each measured before release: https://github.com/topics/arhancanli-mcp. Related: Citation Check (https://github.com/arhancanli/citation-check-mcp).
+Mention the collection in every post footer where it fits: 3 servers so far,
+each measured before release: https://github.com/topics/arhancanli-mcp. Related: Citation Check (https://github.com/arhancanli/citation-check-mcp), Internet Standards (https://github.com/arhancanli/internet-standards-mcp).

@@ -1,0 +1,76 @@
+{
+  "measured_on": "2026-09-26",
+  "where": "Dubai, home connection",
+  "node": "v24.19.0",
+  "runs": 3,
+  "tool_definition_chars": 2119,
+  "tools_list_chars": 3726,
+  "competitor": {
+    "label": "rfcxml-mcp, the most active RFC server",
+    "tool_definition_chars": 3643,
+    "tools_list_chars": 3636
+  },
+  "scenarios": [
+    {
+      "call": "rfc_info: RFC 2616, BCP 14, a draft name and a missing number",
+      "first_call_ms": 1576,
+      "repeat_ms": 2,
+      "result_chars": 2055
+    },
+    {
+      "call": "rfc_section: RFC 9110 section 12.5.1 with its errata",
+      "first_call_ms": 2277,
+      "repeat_ms": 1.5,
+      "result_chars": 6171
+    },
+    {
+      "call": "rfc_section: RFC 7231 section 6.5.4 (paginated, obsolete)",
+      "first_call_ms": 1593,
+      "repeat_ms": 0.7,
+      "result_chars": 997
+    },
+    {
+      "call": "rfc_section: find a phrase in RFC 9110",
+      "first_call_ms": 569,
+      "repeat_ms": 5.6,
+      "result_chars": 5094
+    },
+    {
+      "call": "search_rfcs: http semantics",
+      "first_call_ms": 1485,
+      "repeat_ms": 8.2,
+      "result_chars": 1190
+    },
+    {
+      "call": "iana_lookup: HTTP status 418",
+      "first_call_ms": 237,
+      "repeat_ms": 0.4,
+      "result_chars": 245
+    },
+    {
+      "call": "iana_lookup: media type application/json",
+      "first_call_ms": 580,
+      "repeat_ms": 0.8,
+      "result_chars": 206
+    },
+    {
+      "call": "iana_lookup: port 5432",
+      "first_call_ms": 282,
+      "repeat_ms": 3.1,
+      "result_chars": 497
+    }
+  ],
+  "example": {
+    "call": "rfc_info: RFC 2616, BCP 14, a draft name and a missing number",
+    "tool": "rfc_info",
+    "arguments": {
+      "ids": [
+        "RFC 2616",
+        "BCP 14",
+        "draft-ietf-httpbis-semantics",
+        "RFC 99999"
+      ]
+    },
+    "result": "{\"results\":[{\"id\":\"RFC 2616\",\"rfc\":\"RFC 2616\",\"title\":\"Hypertext Transfer Protocol -- HTTP/1.1\",\"status\":\"Draft Standard\",\"current\":false,\"obsoleted_by\":[\"RFC 7230\",\"RFC 7231\",\"RFC 7232\",\"RFC 7233\",\"RFC 7234\",\"RFC 7235\"],\"current_replacements\":[\"RFC 9110\",\"RFC 9111\",\"RFC 9112\"],\"updated_by\":[\"RFC 2817\",\"RFC 5785\",\"RFC 6266\",\"RFC 6585\"],\"obsoletes\":[\"RFC 2068\"],\"published\":\"June 1999\",\"authors\":\"R. Fielding, J. Gettys, J. Mogul, H. Frystyk, L. Masinter et al.\",\"url\":\"https://www.rfc-editor.org/rfc/rfc2616.html\",\"errata\":\"https://www.rfc-editor.org/errata/rfc2616\",\"info\":\"https://www.rfc-editor.org/info/rfc2616\"},{\"id\":\"BCP 14\",\"series\":\"BCP14\",\"rfc\":\"RFC 2119\",\"title\":\"Key words for use in RFCs to Indicate Requirement Levels\",\"status\":\"Best Current Practice\",\"current\":true,\"updated_by\":[\"RFC 8174\"],\"published\":\"March 1997\",\"authors\":\"S. Bradner\",\"url\":\"https://www.rfc-editor.org/rfc/rfc2119.html\",\"errata\":\"https://www.rfc-editor.org/errata/rfc2119\",\"info\":\"https://www.rfc-editor.org/info/rfc2119\"},{\"id\":\"BCP 14\",\"series\":\"BCP14\",\"rfc\":\"RFC 8174\",\"title\":\"Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words\",\"status\":\"Best Current Practice\",\"current\":true,\"updates\":[\"RFC 2119\"],\"published\":\"May 2017\",\"authors\":\"B. Leiba\",\"url\":\"https://www.rfc-editor.org/rfc/rfc8174.html\",\"errata\":\"https://www.rfc-editor.org/errata/rfc8174\",\"info\":\"https://www.rfc-editor.org/info/rfc8174\"},{\"id\":\"draft-ietf-httpbis-semantics\",\"draft\":\"draft-ietf-httpbis-semantics\",\"rfc\":\"RFC 9110\",\"title\":\"HTTP Semantics\",\"status\":\"Internet Standard\",\"current\":true,\"obsoletes\":[\"RFC 2818\",\"RFC 7230\",\"RFC 7231\",\"RFC 7232\",\"RFC 7233\",\"RFC 7235\",\"RFC 7538\",\"RFC 7615\",\"RFC 7694\"],\"updates\":[\"RFC 3864\"],\"published\":\"June 2022\",\"authors\":\"R. Fielding, Ed., M. Nottingham, Ed., J. Reschke, Ed.\",\"url\":\"https://www.rfc-editor.org/rfc/rfc9110.html\",\"errata\":\"https://www.rfc-editor.org/errata/rfc9110\",\"info\":\"https://www.rfc-editor.org/info/rfc9110\"},{\"id\":\"RFC 99999\",\"rfc\":\"RFC 99999\",\"error\":\"not_found\",\"note\":\"RFC 99999 does not exist or was never issued.\"}]}"
+  }
+}

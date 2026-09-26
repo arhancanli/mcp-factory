@@ -36,6 +36,39 @@
       ]
     },
     {
+      "name": "internet-standards-mcp",
+      "title": "Internet Standards",
+      "category": "developer-tools",
+      "summary": "RFC sections, status, obsoleted-by chains, errata and IANA registries for coding agents.",
+      "description": "RFCs, errata and IANA registries for coding agents: exact section text, status and obsoleted-by chains to the current replacement, errata per section, and protocol registry entries with their defining references.",
+      "version": "0.1.0",
+      "repository": "https://github.com/arhancanli/internet-standards-mcp",
+      "npm": "https://www.npmjs.com/package/internet-standards-mcp",
+      "mcpName": "io.github.arhancanli/internet-standards-mcp",
+      "hosts": [
+        "www.rfc-editor.org",
+        "www.iana.org"
+      ],
+      "tools": [
+        {
+          "name": "iana_lookup",
+          "title": "IANA registry lookup"
+        },
+        {
+          "name": "rfc_info",
+          "title": "RFC status and replacements"
+        },
+        {
+          "name": "rfc_section",
+          "title": "Exact RFC section text"
+        },
+        {
+          "name": "search_rfcs",
+          "title": "Search RFCs"
+        }
+      ]
+    },
+    {
       "name": "package-truth-mcp",
       "title": "Package Truth",
       "category": "developer-tools",

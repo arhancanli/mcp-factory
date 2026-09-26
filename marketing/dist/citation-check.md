@@ -86,5 +86,5 @@ https://github.com/arhancanli/citation-check-mcp
 
 ## Cross-links
 
-Footer for every post: 2 servers, each measured before release:
-https://github.com/topics/arhancanli-mcp. Related: Package Truth (https://github.com/arhancanli/package-truth-mcp).
+Footer for every post: 3 servers, each measured before release:
+https://github.com/topics/arhancanli-mcp. Related: Internet Standards (https://github.com/arhancanli/internet-standards-mcp), Package Truth (https://github.com/arhancanli/package-truth-mcp).

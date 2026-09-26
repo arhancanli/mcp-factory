@@ -1,0 +1,16 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.arhancanli/internet-standards-mcp",
+  "description": "RFC sections, status, obsoleted-by chains, errata and IANA registries for coding agents.",
+  "repository": { "url": "https://github.com/arhancanli/internet-standards-mcp", "source": "github" },
+  "version": "0.1.0",
+  "packages": [
+    {
+      "registryType": "npm",
+      "registryBaseUrl": "https://registry.npmjs.org",
+      "identifier": "internet-standards-mcp",
+      "version": "0.1.0",
+      "transport": { "type": "stdio" }
+    }
+  ]
+}
