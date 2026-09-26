@@ -5,16 +5,24 @@
   "description": "The production line for Arhan Canli's MCP servers: shared kit, quality gate, templates.",
   "author": "Arhan Canli",
   "license": "MIT",
-  "engines": { "node": ">=20" },
-  "workspaces": ["servers/*"],
+  "engines": {
+    "node": ">=20"
+  },
+  "workspaces": [
+    "servers/*"
+  ],
   "scripts": {
-    "test": "node --test kit/test/*.test.mjs gate/*.test.mjs",
+    "test": "node --test kit/test/*.test.mjs bench/*.test.mjs gate/*.test.mjs",
     "gate": "node --test gate/*.test.mjs",
     "new": "node scripts/new-server.mjs",
-    "sync": "node scripts/sync.mjs"
+    "sync": "node scripts/sync.mjs",
+    "bench": "node bench/run.mjs"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "1.30.1",
     "zod": "4.6.5"
+  },
+  "devDependencies": {
+    "@anthropic-ai/sdk": "0.128.0"
   }
 }
