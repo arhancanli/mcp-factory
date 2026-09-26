@@ -43,6 +43,52 @@ async function connect(spec, cwd) {
   return client;
 }
 
+/**
+ * One task through an OpenAI chat-completions tool loop (OPENAI_API_KEY; any OpenAI-compatible
+ * endpoint via OPENAI_BASE_URL). Same system prompt, same grading, same accounting as the
+ * Anthropic loop, so the two arms of a comparison differ only in the server.
+ */
+async function runTaskOpenAI(model, mcp, tools, task) {
+  const base = process.env.OPENAI_BASE_URL ?? "https://api.openai.com/v1";
+  const fnTools = tools.map((t) => ({ type: "function", function: { name: t.name, description: t.description, parameters: t.input_schema } }));
+  const messages = [{ role: "system", content: SYSTEM }, { role: "user", content: task.prompt }];
+  const usage = { input: 0, output: 0, cache_read: 0, cache_write: 0 };
+  let toolCalls = 0;
+  let finalText = "";
+  const started = performance.now();
+  for (let turn = 0; turn < MAX_TURNS; turn++) {
+    let res;
+    for (let attempt = 0; ; attempt++) {
+      res = await fetch(`${base}/chat/completions`, { method: "POST", headers: { Authorization: `Bearer ${process.env.OPENAI_API_KEY}`, "Content-Type": "application/json" }, body: JSON.stringify({ model, messages, tools: fnTools }) });
+      if (res.status !== 429 || attempt >= 5) break;
+      await new Promise((r) => setTimeout(r, 2000 * (attempt + 1)));
+    }
+    if (!res.ok) throw new Error(`OpenAI answered ${res.status}: ${(await res.text()).slice(0, 200)}`);
+    const d = await res.json();
+    const cached = d.usage?.prompt_tokens_details?.cached_tokens ?? 0;
+    usage.input += (d.usage?.prompt_tokens ?? 0) - cached;
+    usage.cache_read += cached;
+    usage.output += d.usage?.completion_tokens ?? 0;
+    const msg = d.choices?.[0]?.message ?? {};
+    finalText = msg.content ?? "";
+    const calls = msg.tool_calls ?? [];
+    if (!calls.length) break;
+    messages.push({ role: "assistant", content: msg.content ?? null, tool_calls: calls });
+    for (const call of calls) {
+      toolCalls++;
+      let content;
+      try {
+        const out = await mcp.callTool({ name: call.function.name, arguments: JSON.parse(call.function.arguments || "{}") });
+        content = (out.content ?? []).filter((c) => c.type === "text").map((c) => c.text).join("\n") || JSON.stringify(out.structuredContent ?? {});
+      } catch (err) {
+        content = `Tool call failed: ${err.message}`;
+      }
+      messages.push({ role: "tool", tool_call_id: call.id, content });
+    }
+  }
+  return { id: task.id, correct: grade(task.expect, finalText), tool_calls: toolCalls, ...usage, ms: Math.round(performance.now() - started) };
+}
+
 async function runTask(anthropic, model, mcp, tools, task) {
   const messages = [{ role: "user", content: task.prompt }];
   const usage = { input: 0, output: 0, cache_read: 0, cache_write: 0 };
@@ -102,14 +148,15 @@ export function renderBench(result) {
 }
 
 if (process.argv[1] && path.resolve(process.argv[1]) === new URL(import.meta.url).pathname) {
-  const { values, positionals } = parseArgs({ allowPositionals: true, options: { model: { type: "string", default: "claude-opus-4-8" }, arm: { type: "string", default: "both" }, dry: { type: "boolean", default: false } } });
+  const { values, positionals } = parseArgs({ allowPositionals: true, options: { provider: { type: "string", default: "anthropic" }, model: { type: "string" }, arm: { type: "string", default: "both" }, dry: { type: "boolean", default: false } } });
+  values.model ??= values.provider === "openai" ? "gpt-5.4-mini" : "claude-opus-4-8";
   const dir = path.resolve(positionals[0] ?? "");
   const spec = readJson(path.join(dir, "bench/tasks.json"));
   const arms = { ours: { command: process.execPath, args: [path.join(dir, "src/server.mjs")] } };
   if (spec.competitor && values.arm !== "ours") arms.competitor = spec.competitor;
   if (values.arm === "competitor") delete arms.ours;
 
-  const anthropic = new Anthropic();
+  const anthropic = values.provider === "anthropic" ? new Anthropic() : null;
   const result = { date: new Date().toISOString().slice(0, 10), model: values.model, competitor_label: spec.competitor?.label ?? "", rows: {}, summary: {} };
   for (const [arm, armSpec] of Object.entries(arms)) {
     const mcp = await connect(armSpec, dir);
@@ -122,7 +169,7 @@ if (process.argv[1] && path.resolve(process.argv[1]) === new URL(import.meta.url
     }
     result.rows[arm] = [];
     for (const task of spec.tasks) {
-      const row = await runTask(anthropic, values.model, mcp, anthropicTools, task);
+      const row = values.provider === "openai" ? await runTaskOpenAI(values.model, mcp, anthropicTools, task) : await runTask(anthropic, values.model, mcp, anthropicTools, task);
       result.rows[arm].push(row);
       process.stderr.write(`  ${arm} ${task.id}: ${row.correct ? "correct" : "WRONG"} ${row.input + row.cache_read}+${row.output} tok ${row.ms} ms\n`);
     }
