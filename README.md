@@ -20,6 +20,12 @@ Every server here:
 | Server | What it does | Run |
 | --- | --- | --- |
 | [Package Truth](https://github.com/arhancanli/package-truth-mcp) | Checks packages exist before install: version, deprecation, vulnerabilities, licence. 7 ecosystems. | `npx -y package-truth-mcp` |
+
+### Science and research
+
+| Server | What it does | Run |
+| --- | --- | --- |
+| [Citation Check](https://github.com/arhancanli/citation-check-mcp) | Verifies citations: finds fabricated or mismatched references and retractions, returns clean BibTeX. | `npx -y citation-check-mcp` |
 <!-- servers:end -->
 
 ## How they are made

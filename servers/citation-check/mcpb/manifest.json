@@ -1,0 +1,68 @@
+{
+  "manifest_version": "0.3",
+  "name": "citation-check-mcp",
+  "display_name": "Citation Check",
+  "version": "0.1.0",
+  "description": "Checks reference lists and BibTeX against Crossref, OpenAlex, arXiv, PubMed and DataCite: flags fabricated or mismatched citations field by field, flags retractions, and returns corrected BibTeX with DOIs.",
+  "author": {
+    "name": "Arhan Canli",
+    "url": "https://github.com/arhancanli"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/arhancanli/citation-check-mcp"
+  },
+  "homepage": "https://github.com/arhancanli/citation-check-mcp#readme",
+  "documentation": "https://github.com/arhancanli/citation-check-mcp#readme",
+  "support": "https://github.com/arhancanli/citation-check-mcp/issues",
+  "license": "MIT",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "mcp-server",
+    "science-research",
+    "citations",
+    "references",
+    "bibtex",
+    "retractions",
+    "crossref",
+    "hallucination",
+    "doi",
+    "arxiv",
+    "pubmed"
+  ],
+  "server": {
+    "type": "node",
+    "entry_point": "src/server.mjs",
+    "mcp_config": {
+      "command": "node",
+      "args": [
+        "${__dirname}/src/server.mjs"
+      ]
+    }
+  },
+  "tools": [
+    {
+      "name": "check_references",
+      "description": "Check a reference list"
+    },
+    {
+      "name": "check_retractions",
+      "description": "Check DOIs for retractions"
+    },
+    {
+      "name": "lookup_work",
+      "description": "Look up one work"
+    }
+  ],
+  "compatibility": {
+    "platforms": [
+      "darwin",
+      "win32",
+      "linux"
+    ],
+    "runtimes": {
+      "node": ">=20"
+    }
+  }
+}

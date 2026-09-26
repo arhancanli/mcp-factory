@@ -4,6 +4,38 @@
   "collection": "https://github.com/arhancanli/mcp-factory",
   "servers": [
     {
+      "name": "citation-check-mcp",
+      "title": "Citation Check",
+      "category": "science-research",
+      "summary": "Verifies citations: finds fabricated or mismatched references and retractions, returns clean BibTeX.",
+      "description": "Checks reference lists and BibTeX against Crossref, OpenAlex, arXiv, PubMed and DataCite: flags fabricated or mismatched citations field by field, flags retractions, and returns corrected BibTeX with DOIs.",
+      "version": "0.1.0",
+      "repository": "https://github.com/arhancanli/citation-check-mcp",
+      "npm": "https://www.npmjs.com/package/citation-check-mcp",
+      "mcpName": "io.github.arhancanli/citation-check-mcp",
+      "hosts": [
+        "api.crossref.org",
+        "api.datacite.org",
+        "eutils.ncbi.nlm.nih.gov",
+        "api.openalex.org",
+        "doi.org"
+      ],
+      "tools": [
+        {
+          "name": "check_references",
+          "title": "Check a reference list"
+        },
+        {
+          "name": "check_retractions",
+          "title": "Check DOIs for retractions"
+        },
+        {
+          "name": "lookup_work",
+          "title": "Look up one work"
+        }
+      ]
+    },
+    {
       "name": "package-truth-mcp",
       "title": "Package Truth",
       "category": "developer-tools",

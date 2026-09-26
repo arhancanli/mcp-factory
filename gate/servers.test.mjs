@@ -180,12 +180,17 @@ for (const dir of targets) {
     for (const t of tools) assert.ok(tests.includes(`"${t.name}"`), `${t.name} has no test calling it`);
   });
 
-  test(`${label}: every URL in the source is on the allowlist`, () => {
+  test(`${label}: every URL in the source is a declared host`, () => {
+    // allowHosts: hosts the server calls (the kit refuses any other). linkHosts: hosts that only
+    // appear as links in results and are never fetched.
+    const linkHosts = pkg.factory.linkHosts ?? [];
+    for (const h of linkHosts) assert.ok(!pkg.factory.allowHosts.includes(h), `${h} is in both allowHosts and linkHosts`);
     const srcFiles = readdirSync(path.join(dir, "src"), { recursive: true }).filter((f) => f.endsWith(".mjs") && !f.startsWith("kit"));
     for (const f of srcFiles) {
       const text = readFileSync(path.join(dir, "src", f), "utf8");
       for (const m of text.matchAll(/https?:\/\/([a-z0-9.-]+)/gi)) {
-        assert.ok(pkg.factory.allowHosts.includes(m[1].toLowerCase()), `src/${f} names ${m[1]}, not on factory.allowHosts`);
+        const host = m[1].toLowerCase();
+        assert.ok(pkg.factory.allowHosts.includes(host) || linkHosts.includes(host), `src/${f} names ${m[1]}, not on factory.allowHosts or factory.linkHosts`);
       }
     }
   });

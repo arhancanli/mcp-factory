@@ -125,3 +125,18 @@ test("the SDK still validates input against the schema after the list is replace
   const res = await client.callTool({ name: "echo_word", arguments: {} });
   assert.equal(res.isError, true);
 });
+
+test("mapLimit keeps order and never exceeds its limit", async () => {
+  const { mapLimit } = await import("../index.mjs");
+  let active = 0;
+  let peak = 0;
+  const out = await mapLimit([5, 1, 3, 2], 2, async (x) => {
+    active++;
+    peak = Math.max(peak, active);
+    await new Promise((r) => setTimeout(r, x * 3));
+    active--;
+    return x * 10;
+  });
+  assert.deepEqual(out, [50, 10, 30, 20]);
+  assert.equal(peak, 2);
+});

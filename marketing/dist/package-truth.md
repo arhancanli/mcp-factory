@@ -11,9 +11,9 @@ Every number below is filled in from the server's measured files when this kit i
 - Why now: models invent package names, and attackers register the invented names
   ("slopsquatting"). In a USENIX Security 2025 study of 16 code models, 19.7% of recommended
   packages did not exist.
-- Proof: tool definitions of 3,986 characters per turn against 8,487
-  for package-version-check-mcp, the best maintained alternative (53% smaller); first calls 1.3 to 2.0 s from
-  Dubai, home connection; repeats under 3.9 ms.
+- Proof: tool definitions of 1,806 characters per turn against 5,496
+  for package-version-check-mcp, the best maintained alternative (67% smaller); first calls 1.3 to 2.2 s from
+  Dubai, home connection; repeats under 3.2 ms.
 
 ## Show HN
 
@@ -33,7 +33,7 @@ are resolved the way the package manager would resolve them today, so `^5.0.0` i
 5.x version npm would install, not the latest 7.x.
 
 It covers npm, PyPI, Go, Maven, Cargo, NuGet and RubyGems through deps.dev, with no account or key.
-The tool list is 3,986 characters, which matters because clients resend it on every turn.
+The tool list is 1,806 characters, which matters because clients resend it on every turn.
 
 Install: `npx -y package-truth-mcp`, or `claude mcp add package-truth -- npx -y package-truth-mcp` in Claude Code.
 
@@ -47,8 +47,8 @@ I'd like to hear where the verdicts are wrong or unhelpful.
 
 **Text:** Built this after too many agent suggestions of packages that were never published.
 3 tools (`check_manifest`, `check_packages`, `get_advisories`), seven registries, whole manifests with real range
-resolution, verdicts an agent can act on. Tool definitions are 3,986 characters against
-8,487 for package-version-check-mcp, the best maintained alternative. `npx -y package-truth-mcp`. Repo: https://github.com/arhancanli/package-truth-mcp. Feedback on false
+resolution, verdicts an agent can act on. Tool definitions are 1,806 characters against
+5,496 for package-version-check-mcp, the best maintained alternative. `npx -y package-truth-mcp`. Repo: https://github.com/arhancanli/package-truth-mcp. Feedback on false
 positives especially welcome.
 
 ## Reddit: r/ClaudeAI and r/cursor
@@ -68,7 +68,7 @@ packages that could be squats. Free, no key, MIT: https://github.com/arhancanli/
    deprecated? known advisories? suspiciously new? Seven registries, whole manifests.
 3. Ranges resolve like the real package manager, so the verdict is about the version that would
    actually be installed today.
-4. Small on purpose: 3,986 characters of tool definitions per turn (53%
+4. Small on purpose: 1,806 characters of tool definitions per turn (67%
    less than package-version-check-mcp, the best maintained alternative). `npx -y package-truth-mcp` https://github.com/arhancanli/package-truth-mcp
 
 ## LinkedIn
@@ -92,5 +92,5 @@ measured against the best alternative before release. https://github.com/arhanca
 
 ## Cross-links
 
-Mention the collection in every post footer where it fits: 1 servers so far,
-each measured before release: https://github.com/topics/arhancanli-mcp. Related: more on the way.
+Mention the collection in every post footer where it fits: 2 servers so far,
+each measured before release: https://github.com/topics/arhancanli-mcp. Related: Citation Check (https://github.com/arhancanli/citation-check-mcp).

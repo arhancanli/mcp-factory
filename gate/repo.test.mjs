@@ -45,8 +45,9 @@ test("no file in the repository credits anyone but the owner", () => {
   assert.deepEqual(offenders, []);
 });
 
-test("no file in the repository contains an em dash", () => {
-  const offenders = repoFiles().filter((f) => readFileSync(path.join(ROOT, f), "utf8").includes(EM_DASH));
+test("no authored file contains an em dash", () => {
+  // Recorded upstream responses (test/fixtures) stay byte for byte as the source sent them.
+  const offenders = repoFiles().filter((f) => !f.includes("/test/fixtures/") && readFileSync(path.join(ROOT, f), "utf8").includes(EM_DASH));
   assert.deepEqual(offenders, []);
 });
 

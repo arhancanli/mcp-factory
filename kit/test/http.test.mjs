@@ -1,7 +1,7 @@
 // kit/test/http.test.mjs: every network guarantee the fetcher makes, one test each.
 import assert from "node:assert/strict";
 import test from "node:test";
-import { createFetcher, UpstreamError } from "../http.mjs";
+import { createFetcher, createLimiter, UpstreamError } from "../http.mjs";
 import { TtlCache } from "../cache.mjs";
 
 const UA = "kit-test/1";
@@ -163,4 +163,47 @@ test("identical reads in flight share one upstream call; writes never do", async
   assert.equal(calls, 3);
   await f.getJson("https://api.example.org/same");
   assert.equal(calls, 4, "once settled, the next read goes out again (or to the cache)");
+});
+
+test("rate limits: requests to a limited path are spaced and capped in flight; others are not", async () => {
+  let active = 0;
+  let peak = 0;
+  const starts = [];
+  const impl = async (url) => {
+    starts.push({ path: new URL(url).pathname, t: Date.now() });
+    active++;
+    peak = Math.max(peak, active);
+    await new Promise((r) => setTimeout(r, 30));
+    active--;
+    return respond(200, "{}");
+  };
+  const f = make(impl, { limits: [{ host: "api.example.org", path: /^\/slow/, perSecond: 20, concurrency: 1 }] });
+  await Promise.all([1, 2, 3, 4].map((i) => f.getJson(`https://api.example.org/slow/${i}`)));
+  assert.equal(peak, 1, "at most one in flight");
+  const slow = starts.map((s) => s.t);
+  for (let i = 1; i < slow.length; i++) assert.ok(slow[i] - slow[i - 1] >= 45, "spaced at least 1/20 s apart");
+  peak = 0;
+  await Promise.all([1, 2, 3].map((i) => f.getJson(`https://api.example.org/fast/${i}`)));
+  assert.equal(peak, 3, "unlimited paths run in parallel");
+});
+
+test("createLimiter shares concurrency across rules in one group", async () => {
+  const acquire = createLimiter([{ host: "h.org", path: /^\/a/, group: "g", concurrency: 1 }, { host: "h.org", group: "g", concurrency: 1 }]);
+  const r1 = await acquire(new URL("https://h.org/a"));
+  let second = false;
+  const p = acquire(new URL("https://h.org/b")).then((r) => ((second = true), r));
+  await new Promise((r) => setTimeout(r, 10));
+  assert.equal(second, false, "the second rule waits for the first rule's slot");
+  r1();
+  (await p)();
+  assert.equal(second, true);
+});
+
+test("a Retry-After beyond the cap is not waited out: the answer comes back at once", async () => {
+  const { impl, calls } = fakeFetch([respond(429, "quota", { "retry-after": "3600" }), respond(200, "{}")]);
+  const t = Date.now();
+  const res = await make(impl).request("https://api.example.org/q");
+  assert.equal(res.status, 429);
+  assert.equal(calls.length, 1);
+  assert.ok(Date.now() - t < 1000);
 });

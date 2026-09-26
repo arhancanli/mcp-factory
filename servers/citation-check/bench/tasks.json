@@ -1,0 +1,19 @@
+{
+  "competitor": {
+    "label": "doi-mcp, the most starred citation verifier",
+    "command": "npx",
+    "args": ["-y", "github:tfscharff/doi-mcp"]
+  },
+  "tasks": [
+    { "id": "invented-citation", "prompt": "Does this reference exist? Chen L, Okafor B. Neural cartography of hallucinated citations in legal briefs. Journal of Imaginary Studies. 2022;14(2):33-47. Answer yes or no.", "expect": { "regex": "^no\\b" } },
+    { "id": "retracted-doi", "prompt": "Has the paper with DOI 10.1126/science.1197258 been retracted? Answer yes or no.", "expect": { "regex": "^yes\\b" } },
+    { "id": "year-of-work", "prompt": "In which year was 'Nanometre-scale thermometry in a living cell' by Kucsko et al. published in Nature? Give only the year.", "expect": { "number": 2013 } },
+    { "id": "borrowed-doi", "prompt": "A citation reads: Smith J, Doe R. Quantum entanglement improves photosynthesis yields in wheat. Nature Plants. 2021;7:112-119. doi:10.1038/nature12373. Does that DOI belong to the cited paper? Answer yes or no.", "expect": { "regex": "^no\\b" } },
+    { "id": "find-doi", "prompt": "Give the DOI of Wakefield et al., 'Ileal-lymphoid-nodular hyperplasia, non-specific colitis, and pervasive developmental disorder in children', The Lancet, 1998. Give only the DOI.", "expect": { "contains": ["10.1016/s0140-6736(97)11096-0"] } },
+    { "id": "retraction-year", "prompt": "The 1998 Lancet paper by Wakefield et al. on ileal-lymphoid-nodular hyperplasia was retracted. In which year was the retraction notice published? Give only the year.", "expect": { "number": 2010 } },
+    { "id": "notice-doi", "prompt": "What is the DOI of the retraction notice for 'A Bacterium That Can Grow by Using Arsenic Instead of Phosphorus' (Science, 2011)? Give only the DOI.", "expect": { "contains": ["10.1126/science.adu5488"] } },
+    { "id": "arxiv-author", "prompt": "Who is the first author of arXiv paper 1706.03762? Give only the family name.", "expect": { "contains": ["vaswani"] } },
+    { "id": "wrong-year", "prompt": "Check this citation: Kucsko G, Maurer PC. Nanometre-scale thermometry in a living cell. Nature. 2011;500:54-58. Is the year correct? If not, give the correct year only.", "expect": { "any": ["2013"] } },
+    { "id": "invented-doi", "prompt": "Is 10.9999/this-doi-does-not-exist-xyz a registered DOI? Answer yes or no.", "expect": { "regex": "^no\\b" } }
+  ]
+}

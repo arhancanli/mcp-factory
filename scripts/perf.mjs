@@ -18,6 +18,11 @@ import { Client } from "@modelcontextprotocol/sdk/client/index.js";
 import { StdioClientTransport } from "@modelcontextprotocol/sdk/client/stdio.js";
 import { ROOT, readJson } from "./lib.mjs";
 
+// What a client sends the model for each tool: name, description and input schema (output schemas
+// and annotations are for the client, not the model).
+export const modelVisibleChars = (tools) => JSON.stringify(tools.map((t) => ({ name: t.name, description: t.description ?? "", input_schema: t.inputSchema }))).length;
+export const listChars = (tools) => JSON.stringify(tools).length;
+
 async function connect(command, args, cwd) {
   const client = new Client({ name: "factory-perf", version: "1" });
   await client.connect(new StdioClientTransport({ command, args, cwd, stderr: "ignore" }));
@@ -44,7 +49,9 @@ export async function measure(name, { runs = 5, where = "Dubai, home connection"
   const { SCENARIOS } = await import(pathToFileURL(path.join(dir, "test/scenarios.mjs")).href);
   const scenarios = [];
   let example = null;
-  for (const s of SCENARIOS) {
+  // Scenarios marked expectError exist for the golden tests (for example, an invented identifier);
+  // they are not typical calls, so they are not timed.
+  for (const s of SCENARIOS.filter((x) => !x.expectError)) {
     const client = await connect(process.execPath, [entry], dir);
     const first = await timed(() => client.callTool({ name: s.tool, arguments: s.args }));
     if (first.out.isError) throw new Error(`${scenarioLabel(s)} returned an error: ${first.out.content?.[0]?.text}`);
@@ -62,14 +69,15 @@ export async function measure(name, { runs = 5, where = "Dubai, home connection"
     });
   }
   const ours = await connect(process.execPath, [entry], dir);
-  const oursChars = JSON.stringify((await ours.listTools()).tools).length;
+  const oursTools = (await ours.listTools()).tools;
   await ours.close();
   let competitor = null;
   const tasksFile = path.join(dir, "bench/tasks.json");
   const spec = existsSync(tasksFile) ? readJson(tasksFile).competitor : null;
   if (spec) {
     const c = await connect(spec.command, spec.args ?? [], dir);
-    competitor = { label: spec.label, tool_definition_chars: JSON.stringify((await c.listTools()).tools).length };
+    const tools = (await c.listTools()).tools;
+    competitor = { label: spec.label, tool_definition_chars: modelVisibleChars(tools), tools_list_chars: listChars(tools) };
     await c.close();
   }
   return {
@@ -77,7 +85,8 @@ export async function measure(name, { runs = 5, where = "Dubai, home connection"
     where,
     node: process.version,
     runs,
-    tool_definition_chars: oursChars,
+    tool_definition_chars: modelVisibleChars(oursTools),
+    tools_list_chars: listChars(oursTools),
     competitor,
     scenarios,
     example,
@@ -122,8 +131,9 @@ export function renderPerf(perf) {
     "",
     "First call: a fresh server process, including the TLS connection and the upstream's own time. Repeat: the same call again, answered from the in-process cache, so it shows this server's own overhead.",
     "",
-    `Tool definitions sent to the model on every turn: ${perf.tool_definition_chars.toLocaleString("en-US")} characters` +
-      (perf.competitor ? `, against ${perf.competitor.tool_definition_chars.toLocaleString("en-US")} for ${perf.competitor.label}.` : "."),
+    `Tool definitions the model reads on every turn (name, description, input schema): ${perf.tool_definition_chars.toLocaleString("en-US")} characters` +
+      (perf.competitor ? `, against ${perf.competitor.tool_definition_chars.toLocaleString("en-US")} for ${perf.competitor.label}.` : ".") +
+      (perf.tools_list_chars ? ` The full tool list, with the output schemas and annotations clients use to validate results, is ${perf.tools_list_chars.toLocaleString("en-US")} characters${perf.competitor?.tools_list_chars ? ` (${perf.competitor.tools_list_chars.toLocaleString("en-US")} for the alternative)` : ""}.` : ""),
   ];
   return lines.join("\n");
 }

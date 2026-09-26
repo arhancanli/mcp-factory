@@ -1,0 +1,59 @@
+{
+  "measured_on": "2026-09-26",
+  "where": "Dubai, home connection",
+  "node": "v24.19.0",
+  "runs": 3,
+  "tool_definition_chars": 1523,
+  "tools_list_chars": 3066,
+  "competitor": {
+    "label": "doi-mcp, the most starred citation verifier",
+    "tool_definition_chars": 2550,
+    "tools_list_chars": 2913
+  },
+  "scenarios": [
+    {
+      "call": "check_references: 6 citations (retracted, invented, wrong year, borrowed DOI, arXiv-only)",
+      "first_call_ms": 8509,
+      "repeat_ms": 2.8,
+      "result_chars": 2894
+    },
+    {
+      "call": "check_references: 2 BibTeX entries with corrected BibTeX",
+      "first_call_ms": 6384,
+      "repeat_ms": 0.7,
+      "result_chars": 1059
+    },
+    {
+      "call": "lookup_work: arXiv id",
+      "first_call_ms": 846,
+      "repeat_ms": 0.4,
+      "result_chars": 717
+    },
+    {
+      "call": "lookup_work: PMID of a retracted paper",
+      "first_call_ms": 3005,
+      "repeat_ms": 0.4,
+      "result_chars": 1281
+    },
+    {
+      "call": "lookup_work: DOI link",
+      "first_call_ms": 752,
+      "repeat_ms": 0.4,
+      "result_chars": 1356
+    },
+    {
+      "call": "check_retractions: 5 inputs",
+      "first_call_ms": 1083,
+      "repeat_ms": 0.5,
+      "result_chars": 987
+    }
+  ],
+  "example": {
+    "call": "check_references: 6 citations (retracted, invented, wrong year, borrowed DOI, arXiv-only)",
+    "tool": "check_references",
+    "arguments": {
+      "text": "1. Wakefield AJ, Murch SH, Anthony A, et al. Ileal-lymphoid-nodular hyperplasia, non-specific colitis, and pervasive developmental disorder in children. Lancet. 1998;351(9103):637-641.\n2. Kucsko G, Maurer PC, Yao NY, et al. Nanometre-scale thermometry in a living cell. Nature. 2013;500:54-58. doi:10.1038/nature12373\n3. Vaswani A, Shazeer N, Parmar N, et al. Attention is all you need. In: Advances in Neural Information Processing Systems. 2017.\n4. Smith J, Doe R. Quantum entanglement improves photosynthesis yields in wheat. Nature Plants. 2021;7:112-119. doi:10.1038/nature12373\n5. Kucsko G, Maurer PC. Nanometre-scale thermometry in a living cell. Nature. 2011;500:54-58.\n6. Chen L, Okafor B. Neural cartography of hallucinated citations in legal briefs. Journal of Imaginary Studies. 2022;14(2):33-47."
+    },
+    "result": "{\"counts\":{\"verified\":3,\"mismatch\":2,\"not_found\":1,\"unverifiable\":0,\"retracted\":1},\"results\":[{\"n\":1,\"cited\":\"Wakefield AJ, Murch SH, Anthony A, et al. Ileal-lymphoid-nodular hyperplasia, non-specific colitis, and pervasive developmental disorder in children. Lancet....\",\"verdict\":\"verified\",\"flags\":[\"doi_added\",\"corrected\",\"retracted\"],\"matched\":{\"doi\":\"10.1016/s0140-6736(97)11096-0\",\"title\":\"RETRACTED: Ileal-lymphoid-nodular hyperplasia, non-specific colitis, and pervasive developmental disorder in children\",\"authors\":\"Wakefield, Murch, Anthony et al.\",\"year\":1998,\"venue\":\"The Lancet\",\"url\":\"https://doi.org/10.1016/s0140-6736(97)11096-0\",\"source\":\"crossref\"},\"notices\":[{\"type\":\"correction\",\"notice_doi\":\"10.1016/s0140-6736(04)15715-2\",\"date\":\"2004-03-06\"},{\"type\":\"retraction\",\"notice_doi\":\"10.1016/s0140-6736(10)60175-4\",\"date\":\"2010-02-06\"}]},{\"n\":2,\"cited\":\"Kucsko G, Maurer PC, Yao NY, et al. Nanometre-scale thermometry in a living cell. Nature. 2013;500:54-58. doi:10.1038/nature12373\",\"verdict\":\"verified\",\"matched\":{\"doi\":\"10.1038/nature12373\",\"title\":\"Nanometre-scale thermometry in a living cell\",\"authors\":\"Kucsko, Maurer, Yao et al.\",\"year\":2013,\"venue\":\"Nature\",\"url\":\"https://doi.org/10.1038/nature12373\",\"source\":\"crossref\"}},{\"n\":3,\"cited\":\"Vaswani A, Shazeer N, Parmar N, et al. Attention is all you need. In: Advances in Neural Information Processing Systems. 2017.\",\"verdict\":\"verified\",\"flags\":[\"doi_added\"],\"matched\":{\"doi\":\"10.48550/arxiv.1706.03762\",\"title\":\"Attention Is All You Need\",\"authors\":\"Vaswani, Shazeer, Parmar et al.\",\"year\":2017,\"venue\":\"arXiv\",\"url\":\"https://doi.org/10.48550/arxiv.1706.03762\",\"source\":\"datacite\"}},{\"n\":4,\"cited\":\"Smith J, Doe R. Quantum entanglement improves photosynthesis yields in wheat. Nature Plants. 2021;7:112-119. doi:10.1038/nature12373\",\"identifier_resolves_to\":{\"doi\":\"10.1038/nature12373\",\"title\":\"Nanometre-scale thermometry in a living cell\",\"authors\":\"Kucsko, Maurer, Yao et al.\",\"year\":2013,\"venue\":\"Nature\",\"url\":\"https://doi.org/10.1038/nature12373\",\"source\":\"crossref\"},\"verdict\":\"mismatch\",\"flags\":[\"identifier_points_to_different_work\"]},{\"n\":5,\"cited\":\"Kucsko G, Maurer PC. Nanometre-scale thermometry in a living cell. Nature. 2011;500:54-58.\",\"verdict\":\"mismatch\",\"flags\":[\"doi_added\"],\"matched\":{\"doi\":\"10.1038/nature12373\",\"title\":\"Nanometre-scale thermometry in a living cell\",\"authors\":\"Kucsko, Maurer, Yao et al.\",\"year\":2013,\"venue\":\"Nature\",\"url\":\"https://doi.org/10.1038/nature12373\",\"source\":\"crossref\"},\"diffs\":[{\"field\":\"year\",\"cited\":\"2011\",\"record\":\"2013\"}]},{\"n\":6,\"cited\":\"Chen L, Okafor B. Neural cartography of hallucinated citations in legal briefs. Journal of Imaginary Studies. 2022;14(2):33-47.\",\"note\":\"No work matching this citation in crossref or datacite or openalex. It may be fabricated, or not indexed (books, theses, very new or non-English works).\",\"verdict\":\"not_found\"}]}"
+  }
+}
