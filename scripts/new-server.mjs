@@ -41,6 +41,8 @@ if (process.argv[1] && path.resolve(process.argv[1]) === new URL(import.meta.url
   });
   const dir = generateServer({ name: positionals[0], ...values, budget: values.budget ? Number(values.budget) : undefined });
   writeShrinkwrap(dir);
+  // The root lockfile must list the new workspace, or npm ci in CI refuses to install.
+  execFileSync("npm", ["install", "--ignore-scripts", "--no-audit", "--no-fund"], { cwd: new URL("..", import.meta.url).pathname, stdio: "ignore" });
   await writeReadmeTools(dir);
   process.stdout.write(`Created ${path.relative(process.cwd(), dir)}. Next: replace src/tools/example-lookup.mjs, record fixtures, run npm test.\n`);
 }
