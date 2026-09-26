@@ -49,6 +49,7 @@ async function connect(spec, cwd) {
  * Anthropic loop, so the two arms of a comparison differ only in the server.
  */
 async function runTaskOpenAI(model, mcp, tools, task) {
+  const trace = [];
   const base = process.env.OPENAI_BASE_URL ?? "https://api.openai.com/v1";
   const fnTools = tools.map((t) => ({ type: "function", function: { name: t.name, description: t.description, parameters: t.input_schema } }));
   const messages = [{ role: "system", content: SYSTEM }, { role: "user", content: task.prompt }];
@@ -77,16 +78,20 @@ async function runTaskOpenAI(model, mcp, tools, task) {
     for (const call of calls) {
       toolCalls++;
       let content;
+      let failed = false;
       try {
         const out = await mcp.callTool({ name: call.function.name, arguments: JSON.parse(call.function.arguments || "{}") });
         content = (out.content ?? []).filter((c) => c.type === "text").map((c) => c.text).join("\n") || JSON.stringify(out.structuredContent ?? {});
+        failed = Boolean(out.isError);
       } catch (err) {
         content = `Tool call failed: ${err.message}`;
+        failed = true;
       }
+      trace.push({ tool: call.function.name, args: call.function.arguments.slice(0, 300), ...(failed ? { error: content.slice(0, 300) } : {}) });
       messages.push({ role: "tool", tool_call_id: call.id, content });
     }
   }
-  return { id: task.id, correct: grade(task.expect, finalText), tool_calls: toolCalls, ...usage, ms: Math.round(performance.now() - started) };
+  return { id: task.id, correct: grade(task.expect, finalText), answer: (finalText.match(/ANSWER:\s*(.*)$/im)?.[1] ?? finalText).trim().slice(0, 200), tool_calls: toolCalls, trace, ...usage, ms: Math.round(performance.now() - started) };
 }
 
 async function runTask(anthropic, model, mcp, tools, task) {
@@ -121,7 +126,7 @@ async function runTask(anthropic, model, mcp, tools, task) {
     }
     messages.push({ role: "user", content: results });
   }
-  return { id: task.id, correct: grade(task.expect, finalText), tool_calls: toolCalls, ...usage, ms: Math.round(performance.now() - started) };
+  return { id: task.id, correct: grade(task.expect, finalText), answer: (finalText.match(/ANSWER:\s*(.*)$/im)?.[1] ?? finalText).trim().slice(0, 200), tool_calls: toolCalls, ...usage, ms: Math.round(performance.now() - started) };
 }
 
 export function summarize(rows) {
@@ -171,7 +176,7 @@ if (process.argv[1] && path.resolve(process.argv[1]) === new URL(import.meta.url
     for (const task of spec.tasks) {
       const row = values.provider === "openai" ? await runTaskOpenAI(values.model, mcp, anthropicTools, task) : await runTask(anthropic, values.model, mcp, anthropicTools, task);
       result.rows[arm].push(row);
-      process.stderr.write(`  ${arm} ${task.id}: ${row.correct ? "correct" : "WRONG"} ${row.input + row.cache_read}+${row.output} tok ${row.ms} ms\n`);
+      process.stderr.write(`  ${arm} ${task.id}: ${row.correct ? "correct" : "WRONG"} ${row.input + row.cache_read}+${row.output} tok ${row.ms} ms${row.correct ? "" : ` answered: ${row.answer}${row.trace?.length ? ` | calls: ${JSON.stringify(row.trace)}` : ""}`}\n`);
     }
     result.summary[arm] = summarize(result.rows[arm]);
     await mcp.close();

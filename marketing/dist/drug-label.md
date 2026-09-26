@@ -80,4 +80,4 @@ has no such section. https://github.com/arhancanli/drug-label-mcp
 
 ## Cross-links
 
-Footer: 6 servers, each measured before release: https://github.com/topics/arhancanli-mcp. Related: Citation Check (https://github.com/arhancanli/citation-check-mcp), Internet Standards (https://github.com/arhancanli/internet-standards-mcp), Package Truth (https://github.com/arhancanli/package-truth-mcp).
+Footer: 7 servers, each measured before release: https://github.com/topics/arhancanli-mcp. Related: Citation Check (https://github.com/arhancanli/citation-check-mcp), End of Life (https://github.com/arhancanli/end-of-life-mcp), Internet Standards (https://github.com/arhancanli/internet-standards-mcp).

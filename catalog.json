@@ -70,6 +70,34 @@
       ]
     },
     {
+      "name": "end-of-life-mcp",
+      "title": "End of Life",
+      "category": "developer-tools",
+      "summary": "Is this version still supported? EOL dates, latest patch and upgrade target for 470+ products.",
+      "description": "Tells coding agents whether a runtime, framework, database or OS version is still supported: end-of-life and security-support dates, days left, the latest patch and the version to upgrade to, for 470+ products, straight from a project's Dockerfile, .nvmrc, package.json, pyproject.toml, go.mod and CI files.",
+      "version": "0.1.0",
+      "repository": "https://github.com/arhancanli/end-of-life-mcp",
+      "npm": "https://www.npmjs.com/package/end-of-life-mcp",
+      "mcpName": "io.github.arhancanli/end-of-life-mcp",
+      "hosts": [
+        "endoflife.date"
+      ],
+      "tools": [
+        {
+          "name": "check_project",
+          "title": "Check a project's runtimes"
+        },
+        {
+          "name": "check_versions",
+          "title": "Check versions for end of life"
+        },
+        {
+          "name": "product_lifecycle",
+          "title": "A product's release cycles"
+        }
+      ]
+    },
+    {
       "name": "internet-standards-mcp",
       "title": "Internet Standards",
       "category": "developer-tools",

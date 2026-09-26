@@ -4,7 +4,7 @@
   "node": "v24.19.0",
   "runs": 3,
   "tool_definition_chars": 1523,
-  "tools_list_chars": 3066,
+  "tools_list_chars": 2979,
   "competitor": {
     "label": "doi-mcp, the most starred citation verifier",
     "tool_definition_chars": 2550,
@@ -13,38 +13,38 @@
   "scenarios": [
     {
       "call": "check_references: 6 citations (retracted, invented, wrong year, borrowed DOI, arXiv-only)",
-      "first_call_ms": 8509,
-      "repeat_ms": 2.8,
+      "first_call_ms": 9594,
+      "repeat_ms": 3.1,
       "result_chars": 2894
     },
     {
       "call": "check_references: 2 BibTeX entries with corrected BibTeX",
-      "first_call_ms": 6384,
-      "repeat_ms": 0.7,
+      "first_call_ms": 7491,
+      "repeat_ms": 1.8,
       "result_chars": 1059
     },
     {
       "call": "lookup_work: arXiv id",
-      "first_call_ms": 846,
-      "repeat_ms": 0.4,
+      "first_call_ms": 795,
+      "repeat_ms": 0.3,
       "result_chars": 717
     },
     {
       "call": "lookup_work: PMID of a retracted paper",
-      "first_call_ms": 3005,
+      "first_call_ms": 3394,
       "repeat_ms": 0.4,
       "result_chars": 1281
     },
     {
       "call": "lookup_work: DOI link",
-      "first_call_ms": 752,
-      "repeat_ms": 0.4,
+      "first_call_ms": 763,
+      "repeat_ms": 0.3,
       "result_chars": 1356
     },
     {
       "call": "check_retractions: 5 inputs",
-      "first_call_ms": 1083,
-      "repeat_ms": 0.5,
+      "first_call_ms": 1485,
+      "repeat_ms": 0.6,
       "result_chars": 987
     }
   ],

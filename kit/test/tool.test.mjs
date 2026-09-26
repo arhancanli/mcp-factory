@@ -142,3 +142,13 @@ test("mapLimit keeps order and never exceeds its limit", async () => {
   assert.deepEqual(out, [50, 10, 30, 20]);
   assert.equal(peak, 2);
 });
+
+test("a client that listed the tools accepts results with fields beyond the output schema", async () => {
+  // Real clients call tools/list first and then validate every result against the listed schema.
+  const client = await connect([defineTool({ ...base, handler: async ({ word }) => ({ word, note: "extra field", nested: { a: 1 } }) })]);
+  const { tools } = await client.listTools();
+  assert.ok(!JSON.stringify(tools[0].outputSchema).includes('"additionalProperties":false'));
+  const res = await client.callTool({ name: "echo_word", arguments: { word: "hi" } });
+  assert.ok(!res.isError);
+  assert.equal(res.structuredContent.note, "extra field");
+});

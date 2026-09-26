@@ -1,0 +1,231 @@
+{
+  "date": "2026-09-26",
+  "model": "gpt-5.4-mini",
+  "competitor_label": "@ythalorossy/openfda, the most downloaded openFDA server",
+  "rows": {
+    "ours": [
+      {
+        "id": "boxed-warning",
+        "correct": false,
+        "tool_calls": 4,
+        "input": 2889,
+        "output": 131,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 9705
+      },
+      {
+        "id": "no-boxed-warning",
+        "correct": true,
+        "tool_calls": 1,
+        "input": 1250,
+        "output": 25,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 5158
+      },
+      {
+        "id": "grapefruit",
+        "correct": true,
+        "tool_calls": 3,
+        "input": 2799,
+        "output": 79,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 6177
+      },
+      {
+        "id": "contraindication",
+        "correct": true,
+        "tool_calls": 3,
+        "input": 2792,
+        "output": 74,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 9523
+      },
+      {
+        "id": "spelling",
+        "correct": true,
+        "tool_calls": 2,
+        "input": 2049,
+        "output": 50,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 7096
+      },
+      {
+        "id": "brand-of",
+        "correct": true,
+        "tool_calls": 1,
+        "input": 1253,
+        "output": 27,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 1816
+      },
+      {
+        "id": "originator",
+        "correct": false,
+        "tool_calls": 4,
+        "input": 2942,
+        "output": 100,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 6546
+      },
+      {
+        "id": "drug-class",
+        "correct": false,
+        "tool_calls": 1,
+        "input": 1253,
+        "output": 32,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 2530
+      },
+      {
+        "id": "recall-class",
+        "correct": false,
+        "tool_calls": 2,
+        "input": 1990,
+        "output": 65,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 5530
+      },
+      {
+        "id": "unknown",
+        "correct": true,
+        "tool_calls": 1,
+        "input": 1235,
+        "output": 29,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 3074
+      }
+    ],
+    "competitor": [
+      {
+        "id": "boxed-warning",
+        "correct": true,
+        "tool_calls": 1,
+        "input": 11192,
+        "output": 143,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 2708
+      },
+      {
+        "id": "no-boxed-warning",
+        "correct": true,
+        "tool_calls": 1,
+        "input": 679,
+        "output": 39,
+        "cache_read": 10496,
+        "cache_write": 0,
+        "ms": 2003
+      },
+      {
+        "id": "grapefruit",
+        "correct": true,
+        "tool_calls": 1,
+        "input": 693,
+        "output": 43,
+        "cache_read": 10496,
+        "cache_write": 0,
+        "ms": 2091
+      },
+      {
+        "id": "contraindication",
+        "correct": true,
+        "tool_calls": 1,
+        "input": 696,
+        "output": 47,
+        "cache_read": 10496,
+        "cache_write": 0,
+        "ms": 2049
+      },
+      {
+        "id": "spelling",
+        "correct": true,
+        "tool_calls": 2,
+        "input": 1247,
+        "output": 75,
+        "cache_read": 15744,
+        "cache_write": 0,
+        "ms": 3003
+      },
+      {
+        "id": "brand-of",
+        "correct": true,
+        "tool_calls": 2,
+        "input": 1765,
+        "output": 88,
+        "cache_read": 15232,
+        "cache_write": 0,
+        "ms": 3121
+      },
+      {
+        "id": "originator",
+        "correct": false,
+        "tool_calls": 1,
+        "input": 1201,
+        "output": 42,
+        "cache_read": 9984,
+        "cache_write": 0,
+        "ms": 2189
+      },
+      {
+        "id": "drug-class",
+        "correct": false,
+        "tool_calls": 1,
+        "input": 687,
+        "output": 49,
+        "cache_read": 10496,
+        "cache_write": 0,
+        "ms": 1853
+      },
+      {
+        "id": "recall-class",
+        "correct": false,
+        "tool_calls": 1,
+        "input": 703,
+        "output": 61,
+        "cache_read": 10496,
+        "cache_write": 0,
+        "ms": 2040
+      },
+      {
+        "id": "unknown",
+        "correct": true,
+        "tool_calls": 2,
+        "input": 1337,
+        "output": 82,
+        "cache_read": 15744,
+        "cache_write": 0,
+        "ms": 3119
+      }
+    ]
+  },
+  "summary": {
+    "ours": {
+      "tasks": 10,
+      "correct": 6,
+      "tokens_in": 20452,
+      "tokens_out": 612,
+      "cached_share": 0,
+      "tool_calls": 22,
+      "median_ms": 6177
+    },
+    "competitor": {
+      "tasks": 10,
+      "correct": 7,
+      "tokens_in": 129384,
+      "tokens_out": 669,
+      "cached_share": 0.844,
+      "tool_calls": 13,
+      "median_ms": 2189
+    }
+  }
+}

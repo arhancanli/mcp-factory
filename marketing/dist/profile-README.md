@@ -1,9 +1,10 @@
 # Arhan Canli
 
-I build MCP servers that are measured against the best alternative before they ship: correct answers, small tool lists, fast first calls. 6 so far, each in its own repository, all MIT.
+I build MCP servers that are measured against the best alternative before they ship: correct answers, small tool lists, fast first calls. 7 so far, each in its own repository, all MIT.
 
 **Developer tools**
 
+- [End of Life](https://github.com/arhancanli/end-of-life-mcp): Is this version still supported? EOL dates, latest patch and upgrade target for 470+ products.
 - [Internet Standards](https://github.com/arhancanli/internet-standards-mcp): RFC sections, status, obsoleted-by chains, errata and IANA registries for coding agents.
 - [Package Truth](https://github.com/arhancanli/package-truth-mcp): Checks packages exist before install: version, deprecation, vulnerabilities, licence. 7 ecosystems.
 

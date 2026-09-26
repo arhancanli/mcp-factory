@@ -1,0 +1,224 @@
+{
+  "date": "2026-09-26",
+  "model": "gpt-5.4-mini",
+  "competitor_label": "planetary-computer-mcp (run with mcp<2 pinned; its default install fails to start)",
+  "rows": {
+    "ours": [
+      {
+        "id": "clearest-dubai",
+        "correct": false,
+        "answer": "No result could be retrieved for that date range.",
+        "tool_calls": 2,
+        "trace": [
+          {
+            "tool": "find_imagery",
+            "args": "{\"lat\":25.197,\"lon\":55.274,\"radius_km\":2,\"start\":\"2026-08-01\",\"end\":\"2026-09-26\",\"collection\":\"sentinel-2\",\"sort\":\"clearest\",\"limit\":1,\"max_cloud\":100}",
+            "error": "Tool call failed: MCP error -32602: Structured content does not match the tool's output schema: data must NOT have additional properties, data must NOT have additional properties"
+          },
+          {
+            "tool": "find_imagery",
+            "args": "{\"lat\":25.197,\"lon\":55.274,\"radius_km\":2,\"start\":\"2026-08-01\",\"end\":\"2026-09-26\",\"collection\":\"sentinel-2\",\"sort\":\"clearest\",\"limit\":1}",
+            "error": "Tool call failed: MCP error -32602: Structured content does not match the tool's output schema: data must NOT have additional properties, data must NOT have additional properties"
+          }
+        ],
+        "input": 2239,
+        "output": 154,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 6270
+      },
+      {
+        "id": "coverage",
+        "correct": false,
+        "answer": "No",
+        "tool_calls": 2,
+        "trace": [
+          {
+            "tool": "find_imagery",
+            "args": "{\"lat\":25.197,\"lon\":55.274,\"radius_km\":1,\"start\":\"2026-08-01\",\"end\":\"2026-08-31\",\"collection\":\"sentinel-2\",\"sort\":\"best\",\"limit\":1}",
+            "error": "Tool call failed: MCP error -32602: Structured content does not match the tool's output schema: data must NOT have additional properties, data must NOT have additional properties"
+          },
+          {
+            "tool": "find_imagery",
+            "args": "{\"lat\":25.197,\"lon\":55.274,\"radius_km\":1,\"start\":\"2026-08-01\",\"end\":\"2026-08-31\",\"collection\":\"sentinel-2\",\"sort\":\"best\",\"limit\":3}",
+            "error": "Tool call failed: MCP error -32602: Structured content does not match the tool's output schema: data must NOT have additional properties, data must NOT have additional properties"
+          }
+        ],
+        "input": 2196,
+        "output": 138,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 4102
+      },
+      {
+        "id": "landsat-platform",
+        "correct": true,
+        "answer": "landsat-8",
+        "tool_calls": 2,
+        "trace": [
+          {
+            "tool": "find_imagery",
+            "args": "{\"bbox\":[-122.52,37.7,-122.35,37.83],\"start\":\"2026-06-01\",\"end\":\"2026-08-31\",\"collection\":\"landsat\",\"max_cloud\":5,\"sort\":\"clearest\",\"limit\":5}",
+            "error": "Tool call failed: MCP error -32602: Structured content does not match the tool's output schema: data must NOT have additional properties, data must NOT have additional properties"
+          },
+          {
+            "tool": "find_imagery",
+            "args": "{\"bbox\":[-122.52,37.7,-122.35,37.83],\"start\":\"2026-06-01\",\"end\":\"2026-08-31\",\"collection\":\"landsat\",\"max_cloud\":5,\"sort\":\"best\",\"limit\":5}",
+            "error": "Tool call failed: MCP error -32602: Structured content does not match the tool's output schema: data must NOT have additional properties, data must NOT have additional properties"
+          }
+        ],
+        "input": 2273,
+        "output": 150,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 3853
+      },
+      {
+        "id": "radar",
+        "correct": true,
+        "answer": "Sentinel-1",
+        "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "find_imagery",
+            "args": "{\"bbox\":[-0.5,51.28,0.3,51.7],\"start\":\"2024-01-01\",\"end\":\"2024-12-31\",\"collection\":\"sentinel-1\",\"sort\":\"best\",\"limit\":1}",
+            "error": "Tool call failed: MCP error -32602: Structured content does not match the tool's output schema: data must NOT have additional properties, data must NOT have additional properties, data must NOT have additional properties"
+          }
+        ],
+        "input": 1323,
+        "output": 75,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 4311
+      },
+      {
+        "id": "red-band",
+        "correct": true,
+        "answer": "10",
+        "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "scene_assets",
+            "args": "{\"collection\":\"sentinel-2\",\"id\":\"S2B_T40RCN_20260830T065854_L2A\"}",
+            "error": "Tool call failed: MCP error -32602: Structured content does not match the tool's output schema: data must NOT have additional properties, data must NOT have additional properties, data must NOT have additional properties, data must NOT have additional properties, data must NOT have additional proper"
+          }
+        ],
+        "input": 1357,
+        "output": 47,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 3192
+      },
+      {
+        "id": "wavelength",
+        "correct": true,
+        "answer": "0.665",
+        "tool_calls": 2,
+        "trace": [
+          {
+            "tool": "scene_assets",
+            "args": "{\"collection\":\"sentinel-2\",\"id\":\"S2B_T40RCN_20260830T065854_L2A\"}",
+            "error": "Tool call failed: MCP error -32602: Structured content does not match the tool's output schema: data must NOT have additional properties, data must NOT have additional properties, data must NOT have additional properties, data must NOT have additional properties, data must NOT have additional proper"
+          },
+          {
+            "tool": "scene_assets",
+            "args": "{\"collection\":\"sentinel-2\",\"id\":\"S2B_T40RCN_20260830T065854_L2A\"}",
+            "error": "Tool call failed: MCP error -32602: Structured content does not match the tool's output schema: data must NOT have additional properties, data must NOT have additional properties, data must NOT have additional properties, data must NOT have additional properties, data must NOT have additional proper"
+          }
+        ],
+        "input": 2238,
+        "output": 89,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 3347
+      },
+      {
+        "id": "licence",
+        "correct": true,
+        "answer": "Credit: contains modified Copernicus Sentinel data [year] / processed by [your name or organization] using Sentinel-2 data.",
+        "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "find_imagery",
+            "args": "{\"bbox\":[0,0,0.1,0.1],\"start\":\"2024-01-01\",\"end\":\"2024-01-02\",\"collection\":\"sentinel-2\",\"limit\":1}",
+            "error": "Tool call failed: MCP error -32602: Structured content does not match the tool's output schema: data must NOT have additional properties, data must NOT have additional properties, data must NOT have additional properties"
+          }
+        ],
+        "input": 1300,
+        "output": 90,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 2673
+      },
+      {
+        "id": "requester-pays",
+        "correct": false,
+        "answer": "free",
+        "tool_calls": 0,
+        "trace": [],
+        "input": 606,
+        "output": 6,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 867
+      },
+      {
+        "id": "ocean",
+        "correct": true,
+        "answer": "no",
+        "tool_calls": 2,
+        "trace": [
+          {
+            "tool": "find_imagery",
+            "args": "{\"lat\":0,\"lon\":-160,\"radius_km\":1,\"start\":\"2026-09-01\",\"end\":\"2026-09-01\",\"collection\":\"sentinel-2\",\"max_cloud\":0,\"sort\":\"best\",\"limit\":5}",
+            "error": "Tool call failed: MCP error -32602: Structured content does not match the tool's output schema: data must NOT have additional properties, data must NOT have additional properties, data must NOT have additional properties"
+          },
+          {
+            "tool": "find_imagery",
+            "args": "{\"lat\":0,\"lon\":-160,\"radius_km\":1,\"start\":\"2026-09-01\",\"end\":\"2026-09-01\",\"collection\":\"sentinel-2\",\"max_cloud\":0,\"sort\":\"best\",\"limit\":1}",
+            "error": "Tool call failed: MCP error -32602: Structured content does not match the tool's output schema: data must NOT have additional properties, data must NOT have additional properties, data must NOT have additional properties"
+          }
+        ],
+        "input": 2199,
+        "output": 142,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 3498
+      },
+      {
+        "id": "newest-radar",
+        "correct": true,
+        "answer": "2026-09-26",
+        "tool_calls": 2,
+        "trace": [
+          {
+            "tool": "find_imagery",
+            "args": "{\"lat\":51.5,\"lon\":-0.12,\"radius_km\":20,\"start\":\"2026-09-01\",\"end\":\"2026-09-26\",\"collection\":\"sentinel-1\",\"sort\":\"newest\",\"limit\":1}",
+            "error": "Tool call failed: MCP error -32602: Structured content does not match the tool's output schema: data must NOT have additional properties, data must NOT have additional properties"
+          },
+          {
+            "tool": "find_imagery",
+            "args": "{\"lat\":51.5,\"lon\":-0.12,\"radius_km\":20,\"start\":\"2026-09-01\",\"end\":\"2026-09-26\",\"collection\":\"sentinel-1\",\"sort\":\"newest\",\"limit\":5}",
+            "error": "Tool call failed: MCP error -32602: Structured content does not match the tool's output schema: data must NOT have additional properties, data must NOT have additional properties"
+          }
+        ],
+        "input": 2205,
+        "output": 148,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 4800
+      }
+    ]
+  },
+  "summary": {
+    "ours": {
+      "tasks": 10,
+      "correct": 7,
+      "tokens_in": 17936,
+      "tokens_out": 1039,
+      "cached_share": 0,
+      "tool_calls": 15,
+      "median_ms": 3853
+    }
+  }
+}

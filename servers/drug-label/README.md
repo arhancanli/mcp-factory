@@ -185,7 +185,12 @@ codes, including the older WARNINGS and PRECAUTIONS layout and OTC Drug Facts la
 ## Benchmark
 
 <!-- bench:start -->
-Not yet measured.
+Measured 2026-09-26 with gpt-5.4-mini, 10 fixed tasks graded by fixed checks (`bench/tasks.json`, raw results in `bench/results/`).
+
+| Server | Correct | Input tokens | Output tokens | Tool calls | Median time |
+| --- | --- | --- | --- | --- | --- |
+| This server | 6/10 | 20452 | 612 | 22 | 6.2 s |
+| @ythalorossy/openfda, the most downloaded openFDA server | 7/10 | 129384 | 669 | 13 | 2.2 s |
 <!-- bench:end -->
 
 ## Performance
@@ -195,17 +200,17 @@ Measured 2026-09-26 from Dubai, home connection against the live upstream, Node 
 
 | Call | First call | Repeat | Result size |
 | --- | --- | --- | --- |
-| find_drug: atorvastatin (brand and generic manufacturers ranked) | 3364 ms | 0.9 ms | 1,560 chars |
-| find_drug: a misspelled name | 3817 ms | 0.7 ms | 1,591 chars |
-| label_section: warfarin boxed warning | 4195 ms | 0.5 ms | 1,437 chars |
-| label_section: Lipitor boxed warning (none) | 4410 ms | 0.3 ms | 508 chars |
-| search_label: Lipitor and grapefruit | 4135 ms | 0.5 ms | 3,766 chars |
-| label_section: metformin contraindications | 4541 ms | 0.6 ms | 1,257 chars |
-| recalls_shortages: metformin | 2388 ms | 0.6 ms | 4,768 chars |
+| find_drug: atorvastatin (brand and generic manufacturers ranked) | 3673 ms | 1.2 ms | 1,560 chars |
+| find_drug: a misspelled name | 4053 ms | 0.9 ms | 1,591 chars |
+| label_section: warfarin boxed warning | 4171 ms | 0.5 ms | 1,437 chars |
+| label_section: Lipitor boxed warning (none) | 4192 ms | 0.3 ms | 508 chars |
+| search_label: Lipitor and grapefruit | 4694 ms | 0.4 ms | 3,766 chars |
+| label_section: metformin contraindications | 4468 ms | 0.6 ms | 1,257 chars |
+| recalls_shortages: metformin | 2352 ms | 0.7 ms | 4,766 chars |
 
 First call: a fresh server process, including the TLS connection and the upstream's own time. Repeat: the same call again, answered from the in-process cache, so it shows this server's own overhead.
 
-Tool definitions the model reads on every turn (name, description, input schema): 1,958 characters, against 23,915 for @ythalorossy/openfda, the most downloaded openFDA server. The full tool list, with the output schemas and annotations clients use to validate results, is 3,935 characters (24,351 for the alternative).
+Tool definitions the model reads on every turn (name, description, input schema): 1,958 characters, against 23,915 for @ythalorossy/openfda, the most downloaded openFDA server. The full tool list, with the output schemas and annotations clients use to validate results, is 3,819 characters (24,351 for the alternative).
 <!-- perf:end -->
 
 ## Data sources
@@ -222,6 +227,7 @@ All three are US government services. They do not endorse this server.
 
 <!-- family:start -->
 - [Citation Check](https://github.com/arhancanli/citation-check-mcp): Verifies citations: finds fabricated or mismatched references and retractions, returns clean BibTeX.
+- [End of Life](https://github.com/arhancanli/end-of-life-mcp): Is this version still supported? EOL dates, latest patch and upgrade target for 470+ products.
 - [Internet Standards](https://github.com/arhancanli/internet-standards-mcp): RFC sections, status, obsoleted-by chains, errata and IANA registries for coding agents.
 - [Package Truth](https://github.com/arhancanli/package-truth-mcp): Checks packages exist before install: version, deprecation, vulnerabilities, licence. 7 ecosystems.
 - [Recall Check](https://github.com/arhancanli/recall-check-mcp): One recall check across CPSC, FDA and NHTSA: match by name, model number, UPC or VIN.

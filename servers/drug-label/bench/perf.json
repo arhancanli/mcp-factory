@@ -4,7 +4,7 @@
   "node": "v24.19.0",
   "runs": 3,
   "tool_definition_chars": 1958,
-  "tools_list_chars": 3935,
+  "tools_list_chars": 3819,
   "competitor": {
     "label": "@ythalorossy/openfda, the most downloaded openFDA server",
     "tool_definition_chars": 23915,
@@ -13,45 +13,45 @@
   "scenarios": [
     {
       "call": "find_drug: atorvastatin (brand and generic manufacturers ranked)",
-      "first_call_ms": 3364,
-      "repeat_ms": 0.9,
+      "first_call_ms": 3673,
+      "repeat_ms": 1.2,
       "result_chars": 1560
     },
     {
       "call": "find_drug: a misspelled name",
-      "first_call_ms": 3817,
-      "repeat_ms": 0.7,
+      "first_call_ms": 4053,
+      "repeat_ms": 0.9,
       "result_chars": 1591
     },
     {
       "call": "label_section: warfarin boxed warning",
-      "first_call_ms": 4195,
+      "first_call_ms": 4171,
       "repeat_ms": 0.5,
       "result_chars": 1437
     },
     {
       "call": "label_section: Lipitor boxed warning (none)",
-      "first_call_ms": 4410,
+      "first_call_ms": 4192,
       "repeat_ms": 0.3,
       "result_chars": 508
     },
     {
       "call": "search_label: Lipitor and grapefruit",
-      "first_call_ms": 4135,
-      "repeat_ms": 0.5,
+      "first_call_ms": 4694,
+      "repeat_ms": 0.4,
       "result_chars": 3766
     },
     {
       "call": "label_section: metformin contraindications",
-      "first_call_ms": 4541,
+      "first_call_ms": 4468,
       "repeat_ms": 0.6,
       "result_chars": 1257
     },
     {
       "call": "recalls_shortages: metformin",
-      "first_call_ms": 2388,
-      "repeat_ms": 0.6,
-      "result_chars": 4768
+      "first_call_ms": 2352,
+      "repeat_ms": 0.7,
+      "result_chars": 4766
     }
   ],
   "example": {

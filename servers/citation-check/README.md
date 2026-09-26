@@ -198,7 +198,12 @@ and gets back (recorded from the live server on 2026-09-26):
 ## Benchmark
 
 <!-- bench:start -->
-Not yet measured.
+Measured 2026-09-26 with gpt-5.4-mini, 10 fixed tasks graded by fixed checks (`bench/tasks.json`, raw results in `bench/results/`).
+
+| Server | Correct | Input tokens | Output tokens | Tool calls | Median time |
+| --- | --- | --- | --- | --- | --- |
+| This server | 9/10 | 16205 | 679 | 16 | 5.7 s |
+| doi-mcp, the most starred citation verifier | 9/10 | 17165 | 630 | 12 | 3.9 s |
 <!-- bench:end -->
 
 ## Performance
@@ -208,16 +213,16 @@ Measured 2026-09-26 from Dubai, home connection against the live upstream, Node 
 
 | Call | First call | Repeat | Result size |
 | --- | --- | --- | --- |
-| check_references: 6 citations (retracted, invented, wrong year, borrowed DOI, arXiv-only) | 8509 ms | 2.8 ms | 2,894 chars |
-| check_references: 2 BibTeX entries with corrected BibTeX | 6384 ms | 0.7 ms | 1,059 chars |
-| lookup_work: arXiv id | 846 ms | 0.4 ms | 717 chars |
-| lookup_work: PMID of a retracted paper | 3005 ms | 0.4 ms | 1,281 chars |
-| lookup_work: DOI link | 752 ms | 0.4 ms | 1,356 chars |
-| check_retractions: 5 inputs | 1083 ms | 0.5 ms | 987 chars |
+| check_references: 6 citations (retracted, invented, wrong year, borrowed DOI, arXiv-only) | 9594 ms | 3.1 ms | 2,894 chars |
+| check_references: 2 BibTeX entries with corrected BibTeX | 7491 ms | 1.8 ms | 1,059 chars |
+| lookup_work: arXiv id | 795 ms | 0.3 ms | 717 chars |
+| lookup_work: PMID of a retracted paper | 3394 ms | 0.4 ms | 1,281 chars |
+| lookup_work: DOI link | 763 ms | 0.3 ms | 1,356 chars |
+| check_retractions: 5 inputs | 1485 ms | 0.6 ms | 987 chars |
 
 First call: a fresh server process, including the TLS connection and the upstream's own time. Repeat: the same call again, answered from the in-process cache, so it shows this server's own overhead.
 
-Tool definitions the model reads on every turn (name, description, input schema): 1,523 characters, against 2,550 for doi-mcp, the most starred citation verifier. The full tool list, with the output schemas and annotations clients use to validate results, is 3,066 characters (2,913 for the alternative).
+Tool definitions the model reads on every turn (name, description, input schema): 1,523 characters, against 2,550 for doi-mcp, the most starred citation verifier. The full tool list, with the output schemas and annotations clients use to validate results, is 2,979 characters (2,913 for the alternative).
 <!-- perf:end -->
 
 ## Data sources
@@ -233,6 +238,7 @@ Tool definitions the model reads on every turn (name, description, input schema)
 
 <!-- family:start -->
 - [Drug Label](https://github.com/arhancanli/drug-label-mcp): FDA drug label answers with section citations, RxNorm name resolution, recalls and shortages.
+- [End of Life](https://github.com/arhancanli/end-of-life-mcp): Is this version still supported? EOL dates, latest patch and upgrade target for 470+ products.
 - [Internet Standards](https://github.com/arhancanli/internet-standards-mcp): RFC sections, status, obsoleted-by chains, errata and IANA registries for coding agents.
 - [Package Truth](https://github.com/arhancanli/package-truth-mcp): Checks packages exist before install: version, deprecation, vulnerabilities, licence. 7 ecosystems.
 - [Recall Check](https://github.com/arhancanli/recall-check-mcp): One recall check across CPSC, FDA and NHTSA: match by name, model number, UPC or VIN.

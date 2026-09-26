@@ -1,0 +1,62 @@
+{
+  "measured_on": "2026-09-26",
+  "where": "Dubai, home connection",
+  "node": "v24.19.0",
+  "runs": 3,
+  "tool_definition_chars": 1706,
+  "tools_list_chars": 3165,
+  "competitor": {
+    "label": "endoflife-mcp, the only published end-of-life server",
+    "tool_definition_chars": 6734,
+    "tools_list_chars": 8958
+  },
+  "scenarios": [
+    {
+      "call": "check_project: Dockerfile, .nvmrc, a CI workflow, pyproject",
+      "first_call_ms": 1853,
+      "repeat_ms": 2.6,
+      "result_chars": 3869
+    },
+    {
+      "call": "check_versions: 6 named versions",
+      "first_call_ms": 2154,
+      "repeat_ms": 3.1,
+      "result_chars": 1694
+    },
+    {
+      "call": "product_lifecycle: Node.js",
+      "first_call_ms": 892,
+      "repeat_ms": 1.2,
+      "result_chars": 997
+    }
+  ],
+  "example": {
+    "call": "check_project: Dockerfile, .nvmrc, a CI workflow, pyproject",
+    "tool": "check_project",
+    "arguments": {
+      "files": [
+        {
+          "path": "Dockerfile",
+          "content": "FROM node:18-alpine3.17 AS build\nFROM python:3.8-slim-bullseye\n"
+        },
+        {
+          "path": ".nvmrc",
+          "content": "lts/hydrogen\n"
+        },
+        {
+          "path": ".github/workflows/ci.yml",
+          "content": "jobs:\n  test:\n    runs-on: ubuntu-20.04\n    strategy:\n      matrix:\n        node: [20, 22, 24]\n"
+        },
+        {
+          "path": "pyproject.toml",
+          "content": "[project]\nrequires-python = \">=3.10\"\n"
+        },
+        {
+          "path": "README.md",
+          "content": "hello"
+        }
+      ]
+    },
+    "result": "{\"counts\":{\"end_of_life\":5,\"extended_only\":2,\"security_only\":2,\"supported\":1},\"results\":[{\"product\":\"nodejs\",\"version\":\"18\",\"cycle\":\"18\",\"status\":\"end_of_life\",\"lts\":true,\"eol\":\"2025-04-30\",\"active_until\":\"2023-10-18\",\"latest\":\"18.20.8\",\"link\":\"https://endoflife.date/nodejs\",\"upgrade_to\":{\"cycle\":\"24\",\"latest\":\"24.21.0\",\"lts\":true},\"nearest_supported\":{\"cycle\":\"22\",\"latest\":\"22.23.3\",\"eol\":\"2027-04-30\"},\"file\":\"Dockerfile\",\"line\":1,\"found\":\"FROM node:18-alpine3.17 AS build\"},{\"product\":\"alpine-linux\",\"version\":\"3.17\",\"cycle\":\"3.17\",\"status\":\"end_of_life\",\"eol\":\"2024-11-22\",\"latest\":\"3.17.10\",\"link\":\"https://endoflife.date/alpine-linux\",\"upgrade_to\":{\"cycle\":\"3.24\",\"latest\":\"3.24.2\"},\"nearest_supported\":{\"cycle\":\"3.21\",\"latest\":\"3.21.8\",\"eol\":\"2026-11-01\"},\"file\":\"Dockerfile\",\"line\":1,\"found\":\"FROM node:18-alpine3.17 AS build\"},{\"product\":\"python\",\"version\":\"3.8\",\"cycle\":\"3.8\",\"status\":\"end_of_life\",\"eol\":\"2024-10-07\",\"active_until\":\"2021-05-03\",\"latest\":\"3.8.20\",\"link\":\"https://endoflife.date/python\",\"upgrade_to\":{\"cycle\":\"3.14\",\"latest\":\"3.14.7\"},\"nearest_supported\":{\"cycle\":\"3.10\",\"latest\":\"3.10.21\",\"eol\":\"2026-10-31\"},\"file\":\"Dockerfile\",\"line\":2,\"found\":\"FROM python:3.8-slim-bullseye\"},{\"product\":\"nodejs\",\"version\":\"18\",\"cycle\":\"18\",\"status\":\"end_of_life\",\"lts\":true,\"eol\":\"2025-04-30\",\"active_until\":\"2023-10-18\",\"latest\":\"18.20.8\",\"link\":\"https://endoflife.date/nodejs\",\"upgrade_to\":{\"cycle\":\"24\",\"latest\":\"24.21.0\",\"lts\":true},\"nearest_supported\":{\"cycle\":\"22\",\"latest\":\"22.23.3\",\"eol\":\"2027-04-30\"},\"file\":\".nvmrc\",\"line\":1,\"found\":\"lts/hydrogen\"},{\"product\":\"nodejs\",\"version\":\"20\",\"cycle\":\"20\",\"status\":\"end_of_life\",\"lts\":true,\"eol\":\"2026-04-30\",\"active_until\":\"2024-10-22\",\"latest\":\"20.20.2\",\"link\":\"https://endoflife.date/nodejs\",\"upgrade_to\":{\"cycle\":\"24\",\"latest\":\"24.21.0\",\"lts\":true},\"nearest_supported\":{\"cycle\":\"22\",\"latest\":\"22.23.3\",\"eol\":\"2027-04-30\"},\"file\":\".github/workflows/ci.yml\",\"line\":6,\"found\":\"node: [20, 22, 24]\"},{\"product\":\"debian\",\"version\":\"11\",\"cycle\":\"11\",\"status\":\"extended_only\",\"eol\":\"2026-08-31\",\"days_left\":1738,\"active_until\":\"2024-08-14\",\"extended_until\":\"2031-06-30\",\"latest\":\"11.11\",\"link\":\"https://endoflife.date/debian\",\"upgrade_to\":{\"cycle\":\"13\",\"latest\":\"13.7\"},\"nearest_supported\":{\"cycle\":\"12\",\"latest\":\"12.15\",\"eol\":\"2028-06-30\"},\"file\":\"Dockerfile\",\"line\":2,\"found\":\"FROM python:3.8-slim-bullseye\"},{\"product\":\"ubuntu\",\"version\":\"20.04\",\"cycle\":\"20.04\",\"status\":\"extended_only\",\"lts\":true,\"eol\":\"2025-05-31\",\"days_left\":1305,\"active_until\":\"2022-10-01\",\"extended_until\":\"2030-04-23\",\"latest\":\"20.04.6\",\"link\":\"https://endoflife.date/ubuntu\",\"upgrade_to\":{\"cycle\":\"26.04\",\"latest\":\"26.04.1\",\"lts\":true},\"nearest_supported\":{\"cycle\":\"22.04\",\"latest\":\"22.04.5\",\"eol\":\"2027-06-01\"},\"file\":\".github/workflows/ci.yml\",\"line\":3,\"found\":\"runs-on: ubuntu-20.04\"},{\"product\":\"nodejs\",\"version\":\"22\",\"cycle\":\"22\",\"status\":\"security_only\",\"lts\":true,\"eol\":\"2027-04-30\",\"days_left\":216,\"active_until\":\"2025-10-21\",\"latest\":\"22.23.3\",\"link\":\"https://endoflife.date/nodejs\",\"upgrade_to\":{\"cycle\":\"24\",\"latest\":\"24.21.0\",\"lts\":true},\"file\":\".github/workflows/ci.yml\",\"line\":6,\"found\":\"node: [20, 22, 24]\"},{\"product\":\"python\",\"version\":\"3.10\",\"cycle\":\"3.10\",\"status\":\"security_only\",\"eol\":\"2026-10-31\",\"days_left\":35,\"active_until\":\"2023-04-05\",\"latest\":\"3.10.21\",\"link\":\"https://endoflife.date/python\",\"upgrade_to\":{\"cycle\":\"3.14\",\"latest\":\"3.14.7\"},\"nearest_supported\":{\"cycle\":\"3.11\",\"latest\":\"3.11.16\",\"eol\":\"2027-10-31\"},\"file\":\"pyproject.toml\",\"line\":2,\"found\":\"requires-python = \\\">=3.10\\\"\"},{\"product\":\"nodejs\",\"version\":\"24\",\"cycle\":\"24\",\"status\":\"supported\",\"lts\":true,\"eol\":\"2028-04-30\",\"days_left\":582,\"active_until\":\"2026-10-20\",\"latest\":\"24.21.0\",\"link\":\"https://endoflife.date/nodejs\",\"file\":\".github/workflows/ci.yml\",\"line\":6,\"found\":\"node: [20, 22, 24]\"}],\"unrecognised_files\":[\"README.md\"]}"
+  }
+}

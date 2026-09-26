@@ -12,8 +12,8 @@ Every number below is filled in from the server's measured files when this kit i
   ("slopsquatting"). In a USENIX Security 2025 study of 16 code models, 19.7% of recommended
   packages did not exist.
 - Proof: tool definitions of 1,806 characters per turn against 5,496
-  for package-version-check-mcp, the best maintained alternative (67% smaller); first calls 1.3 to 2.2 s from
-  Dubai, home connection; repeats under 3.2 ms.
+  for package-version-check-mcp, the best maintained alternative (67% smaller); first calls 1.4 to 2.1 s from
+  Dubai, home connection; repeats under 4.4 ms.
 
 ## Show HN
 
@@ -92,5 +92,5 @@ measured against the best alternative before release. https://github.com/arhanca
 
 ## Cross-links
 
-Mention the collection in every post footer where it fits: 6 servers so far,
-each measured before release: https://github.com/topics/arhancanli-mcp. Related: Citation Check (https://github.com/arhancanli/citation-check-mcp), Drug Label (https://github.com/arhancanli/drug-label-mcp), Internet Standards (https://github.com/arhancanli/internet-standards-mcp).
+Mention the collection in every post footer where it fits: 7 servers so far,
+each measured before release: https://github.com/topics/arhancanli-mcp. Related: Citation Check (https://github.com/arhancanli/citation-check-mcp), Drug Label (https://github.com/arhancanli/drug-label-mcp), End of Life (https://github.com/arhancanli/end-of-life-mcp).

@@ -165,7 +165,11 @@ at night), `naip` (US aerial, about 1 m, 2010 to 2022).
 ## Benchmark
 
 <!-- bench:start -->
-Not yet measured.
+Measured 2026-09-26 with gpt-5.4-mini, 10 fixed tasks graded by fixed checks (`bench/tasks.json`, raw results in `bench/results/`).
+
+| Server | Correct | Input tokens | Output tokens | Tool calls | Median time |
+| --- | --- | --- | --- | --- | --- |
+| This server | 7/10 | 17936 | 1039 | 15 | 3.9 s |
 <!-- bench:end -->
 
 ## Performance
@@ -175,15 +179,15 @@ Measured 2026-09-26 from Dubai, home connection against the live upstream, Node 
 
 | Call | First call | Repeat | Result size |
 | --- | --- | --- | --- |
-| find_imagery: Sentinel-2 around a point in Dubai, 8 weeks | 2124 ms | 0.7 ms | 1,971 chars |
-| find_imagery: Landsat over San Francisco, a summer | 1746 ms | 0.6 ms | 1,647 chars |
-| find_imagery: Sentinel-1 radar over London, newest first | 1754 ms | 0.9 ms | 1,292 chars |
-| scene_assets: one Sentinel-2 scene | 1224 ms | 0.5 ms | 5,602 chars |
-| find_imagery: open ocean, no cloud allowed | 962 ms | 0.2 ms | 441 chars |
+| find_imagery: Sentinel-2 around a point in Dubai, 8 weeks | 2157 ms | 1.4 ms | 1,971 chars |
+| find_imagery: Landsat over San Francisco, a summer | 1249 ms | 0.8 ms | 1,647 chars |
+| find_imagery: Sentinel-1 radar over London, newest first | 1273 ms | 1 ms | 1,292 chars |
+| scene_assets: one Sentinel-2 scene | 726 ms | 0.7 ms | 5,602 chars |
+| find_imagery: open ocean, no cloud allowed | 451 ms | 0.3 ms | 441 chars |
 
 First call: a fresh server process, including the TLS connection and the upstream's own time. Repeat: the same call again, answered from the in-process cache, so it shows this server's own overhead.
 
-Tool definitions the model reads on every turn (name, description, input schema): 1,731 characters, against 2,776 for planetary-computer-mcp (run with mcp<2 pinned; its default install fails to start). The full tool list, with the output schemas and annotations clients use to validate results, is 2,699 characters (4,812 for the alternative).
+Tool definitions the model reads on every turn (name, description, input schema): 1,731 characters, against 2,776 for planetary-computer-mcp (run with mcp<2 pinned; its default install fails to start). The full tool list, with the output schemas and annotations clients use to validate results, is 2,641 characters (4,812 for the alternative).
 <!-- perf:end -->
 
 ## Data sources
@@ -198,6 +202,7 @@ Tool definitions the model reads on every turn (name, description, input schema)
 <!-- family:start -->
 - [Citation Check](https://github.com/arhancanli/citation-check-mcp): Verifies citations: finds fabricated or mismatched references and retractions, returns clean BibTeX.
 - [Drug Label](https://github.com/arhancanli/drug-label-mcp): FDA drug label answers with section citations, RxNorm name resolution, recalls and shortages.
+- [End of Life](https://github.com/arhancanli/end-of-life-mcp): Is this version still supported? EOL dates, latest patch and upgrade target for 470+ products.
 - [Internet Standards](https://github.com/arhancanli/internet-standards-mcp): RFC sections, status, obsoleted-by chains, errata and IANA registries for coding agents.
 - [Package Truth](https://github.com/arhancanli/package-truth-mcp): Checks packages exist before install: version, deprecation, vulnerabilities, licence. 7 ecosystems.
 - [Recall Check](https://github.com/arhancanli/recall-check-mcp): One recall check across CPSC, FDA and NHTSA: match by name, model number, UPC or VIN.

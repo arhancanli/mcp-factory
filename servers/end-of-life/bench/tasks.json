@@ -1,0 +1,19 @@
+{
+  "competitor": {
+    "label": "endoflife-mcp, the only published end-of-life server",
+    "command": "npx",
+    "args": ["-y", "endoflife-mcp"]
+  },
+  "tasks": [
+    { "id": "python38", "prompt": "Is Python 3.8 still receiving security fixes as of 2026-09-26? Answer yes or no.", "expect": { "regex": "^no\\b" } },
+    { "id": "python38-eol", "prompt": "On what date did Python 3.8 reach end of life? Give YYYY-MM-DD only.", "expect": { "contains": ["2024-10-07"] } },
+    { "id": "node18-upgrade", "prompt": "A project pins Node.js 18. Which Node.js LTS major version should it upgrade to as of 2026-09-26 (the newest LTS)? Give the major version number only.", "expect": { "number": 24 } },
+    { "id": "node18-nearest", "prompt": "A project on Node.js 18 wants the smallest upgrade to a major version that still gets security fixes as of 2026-09-26. Which major version? Give the number only.", "expect": { "number": 22 } },
+    { "id": "nvmrc", "prompt": "A repository's .nvmrc says 'lts/hydrogen'. Which Node.js major version is that? Give the number only.", "expect": { "number": 18 } },
+    { "id": "bullseye", "prompt": "A Dockerfile says FROM python:3.8-slim-bullseye. Which Debian version is the image based on? Give the version number only.", "expect": { "number": 11 } },
+    { "id": "postgres13", "prompt": "Is PostgreSQL 13 end of life as of 2026-09-26? Answer yes or no.", "expect": { "regex": "^yes\\b" } },
+    { "id": "ubuntu2004", "prompt": "Does Ubuntu 20.04 still get standard (free) security updates as of 2026-09-26, or only paid extended support? Answer standard or extended.", "expect": { "contains": ["extended"] } },
+    { "id": "django42-latest", "prompt": "What is the latest patch release of Django 4.2? Give the version only.", "expect": { "regex": "^4\\.2\\.\\d+$" } },
+    { "id": "alpine317", "prompt": "Is Alpine Linux 3.17 still supported as of 2026-09-26? Answer yes or no.", "expect": { "regex": "^no\\b" } }
+  ]
+}

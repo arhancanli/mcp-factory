@@ -152,6 +152,7 @@ for (const dir of targets) {
       assert.ok(t.description && t.description.length <= MAX_DESCRIPTION_CHARS, `${t.name} description length`);
       for (const k of ANNOTATIONS) assert.equal(typeof t.annotations?.[k], "boolean", `${t.name} annotations.${k}`);
       assert.equal(t.outputSchema?.type, "object", `${t.name} has an output schema`);
+      assert.ok(!JSON.stringify(t.outputSchema).includes('"additionalProperties":false'), `${t.name}'s output schema forbids extra fields; clients would reject results that carry them`);
     }
   });
 

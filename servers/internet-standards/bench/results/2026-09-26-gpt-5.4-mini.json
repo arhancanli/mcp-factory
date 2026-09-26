@@ -1,0 +1,231 @@
+{
+  "date": "2026-09-26",
+  "model": "gpt-5.4-mini",
+  "competitor_label": "rfcxml-mcp, the most active RFC server",
+  "rows": {
+    "ours": [
+      {
+        "id": "obsolete-chain",
+        "correct": true,
+        "tool_calls": 1,
+        "input": 1583,
+        "output": 36,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 3014
+      },
+      {
+        "id": "is-current",
+        "correct": true,
+        "tool_calls": 1,
+        "input": 1517,
+        "output": 26,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 2101
+      },
+      {
+        "id": "section-title",
+        "correct": false,
+        "tool_calls": 4,
+        "input": 4754,
+        "output": 123,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 7435
+      },
+      {
+        "id": "status-418",
+        "correct": false,
+        "tool_calls": 5,
+        "input": 3966,
+        "output": 169,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 10209
+      },
+      {
+        "id": "media-type-ref",
+        "correct": false,
+        "tool_calls": 3,
+        "input": 3508,
+        "output": 83,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 16821
+      },
+      {
+        "id": "port",
+        "correct": true,
+        "tool_calls": 2,
+        "input": 2069,
+        "output": 56,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 3822
+      },
+      {
+        "id": "bcp14",
+        "correct": true,
+        "tool_calls": 1,
+        "input": 1634,
+        "output": 50,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 2182
+      },
+      {
+        "id": "errata",
+        "correct": false,
+        "tool_calls": 5,
+        "input": 4974,
+        "output": 175,
+        "cache_read": 1152,
+        "cache_write": 0,
+        "ms": 6299
+      },
+      {
+        "id": "draft",
+        "correct": true,
+        "tool_calls": 1,
+        "input": 1590,
+        "output": 34,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 1816
+      },
+      {
+        "id": "cipher",
+        "correct": false,
+        "tool_calls": 4,
+        "input": 3937,
+        "output": 140,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 6012
+      }
+    ],
+    "competitor": [
+      {
+        "id": "obsolete-chain",
+        "correct": false,
+        "tool_calls": 7,
+        "input": 10288,
+        "output": 213,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 16046
+      },
+      {
+        "id": "is-current",
+        "correct": true,
+        "tool_calls": 2,
+        "input": 7742,
+        "output": 60,
+        "cache_read": 2176,
+        "cache_write": 0,
+        "ms": 5040
+      },
+      {
+        "id": "section-title",
+        "correct": true,
+        "tool_calls": 1,
+        "input": 12154,
+        "output": 35,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 2818
+      },
+      {
+        "id": "status-418",
+        "correct": false,
+        "tool_calls": 1,
+        "input": 2439,
+        "output": 35,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 2891
+      },
+      {
+        "id": "media-type-ref",
+        "correct": false,
+        "tool_calls": 4,
+        "input": 18790,
+        "output": 123,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 7359
+      },
+      {
+        "id": "port",
+        "correct": true,
+        "tool_calls": 3,
+        "input": 3354,
+        "output": 99,
+        "cache_read": 1664,
+        "cache_write": 0,
+        "ms": 5279
+      },
+      {
+        "id": "bcp14",
+        "correct": true,
+        "tool_calls": 3,
+        "input": 3333,
+        "output": 91,
+        "cache_read": 1152,
+        "cache_write": 0,
+        "ms": 6042
+      },
+      {
+        "id": "errata",
+        "correct": false,
+        "tool_calls": 3,
+        "input": 7613,
+        "output": 91,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 3657
+      },
+      {
+        "id": "draft",
+        "correct": true,
+        "tool_calls": 1,
+        "input": 12148,
+        "output": 34,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 2113
+      },
+      {
+        "id": "cipher",
+        "correct": true,
+        "tool_calls": 2,
+        "input": 131550,
+        "output": 84,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 5560
+      }
+    ]
+  },
+  "summary": {
+    "ours": {
+      "tasks": 10,
+      "correct": 5,
+      "tokens_in": 30684,
+      "tokens_out": 892,
+      "cached_share": 0.038,
+      "tool_calls": 27,
+      "median_ms": 6012
+    },
+    "competitor": {
+      "tasks": 10,
+      "correct": 6,
+      "tokens_in": 214403,
+      "tokens_out": 865,
+      "cached_share": 0.023,
+      "tool_calls": 27,
+      "median_ms": 5279
+    }
+  }
+}

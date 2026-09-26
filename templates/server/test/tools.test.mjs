@@ -19,6 +19,8 @@ async function connect(routes) {
   const [a, b] = InMemoryTransport.createLinkedPair();
   const client = new Client({ name: "golden", version: "0" });
   await Promise.all([server.connect(a), client.connect(b)]);
+  // Like a real client: once the tools are listed, every result is validated against its schema.
+  await client.listTools();
   return client;
 }
 

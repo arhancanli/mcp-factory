@@ -4,7 +4,7 @@
   "node": "v24.19.0",
   "runs": 3,
   "tool_definition_chars": 2119,
-  "tools_list_chars": 3726,
+  "tools_list_chars": 3610,
   "competitor": {
     "label": "rfcxml-mcp, the most active RFC server",
     "tool_definition_chars": 3643,
@@ -13,50 +13,50 @@
   "scenarios": [
     {
       "call": "rfc_info: RFC 2616, BCP 14, a draft name and a missing number",
-      "first_call_ms": 1576,
-      "repeat_ms": 2,
+      "first_call_ms": 1814,
+      "repeat_ms": 0.6,
       "result_chars": 2055
     },
     {
       "call": "rfc_section: RFC 9110 section 12.5.1 with its errata",
-      "first_call_ms": 2277,
-      "repeat_ms": 1.5,
+      "first_call_ms": 1868,
+      "repeat_ms": 0.5,
       "result_chars": 6171
     },
     {
       "call": "rfc_section: RFC 7231 section 6.5.4 (paginated, obsolete)",
-      "first_call_ms": 1593,
-      "repeat_ms": 0.7,
+      "first_call_ms": 2795,
+      "repeat_ms": 0.4,
       "result_chars": 997
     },
     {
       "call": "rfc_section: find a phrase in RFC 9110",
-      "first_call_ms": 569,
-      "repeat_ms": 5.6,
+      "first_call_ms": 636,
+      "repeat_ms": 4.6,
       "result_chars": 5094
     },
     {
       "call": "search_rfcs: http semantics",
-      "first_call_ms": 1485,
-      "repeat_ms": 8.2,
+      "first_call_ms": 1212,
+      "repeat_ms": 3.6,
       "result_chars": 1190
     },
     {
       "call": "iana_lookup: HTTP status 418",
-      "first_call_ms": 237,
+      "first_call_ms": 358,
       "repeat_ms": 0.4,
       "result_chars": 245
     },
     {
       "call": "iana_lookup: media type application/json",
-      "first_call_ms": 580,
-      "repeat_ms": 0.8,
+      "first_call_ms": 278,
+      "repeat_ms": 0.6,
       "result_chars": 206
     },
     {
       "call": "iana_lookup: port 5432",
-      "first_call_ms": 282,
-      "repeat_ms": 3.1,
+      "first_call_ms": 480,
+      "repeat_ms": 1.1,
       "result_chars": 497
     }
   ],

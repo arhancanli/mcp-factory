@@ -183,7 +183,12 @@ and gets back (recorded from the live server on 2026-09-26):
 ## Benchmark
 
 <!-- bench:start -->
-Not yet measured.
+Measured 2026-09-26 with gpt-5.4-mini, 10 fixed tasks graded by fixed checks (`bench/tasks.json`, raw results in `bench/results/`).
+
+| Server | Correct | Input tokens | Output tokens | Tool calls | Median time |
+| --- | --- | --- | --- | --- | --- |
+| This server | 5/10 | 30684 | 892 | 27 | 6.0 s |
+| rfcxml-mcp, the most active RFC server | 6/10 | 214403 | 865 | 27 | 5.3 s |
 <!-- bench:end -->
 
 ## Performance
@@ -193,18 +198,18 @@ Measured 2026-09-26 from Dubai, home connection against the live upstream, Node 
 
 | Call | First call | Repeat | Result size |
 | --- | --- | --- | --- |
-| rfc_info: RFC 2616, BCP 14, a draft name and a missing number | 1576 ms | 2 ms | 2,055 chars |
-| rfc_section: RFC 9110 section 12.5.1 with its errata | 2277 ms | 1.5 ms | 6,171 chars |
-| rfc_section: RFC 7231 section 6.5.4 (paginated, obsolete) | 1593 ms | 0.7 ms | 997 chars |
-| rfc_section: find a phrase in RFC 9110 | 569 ms | 5.6 ms | 5,094 chars |
-| search_rfcs: http semantics | 1485 ms | 8.2 ms | 1,190 chars |
-| iana_lookup: HTTP status 418 | 237 ms | 0.4 ms | 245 chars |
-| iana_lookup: media type application/json | 580 ms | 0.8 ms | 206 chars |
-| iana_lookup: port 5432 | 282 ms | 3.1 ms | 497 chars |
+| rfc_info: RFC 2616, BCP 14, a draft name and a missing number | 1814 ms | 0.6 ms | 2,055 chars |
+| rfc_section: RFC 9110 section 12.5.1 with its errata | 1868 ms | 0.5 ms | 6,171 chars |
+| rfc_section: RFC 7231 section 6.5.4 (paginated, obsolete) | 2795 ms | 0.4 ms | 997 chars |
+| rfc_section: find a phrase in RFC 9110 | 636 ms | 4.6 ms | 5,094 chars |
+| search_rfcs: http semantics | 1212 ms | 3.6 ms | 1,190 chars |
+| iana_lookup: HTTP status 418 | 358 ms | 0.4 ms | 245 chars |
+| iana_lookup: media type application/json | 278 ms | 0.6 ms | 206 chars |
+| iana_lookup: port 5432 | 480 ms | 1.1 ms | 497 chars |
 
 First call: a fresh server process, including the TLS connection and the upstream's own time. Repeat: the same call again, answered from the in-process cache, so it shows this server's own overhead.
 
-Tool definitions the model reads on every turn (name, description, input schema): 2,119 characters, against 3,643 for rfcxml-mcp, the most active RFC server. The full tool list, with the output schemas and annotations clients use to validate results, is 3,726 characters (3,636 for the alternative).
+Tool definitions the model reads on every turn (name, description, input schema): 2,119 characters, against 3,643 for rfcxml-mcp, the most active RFC server. The full tool list, with the output schemas and annotations clients use to validate results, is 3,610 characters (3,636 for the alternative).
 <!-- perf:end -->
 
 ## Data sources
@@ -216,6 +221,7 @@ Tool definitions the model reads on every turn (name, description, input schema)
 ## More MCP servers by Arhan Canli
 
 <!-- family:start -->
+- [End of Life](https://github.com/arhancanli/end-of-life-mcp): Is this version still supported? EOL dates, latest patch and upgrade target for 470+ products.
 - [Package Truth](https://github.com/arhancanli/package-truth-mcp): Checks packages exist before install: version, deprecation, vulnerabilities, licence. 7 ecosystems.
 - [Citation Check](https://github.com/arhancanli/citation-check-mcp): Verifies citations: finds fabricated or mismatched references and retractions, returns clean BibTeX.
 - [Drug Label](https://github.com/arhancanli/drug-label-mcp): FDA drug label answers with section citations, RxNorm name resolution, recalls and shortages.
