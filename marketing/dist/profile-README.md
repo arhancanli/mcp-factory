@@ -1,6 +1,6 @@
 # Arhan Canli
 
-I build MCP servers that are measured against the best alternative before they ship: correct answers, small tool lists, fast first calls. 3 so far, each in its own repository, all MIT.
+I build MCP servers that are measured against the best alternative before they ship: correct answers, small tool lists, fast first calls. 4 so far, each in its own repository, all MIT.
 
 **Developer tools**
 
@@ -10,5 +10,9 @@ I build MCP servers that are measured against the best alternative before they s
 **Science and research**
 
 - [Citation Check](https://github.com/arhancanli/citation-check-mcp): Verifies citations: finds fabricated or mismatched references and retractions, returns clean BibTeX.
+
+**Health and medicine**
+
+- [Drug Label](https://github.com/arhancanli/drug-label-mcp): FDA drug label answers with section citations, RxNorm name resolution, recalls and shortages.
 
 All of them: [github.com/topics/arhancanli-mcp](https://github.com/topics/arhancanli-mcp)

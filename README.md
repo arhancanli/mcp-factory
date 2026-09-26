@@ -27,6 +27,12 @@ Every server here:
 | Server | What it does | Run |
 | --- | --- | --- |
 | [Citation Check](https://github.com/arhancanli/citation-check-mcp) | Verifies citations: finds fabricated or mismatched references and retractions, returns clean BibTeX. | `npx -y citation-check-mcp` |
+
+### Health and medicine
+
+| Server | What it does | Run |
+| --- | --- | --- |
+| [Drug Label](https://github.com/arhancanli/drug-label-mcp) | FDA drug label answers with section citations, RxNorm name resolution, recalls and shortages. | `npx -y drug-label-mcp` |
 <!-- servers:end -->
 
 ## How they are made

@@ -1,0 +1,19 @@
+{
+  "competitor": {
+    "label": "@ythalorossy/openfda, the most downloaded openFDA server",
+    "command": "npx",
+    "args": ["-y", "@ythalorossy/openfda"]
+  },
+  "tasks": [
+    { "id": "boxed-warning", "prompt": "What is the title of the boxed warning on the FDA label for warfarin? Give the heading only.", "expect": { "contains": ["bleeding risk"] } },
+    { "id": "no-boxed-warning", "prompt": "Does the FDA label for Lipitor carry a boxed warning? Answer yes or no.", "expect": { "regex": "^no\\b" } },
+    { "id": "grapefruit", "prompt": "According to the Lipitor label, above what daily amount of grapefruit juice is intake not recommended? Give the amount only.", "expect": { "contains": ["1.2"] } },
+    { "id": "contraindication", "prompt": "According to the FDA label, below what eGFR is metformin contraindicated? Give the number only.", "expect": { "number": 30 } },
+    { "id": "spelling", "prompt": "What is the generic name of the drug a patient wrote as 'atorvastatn'? Give only the name.", "expect": { "contains": ["atorvastatin"] } },
+    { "id": "brand-of", "prompt": "Name one brand name for atorvastatin sold in the US. Give only the brand.", "expect": { "any": ["lipitor", "atorvaliq"] } },
+    { "id": "originator", "prompt": "Which company's label is the original (NDA) label for Lipitor? Give the company name only.", "expect": { "contains": ["viatris"] } },
+    { "id": "drug-class", "prompt": "What is the FDA established pharmacologic class of atorvastatin? Give the class only.", "expect": { "contains": ["hmg-coa reductase inhibitor"] } },
+    { "id": "recall-class", "prompt": "What was the classification of the most recent FDA recall report for metformin? Give it as Class I, II or III.", "expect": { "regex": "class\\s+(i{1,3})\\b" } },
+    { "id": "unknown", "prompt": "Is 'zzqq-fake-drug' a drug RxNorm knows? Answer yes or no.", "expect": { "regex": "^no\\b" } }
+  ]
+}

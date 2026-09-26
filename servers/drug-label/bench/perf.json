@@ -1,0 +1,65 @@
+{
+  "measured_on": "2026-09-26",
+  "where": "Dubai, home connection",
+  "node": "v24.19.0",
+  "runs": 3,
+  "tool_definition_chars": 1958,
+  "tools_list_chars": 3935,
+  "competitor": {
+    "label": "@ythalorossy/openfda, the most downloaded openFDA server",
+    "tool_definition_chars": 23915,
+    "tools_list_chars": 24351
+  },
+  "scenarios": [
+    {
+      "call": "find_drug: atorvastatin (brand and generic manufacturers ranked)",
+      "first_call_ms": 3364,
+      "repeat_ms": 0.9,
+      "result_chars": 1560
+    },
+    {
+      "call": "find_drug: a misspelled name",
+      "first_call_ms": 3817,
+      "repeat_ms": 0.7,
+      "result_chars": 1591
+    },
+    {
+      "call": "label_section: warfarin boxed warning",
+      "first_call_ms": 4195,
+      "repeat_ms": 0.5,
+      "result_chars": 1437
+    },
+    {
+      "call": "label_section: Lipitor boxed warning (none)",
+      "first_call_ms": 4410,
+      "repeat_ms": 0.3,
+      "result_chars": 508
+    },
+    {
+      "call": "search_label: Lipitor and grapefruit",
+      "first_call_ms": 4135,
+      "repeat_ms": 0.5,
+      "result_chars": 3766
+    },
+    {
+      "call": "label_section: metformin contraindications",
+      "first_call_ms": 4541,
+      "repeat_ms": 0.6,
+      "result_chars": 1257
+    },
+    {
+      "call": "recalls_shortages: metformin",
+      "first_call_ms": 2388,
+      "repeat_ms": 0.6,
+      "result_chars": 4768
+    }
+  ],
+  "example": {
+    "call": "find_drug: atorvastatin (brand and generic manufacturers ranked)",
+    "tool": "find_drug",
+    "arguments": {
+      "name": "atorvastatin"
+    },
+    "result": "{\"rxcui\":\"83367\",\"name\":\"atorvastatin\",\"term_type\":\"IN\",\"ingredients\":[\"atorvastatin\",\"atorvastatin / ezetimibe\",\"amlodipine / atorvastatin\"],\"brands\":[\"Lipitor\",\"Atorvaliq\",\"Caduet\"],\"classes\":[{\"name\":\"Hydroxymethylglutaryl-CoA Reductase Inhibitors\",\"type\":\"MOA\"},{\"name\":\"HMG-CoA Reductase Inhibitor\",\"type\":\"EPC\"}],\"labels_total\":25,\"labels\":[{\"setid\":\"a60cc18b-0631-4cf0-b021-9f52224ece65\",\"brand\":\"Lipitor\",\"generic\":\"atorvastatin calcium\",\"manufacturer\":\"Viatris Specialty LLC\",\"application\":\"NDA020702\",\"category\":\"NDA\",\"form\":\"TABLET, FILM COATED\",\"since\":\"2024-05-01\"},{\"setid\":\"d9adb9e4-c495-9530-e5e3-7e3b01d53e4c\",\"brand\":\"ATORVASTATIN CALCIUM\",\"generic\":\"ATORVASTATIN CALCIUM\",\"manufacturer\":\"Apotex Corp.\",\"application\":\"ANDA090548\",\"category\":\"ANDA\",\"form\":\"TABLET, FILM COATED\",\"since\":\"2012-05-29\"},{\"setid\":\"901550e6-22be-68c9-eb86-f85a9c9dd998\",\"brand\":\"Atorvastatin Calcium\",\"generic\":\"Atorvastatin Calcium\",\"manufacturer\":\"Dr. Reddy's Laboratories Limited\",\"application\":\"ANDA091650\",\"category\":\"ANDA\",\"form\":\"TABLET\",\"since\":\"2012-07-17\"},{\"setid\":\"6ccdb6f3-22c7-5b48-46bc-ce4a4c65eb4d\",\"brand\":\"Atorvastatin Calcium\",\"generic\":\"Atorvastatin Calcium\",\"manufacturer\":\"Dr. Reddy's Laboratories Limited\",\"application\":\"ANDA202357\",\"category\":\"ANDA\",\"form\":\"TABLET\",\"since\":\"2012-07-17\"},{\"setid\":\"d0a0feb6-84f0-4693-a11f-eb4f7ae0a87d\",\"brand\":\"Atorvastatin Calcium\",\"generic\":\"atorvastatin calcium\",\"manufacturer\":\"Mylan Pharmaceuticals Inc.\",\"application\":\"ANDA091226\",\"category\":\"ANDA\",\"form\":\"TABLET, FILM COATED\",\"since\":\"2013-09-19\"}]}"
+  }
+}

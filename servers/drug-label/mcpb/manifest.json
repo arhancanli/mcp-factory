@@ -1,0 +1,71 @@
+{
+  "manifest_version": "0.3",
+  "name": "drug-label-mcp",
+  "display_name": "Drug Label",
+  "version": "0.1.0",
+  "description": "Answers medication questions from the official FDA label text on DailyMed with section-level citations (boxed warning, indications, contraindications, warnings, interactions, pregnancy, dosing), resolves any drug name or NDC through RxNorm, and reports openFDA recalls and shortages.",
+  "author": {
+    "name": "Arhan Canli",
+    "url": "https://github.com/arhancanli"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/arhancanli/drug-label-mcp"
+  },
+  "homepage": "https://github.com/arhancanli/drug-label-mcp#readme",
+  "documentation": "https://github.com/arhancanli/drug-label-mcp#readme",
+  "support": "https://github.com/arhancanli/drug-label-mcp/issues",
+  "license": "MIT",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "mcp-server",
+    "health-medicine",
+    "fda",
+    "drug-label",
+    "dailymed",
+    "rxnorm",
+    "openfda",
+    "medication",
+    "recalls",
+    "drug-shortages"
+  ],
+  "server": {
+    "type": "node",
+    "entry_point": "src/server.mjs",
+    "mcp_config": {
+      "command": "node",
+      "args": [
+        "${__dirname}/src/server.mjs"
+      ]
+    }
+  },
+  "tools": [
+    {
+      "name": "find_drug",
+      "description": "Identify a drug"
+    },
+    {
+      "name": "label_section",
+      "description": "Read an FDA label section"
+    },
+    {
+      "name": "recalls_shortages",
+      "description": "Drug recalls and shortages"
+    },
+    {
+      "name": "search_label",
+      "description": "Search a label for a term"
+    }
+  ],
+  "compatibility": {
+    "platforms": [
+      "darwin",
+      "win32",
+      "linux"
+    ],
+    "runtimes": {
+      "node": ">=20"
+    }
+  }
+}

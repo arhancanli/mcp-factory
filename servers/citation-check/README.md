@@ -232,6 +232,7 @@ Tool definitions the model reads on every turn (name, description, input schema)
 ## More MCP servers by Arhan Canli
 
 <!-- family:start -->
+- [Drug Label](https://github.com/arhancanli/drug-label-mcp): FDA drug label answers with section citations, RxNorm name resolution, recalls and shortages.
 - [Internet Standards](https://github.com/arhancanli/internet-standards-mcp): RFC sections, status, obsoleted-by chains, errata and IANA registries for coding agents.
 - [Package Truth](https://github.com/arhancanli/package-truth-mcp): Checks packages exist before install: version, deprecation, vulnerabilities, licence. 7 ecosystems.
 - [The whole collection](https://github.com/arhancanli/mcp-factory#servers)

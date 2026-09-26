@@ -1,0 +1,64 @@
+{
+  "name": "drug-label-mcp",
+  "version": "0.1.0",
+  "description": "Answers medication questions from the official FDA label text on DailyMed with section-level citations (boxed warning, indications, contraindications, warnings, interactions, pregnancy, dosing), resolves any drug name or NDC through RxNorm, and reports openFDA recalls and shortages.",
+  "type": "module",
+  "license": "MIT",
+  "author": {
+    "name": "Arhan Canli",
+    "url": "https://github.com/arhancanli"
+  },
+  "bin": {
+    "drug-label-mcp": "src/server.mjs"
+  },
+  "files": [
+    "src",
+    "README.md",
+    "LICENSE",
+    "npm-shrinkwrap.json"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.mjs",
+    "start": "node src/server.mjs"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "1.30.1",
+    "zod": "4.6.5"
+  },
+  "mcpName": "io.github.arhancanli/drug-label-mcp",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "mcp-server",
+    "health-medicine",
+    "fda",
+    "drug-label",
+    "dailymed",
+    "rxnorm",
+    "openfda",
+    "medication",
+    "recalls",
+    "drug-shortages"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arhancanli/drug-label-mcp.git"
+  },
+  "homepage": "https://github.com/arhancanli/drug-label-mcp#readme",
+  "bugs": {
+    "url": "https://github.com/arhancanli/drug-label-mcp/issues"
+  },
+  "factory": {
+    "displayName": "Drug Label",
+    "category": "health-medicine",
+    "allowHosts": [
+      "rxnav.nlm.nih.gov",
+      "dailymed.nlm.nih.gov",
+      "api.fda.gov"
+    ],
+    "toolListBudget": 4000
+  }
+}

@@ -36,6 +36,40 @@
       ]
     },
     {
+      "name": "drug-label-mcp",
+      "title": "Drug Label",
+      "category": "health-medicine",
+      "summary": "FDA drug label answers with section citations, RxNorm name resolution, recalls and shortages.",
+      "description": "Answers medication questions from the official FDA label text on DailyMed with section-level citations (boxed warning, indications, contraindications, warnings, interactions, pregnancy, dosing), resolves any drug name or NDC through RxNorm, and reports openFDA recalls and shortages.",
+      "version": "0.1.0",
+      "repository": "https://github.com/arhancanli/drug-label-mcp",
+      "npm": "https://www.npmjs.com/package/drug-label-mcp",
+      "mcpName": "io.github.arhancanli/drug-label-mcp",
+      "hosts": [
+        "rxnav.nlm.nih.gov",
+        "dailymed.nlm.nih.gov",
+        "api.fda.gov"
+      ],
+      "tools": [
+        {
+          "name": "find_drug",
+          "title": "Identify a drug"
+        },
+        {
+          "name": "label_section",
+          "title": "Read an FDA label section"
+        },
+        {
+          "name": "recalls_shortages",
+          "title": "Drug recalls and shortages"
+        },
+        {
+          "name": "search_label",
+          "title": "Search a label for a term"
+        }
+      ]
+    },
+    {
       "name": "internet-standards-mcp",
       "title": "Internet Standards",
       "category": "developer-tools",
