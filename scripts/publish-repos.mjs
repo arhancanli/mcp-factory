@@ -17,7 +17,18 @@ import { assertCommitted, exportServer, serverTree } from "./export.mjs";
 const OWNER_EMAIL = "315329124+arhancanli@users.noreply.github.com";
 const SIGNING_KEY = path.join(os.homedir(), ".ssh/git_signing_ed25519.pub");
 
-const sh = (cmd, args, cwd) => execFileSync(cmd, args, { cwd, encoding: "utf8", stdio: ["ignore", "pipe", "pipe"] }).trim();
+// GitHub's API drops connections now and then; gh calls that fail on the network are tried again.
+const NETWORK = /connection refused|connection reset|timeout|EOF|TLS handshake|50[234]|dial tcp/i;
+const sh = (cmd, args, cwd) => {
+  for (let attempt = 0; ; attempt++) {
+    try {
+      return execFileSync(cmd, args, { cwd, encoding: "utf8", stdio: ["ignore", "pipe", "pipe"] }).trim();
+    } catch (err) {
+      if (cmd !== "gh" || attempt >= 3 || !NETWORK.test(String(err.stderr ?? ""))) throw err;
+      execFileSync("sleep", [String(3 * (attempt + 1))]);
+    }
+  }
+};
 // Only GitHub's own "not found" answer means absent; any other failure (a dropped connection, a
 // rate limit) is retried and then raised, never read as "create it".
 const exists = (repo) => {
