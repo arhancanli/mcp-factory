@@ -87,7 +87,13 @@ test("gives up after the retry budget and reports the status, not the body", asy
 test("a hung upstream becomes upstream_timeout at the deadline", async () => {
   const hang = (_url, init) => new Promise((_, reject) => init.signal.addEventListener("abort", () => reject(init.signal.reason)));
   const { impl } = fakeFetch([hang]);
-  await rejectsWith(make(impl, { timeoutMs: 50, retries: 0 }).getJson("https://api.example.org/slow"), "upstream_timeout");
+  // AbortSignal.timeout's timer does not hold the event loop open (a server's stdio does); hold it here.
+  const hold = setTimeout(() => {}, 5_000);
+  try {
+    await rejectsWith(make(impl, { timeoutMs: 50, retries: 0 }).getJson("https://api.example.org/slow"), "upstream_timeout");
+  } finally {
+    clearTimeout(hold);
+  }
 });
 
 test("a connection failure retries, then reports upstream_unreachable", async () => {
