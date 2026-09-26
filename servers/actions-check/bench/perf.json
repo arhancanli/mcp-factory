@@ -1,0 +1,52 @@
+{
+  "measured_on": "2026-09-26",
+  "where": "Dubai, home connection",
+  "node": "v24.19.0",
+  "runs": 5,
+  "tool_definition_chars": 1450,
+  "tools_list_chars": 2689,
+  "competitor": {
+    "label": "mcp-server-fetch reading GitHub (no workflow-checking server exists; this is what agents use today)",
+    "tool_definition_chars": 1105,
+    "tools_list_chars": 1104
+  },
+  "scenarios": [
+    {
+      "call": "check_workflows: a workflow with 12 problems",
+      "first_call_ms": 1028,
+      "repeat_ms": 1.1,
+      "result_chars": 3383
+    },
+    {
+      "call": "check_workflows: a clean, pinned workflow",
+      "first_call_ms": 648,
+      "repeat_ms": 0.6,
+      "result_chars": 117
+    },
+    {
+      "call": "action_versions: 3 actions, with and without refs",
+      "first_call_ms": 1018,
+      "repeat_ms": 0.9,
+      "result_chars": 1375
+    },
+    {
+      "call": "runner_labels: 4 labels",
+      "first_call_ms": 251,
+      "repeat_ms": 0.3,
+      "result_chars": 293
+    }
+  ],
+  "example": {
+    "call": "check_workflows: a workflow with 12 problems",
+    "tool": "check_workflows",
+    "arguments": {
+      "files": [
+        {
+          "path": ".github/workflows/ci.yml",
+          "content": "name: CI\non:\n  pull_request_target:\n  push:\njobs:\n  build:\n    runs-on: ${{ matrix.os }}\n    strategy:\n      matrix:\n        os: [ubuntu-20.04, ubuntu-latest, macos-14]\n    steps:\n      - uses: actions/checkout@v3\n        with:\n          ref: ${{ github.event.pull_request.head.sha }}\n      - uses: actions/setup-node@v4.0.0\n      - uses: peaceiris/actions-gh-pages@v3\n      - uses: some-org/does-not-exist-xyz@v1\n      - run: echo \"Title: ${{ github.event.pull_request.title }}\"\n      - run: |\n          echo \"::set-output name=x::1\"\n          echo \"done\"\n"
+        }
+      ]
+    },
+    "result": "{\"actions\":[\"actions/checkout@v3 -> v3.7.0, latest v7.0.1, node16\",\"actions/setup-node@v4.0.0 -> v4.0.0, latest v7.0.0, node20\",\"peaceiris/actions-gh-pages@v3 -> v3.9.3, latest v4.1.0, node16\"],\"counts\":{\"error\":6,\"warning\":4,\"info\":2},\"findings\":[{\"level\":\"error\",\"file\":\".github/workflows/ci.yml\",\"line\":18,\"code\":\"- run: echo \\\"Title: ${{ github.event.pull_request.title }}\\\"\",\"issue\":\"Script injection: ${{ github.event.pull_request.title }} is text an outside contributor controls, expanded into a shell script.\",\"fix\":\"Pass it through an environment variable: env: VALUE: ${{ github.event.pull_request.title }} and use \\\"$VALUE\\\" in the script.\"},{\"level\":\"error\",\"file\":\".github/workflows/ci.yml\",\"line\":14,\"code\":\"ref: ${{ github.event.pull_request.head.sha }}\",\"issue\":\"pull_request_target workflow checks out the pull request's code: it runs untrusted code with the repository's secrets and a write token.\",\"fix\":\"Use pull_request for building contributed code, or keep the checkout of the base branch and never run the PR's code in this workflow.\"},{\"level\":\"error\",\"where\":\".github/workflows/ci.yml:12\",\"issue\":\"actions/checkout@v3 runs on Node 16, which GitHub has deprecated for actions.\",\"fix\":\"Update to v7.0.1 (runs on Node 24): actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1\"},{\"level\":\"error\",\"where\":\".github/workflows/ci.yml:16\",\"issue\":\"peaceiris/actions-gh-pages@v3 runs on Node 16, which GitHub has deprecated for actions.\",\"fix\":\"Update to v4.1.0 (runs on Node 24): peaceiris/actions-gh-pages@84c30a85c19949d7eee79c4ff27748b70285e453 # v4.1.0\"},{\"level\":\"error\",\"where\":\".github/workflows/ci.yml:17\",\"issue\":\"some-org/does-not-exist-xyz@v1: github.com/some-org/does-not-exist-xyz does not exist or is private.\"},{\"level\":\"error\",\"file\":\".github/workflows/ci.yml\",\"line\":7,\"issue\":\"runs-on ubuntu-20.04 (matrix.os): GitHub no longer provides this runner; jobs wait and fail.\",\"fix\":\"Use ubuntu-latest, or a current version from GitHub's runner-images list.\"},{\"level\":\"warning\",\"file\":\".github/workflows/ci.yml\",\"line\":20,\"code\":\"echo \\\"::set-output name=x::1\\\"\",\"issue\":\"Deprecated workflow command ::set-output.\",\"fix\":\"write to $GITHUB_OUTPUT instead: echo \\\"name=value\\\" >> \\\"$GITHUB_OUTPUT\\\"\"},{\"level\":\"warning\",\"where\":\".github/workflows/ci.yml:15\",\"issue\":\"actions/setup-node@v4.0.0 runs on Node 20; its latest release v7.0.0 runs on Node 24.\",\"fix\":\"Update: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0\"},{\"level\":\"warning\",\"where\":\".github/workflows/ci.yml:15\",\"issue\":\"actions/setup-node@v4.0.0 is 3 major versions behind (latest v7.0.0).\",\"fix\":\"Read its release notes, then actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0\"},{\"level\":\"warning\",\"file\":\".github/workflows/ci.yml\",\"line\":7,\"issue\":\"runs-on macos-14: deprecated; GitHub will remove it.\",\"fix\":\"Move to a current runner image.\"},{\"level\":\"info\",\"file\":\".github/workflows/ci.yml\",\"issue\":\"No permissions block: the job token gets the repository's default permissions, which may include write access.\",\"fix\":\"Add permissions: contents: read at the top, and grant more per job only where needed.\"},{\"level\":\"info\",\"issue\":\"1 third-party action is referenced by tag, which its owner can move: peaceiris/actions-gh-pages@v3.\",\"fix\":\"Pin to the commit SHA (action@<sha> # vX.Y.Z); action_versions gives the SHA of any tag.\"}]}"
+  }
+}

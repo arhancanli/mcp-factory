@@ -1,0 +1,76 @@
+{
+  "competitor": {
+    "label": "mcp-server-fetch reading GitHub (no workflow-checking server exists; this is what agents use today)",
+    "command": "uvx",
+    "args": [
+      "mcp-server-fetch"
+    ]
+  },
+  "tasks": [
+    {
+      "id": "checkout-v3-runtime",
+      "prompt": "Which Node.js runtime (as written in runs.using, e.g. node20) does actions/checkout at tag v3 use? Give it only.",
+      "expect": {
+        "regex": "node\\s*16"
+      }
+    },
+    {
+      "id": "setup-node-sha",
+      "prompt": "Which commit SHA does the tag v4.0.0 of the GitHub action actions/setup-node point to? Give the full 40-character SHA only.",
+      "expect": {
+        "contains": [
+          "8f152de45cc393bb48ce5d89d36b731f54556e65"
+        ]
+      }
+    },
+    {
+      "id": "artifact-v3",
+      "prompt": "The GitHub action actions/upload-artifact has a moving tag v3. Which exact release (vX.Y.Z) does v3 currently point to? Give it only.",
+      "expect": {
+        "regex": "^\\W*v?3\\.2\\.1\\W*$"
+      }
+    },
+    {
+      "id": "checkout-latest",
+      "prompt": "What is the latest release tag of the GitHub action actions/checkout? Give the tag only.",
+      "expect": {
+        "regex": "^\\W*v?7\\.0\\.1\\W*$"
+      }
+    },
+    {
+      "id": "checkout-latest-runtime",
+      "prompt": "Which Node.js runtime (runs.using) does the latest release of actions/checkout use? Give it only.",
+      "expect": {
+        "regex": "node\\s*24"
+      }
+    },
+    {
+      "id": "ubuntu-2004",
+      "prompt": "Does GitHub still provide the hosted runner label ubuntu-20.04 for GitHub Actions jobs? Answer yes or no.",
+      "expect": {
+        "regex": "^\\W*no\\b"
+      }
+    },
+    {
+      "id": "macos-14",
+      "prompt": "Is the GitHub-hosted runner image macos-14 marked as deprecated in GitHub's runner-images list? Answer yes or no.",
+      "expect": {
+        "regex": "^\\W*yes\\b"
+      }
+    },
+    {
+      "id": "injection-line",
+      "prompt": "Here is a GitHub Actions workflow file, .github/workflows/ci.yml:\n\nname: CI\non:\n  pull_request_target:\n  push:\njobs:\n  build:\n    runs-on: ${{ matrix.os }}\n    strategy:\n      matrix:\n        os: [ubuntu-20.04, ubuntu-latest, macos-14]\n    steps:\n      - uses: actions/checkout@v3\n        with:\n          ref: ${{ github.event.pull_request.head.sha }}\n      - uses: actions/setup-node@v4.0.0\n      - uses: peaceiris/actions-gh-pages@v3\n      - uses: some-org/does-not-exist-xyz@v1\n      - run: echo \"Title: ${{ github.event.pull_request.title }}\"\n      - run: |\n          echo \"::set-output name=x::1\"\n          echo \"done\"\n\nOn which line number is there a script injection risk from untrusted pull request text used in a run script? Give the line number only.",
+      "expect": {
+        "number": 18
+      }
+    },
+    {
+      "id": "prt-checkout-line",
+      "prompt": "Here is a GitHub Actions workflow file, .github/workflows/ci.yml:\n\nname: CI\non:\n  pull_request_target:\n  push:\njobs:\n  build:\n    runs-on: ${{ matrix.os }}\n    strategy:\n      matrix:\n        os: [ubuntu-20.04, ubuntu-latest, macos-14]\n    steps:\n      - uses: actions/checkout@v3\n        with:\n          ref: ${{ github.event.pull_request.head.sha }}\n      - uses: actions/setup-node@v4.0.0\n      - uses: peaceiris/actions-gh-pages@v3\n      - uses: some-org/does-not-exist-xyz@v1\n      - run: echo \"Title: ${{ github.event.pull_request.title }}\"\n      - run: |\n          echo \"::set-output name=x::1\"\n          echo \"done\"\n\nThis workflow uses pull_request_target. On which line does it check out the pull request's own code (the dangerous ref)? Give the line number only.",
+      "expect": {
+        "number": 14
+      }
+    }
+  ]
+}

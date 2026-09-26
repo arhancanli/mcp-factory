@@ -1,0 +1,59 @@
+{
+  "manifest_version": "0.3",
+  "name": "actions-check-mcp",
+  "display_name": "Actions Check",
+  "version": "0.1.0",
+  "description": "Checks GitHub Actions workflows the way a reviewer would: every action's version against its latest release, the commit SHA to pin it to, actions still running on deprecated Node runtimes, runner labels GitHub no longer provides, deprecated workflow commands, and script injection or pull_request_target risks, with the line and a fix for each. No key.",
+  "author": {
+    "name": "Arhan Canli",
+    "url": "https://github.com/arhancanli"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/arhancanli/actions-check-mcp"
+  },
+  "homepage": "https://github.com/arhancanli/actions-check-mcp#readme",
+  "documentation": "https://github.com/arhancanli/actions-check-mcp#readme",
+  "support": "https://github.com/arhancanli/actions-check-mcp/issues",
+  "license": "MIT",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "mcp-server",
+    "developer-tools"
+  ],
+  "server": {
+    "type": "node",
+    "entry_point": "src/server.mjs",
+    "mcp_config": {
+      "command": "node",
+      "args": [
+        "${__dirname}/src/server.mjs"
+      ]
+    }
+  },
+  "tools": [
+    {
+      "name": "action_versions",
+      "description": "Versions of an action"
+    },
+    {
+      "name": "check_workflows",
+      "description": "Review GitHub Actions workflows"
+    },
+    {
+      "name": "runner_labels",
+      "description": "GitHub-hosted runner labels"
+    }
+  ],
+  "compatibility": {
+    "platforms": [
+      "darwin",
+      "win32",
+      "linux"
+    ],
+    "runtimes": {
+      "node": ">=20"
+    }
+  }
+}

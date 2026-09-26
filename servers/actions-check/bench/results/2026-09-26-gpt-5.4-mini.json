@@ -1,0 +1,384 @@
+{
+  "date": "2026-09-26",
+  "model": "gpt-5.4-mini",
+  "competitor_label": "mcp-server-fetch reading GitHub (no workflow-checking server exists; this is what agents use today)",
+  "rows": {
+    "ours": [
+      {
+        "id": "checkout-v3-runtime",
+        "correct": true,
+        "answer": "node16",
+        "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "action_versions",
+            "args": "{\"actions\":[\"actions/checkout@v3\"]}"
+          }
+        ],
+        "input": 1204,
+        "output": 30,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 2522
+      },
+      {
+        "id": "setup-node-sha",
+        "correct": true,
+        "answer": "8f152de45cc393bb48ce5d89d36b731f54556e65",
+        "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "action_versions",
+            "args": "{\"actions\":[\"actions/setup-node@v4.0.0\"]}"
+          }
+        ],
+        "input": 1199,
+        "output": 55,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 2079
+      },
+      {
+        "id": "artifact-v3",
+        "correct": true,
+        "answer": "v3.2.1",
+        "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "action_versions",
+            "args": "{\"actions\":[\"actions/upload-artifact@v3\"]}"
+          }
+        ],
+        "input": 1228,
+        "output": 35,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 2635
+      },
+      {
+        "id": "checkout-latest",
+        "correct": true,
+        "answer": "v7.0.1",
+        "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "action_versions",
+            "args": "{\"actions\":[\"actions/checkout\"]}"
+          }
+        ],
+        "input": 1075,
+        "output": 31,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 1659
+      },
+      {
+        "id": "checkout-latest-runtime",
+        "correct": true,
+        "answer": "node24",
+        "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "action_versions",
+            "args": "{\"actions\":[\"actions/checkout\"]}"
+          }
+        ],
+        "input": 1081,
+        "output": 27,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 1542
+      },
+      {
+        "id": "ubuntu-2004",
+        "correct": true,
+        "answer": "no",
+        "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "runner_labels",
+            "args": "{\"labels\":[\"ubuntu-20.04\"]}"
+          }
+        ],
+        "input": 977,
+        "output": 28,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 1696
+      },
+      {
+        "id": "macos-14",
+        "correct": true,
+        "answer": "yes",
+        "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "runner_labels",
+            "args": "{\"labels\":[\"macos-14\"]}"
+          }
+        ],
+        "input": 956,
+        "output": 27,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 1570
+      },
+      {
+        "id": "injection-line",
+        "correct": true,
+        "answer": "18",
+        "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "check_workflows",
+            "args": "{\"files\":[{\"path\":\".github/workflows/ci.yml\",\"content\":\"name: CI\\non:\\n  pull_request_target:\\n  push:\\njobs:\\n  build:\\n    runs-on: ${{ matrix.os }}\\n    strategy:\\n      matrix:\\n        os: [ubuntu-20.04, ubuntu-latest, macos-14]\\n    steps:\\n      - uses: actions/checkout@v3\\n        with:\\n   "
+          }
+        ],
+        "input": 2473,
+        "output": 223,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 3892
+      },
+      {
+        "id": "prt-checkout-line",
+        "correct": false,
+        "answer": "13",
+        "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "check_workflows",
+            "args": "{\"files\":[{\"path\":\".github/workflows/ci.yml\",\"content\":\"name: CI\\non:\\n  pull_request_target:\\n  push:\\njobs:\\n  build:\\n    runs-on: ${{ matrix.os }}\\n    strategy:\\n      matrix:\\n        os: [ubuntu-20.04, ubuntu-latest, macos-14]\\n    steps:\\n      - uses: actions/checkout@v3\\n        with:\\n   "
+          }
+        ],
+        "input": 815,
+        "output": 221,
+        "cache_read": 1664,
+        "cache_write": 0,
+        "ms": 3180
+      }
+    ],
+    "competitor": [
+      {
+        "id": "checkout-v3-runtime",
+        "correct": true,
+        "answer": "node16",
+        "tool_calls": 2,
+        "trace": [
+          {
+            "tool": "fetch",
+            "args": "{\"url\":\"https://raw.githubusercontent.com/actions/checkout/v3/action.yml\",\"max_length\":4000}"
+          },
+          {
+            "tool": "fetch",
+            "args": "{\"url\":\"https://raw.githubusercontent.com/actions/checkout/v3/action.yml\",\"start_index\":4000,\"max_length\":4000}"
+          }
+        ],
+        "input": 972,
+        "output": 79,
+        "cache_read": 2304,
+        "cache_write": 0,
+        "ms": 4198
+      },
+      {
+        "id": "setup-node-sha",
+        "correct": true,
+        "answer": "8f152de45cc393bb48ce5d89d36b731f54556e65",
+        "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "fetch",
+            "args": "{\"url\":\"https://api.github.com/repos/actions/setup-node/git/ref/tags/v4.0.0\",\"max_length\":4000}"
+          }
+        ],
+        "input": 980,
+        "output": 68,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 2684
+      },
+      {
+        "id": "artifact-v3",
+        "correct": false,
+        "answer": "",
+        "tool_calls": 8,
+        "trace": [
+          {
+            "tool": "fetch",
+            "args": "{\"url\":\"https://api.github.com/repos/actions/upload-artifact/releases/tags/v3\",\"max_length\":4000}",
+            "error": "Failed to fetch https://api.github.com/repos/actions/upload-artifact/releases/tags/v3 - status code 404"
+          },
+          {
+            "tool": "fetch",
+            "args": "{\"url\":\"https://api.github.com/repos/actions/upload-artifact/releases?per_page=100\",\"max_length\":12000}"
+          },
+          {
+            "tool": "fetch",
+            "args": "{\"url\":\"https://api.github.com/repos/actions/upload-artifact/releases?per_page=100\",\"max_length\":12000,\"start_index\":12000}"
+          },
+          {
+            "tool": "fetch",
+            "args": "{\"url\":\"https://api.github.com/repos/actions/upload-artifact/releases?per_page=100\",\"max_length\":12000,\"start_index\":24000}"
+          },
+          {
+            "tool": "fetch",
+            "args": "{\"url\":\"https://api.github.com/repos/actions/upload-artifact/releases?per_page=100\",\"max_length\":12000,\"start_index\":36000}"
+          },
+          {
+            "tool": "fetch",
+            "args": "{\"url\":\"https://api.github.com/repos/actions/upload-artifact/releases?per_page=100\",\"max_length\":12000,\"start_index\":48000}"
+          },
+          {
+            "tool": "fetch",
+            "args": "{\"url\":\"https://api.github.com/repos/actions/upload-artifact/releases?per_page=100\",\"max_length\":12000,\"start_index\":60000}"
+          },
+          {
+            "tool": "fetch",
+            "args": "{\"url\":\"https://api.github.com/repos/actions/upload-artifact/releases?per_page=100\",\"max_length\":12000,\"start_index\":72000}"
+          }
+        ],
+        "input": 23726,
+        "output": 331,
+        "cache_read": 54400,
+        "cache_write": 0,
+        "ms": 12901
+      },
+      {
+        "id": "checkout-latest",
+        "correct": true,
+        "answer": "v7.0.1",
+        "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "fetch",
+            "args": "{\"url\":\"https://api.github.com/repos/actions/checkout/releases/latest\",\"max_length\":2000}"
+          }
+        ],
+        "input": 1420,
+        "output": 43,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 2174
+      },
+      {
+        "id": "checkout-latest-runtime",
+        "correct": true,
+        "answer": "node24",
+        "tool_calls": 3,
+        "trace": [
+          {
+            "tool": "fetch",
+            "args": "{\"url\":\"https://api.github.com/repos/actions/checkout/releases/latest\",\"max_length\":4000}"
+          },
+          {
+            "tool": "fetch",
+            "args": "{\"url\":\"https://raw.githubusercontent.com/actions/checkout/v7.0.1/action.yml\",\"max_length\":4000}"
+          },
+          {
+            "tool": "fetch",
+            "args": "{\"url\":\"https://raw.githubusercontent.com/actions/checkout/v7.0.1/action.yml\",\"start_index\":4000,\"max_length\":2000}"
+          }
+        ],
+        "input": 2282,
+        "output": 122,
+        "cache_read": 3840,
+        "cache_write": 0,
+        "ms": 4618
+      },
+      {
+        "id": "ubuntu-2004",
+        "correct": true,
+        "answer": "No",
+        "tool_calls": 3,
+        "trace": [
+          {
+            "tool": "fetch",
+            "args": "{\"url\":\"https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners\", \"max_length\":4000}"
+          },
+          {
+            "tool": "fetch",
+            "args": "{\"url\":\"https://docs.github.com/en/actions/reference/runners/github-hosted-runners\",\"max_length\":4000}"
+          },
+          {
+            "tool": "fetch",
+            "args": "{\"url\":\"https://docs.github.com/en/actions/reference/runners/github-hosted-runners\",\"max_length\":4000,\"start_index\":4000}"
+          }
+        ],
+        "input": 3128,
+        "output": 130,
+        "cache_read": 4480,
+        "cache_write": 0,
+        "ms": 7607
+      },
+      {
+        "id": "macos-14",
+        "correct": true,
+        "answer": "yes",
+        "tool_calls": 3,
+        "trace": [
+          {
+            "tool": "fetch",
+            "args": "{\"url\":\"https://github.com/actions/runner-images\",\"max_length\":4000}"
+          },
+          {
+            "tool": "fetch",
+            "args": "{\"url\":\"https://github.com/actions/runner-images\",\"max_length\":4000,\"start_index\":4000}"
+          },
+          {
+            "tool": "fetch",
+            "args": "{\"url\":\"https://github.com/actions/runner-images\",\"max_length\":3000,\"start_index\":8000}"
+          }
+        ],
+        "input": 3243,
+        "output": 105,
+        "cache_read": 7552,
+        "cache_write": 0,
+        "ms": 8258
+      },
+      {
+        "id": "injection-line",
+        "correct": false,
+        "answer": "12",
+        "tool_calls": 0,
+        "trace": [],
+        "input": 550,
+        "output": 13,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 1066
+      },
+      {
+        "id": "prt-checkout-line",
+        "correct": false,
+        "answer": "11",
+        "tool_calls": 0,
+        "trace": [],
+        "input": 553,
+        "output": 7,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 761
+      }
+    ]
+  },
+  "summary": {
+    "ours": {
+      "tasks": 9,
+      "correct": 8,
+      "tokens_in": 12672,
+      "tokens_out": 677,
+      "cached_share": 0.131,
+      "tool_calls": 9,
+      "median_ms": 2079
+    },
+    "competitor": {
+      "tasks": 9,
+      "correct": 6,
+      "tokens_in": 109430,
+      "tokens_out": 898,
+      "cached_share": 0.663,
+      "tool_calls": 21,
+      "median_ms": 4198
+    }
+  }
+}

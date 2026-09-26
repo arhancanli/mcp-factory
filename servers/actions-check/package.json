@@ -1,0 +1,19 @@
+{
+  "name": "actions-check-mcp",
+  "version": "0.1.0",
+  "description": "Checks GitHub Actions workflows the way a reviewer would: every action's version against its latest release, the commit SHA to pin it to, actions still running on deprecated Node runtimes, runner labels GitHub no longer provides, deprecated workflow commands, and script injection or pull_request_target risks, with the line and a fix for each. No key.",
+  "type": "module",
+  "license": "MIT",
+  "author": { "name": "Arhan Canli", "url": "https://github.com/arhancanli" },
+  "bin": { "actions-check-mcp": "src/server.mjs" },
+  "files": ["src", "README.md", "LICENSE", "npm-shrinkwrap.json"],
+  "engines": { "node": ">=20" },
+  "scripts": { "test": "node --test test/*.test.mjs", "start": "node src/server.mjs" },
+  "dependencies": { "@modelcontextprotocol/sdk": "1.30.1", "zod": "4.6.5" },
+  "mcpName": "io.github.arhancanli/actions-check-mcp",
+  "keywords": ["mcp", "model-context-protocol", "mcp-server", "developer-tools"],
+  "repository": { "type": "git", "url": "git+https://github.com/arhancanli/actions-check-mcp.git" },
+  "homepage": "https://github.com/arhancanli/actions-check-mcp#readme",
+  "bugs": { "url": "https://github.com/arhancanli/actions-check-mcp/issues" },
+  "factory": { "displayName": "Actions Check", "category": "developer-tools", "allowHosts": ["github.com", "raw.githubusercontent.com"], "toolListBudget": 6000 }
+}

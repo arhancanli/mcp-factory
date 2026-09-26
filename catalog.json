@@ -4,6 +4,35 @@
   "collection": "https://github.com/arhancanli/mcp-factory",
   "servers": [
     {
+      "name": "actions-check-mcp",
+      "title": "Actions Check",
+      "category": "developer-tools",
+      "summary": "Checks GitHub Actions workflows: outdated actions, old Node runtimes, retired runners, injection.",
+      "description": "Checks GitHub Actions workflows the way a reviewer would: every action's version against its latest release, the commit SHA to pin it to, actions still running on deprecated Node runtimes, runner labels GitHub no longer provides, deprecated workflow commands, and script injection or pull_request_target risks, with the line and a fix for each. No key.",
+      "version": "0.1.0",
+      "repository": "https://github.com/arhancanli/actions-check-mcp",
+      "npm": "https://www.npmjs.com/package/actions-check-mcp",
+      "mcpName": "io.github.arhancanli/actions-check-mcp",
+      "hosts": [
+        "github.com",
+        "raw.githubusercontent.com"
+      ],
+      "tools": [
+        {
+          "name": "action_versions",
+          "title": "Versions of an action"
+        },
+        {
+          "name": "check_workflows",
+          "title": "Review GitHub Actions workflows"
+        },
+        {
+          "name": "runner_labels",
+          "title": "GitHub-hosted runner labels"
+        }
+      ]
+    },
+    {
       "name": "citation-check-mcp",
       "title": "Citation Check",
       "category": "science-research",
