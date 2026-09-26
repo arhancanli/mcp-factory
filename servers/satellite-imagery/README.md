@@ -209,7 +209,7 @@ Tool definitions the model reads on every turn (name, description, input schema)
 - [Package Truth](https://github.com/arhancanli/package-truth-mcp): Checks packages exist before install: version, deprecation, vulnerabilities, licence. 7 ecosystems.
 - [Recall Check](https://github.com/arhancanli/recall-check-mcp): One recall check across CPSC, FDA and NHTSA: match by name, model number, UPC or VIN.
 - [Vuln Priority](https://github.com/arhancanli/vuln-priority-mcp): Which vulnerabilities to fix first: CISA KEV, EPSS, CVSS and CISA's SSVC decisions in one ranking.
-- [The whole collection](https://github.com/arhancanli/mcp-factory#servers), 1 more
+- [The whole collection](https://github.com/arhancanli/mcp-factory#servers), 2 more
 <!-- family:end -->
 
 ## License

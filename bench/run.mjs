@@ -56,6 +56,7 @@ async function runTaskOpenAI(model, mcp, tools, task) {
   const usage = { input: 0, output: 0, cache_read: 0, cache_write: 0 };
   let toolCalls = 0;
   let finalText = "";
+  let requestError;
   const started = performance.now();
   for (let turn = 0; turn < MAX_TURNS; turn++) {
     let res;
@@ -71,7 +72,13 @@ async function runTaskOpenAI(model, mcp, tools, task) {
       if ((res && res.status !== 429 && res.status < 500) || attempt >= 5) break;
       await new Promise((r) => setTimeout(r, 2000 * (attempt + 1)));
     }
-    if (!res.ok) throw new Error(`OpenAI answered ${res.status}: ${(await res.text()).slice(0, 200)}`);
+    if (!res.ok) {
+      // A request the API will not take (larger than the per-minute token limit, after retries) ends
+      // the task as failed, with the reason recorded; the run goes on.
+      const text = await res.text();
+      requestError = `OpenAI answered ${res.status}: ${(text.match(/"message":\s*"([^"]*)"/)?.[1] ?? text).slice(0, 200)}`;
+      break;
+    }
     const d = await res.json();
     const cached = d.usage?.prompt_tokens_details?.cached_tokens ?? 0;
     usage.input += (d.usage?.prompt_tokens ?? 0) - cached;
@@ -98,7 +105,7 @@ async function runTaskOpenAI(model, mcp, tools, task) {
       messages.push({ role: "tool", tool_call_id: call.id, content });
     }
   }
-  return { id: task.id, correct: grade(task.expect, finalText), answer: (finalText.match(/ANSWER:\s*(.*)$/im)?.[1] ?? finalText).trim().slice(0, 200), tool_calls: toolCalls, trace, ...usage, ms: Math.round(performance.now() - started) };
+  return { id: task.id, correct: !requestError && grade(task.expect, finalText), answer: (finalText.match(/ANSWER:\s*(.*)$/im)?.[1] ?? finalText).trim().slice(0, 200), tool_calls: toolCalls, trace, ...usage, ms: Math.round(performance.now() - started), ...(requestError ? { error: requestError } : {}) };
 }
 
 async function runTask(anthropic, model, mcp, tools, task) {
@@ -183,7 +190,7 @@ if (process.argv[1] && path.resolve(process.argv[1]) === new URL(import.meta.url
     for (const task of spec.tasks) {
       const row = values.provider === "openai" ? await runTaskOpenAI(values.model, mcp, anthropicTools, task) : await runTask(anthropic, values.model, mcp, anthropicTools, task);
       result.rows[arm].push(row);
-      process.stderr.write(`  ${arm} ${task.id}: ${row.correct ? "correct" : "WRONG"} ${row.input + row.cache_read}+${row.output} tok ${row.ms} ms${row.correct ? "" : ` answered: ${row.answer}${row.trace?.length ? ` | calls: ${JSON.stringify(row.trace)}` : ""}`}\n`);
+      process.stderr.write(`  ${arm} ${task.id}: ${row.correct ? "correct" : "WRONG"} ${row.input + row.cache_read}+${row.output} tok ${row.ms} ms${row.correct ? "" : ` answered: ${row.answer}${row.error ? ` | ${row.error}` : ""}${row.trace?.length ? ` | calls: ${JSON.stringify(row.trace)}` : ""}`}\n`);
     }
     result.summary[arm] = summarize(result.rows[arm]);
     await mcp.close();

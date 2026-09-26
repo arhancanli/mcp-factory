@@ -289,6 +289,36 @@
       ]
     },
     {
+      "name": "web-reader-mcp",
+      "title": "Web Reader",
+      "category": "productivity",
+      "summary": "Reads web pages and PDFs as clean Markdown: main content, the sections that answer a query.",
+      "description": "Reads a web page or PDF the way an agent needs it: the main content without navigation or ads, as clean Markdown, with an outline to jump to sections, a query mode that returns only the passages that answer a question, in-page search and link lists. Refuses private and internal addresses, respects robots.txt, no key.",
+      "version": "0.1.0",
+      "repository": "https://github.com/arhancanli/web-reader-mcp",
+      "npm": "https://www.npmjs.com/package/web-reader-mcp",
+      "mcpName": "io.github.arhancanli/web-reader-mcp",
+      "hosts": [],
+      "tools": [
+        {
+          "name": "find_in_page",
+          "title": "Search a page for text"
+        },
+        {
+          "name": "page_links",
+          "title": "Links on a page"
+        },
+        {
+          "name": "page_outline",
+          "title": "Outline of a page"
+        },
+        {
+          "name": "read_page",
+          "title": "Read a web page or PDF"
+        }
+      ]
+    },
+    {
       "name": "world-time-mcp",
       "title": "World Time",
       "category": "productivity",

@@ -234,7 +234,7 @@ All three are US government services. They do not endorse this server.
 - [Recall Check](https://github.com/arhancanli/recall-check-mcp): One recall check across CPSC, FDA and NHTSA: match by name, model number, UPC or VIN.
 - [Satellite Imagery](https://github.com/arhancanli/satellite-imagery-mcp): Find the clearest Sentinel-2, Landsat, Sentinel-1 or NAIP scene for any place, with band links.
 - [Vuln Priority](https://github.com/arhancanli/vuln-priority-mcp): Which vulnerabilities to fix first: CISA KEV, EPSS, CVSS and CISA's SSVC decisions in one ranking.
-- [The whole collection](https://github.com/arhancanli/mcp-factory#servers), 1 more
+- [The whole collection](https://github.com/arhancanli/mcp-factory#servers), 2 more
 <!-- family:end -->
 
 ## License

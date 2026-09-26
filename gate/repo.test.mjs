@@ -45,6 +45,14 @@ test("no file in the repository credits anyone but the owner", () => {
   assert.deepEqual(offenders, []);
 });
 
+test("no source file hides invisible characters (they are written as \\u escapes)", () => {
+  // Combining marks, zero-width characters and byte-order marks look like nothing in an editor and
+  // are lost by tools that normalise text; in code they are written as \\uXXXX escapes.
+  const invisible = /[\u0300-\u036f\u200b-\u200f\u2028\u2029\u202a-\u202e\u2060-\u2064\ufeff]/u;
+  const offenders = repoFiles().filter((f) => /\.(mjs|js|json)$/.test(f) && !f.includes("/test/fixtures/") && !f.includes("/bench/results/") && invisible.test(readFileSync(path.join(ROOT, f), "utf8")));
+  assert.deepEqual(offenders, []);
+});
+
 test("no authored file contains an em dash", () => {
   // Recorded data stays byte for byte as it arrived: upstream responses (test/fixtures) and the
   // models' own answers in benchmark results (bench/results).

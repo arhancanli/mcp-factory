@@ -124,7 +124,7 @@ export function parseBibtex(text) {
   return entries;
 }
 
-const ACCENT = { "'": "́", "`": "̀", "^": "̂", '"': "̈", "~": "̃", "=": "̄", ".": "̇", u: "̆", v: "̌", H: "̋", c: "̧", k: "̨", r: "̊", d: "̣", b: "̱" };
+const ACCENT = { "'": "\u0301", "`": "\u0300", "^": "\u0302", '"': "\u0308", "~": "\u0303", "=": "\u0304", ".": "\u0307", u: "\u0306", v: "\u030c", H: "\u030b", c: "\u0327", k: "\u0328", r: "\u030a", d: "\u0323", b: "\u0331" };
 const SPECIAL = { ss: "ß", o: "ø", O: "Ø", aa: "å", AA: "Å", ae: "æ", AE: "Æ", oe: "œ", OE: "Œ", l: "ł", L: "Ł", i: "i", j: "j" };
 
 /** LaTeX to plain Unicode text: accents, escaped symbols, formatting commands, braces. */

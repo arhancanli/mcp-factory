@@ -1,6 +1,6 @@
 # Arhan Canli
 
-I build MCP servers that are measured against the best alternative before they ship: correct answers, small tool lists, fast first calls. 10 so far, each in its own repository, all MIT.
+I build MCP servers that are measured against the best alternative before they ship: correct answers, small tool lists, fast first calls. 11 so far, each in its own repository, all MIT.
 
 **Developer tools**
 
@@ -31,6 +31,7 @@ I build MCP servers that are measured against the best alternative before they s
 
 **Productivity**
 
+- [Web Reader](https://github.com/arhancanli/web-reader-mcp): Reads web pages and PDFs as clean Markdown: main content, the sections that answer a query.
 - [World Time](https://github.com/arhancanli/world-time-mcp): Time anywhere, DST-safe conversions, holidays for 200+ countries, business days and meeting slots.
 
 All of them: [github.com/topics/arhancanli-mcp](https://github.com/topics/arhancanli-mcp)

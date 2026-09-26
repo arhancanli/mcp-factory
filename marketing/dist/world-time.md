@@ -77,4 +77,4 @@ and in milliseconds, with a meeting finder that respects everyone's hours and ho
 
 ## Cross-links
 
-Footer: 10 servers, each measured before release: https://github.com/topics/arhancanli-mcp. Related: Citation Check (https://github.com/arhancanli/citation-check-mcp), Domain Health (https://github.com/arhancanli/domain-health-mcp), Drug Label (https://github.com/arhancanli/drug-label-mcp).
+Footer: 11 servers, each measured before release: https://github.com/topics/arhancanli-mcp. Related: Citation Check (https://github.com/arhancanli/citation-check-mcp), Domain Health (https://github.com/arhancanli/domain-health-mcp), Drug Label (https://github.com/arhancanli/drug-label-mcp).

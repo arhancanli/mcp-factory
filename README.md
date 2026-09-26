@@ -58,6 +58,7 @@ Every server here:
 
 | Server | What it does | Run |
 | --- | --- | --- |
+| [Web Reader](https://github.com/arhancanli/web-reader-mcp) | Reads web pages and PDFs as clean Markdown: main content, the sections that answer a query. | `npx -y web-reader-mcp` |
 | [World Time](https://github.com/arhancanli/world-time-mcp) | Time anywhere, DST-safe conversions, holidays for 200+ countries, business days and meeting slots. | `npx -y world-time-mcp` |
 <!-- servers:end -->
 

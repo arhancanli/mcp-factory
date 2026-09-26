@@ -81,7 +81,7 @@ test("errata: section fields with pages, lists, appendices and whole-document re
 });
 
 test("CSV: quotes, doubled quotes, commas and newlines inside fields, CRLF and BOM", () => {
-  const rows = parseCsv('﻿Value,Description\r\n"0x00,0x01","A ""quoted""\nline"\r\n5,plain\r\n');
+  const rows = parseCsv('\ufeffValue,Description\r\n"0x00,0x01","A ""quoted""\nline"\r\n5,plain\r\n');
   assert.deepEqual(rows, [{ Value: "0x00,0x01", Description: 'A "quoted"\nline' }, { Value: "5", Description: "plain" }]);
 });
 
