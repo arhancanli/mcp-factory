@@ -144,5 +144,7 @@ export function renderToolTable(tools) {
 export function replaceBlock(text, marker, body) {
   const re = new RegExp(`(<!-- ${marker}:start -->)[\\s\\S]*?(<!-- ${marker}:end -->)`);
   if (!re.test(text)) throw new Error(`README has no ${marker} block`);
-  return text.replace(re, `$1\n${body}\n$2`);
+  // A replacer function, not a replacement string: bodies contain "$40" and the like, which a
+  // replacement string would read as capture-group references.
+  return text.replace(re, (m, open, close) => `${open}\n${body}\n${close}`);
 }

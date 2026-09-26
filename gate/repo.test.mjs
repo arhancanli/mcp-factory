@@ -68,3 +68,9 @@ test("every commit is authored and committed by the owner, with a clean message"
   }
   assert.deepEqual(bad, []);
 });
+
+test("generated README blocks keep dollar signs and other replacement patterns literally", async () => {
+  const { replaceBlock } = await import("../scripts/lib.mjs");
+  const body = "between $40 and $49, $1 $& $' $` $$";
+  assert.equal(replaceBlock("a\n<!-- x:start -->\nold\n<!-- x:end -->\nb", "x", body), `a\n<!-- x:start -->\n${body}\n<!-- x:end -->\nb`);
+});

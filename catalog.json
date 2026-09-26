@@ -129,6 +129,37 @@
           "title": "Advisories for a package version"
         }
       ]
+    },
+    {
+      "name": "recall-check-mcp",
+      "title": "Recall Check",
+      "category": "consumer-safety",
+      "summary": "One recall check across CPSC, FDA and NHTSA: match by name, model number, UPC or VIN.",
+      "description": "Checks US product recalls across agencies in one call: CPSC consumer products and FDA food, drugs and devices matched by name, brand, model number or UPC, and NHTSA vehicle recalls by VIN or make, model and year.",
+      "version": "0.1.0",
+      "repository": "https://github.com/arhancanli/recall-check-mcp",
+      "npm": "https://www.npmjs.com/package/recall-check-mcp",
+      "mcpName": "io.github.arhancanli/recall-check-mcp",
+      "hosts": [
+        "www.saferproducts.gov",
+        "api.fda.gov",
+        "api.nhtsa.gov",
+        "vpic.nhtsa.dot.gov"
+      ],
+      "tools": [
+        {
+          "name": "check_recalls",
+          "title": "Check a product for recalls"
+        },
+        {
+          "name": "recent_recalls",
+          "title": "Recent recalls"
+        },
+        {
+          "name": "vehicle_recalls",
+          "title": "Vehicle recalls"
+        }
+      ]
     }
   ]
 }

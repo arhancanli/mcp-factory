@@ -106,6 +106,7 @@ test("page, clip and compact never hide that something was left out", () => {
   assert.deepEqual(page([1, 2, 3], 2), { items: [1, 2], total: 3, returned: 2, truncated: true });
   assert.deepEqual(page([1], 5), { items: [1], total: 1, returned: 1, truncated: false });
   assert.equal(clip("abcdef", 3), "abc [clipped: 3 more characters]");
+  assert.equal(clip("ab cdef", 3), "ab [clipped: 4 more characters]", "no double space when the cut lands after a space");
   assert.deepEqual(compact({ a: 1, b: null, c: "", d: [], e: 0 }), { a: 1, e: 0 });
 });
 

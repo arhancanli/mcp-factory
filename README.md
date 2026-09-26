@@ -33,6 +33,12 @@ Every server here:
 | Server | What it does | Run |
 | --- | --- | --- |
 | [Drug Label](https://github.com/arhancanli/drug-label-mcp) | FDA drug label answers with section citations, RxNorm name resolution, recalls and shortages. | `npx -y drug-label-mcp` |
+
+### Consumer safety
+
+| Server | What it does | Run |
+| --- | --- | --- |
+| [Recall Check](https://github.com/arhancanli/recall-check-mcp) | One recall check across CPSC, FDA and NHTSA: match by name, model number, UPC or VIN. | `npx -y recall-check-mcp` |
 <!-- servers:end -->
 
 ## How they are made
