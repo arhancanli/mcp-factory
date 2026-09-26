@@ -3,8 +3,25 @@
   "packageName": "{name}-mcp",
   "mcpNamePrefix": "io.github.arhancanli/",
   "githubOwner": "arhancanli",
-  "githubRepo": "mcp-factory",
-  "author": { "name": "Arhan Canli", "url": "https://github.com/arhancanli" },
+  "author": {
+    "name": "Arhan Canli",
+    "url": "https://github.com/arhancanli"
+  },
   "license": "MIT",
-  "defaultToolListBudget": 6000
+  "defaultToolListBudget": 6000,
+  "collectionRepo": "mcp-factory",
+  "categories": {
+    "developer-tools": "Developer tools",
+    "science-research": "Science and research",
+    "health-medicine": "Health and medicine",
+    "government-legal": "Government, law and regulation",
+    "geospatial": "Maps, earth and transport",
+    "reference": "Reference and knowledge",
+    "consumer-safety": "Consumer safety",
+    "security": "Security",
+    "data": "Data and datasets",
+    "media": "Media and content",
+    "education": "Education",
+    "productivity": "Productivity"
+  }
 }

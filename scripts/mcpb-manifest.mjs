@@ -10,7 +10,7 @@ import { CONFIG, inspectServer, readJson } from "./lib.mjs";
 export async function mcpbManifest(serverDir) {
   const pkg = readJson(path.join(serverDir, "package.json"));
   const { tools } = await inspectServer(serverDir);
-  const repo = `https://github.com/${CONFIG.githubOwner}/${CONFIG.githubRepo}`;
+  const repo = `https://github.com/${CONFIG.githubOwner}/${pkg.name}`;
   return {
     manifest_version: "0.3",
     name: pkg.name,

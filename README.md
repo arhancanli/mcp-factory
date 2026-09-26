@@ -15,9 +15,11 @@ Every server here:
 ## Servers
 
 <!-- servers:start -->
+### Developer tools
+
 | Server | What it does | Run |
 | --- | --- | --- |
-| [Package Truth](servers/package-truth) | Checks that packages exist before an agent installs them: latest version, deprecation, known vulnerabilities and licence across npm, PyPI, Go, Maven, Cargo, NuGet and RubyGems. | `npx -y package-truth-mcp` |
+| [Package Truth](https://github.com/arhancanli/package-truth-mcp) | Checks packages exist before install: version, deprecation, vulnerabilities, licence. 7 ecosystems. | `npx -y package-truth-mcp` |
 <!-- servers:end -->
 
 ## How they are made
@@ -29,8 +31,13 @@ Every server here:
 npm ci
 npm test                                   # kit tests + the gate on every server
 npm run new -- <name> --title "..." --description "..." --host api.example.org --instructions "..."
-npm run sync                               # after changing kit/ or a tool description
+npm run sync                               # after changing kit/, a tool, or adding a server
+node scripts/check-standalone.mjs          # each server as its own repository: install, test, start
+node scripts/publish-repos.mjs [name]      # push committed servers to their own repositories
 ```
+
+Each server lives in its own repository (linked above); this repository is where they are built and
+checked. `catalog.json` lists every server and its tools.
 
 ## License
 

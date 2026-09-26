@@ -1,0 +1,35 @@
+{
+  "schema": "arhancanli.mcp-catalog.v1",
+  "owner": "Arhan Canli",
+  "collection": "https://github.com/arhancanli/mcp-factory",
+  "servers": [
+    {
+      "name": "package-truth-mcp",
+      "title": "Package Truth",
+      "category": "developer-tools",
+      "summary": "Checks packages exist before install: version, deprecation, vulnerabilities, licence. 7 ecosystems.",
+      "description": "Checks that packages exist before an agent installs them: latest version, deprecation, known vulnerabilities and licence across npm, PyPI, Go, Maven, Cargo, NuGet and RubyGems.",
+      "version": "0.1.0",
+      "repository": "https://github.com/arhancanli/package-truth-mcp",
+      "npm": "https://www.npmjs.com/package/package-truth-mcp",
+      "mcpName": "io.github.arhancanli/package-truth-mcp",
+      "hosts": [
+        "api.deps.dev"
+      ],
+      "tools": [
+        {
+          "name": "check_manifest",
+          "title": "Check a dependency manifest"
+        },
+        {
+          "name": "check_packages",
+          "title": "Check packages before installing"
+        },
+        {
+          "name": "get_advisories",
+          "title": "Advisories for a package version"
+        }
+      ]
+    }
+  ]
+}

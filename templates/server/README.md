@@ -1,43 +1,16 @@
 # {{title}}
 
+<!-- badges:start -->
+<!-- badges:end -->
+
 {{description}}
 
 Built and maintained by [Arhan Canli](https://github.com/arhancanli).
 
 ## Install
 
-Needs Node.js 20 or newer. No account or key is required unless a tool says so.
-
-**Claude Code**
-
-```sh
-claude mcp add {{name}} -- npx -y {{package}}
-```
-
-**Claude Desktop, Cursor, Windsurf and other clients** (add to the client's MCP config file):
-
-```json
-{
-  "mcpServers": {
-    "{{name}}": { "command": "npx", "args": ["-y", "{{package}}"] }
-  }
-}
-```
-
-**VS Code**
-
-```sh
-code --add-mcp '{"name":"{{name}}","command":"npx","args":["-y","{{package}}"]}'
-```
-
-**Docker**
-
-```sh
-docker build -t {{package}} . && docker run -i --rm {{package}}
-```
-
-**Hosted (Streamable HTTP)**: run `node src/server.mjs --http` (port from `PORT`, default 3000);
-the endpoint is `POST /mcp`, stateless.
+<!-- install:start -->
+<!-- install:end -->
 
 ## Tools
 
@@ -57,6 +30,11 @@ the endpoint is `POST /mcp`, stateless.
 <!-- bench:start -->
 Not yet measured.
 <!-- bench:end -->
+
+## More MCP servers by Arhan Canli
+
+<!-- family:start -->
+<!-- family:end -->
 
 ## License
 

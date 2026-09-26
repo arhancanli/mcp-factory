@@ -2,23 +2,19 @@
 //
 // The quality gate every server must pass before it ships. It runs against every server in
 // servers/ and against a server freshly generated from the template, so the template itself is
-// proven to pass. Each check inspects the server the way a client does: the real bin over stdio.
+// proven to pass. Each server directory is exactly its future standalone repository, so the gate
+// also checks what that repository needs: its own repository URLs, the vendored kit and workflows,
+// the Claude Desktop bundle manifest, generated README blocks, and no reach outside itself.
 import assert from "node:assert/strict";
+import { execFileSync } from "node:child_process";
 import { existsSync, readdirSync, readFileSync, rmSync } from "node:fs";
 import path from "node:path";
 import test from "node:test";
-import {
-  CONFIG,
-  KIT_DIR,
-  ROOT,
-  generateServer,
-  inspectServer,
-  kitFiles,
-  listServerDirs,
-  readJson,
-  renderToolTable,
-  toolListChars,
-} from "../scripts/lib.mjs";
+import { CONFIG, KIT_DIR, REPO_TEMPLATE_DIR, ROOT, generateServer, gitFiles, inspectServer, kitFiles, listServerDirs, readJson, repoTemplateFiles, replaceBlock, toolListChars } from "../scripts/lib.mjs";
+import { buildCatalog, renderCollection } from "../scripts/render.mjs";
+import { catalogText, renderServerReadme } from "../scripts/sync.mjs";
+import { mcpbManifest } from "../scripts/mcpb-manifest.mjs";
+import { writeDerived } from "../scripts/new-server.mjs";
 import { MAX_DESCRIPTION_CHARS } from "../kit/index.mjs";
 
 const TEMPLATE_PROBE = path.join(ROOT, ".gate-tmp", "template-probe");
@@ -28,47 +24,84 @@ generateServer({
   title: "Template probe",
   description: "A server generated from the template to prove the template passes the gate.",
   summary: "Template probe.",
+  category: "reference",
   host: "api.example.org",
   instructions: "Probe only.",
   outDir: TEMPLATE_PROBE,
 });
-// The template's README table is filled at generation time by the real generator; do the same here.
-{
-  const { writeReadmeTools } = await import("../scripts/new-server.mjs");
-  await writeReadmeTools(TEMPLATE_PROBE);
-}
+await writeDerived(TEMPLATE_PROBE);
 
-const targets = [...listServerDirs(), TEMPLATE_PROBE];
+const servers = listServerDirs();
+const targets = [...servers, TEMPLATE_PROBE];
+const catalog = await buildCatalog(servers);
+const probeCatalog = await buildCatalog(targets);
 const ANNOTATIONS = ["readOnlyHint", "destructiveHint", "idempotentHint", "openWorldHint"];
 const AUTHOR = CONFIG.author.name;
+const OWNER = CONFIG.githubOwner;
+const REQUIRED_FILES = [
+  ".github/workflows/ci.yml",
+  ".github/workflows/release.yml",
+  ".github/workflows/canary.yml",
+  ".gitignore",
+  "CHANGELOG.md",
+  "Dockerfile",
+  "LICENSE",
+  "README.md",
+  "SECURITY.md",
+  "glama.json",
+  "mcpb/manifest.json",
+  "npm-shrinkwrap.json",
+  "package.json",
+  "server.json",
+  "src/server.mjs",
+  "src/kit/index.mjs",
+];
 
-test("the gate examines at least the template probe", () => {
+test("the gate examines every server and the template probe", () => {
   assert.ok(targets.includes(TEMPLATE_PROBE));
-  assert.ok(targets.length >= 1);
+  assert.equal(targets.length, servers.length + 1);
 });
 
 for (const dir of targets) {
   const label = path.relative(ROOT, dir);
   const pkg = readJson(path.join(dir, "package.json"));
+  const repo = `https://github.com/${OWNER}/${pkg.name}`;
 
-  test(`${label}: package metadata names the owner and agrees with the registry file`, () => {
+  test(`${label}: package metadata names the owner and points at the server's own repository`, () => {
     assert.equal(pkg.author?.name, AUTHOR);
     assert.equal(pkg.license, "MIT");
     assert.equal(pkg.contributors, undefined, "the owner is the only contributor");
     assert.equal(pkg.type, "module");
     assert.equal(Object.values(pkg.bin ?? {})[0], "src/server.mjs");
-    assert.ok(pkg.mcpName?.startsWith(CONFIG.mcpNamePrefix));
+    assert.equal(pkg.repository?.url, `git+${repo}.git`, "npm provenance requires the publishing repository");
+    assert.equal(pkg.repository?.directory, undefined);
+    assert.equal(pkg.homepage, `${repo}#readme`);
+    assert.equal(pkg.bugs?.url, `${repo}/issues`);
+    assert.equal(pkg.mcpName, `${CONFIG.mcpNamePrefix}${pkg.name}`);
+    assert.ok(pkg.factory?.displayName);
+    assert.ok(pkg.factory?.category in CONFIG.categories, `unknown category ${pkg.factory?.category}`);
     assert.ok(Array.isArray(pkg.factory?.allowHosts) && pkg.factory.allowHosts.length > 0);
     assert.ok(Number.isInteger(pkg.factory?.toolListBudget) && pkg.factory.toolListBudget > 0);
     assert.deepEqual(Object.keys(pkg.dependencies ?? {}).sort(), ["@modelcontextprotocol/sdk", "zod"]);
     for (const v of Object.values(pkg.dependencies)) assert.match(v, /^\d+\.\d+\.\d+$/, "dependencies are pinned exactly");
+    assert.ok(pkg.files.includes("npm-shrinkwrap.json"));
 
     const reg = readJson(path.join(dir, "server.json"));
     assert.equal(reg.name, pkg.mcpName);
     assert.equal(reg.version, pkg.version);
     assert.ok(reg.description.length <= 100, `server.json description is ${reg.description.length} chars; the registry allows 100`);
+    assert.deepEqual(reg.repository, { url: repo, source: "github" });
     assert.equal(reg.packages[0].identifier, pkg.name);
     assert.equal(reg.packages[0].version, pkg.version);
+  });
+
+  test(`${label}: the directory holds every file its standalone repository needs`, () => {
+    // The probe is generated offline, so it has no shrinkwrap (the generator writes one from npm).
+    for (const f of REQUIRED_FILES) if (!(dir === TEMPLATE_PROBE && f === "npm-shrinkwrap.json")) assert.ok(existsSync(path.join(dir, f)), `missing ${f}`);
+    if (dir === TEMPLATE_PROBE) return;
+    const shrink = readJson(path.join(dir, "npm-shrinkwrap.json"));
+    assert.equal(shrink.name, pkg.name);
+    assert.deepEqual(shrink.packages[""].dependencies, pkg.dependencies, "shrinkwrap matches package.json; regenerate it");
   });
 
   test(`${label}: LICENSE and README credit the owner`, () => {
@@ -76,11 +109,30 @@ for (const dir of targets) {
     assert.ok(readFileSync(path.join(dir, "README.md"), "utf8").includes(`[${AUTHOR}](`));
   });
 
-  test(`${label}: the vendored kit is byte-identical to the factory kit`, () => {
+  test(`${label}: the vendored kit and repository scaffolding are byte-identical to the factory's`, () => {
     const vendored = readdirSync(path.join(dir, "src/kit")).sort();
     assert.deepEqual(vendored, kitFiles(), "run npm run sync");
     for (const f of kitFiles()) {
       assert.equal(readFileSync(path.join(dir, "src/kit", f), "utf8"), readFileSync(path.join(KIT_DIR, f), "utf8"), `src/kit/${f} drifted; run npm run sync`);
+    }
+    for (const f of repoTemplateFiles()) {
+      assert.equal(readFileSync(path.join(dir, f), "utf8"), readFileSync(path.join(REPO_TEMPLATE_DIR, f), "utf8"), `${f} drifted; run npm run sync`);
+    }
+  });
+
+  test(`${label}: nothing reaches outside the server's own directory`, () => {
+    const files = dir === TEMPLATE_PROBE ? readdirSync(dir, { recursive: true }).filter((f) => !f.includes("node_modules")) : gitFiles(dir);
+    for (const f of files.filter((x) => /\.(mjs|js|json|md|yml)$/.test(x))) {
+      const text = readFileSync(path.join(dir, f), "utf8");
+      assert.ok(!text.includes("/Users/"), `${f} contains a local absolute path`);
+      assert.ok(!/\bservers\/[a-z0-9-]+\//.test(text), `${f} refers to the factory's layout, which the standalone repository does not have`);
+    }
+    for (const f of files.filter((x) => /^(src|test|bench)\/.*\.mjs$/.test(x))) {
+      const text = readFileSync(path.join(dir, f), "utf8");
+      for (const m of text.matchAll(/(?:from\s+|import\()["'](\.[^"']+)["']/g)) {
+        const target = path.resolve(path.dirname(path.join(dir, f)), m[1]);
+        assert.ok(target.startsWith(dir + path.sep), `${f} imports ${m[1]}, outside the server`);
+      }
     }
   });
 
@@ -102,10 +154,13 @@ for (const dir of targets) {
     }
   });
 
-  test(`${label}: README tool table is generated from the live tool list`, async () => {
-    const { tools } = await inspectServer(dir);
+  test(`${label}: README blocks and the bundle manifest are generated from the live server`, async () => {
     const readme = readFileSync(path.join(dir, "README.md"), "utf8");
-    assert.ok(readme.includes(`<!-- tools:start -->\n${renderToolTable(tools)}\n<!-- tools:end -->`), "run npm run sync");
+    assert.equal(readme, await renderServerReadme(dir, dir === TEMPLATE_PROBE ? probeCatalog : catalog), "README is stale; run npm run sync");
+    const manifest = readJson(path.join(dir, "mcpb/manifest.json"));
+    assert.deepEqual(manifest, await mcpbManifest(dir), "mcpb/manifest.json is stale; run npm run sync");
+    assert.equal(manifest.version, pkg.version);
+    assert.equal(manifest.author.name, AUTHOR);
   });
 
   test(`${label}: every tool is named in at least one test`, async () => {
@@ -124,11 +179,8 @@ for (const dir of targets) {
       }
     }
   });
-}
 
-for (const dir of targets) {
-  test(`${path.relative(ROOT, dir)}: its own tests pass`, () => {
-    const { execFileSync } = process.getBuiltinModule("node:child_process");
+  test(`${label}: its own tests pass`, () => {
     const files = readdirSync(path.join(dir, "test")).filter((f) => f.endsWith(".test.mjs")).map((f) => path.join("test", f));
     assert.ok(files.length > 0, "a server without tests does not ship");
     // Without NODE_TEST_CONTEXT: inherited from this runner, it makes the child report to a parent
@@ -141,21 +193,14 @@ for (const dir of targets) {
   });
 }
 
-test("the Desktop bundle manifest lists exactly the live tools", async () => {
-  const { mcpbManifest } = await import("../scripts/mcpb-manifest.mjs");
-  for (const dir of targets) {
-    const m = await mcpbManifest(dir);
-    const { tools } = await inspectServer(dir);
-    assert.deepEqual(m.tools.map((t) => t.name), tools.map((t) => t.name));
-    assert.equal(m.author.name, CONFIG.author.name);
-    assert.ok(m.display_name);
-  }
+test("catalog.json and the root README list every server, generated from the live servers", () => {
+  assert.equal(readFileSync(path.join(ROOT, "catalog.json"), "utf8"), catalogText(catalog), "catalog.json is stale; run npm run sync");
+  const readme = readFileSync(path.join(ROOT, "README.md"), "utf8");
+  assert.equal(readme, replaceBlock(readme, "servers", renderCollection(catalog)), "root README is stale; run npm run sync");
+  assert.equal(catalog.servers.length, servers.length);
 });
 
-test("the root README lists every server", () => {
-  const readme = readFileSync(path.join(ROOT, "README.md"), "utf8");
-  for (const dir of listServerDirs()) {
-    const pkg = readJson(path.join(dir, "package.json"));
-    assert.ok(readme.includes(`npx -y ${pkg.name}`), `${pkg.name} missing from README; run npm run sync`);
-  }
+test("server names are unique across the collection", () => {
+  const names = catalog.servers.map((s) => s.name);
+  assert.equal(new Set(names).size, names.length);
 });

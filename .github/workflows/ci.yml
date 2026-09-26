@@ -31,16 +31,19 @@ jobs:
       - run: npm ci --ignore-scripts
       - run: npm audit --audit-level=high
       - run: npm test
-      - name: Every server's packed tarball installs from its shrinkwrap and answers initialize
-        run: |
-          for dir in servers/*/; do
-            [ -f "$dir/package.json" ] || continue
-            name="$(node -p "require('./$dir/package.json').name")"
-            (cd "$dir" && npm pack --silent --pack-destination /tmp)
-            rm -rf /tmp/smoke && mkdir -p /tmp/smoke
-            tar xzf /tmp/"$name"-*.tgz -C /tmp/smoke
-            (cd /tmp/smoke/package && npm ci --omit=dev --ignore-scripts --no-audit --no-fund)
-            printf '%s\n' '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2025-06-18","capabilities":{},"clientInfo":{"name":"ci","version":"1"}}}' \
-              | timeout 20 node /tmp/smoke/package/src/server.mjs | grep -q '"serverInfo"'
-            echo "ok $name"
-          done
+
+  standalone:
+    name: Every server works as its own repository
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci --ignore-scripts
+      - run: node scripts/check-standalone.mjs

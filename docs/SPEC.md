@@ -40,9 +40,24 @@ Every server moves through five stations. A server that fails a station goes bac
    competitor: right tool chosen, right answer, tokens used, latency. Results are published in the
    server's README with the date and models. A server ships only if it beats or matches the
    competitor on accuracy and uses fewer tokens, or covers tasks the competitor cannot do.
-5. **Ship.** npm with provenance from CI, official MCP Registry, a signed Claude Desktop bundle per
-   release, Docker image, Glama, Smithery, cursor.directory and awesome-mcp-servers. OpenSSF
-   Scorecard, CodeQL and Dependabot on from the first commit.
+5. **Ship.** Every server has its own repository, `github.com/arhancanli/<package name>`, so each
+   one collects its own stars, issues and releases. `servers/<name>` in the factory is byte for byte
+   that repository: `npm run sync` vendors the kit and the repository scaffolding (CI, release,
+   canary, CodeQL, Scorecard, Dependabot, SECURITY.md) and writes the Claude Desktop bundle
+   manifest. `scripts/publish-repos.mjs` pushes the committed tree (never the working tree) as a
+   commit signed by the owner and proves parity: the repository's tree id must equal the factory's.
+   A tag `vX.Y.Z` in the server's repository publishes npm with provenance, the official MCP
+   Registry entry and a Sigstore-signed Claude Desktop bundle. Then Glama, Smithery,
+   cursor.directory and awesome-mcp-servers.
+
+## The collection
+
+`catalog.json` is the machine-readable index of every server: category, summary, tools, hosts,
+repository and npm links. Every README ends with related servers from the catalog (same category
+first) and a link to the whole collection, so each repository sends readers to the others. The
+catalog is also the base for what comes after the individual servers: a hub that routes an agent to
+the right server by tool search instead of loading every tool list, and compositions that chain
+servers (for example, checking every package a paper's code depends on).
 
 ## After shipping
 
