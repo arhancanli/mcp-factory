@@ -1,0 +1,22 @@
+{
+  "competitor": {
+    "label": "mcp-dns, the most-used DNS lookup server",
+    "command": "npx",
+    "args": ["-y", "mcp-dns"]
+  },
+  "tasks": [
+    { "id": "spf-pass", "prompt": "Would an SPF check for gmail.com pass for mail sent from 209.85.220.41? Answer pass, fail, softfail or neutral.", "expect": { "regex": "^\\W*pass\\b" } },
+    { "id": "spf-softfail", "prompt": "What SPF result would a receiver get for mail claiming to be from gmail.com but sent from 1.2.3.4? Answer pass, fail, softfail or neutral.", "expect": { "regex": "^\\W*softfail\\b" } },
+    { "id": "spf-lookups", "prompt": "How many DNS lookups does oracle.com's SPF record use when fully evaluated, counted as RFC 7208 counts them? Give the number only.", "expect": { "number": 10 } },
+    { "id": "dmarc-policy", "prompt": "What DMARC policy (p=) does intel.com publish? Answer none, quarantine or reject.", "expect": { "regex": "^\\W*none\\b" } },
+    { "id": "dmarc-inherit", "prompt": "mail.google.com has no DMARC record of its own. Which DMARC policy applies to mail from it? Answer none, quarantine or reject.", "expect": { "regex": "^\\W*reject\\b" } },
+    { "id": "dkim-bits", "prompt": "What is the size in bits of github.com's DKIM key at selector 'google'? Give the number only.", "expect": { "number": 2048 } },
+    { "id": "registrar", "prompt": "Which registrar is google.com registered with? Give the registrar's name.", "expect": { "contains": ["markmonitor"] } },
+    { "id": "created", "prompt": "On what date was bbc.co.uk first registered? Give YYYY-MM-DD.", "expect": { "contains": ["1994-12-13"] } },
+    { "id": "expiry", "prompt": "On what date does google.com's domain registration expire? Give YYYY-MM-DD.", "expect": { "contains": ["2028-09-14"] } },
+    { "id": "mx", "prompt": "What is the host name of github.com's mail exchanger (MX)? Give the host name only.", "expect": { "contains": ["github-com.mail.protection.outlook.com"] } },
+    { "id": "available", "prompt": "Is the domain thisdomainsurelydoesnotexist-xyz123.com registered? Answer yes or no.", "expect": { "regex": "^\\W*no\\b" } },
+    { "id": "mta-sts", "prompt": "Does google.com publish an MTA-STS record? Answer yes or no.", "expect": { "regex": "^\\W*yes\\b" } },
+    { "id": "caa", "prompt": "Which certificate authority does google.com's CAA record allow to issue certificates? Give the issuer domain from the record.", "expect": { "contains": ["pki.goog"] } }
+  ]
+}

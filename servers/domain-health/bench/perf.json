@@ -1,0 +1,77 @@
+{
+  "measured_on": "2026-09-26",
+  "where": "Dubai, home connection",
+  "node": "v24.19.0",
+  "runs": 5,
+  "tool_definition_chars": 2503,
+  "tools_list_chars": 4239,
+  "competitor": {
+    "label": "mcp-dns, the most-used DNS lookup server",
+    "tool_definition_chars": 254,
+    "tools_list_chars": 253
+  },
+  "scenarios": [
+    {
+      "call": "domain_report: google.com",
+      "first_call_ms": 2246,
+      "repeat_ms": 0.8,
+      "result_chars": 740
+    },
+    {
+      "call": "domain_report: intel.com (DMARC p=none)",
+      "first_call_ms": 2413,
+      "repeat_ms": 0.5,
+      "result_chars": 1444
+    },
+    {
+      "call": "check_spf: gmail.com for one of Google's sending IPs",
+      "first_call_ms": 309,
+      "repeat_ms": 0.3,
+      "result_chars": 532
+    },
+    {
+      "call": "check_spf: gmail.com for an outside IP",
+      "first_call_ms": 301,
+      "repeat_ms": 0.3,
+      "result_chars": 521
+    },
+    {
+      "call": "check_spf: oracle.com, at the 10-lookup limit",
+      "first_call_ms": 737,
+      "repeat_ms": 0.5,
+      "result_chars": 3895
+    },
+    {
+      "call": "check_dkim: github.com, named selectors",
+      "first_call_ms": 262,
+      "repeat_ms": 0.3,
+      "result_chars": 248
+    },
+    {
+      "call": "check_dkim: stripe.com, 30 common selectors",
+      "first_call_ms": 781,
+      "repeat_ms": 1,
+      "result_chars": 716
+    },
+    {
+      "call": "dns_lookup: github.com from two resolvers",
+      "first_call_ms": 1172,
+      "repeat_ms": 0.3,
+      "result_chars": 2594
+    },
+    {
+      "call": "domain_lookup: 5 names (subdomain, co.uk, unregistered, no RDAP)",
+      "first_call_ms": 2702,
+      "repeat_ms": 0.3,
+      "result_chars": 1713
+    }
+  ],
+  "example": {
+    "call": "domain_report: google.com",
+    "tool": "domain_report",
+    "arguments": {
+      "domain": "google.com"
+    },
+    "result": "{\"domain\":\"google.com\",\"registration\":{\"registrar\":\"MarkMonitor Inc.\",\"created\":\"1997-09-15\",\"expires\":\"2028-09-14\",\"days_left\":718,\"dnssec\":false},\"nameservers\":[\"ns4.google.com\",\"ns1.google.com\",\"ns2.google.com\",\"ns3.google.com\"],\"mx\":[\"10 smtp.google.com\"],\"spf\":{\"record\":\"v=spf1 include:_spf.google.com ~all\",\"lookups\":1,\"all\":\"~all\"},\"dmarc\":{\"policy\":\"reject\",\"reports\":1},\"mta_sts\":true,\"tls_rpt\":true,\"caa\":[\"pki.goog\"],\"bulk_sender_dns\":\"SPF and DMARC meet the requirements; DKIM not confirmed (no key at common selectors)\",\"findings\":[{\"level\":\"info\",\"issue\":\"No DKIM key at 12 common selectors. Senders that sign use their own selector.\",\"fix\":\"Check with check_dkim and the selector from a sent message (DKIM-Signature s=).\"}]}"
+  }
+}

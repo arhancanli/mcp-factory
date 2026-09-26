@@ -1,0 +1,557 @@
+{
+  "date": "2026-09-26",
+  "model": "gpt-5.4-mini",
+  "competitor_label": "mcp-dns, the most-used DNS lookup server",
+  "rows": {
+    "ours": [
+      {
+        "id": "spf-pass",
+        "correct": true,
+        "answer": "pass",
+        "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "check_spf",
+            "args": "{\"domain\":\"gmail.com\",\"ip\":\"209.85.220.41\"}"
+          }
+        ],
+        "input": 1708,
+        "output": 35,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 3132
+      },
+      {
+        "id": "spf-softfail",
+        "correct": true,
+        "answer": "softfail",
+        "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "check_spf",
+            "args": "{\"domain\":\"gmail.com\",\"ip\":\"1.2.3.4\",\"sender\":\"gmail.com\"}"
+          }
+        ],
+        "input": 1716,
+        "output": 41,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 1854
+      },
+      {
+        "id": "spf-lookups",
+        "correct": true,
+        "answer": "10",
+        "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "check_spf",
+            "args": "{\"domain\":\"oracle.com\"}"
+          }
+        ],
+        "input": 3330,
+        "output": 26,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 2789
+      },
+      {
+        "id": "dmarc-policy",
+        "correct": true,
+        "answer": "none",
+        "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "dns_lookup",
+            "args": "{\"name\":\"_dmarc.intel.com\",\"types\":[\"TXT\"],\"compare\":true}"
+          }
+        ],
+        "input": 1520,
+        "output": 39,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 2813
+      },
+      {
+        "id": "dmarc-inherit",
+        "correct": true,
+        "answer": "reject",
+        "tool_calls": 4,
+        "trace": [
+          {
+            "tool": "dns_lookup",
+            "args": "{\"name\":\"mail.google.com\",\"types\":[\"TXT\"]}"
+          },
+          {
+            "tool": "dns_lookup",
+            "args": "{\"name\":\"google.com\",\"types\":[\"TXT\"]}"
+          },
+          {
+            "tool": "dns_lookup",
+            "args": "{\"name\":\"google.com\",\"types\":[\"TXT\"],\"compare\":true}"
+          },
+          {
+            "tool": "dns_lookup",
+            "args": "{\"name\":\"_dmarc.google.com\",\"types\":[\"TXT\"]}"
+          }
+        ],
+        "input": 4256,
+        "output": 111,
+        "cache_read": 2816,
+        "cache_write": 0,
+        "ms": 6175
+      },
+      {
+        "id": "dkim-bits",
+        "correct": true,
+        "answer": "2048",
+        "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "check_dkim",
+            "args": "{\"domain\":\"github.com\",\"selectors\":[\"google\"]}"
+          }
+        ],
+        "input": 1491,
+        "output": 32,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 2147
+      },
+      {
+        "id": "registrar",
+        "correct": true,
+        "answer": "MarkMonitor Inc.",
+        "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "domain_lookup",
+            "args": "{\"domains\":[\"google.com\"]}"
+          }
+        ],
+        "input": 1561,
+        "output": 28,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 4220
+      },
+      {
+        "id": "created",
+        "correct": true,
+        "answer": "1994-12-13",
+        "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "domain_lookup",
+            "args": "{\"domains\":[\"bbc.co.uk\"]}"
+          }
+        ],
+        "input": 1584,
+        "output": 32,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 3005
+      },
+      {
+        "id": "expiry",
+        "correct": true,
+        "answer": "2028-09-14",
+        "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "domain_lookup",
+            "args": "{\"domains\":[\"google.com\"]}"
+          }
+        ],
+        "input": 1563,
+        "output": 31,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 1930
+      },
+      {
+        "id": "mx",
+        "correct": true,
+        "answer": "github-com.mail.protection.outlook.com",
+        "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "dns_lookup",
+            "args": "{\"name\":\"github.com\",\"types\":[\"MX\"]}"
+          }
+        ],
+        "input": 1485,
+        "output": 37,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 2116
+      },
+      {
+        "id": "available",
+        "correct": true,
+        "answer": "no",
+        "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "domain_lookup",
+            "args": "{\"domains\":[\"thisdomainsurelydoesnotexist-xyz123.com\"]}"
+          }
+        ],
+        "input": 1517,
+        "output": 34,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 2327
+      },
+      {
+        "id": "mta-sts",
+        "correct": true,
+        "answer": "Yes",
+        "tool_calls": 3,
+        "trace": [
+          {
+            "tool": "dns_lookup",
+            "args": "{\"name\":\"google.com\",\"types\":[\"TXT\"]}"
+          },
+          {
+            "tool": "dns_lookup",
+            "args": "{\"name\": \"_mta-sts.google.com\", \"types\": [\"TXT\"]}"
+          },
+          {
+            "tool": "dns_lookup",
+            "args": "{\"name\": \"mta-sts.google.com\", \"types\": [\"TXT\", \"A\", \"AAAA\"]}"
+          }
+        ],
+        "input": 2441,
+        "output": 104,
+        "cache_read": 1152,
+        "cache_write": 0,
+        "ms": 4044
+      },
+      {
+        "id": "caa",
+        "correct": true,
+        "answer": "pki.goog",
+        "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "dns_lookup",
+            "args": "{\"name\":\"google.com\",\"types\":[\"CAA\"]}"
+          }
+        ],
+        "input": 1491,
+        "output": 33,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 1972
+      }
+    ],
+    "competitor": [
+      {
+        "id": "spf-pass",
+        "correct": true,
+        "answer": "pass",
+        "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "resolve_dns",
+            "args": "{\"hostname\":\"gmail.com\"}"
+          }
+        ],
+        "input": 508,
+        "output": 24,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 2017
+      },
+      {
+        "id": "spf-softfail",
+        "correct": false,
+        "answer": "fail",
+        "tool_calls": 2,
+        "trace": [
+          {
+            "tool": "resolve_dns",
+            "args": "{\"hostname\":\"gmail.com\"}"
+          },
+          {
+            "tool": "resolve_dns",
+            "args": "{\"hostname\":\"gmail.com\"}"
+          }
+        ],
+        "input": 921,
+        "output": 42,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 2742
+      },
+      {
+        "id": "spf-lookups",
+        "correct": true,
+        "answer": "10",
+        "tool_calls": 4,
+        "trace": [
+          {
+            "tool": "resolve_dns",
+            "args": "{\"hostname\":\"oracle.com\"}"
+          },
+          {
+            "tool": "resolve_dns",
+            "args": "{\"hostname\":\"oracle.com\"}"
+          },
+          {
+            "tool": "resolve_dns",
+            "args": "{\"hostname\":\"oracle.com\"}"
+          },
+          {
+            "tool": "resolve_dns",
+            "args": "{\"hostname\":\"oracle.com\"}"
+          }
+        ],
+        "input": 1965,
+        "output": 79,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 4652
+      },
+      {
+        "id": "dmarc-policy",
+        "correct": false,
+        "answer": "reject",
+        "tool_calls": 2,
+        "trace": [
+          {
+            "tool": "resolve_dns",
+            "args": "{\"hostname\":\"intel.com\"}"
+          },
+          {
+            "tool": "resolve_dns",
+            "args": "{\"hostname\":\"_dmarc.intel.com\"}"
+          }
+        ],
+        "input": 884,
+        "output": 47,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 2725
+      },
+      {
+        "id": "dmarc-inherit",
+        "correct": false,
+        "answer": "none",
+        "tool_calls": 4,
+        "trace": [
+          {
+            "tool": "resolve_dns",
+            "args": "{\"hostname\":\"mail.google.com\"}"
+          },
+          {
+            "tool": "resolve_dns",
+            "args": "{\"hostname\":\"google.com\"}"
+          },
+          {
+            "tool": "resolve_dns",
+            "args": "{\"hostname\": \"mail.google.com\"}"
+          },
+          {
+            "tool": "resolve_dns",
+            "args": "{\"hostname\": \"google.com\"}"
+          }
+        ],
+        "input": 1483,
+        "output": 93,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 3790
+      },
+      {
+        "id": "dkim-bits",
+        "correct": false,
+        "answer": "0",
+        "tool_calls": 2,
+        "trace": [
+          {
+            "tool": "resolve_dns",
+            "args": "{\"hostname\":\"google._domainkey.github.com\"}"
+          },
+          {
+            "tool": "resolve_dns",
+            "args": "{\"hostname\":\"google._domainkey.github.com\"}"
+          }
+        ],
+        "input": 912,
+        "output": 51,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 2644
+      },
+      {
+        "id": "registrar",
+        "correct": false,
+        "answer": "The registrar information for google.com is not available from the DNS lookup tool used here.",
+        "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "resolve_dns",
+            "args": "{\"hostname\":\"google.com\"}"
+          }
+        ],
+        "input": 474,
+        "output": 46,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 1904
+      },
+      {
+        "id": "created",
+        "correct": false,
+        "answer": "1996-08-01",
+        "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "resolve_dns",
+            "args": "{\"hostname\":\"bbc.co.uk\"}"
+          }
+        ],
+        "input": 482,
+        "output": 31,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 1967
+      },
+      {
+        "id": "expiry",
+        "correct": false,
+        "answer": "Unable to determine from DNS resolution alone.",
+        "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "resolve_dns",
+            "args": "{\"hostname\":\"google.com\"}"
+          }
+        ],
+        "input": 476,
+        "output": 31,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 1827
+      },
+      {
+        "id": "mx",
+        "correct": false,
+        "answer": "no MX record found",
+        "tool_calls": 2,
+        "trace": [
+          {
+            "tool": "resolve_dns",
+            "args": "{\"hostname\":\"github.com\"}"
+          },
+          {
+            "tool": "resolve_dns",
+            "args": "{\"hostname\":\"github.com\"}"
+          }
+        ],
+        "input": 867,
+        "output": 45,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 2609
+      },
+      {
+        "id": "available",
+        "correct": false,
+        "answer": "yes",
+        "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "resolve_dns",
+            "args": "{\"hostname\":\"thisdomainsurelydoesnotexist-xyz123.com\"}"
+          }
+        ],
+        "input": 515,
+        "output": 33,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 1779
+      },
+      {
+        "id": "mta-sts",
+        "correct": true,
+        "answer": "yes",
+        "tool_calls": 3,
+        "trace": [
+          {
+            "tool": "resolve_dns",
+            "args": "{\"hostname\":\"google.com\"}"
+          },
+          {
+            "tool": "resolve_dns",
+            "args": "{\"hostname\": \"_mta-sts.google.com\"}"
+          },
+          {
+            "tool": "resolve_dns",
+            "args": "{\"hostname\": \"_mta-sts.google.com\"}"
+          }
+        ],
+        "input": 973,
+        "output": 83,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 2968
+      },
+      {
+        "id": "caa",
+        "correct": false,
+        "answer": "I couldn’t retrieve the CAA record from the available DNS lookup results, so I can’t determine the allowed certificate authority issuer domain for google.com from this tool output.",
+        "tool_calls": 5,
+        "trace": [
+          {
+            "tool": "resolve_dns",
+            "args": "{\"hostname\":\"google.com\"}"
+          },
+          {
+            "tool": "resolve_dns",
+            "args": "{\"hostname\":\"google.com\"}"
+          },
+          {
+            "tool": "resolve_dns",
+            "args": "{\"hostname\":\"google.com\"}"
+          },
+          {
+            "tool": "resolve_dns",
+            "args": "{\"hostname\":\"google.com\"}"
+          },
+          {
+            "tool": "resolve_dns",
+            "args": "{\"hostname\":\"google.com\"}"
+          }
+        ],
+        "input": 2598,
+        "output": 129,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 5886
+      }
+    ]
+  },
+  "summary": {
+    "ours": {
+      "tasks": 13,
+      "correct": 13,
+      "tokens_in": 29631,
+      "tokens_out": 583,
+      "cached_share": 0.134,
+      "tool_calls": 18,
+      "median_ms": 2789
+    },
+    "competitor": {
+      "tasks": 13,
+      "correct": 3,
+      "tokens_in": 13058,
+      "tokens_out": 734,
+      "cached_share": 0,
+      "tool_calls": 29,
+      "median_ms": 2644
+    }
+  }
+}

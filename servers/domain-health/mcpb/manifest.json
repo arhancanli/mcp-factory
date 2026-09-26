@@ -1,0 +1,67 @@
+{
+  "manifest_version": "0.3",
+  "name": "domain-health-mcp",
+  "display_name": "Domain Health",
+  "version": "0.1.0",
+  "description": "Checks a domain the way mail providers and registrars see it: SPF evaluated in full (the 10-lookup limit, void lookups, whether an IP may send), DKIM keys and their strength, DMARC policy with the DNS tree walk, MTA-STS, TLS-RPT, BIMI, CAA, DNS records from two resolvers, and registration data from the registry's RDAP server. No key.",
+  "author": {
+    "name": "Arhan Canli",
+    "url": "https://github.com/arhancanli"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/arhancanli/domain-health-mcp"
+  },
+  "homepage": "https://github.com/arhancanli/domain-health-mcp#readme",
+  "documentation": "https://github.com/arhancanli/domain-health-mcp#readme",
+  "support": "https://github.com/arhancanli/domain-health-mcp/issues",
+  "license": "MIT",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "mcp-server",
+    "developer-tools"
+  ],
+  "server": {
+    "type": "node",
+    "entry_point": "src/server.mjs",
+    "mcp_config": {
+      "command": "node",
+      "args": [
+        "${__dirname}/src/server.mjs"
+      ]
+    }
+  },
+  "tools": [
+    {
+      "name": "check_dkim",
+      "description": "Check DKIM keys"
+    },
+    {
+      "name": "check_spf",
+      "description": "Evaluate SPF"
+    },
+    {
+      "name": "dns_lookup",
+      "description": "DNS records"
+    },
+    {
+      "name": "domain_lookup",
+      "description": "Registration and availability"
+    },
+    {
+      "name": "domain_report",
+      "description": "Domain and email health report"
+    }
+  ],
+  "compatibility": {
+    "platforms": [
+      "darwin",
+      "win32",
+      "linux"
+    ],
+    "runtimes": {
+      "node": ">=20"
+    }
+  }
+}

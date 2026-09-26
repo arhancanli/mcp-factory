@@ -1,0 +1,19 @@
+{
+  "name": "domain-health-mcp",
+  "version": "0.1.0",
+  "description": "Checks a domain the way mail providers and registrars see it: SPF evaluated in full (the 10-lookup limit, void lookups, whether an IP may send), DKIM keys and their strength, DMARC policy with the DNS tree walk, MTA-STS, TLS-RPT, BIMI, CAA, DNS records from two resolvers, and registration data from the registry's RDAP server. No key.",
+  "type": "module",
+  "license": "MIT",
+  "author": { "name": "Arhan Canli", "url": "https://github.com/arhancanli" },
+  "bin": { "domain-health-mcp": "src/server.mjs" },
+  "files": ["src", "README.md", "LICENSE", "npm-shrinkwrap.json"],
+  "engines": { "node": ">=20" },
+  "scripts": { "test": "node --test test/*.test.mjs", "start": "node src/server.mjs" },
+  "dependencies": { "@modelcontextprotocol/sdk": "1.30.1", "zod": "4.6.5" },
+  "mcpName": "io.github.arhancanli/domain-health-mcp",
+  "keywords": ["mcp", "model-context-protocol", "mcp-server", "developer-tools"],
+  "repository": { "type": "git", "url": "git+https://github.com/arhancanli/domain-health-mcp.git" },
+  "homepage": "https://github.com/arhancanli/domain-health-mcp#readme",
+  "bugs": { "url": "https://github.com/arhancanli/domain-health-mcp/issues" },
+  "factory": { "displayName": "Domain Health", "category": "developer-tools", "allowHosts": ["cloudflare-dns.com", "dns.google", "data.iana.org", "publicsuffix.org"], "toolListBudget": 6000 }
+}

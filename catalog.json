@@ -36,6 +36,45 @@
       ]
     },
     {
+      "name": "domain-health-mcp",
+      "title": "Domain Health",
+      "category": "developer-tools",
+      "summary": "Email and domain checks: SPF lookup limits, DKIM keys, DMARC, DNS records, registration expiry.",
+      "description": "Checks a domain the way mail providers and registrars see it: SPF evaluated in full (the 10-lookup limit, void lookups, whether an IP may send), DKIM keys and their strength, DMARC policy with the DNS tree walk, MTA-STS, TLS-RPT, BIMI, CAA, DNS records from two resolvers, and registration data from the registry's RDAP server. No key.",
+      "version": "0.1.0",
+      "repository": "https://github.com/arhancanli/domain-health-mcp",
+      "npm": "https://www.npmjs.com/package/domain-health-mcp",
+      "mcpName": "io.github.arhancanli/domain-health-mcp",
+      "hosts": [
+        "cloudflare-dns.com",
+        "dns.google",
+        "data.iana.org",
+        "publicsuffix.org"
+      ],
+      "tools": [
+        {
+          "name": "check_dkim",
+          "title": "Check DKIM keys"
+        },
+        {
+          "name": "check_spf",
+          "title": "Evaluate SPF"
+        },
+        {
+          "name": "dns_lookup",
+          "title": "DNS records"
+        },
+        {
+          "name": "domain_lookup",
+          "title": "Registration and availability"
+        },
+        {
+          "name": "domain_report",
+          "title": "Domain and email health report"
+        }
+      ]
+    },
+    {
       "name": "drug-label-mcp",
       "title": "Drug Label",
       "category": "health-medicine",
