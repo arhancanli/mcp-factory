@@ -1,8 +1,9 @@
 #!/usr/bin/env node
-// node scripts/publish-repos.mjs [name...] [--public] [--dry]
+// node scripts/publish-repos.mjs [name...] [--private] [--dry]
 //
 // Mirrors each server to its own repository, github.com/<owner>/<package name>. For each server:
-// creates the repository if it does not exist (PRIVATE unless --public is given), replaces its
+// creates the repository if it does not exist (public, as the owner decided on 2026-09-26; --private
+// for an unreleased experiment), with a release environment for CI publishing, replaces its
 // content with the committed tree of servers/<name>, commits as the owner with the owner's SSH
 // signature, pushes, then proves parity: the pushed commit's tree id must equal the factory's tree
 // id for servers/<name>. Equal tree ids mean every file is byte-identical and nothing extra exists.
@@ -33,7 +34,7 @@ export function repoTopics(pkg) {
   return [...new Set(all.map((t) => String(t).toLowerCase().replace(/[^a-z0-9-]/g, "-")).filter((t) => /^[a-z0-9][a-z0-9-]{0,49}$/.test(t)))].slice(0, 20);
 }
 
-export function publishServer(name, { makePublic = false, dry = false } = {}) {
+export function publishServer(name, { makePublic = true, dry = false } = {}) {
   assertCommitted(name);
   const dir = path.join(ROOT, "servers", name);
   const pkg = readJson(path.join(dir, "package.json"));
@@ -45,6 +46,7 @@ export function publishServer(name, { makePublic = false, dry = false } = {}) {
 
   if (!exists(repo)) {
     sh("gh", ["repo", "create", repo, makePublic ? "--public" : "--private", "--description", reg.description, "--homepage", `https://www.npmjs.com/package/${pkg.name}`, "--disable-wiki"]);
+    sh("gh", ["api", "-X", "PUT", `repos/${repo}/environments/release`, "--silent"]);
   }
   const work = mkdtempSync(path.join(os.tmpdir(), `publish-${name}-`));
   try {
@@ -79,7 +81,7 @@ if (process.argv[1] && path.resolve(process.argv[1]) === new URL(import.meta.url
   const names = args.filter((a) => !a.startsWith("--"));
   const targets = names.length ? names : listServerDirs().map((d) => path.basename(d));
   for (const name of targets) {
-    const r = publishServer(name, { makePublic: args.includes("--public"), dry: args.includes("--dry") });
+    const r = publishServer(name, { makePublic: !args.includes("--private"), dry: args.includes("--dry") });
     process.stdout.write(`${r.repo}: ${r.action}, tree ${r.tree}${r.signature ? `, head ${r.signature}` : ""}\n`);
   }
 }
