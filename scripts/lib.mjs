@@ -49,18 +49,20 @@ const NAME_RE = /^[a-z][a-z0-9-]{1,40}$/;
  * Creates a server from the template. Refuses to overwrite an existing directory.
  * @returns {string} the new server's directory
  */
-export function generateServer({ name, title, description, host, instructions, budget = CONFIG.defaultToolListBudget, outDir = path.join(SERVERS_DIR, name) }) {
+export function generateServer({ name, title, description, summary, host, instructions, budget = CONFIG.defaultToolListBudget, outDir = path.join(SERVERS_DIR, name) }) {
   if (!NAME_RE.test(name ?? "")) throw new Error("name must be lowercase letters, digits and dashes, 2-41 chars");
-  for (const [k, v] of Object.entries({ title, description, host, instructions })) {
+  for (const [k, v] of Object.entries({ title, description, summary, host, instructions })) {
     if (!v) throw new Error(`--${k} is required`);
     if (/["\\\n]/.test(v)) throw new Error(`--${k} must not contain quotes, backslashes or newlines`);
   }
+  if (summary.length > 100) throw new Error(`--summary is ${summary.length} chars; the MCP Registry allows 100`);
   if (existsSync(outDir)) throw new Error(`${outDir} already exists`);
   const pkgName = CONFIG.packageName.replace("{name}", name);
   const values = {
     name,
     title,
     description,
+    summary,
     host,
     instructions,
     budget: String(budget),
@@ -80,7 +82,8 @@ export function generateServer({ name, title, description, host, instructions, b
 }
 
 /** Spawns the server over real stdio and returns what a client sees at connect. */
-export async function inspectServer(serverDir) {
+export async function inspectServer(dir) {
+  const serverDir = path.resolve(dir);
   const transport = new StdioClientTransport({
     command: process.execPath,
     args: [path.join(serverDir, "src/server.mjs")],

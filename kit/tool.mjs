@@ -6,6 +6,7 @@
 // start. Handlers return plain data; the wrapper turns it into compact JSON text plus structured
 // content, and turns thrown errors into short isError results that never carry a stack trace.
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { ListToolsRequestSchema } from "@modelcontextprotocol/sdk/types.js";
 import { z } from "zod";
 import { UpstreamError } from "./http.mjs";
 
@@ -81,6 +82,17 @@ export function defineTool(t) {
   return Object.freeze({ ...t, input: t.input ?? {} });
 }
 
+function jsonSchema(shape, io) {
+  const schema = z.toJSONSchema(z.object(shape), { target: "draft-7", io, unrepresentable: "any" });
+  delete schema.$schema;
+  return schema;
+}
+
+/** One tools/list entry: what a client (and usually the model) sees for the tool. */
+export function listedTool(t) {
+  return { name: t.name, title: t.title, description: t.description, inputSchema: jsonSchema(t.input, "input"), outputSchema: jsonSchema(t.output, "output"), annotations: t.annotations };
+}
+
 const errorResult = (code, message, details) => {
   const body = { error: { code, message, ...(details === undefined ? {} : { details }) } };
   return { content: [{ type: "text", text: JSON.stringify(body) }], isError: true };
@@ -115,13 +127,19 @@ export function createServer({ name, version, instructions, tools, ctx }) {
     names.add(t.name);
   }
   const server = new McpServer({ name, version }, instructions ? { instructions } : undefined);
-  // Registered in name order so tools/list is byte-identical on every launch and caches well.
-  for (const t of [...tools].sort((a, b) => a.name.localeCompare(b.name))) {
+  const sorted = [...tools].sort((a, b) => a.name.localeCompare(b.name));
+  for (const t of sorted) {
     server.registerTool(
       t.name,
-      { title: t.title, description: t.description, inputSchema: t.input, outputSchema: t.output, annotations: { title: t.title, ...t.annotations } },
+      { title: t.title, description: t.description, inputSchema: t.input, outputSchema: t.output, annotations: t.annotations },
       wrapHandler(t, ctx),
     );
   }
+  // The tool list is resent to the model on every turn, so it is built once here, in name order,
+  // without the per-schema "$schema" URL and empty fields the SDK adds, and served as the same
+  // bytes on every call so providers can cache it. setRequestHandler replaces the SDK's handler
+  // (documented behaviour); calls still go through the SDK, which validates inputs and outputs.
+  const listed = sorted.map(listedTool);
+  server.server.setRequestHandler(ListToolsRequestSchema, () => ({ tools: listed }));
   return server;
 }

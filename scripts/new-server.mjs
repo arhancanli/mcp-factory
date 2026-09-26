@@ -33,6 +33,7 @@ if (process.argv[1] && path.resolve(process.argv[1]) === new URL(import.meta.url
     options: {
       title: { type: "string" },
       description: { type: "string" },
+      summary: { type: "string" },
       host: { type: "string" },
       instructions: { type: "string" },
       budget: { type: "string" },

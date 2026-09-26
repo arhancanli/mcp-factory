@@ -1,4 +1,4 @@
-# Weekly live check: each server's test/live.test.mjs calls the real upstream API, so a changed
+# Weekly live check: each server's test/live.canary.mjs calls the real upstream API, so a changed
 # or broken upstream is caught within a week instead of by a user. A failure opens nothing
 # automatically; it shows red on the Actions page and in the README badge.
 name: Canary
@@ -27,10 +27,10 @@ jobs:
       - name: Live tests against the real upstreams
         run: |
           status=0
-          for f in servers/*/test/live.test.mjs; do
+          for f in servers/*/test/live.canary.mjs; do
             [ -f "$f" ] || continue
             dir="$(dirname "$(dirname "$f")")"
             echo "== $dir"
-            (cd "$dir" && node --test test/live.test.mjs) || status=1
+            (cd "$dir" && node --test test/live.canary.mjs) || status=1
           done
           exit $status

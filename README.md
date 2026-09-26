@@ -15,7 +15,9 @@ Every server here:
 ## Servers
 
 <!-- servers:start -->
-None published yet.
+| Server | What it does | Run |
+| --- | --- | --- |
+| [Package Truth](servers/package-truth) | Checks that packages exist before an agent installs them: latest version, deprecation, known vulnerabilities and licence across npm, PyPI, Go, Maven, Cargo, NuGet and RubyGems. | `npx -y package-truth-mcp` |
 <!-- servers:end -->
 
 ## How they are made

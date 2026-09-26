@@ -27,6 +27,7 @@ generateServer({
   name: "template-probe",
   title: "Template probe",
   description: "A server generated from the template to prove the template passes the gate.",
+  summary: "Template probe.",
   host: "api.example.org",
   instructions: "Probe only.",
   outDir: TEMPLATE_PROBE,
@@ -130,7 +131,13 @@ for (const dir of targets) {
     const { execFileSync } = process.getBuiltinModule("node:child_process");
     const files = readdirSync(path.join(dir, "test")).filter((f) => f.endsWith(".test.mjs")).map((f) => path.join("test", f));
     assert.ok(files.length > 0, "a server without tests does not ship");
-    execFileSync(process.execPath, ["--test", ...files], { cwd: dir, stdio: "pipe" });
+    // Without NODE_TEST_CONTEXT: inherited from this runner, it makes the child report to a parent
+    // that is not listening, and the child exits 0 without running anything.
+    const { NODE_TEST_CONTEXT, ...env } = process.env;
+    const out = execFileSync(process.execPath, ["--test", "--test-reporter=tap", ...files], { cwd: dir, env, encoding: "utf8" });
+    const passed = Number(out.match(/^# pass (\d+)/m)?.[1] ?? 0);
+    assert.ok(passed >= files.length, `expected the server's tests to run; the reporter saw ${passed} passing`);
+    assert.match(out, /^# fail 0$/m);
   });
 }
 
@@ -142,5 +149,13 @@ test("the Desktop bundle manifest lists exactly the live tools", async () => {
     assert.deepEqual(m.tools.map((t) => t.name), tools.map((t) => t.name));
     assert.equal(m.author.name, CONFIG.author.name);
     assert.ok(m.display_name);
+  }
+});
+
+test("the root README lists every server", () => {
+  const readme = readFileSync(path.join(ROOT, "README.md"), "utf8");
+  for (const dir of listServerDirs()) {
+    const pkg = readJson(path.join(dir, "package.json"));
+    assert.ok(readme.includes(`npx -y ${pkg.name}`), `${pkg.name} missing from README; run npm run sync`);
   }
 });

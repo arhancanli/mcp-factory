@@ -108,3 +108,20 @@ test("page, clip and compact never hide that something was left out", () => {
   assert.equal(clip("abcdef", 3), "abc [clipped: 3 more characters]");
   assert.deepEqual(compact({ a: 1, b: null, c: "", d: [], e: 0 }), { a: 1, e: 0 });
 });
+
+test("tools/list is lean: no $schema, no empty fields, title not repeated in annotations", async () => {
+  const client = await connect([defineTool(base)]);
+  const { tools } = await client.listTools();
+  const text = JSON.stringify(tools);
+  assert.ok(!text.includes("$schema"));
+  assert.ok(!text.includes("execution"));
+  assert.equal(tools[0].annotations.title, undefined);
+  assert.deepEqual(tools[0].inputSchema.properties.word, { type: "string", maxLength: 20 });
+  assert.deepEqual(tools[0].inputSchema.required, ["word"]);
+});
+
+test("the SDK still validates input against the schema after the list is replaced", async () => {
+  const client = await connect([defineTool(base)]);
+  const res = await client.callTool({ name: "echo_word", arguments: {} });
+  assert.equal(res.isError, true);
+});
