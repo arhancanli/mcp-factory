@@ -1,0 +1,19 @@
+{
+  "name": "release-notes-mcp",
+  "version": "0.1.0",
+  "description": "Answers upgrade questions from a package's own changelog or GitHub releases: what changed between two versions, with breaking changes, deprecations, security fixes and raised requirements pulled out first; the notes for one version; and the version where something was added, deprecated or removed. npm, PyPI, crates.io, RubyGems, Go and Packagist. No key.",
+  "type": "module",
+  "license": "MIT",
+  "author": { "name": "Arhan Canli", "url": "https://github.com/arhancanli" },
+  "bin": { "release-notes-mcp": "src/server.mjs" },
+  "files": ["src", "README.md", "LICENSE", "npm-shrinkwrap.json"],
+  "engines": { "node": ">=20" },
+  "scripts": { "test": "node --test test/*.test.mjs", "start": "node src/server.mjs" },
+  "dependencies": { "@modelcontextprotocol/sdk": "1.30.1", "zod": "4.6.5" },
+  "mcpName": "io.github.arhancanli/release-notes-mcp",
+  "keywords": ["mcp", "model-context-protocol", "mcp-server", "developer-tools"],
+  "repository": { "type": "git", "url": "git+https://github.com/arhancanli/release-notes-mcp.git" },
+  "homepage": "https://github.com/arhancanli/release-notes-mcp#readme",
+  "bugs": { "url": "https://github.com/arhancanli/release-notes-mcp/issues" },
+  "factory": { "displayName": "Release Notes", "category": "developer-tools", "allowHosts": ["api.deps.dev", "registry.npmjs.org", "raw.githubusercontent.com", "api.github.com"], "linkHosts": ["github.com"], "toolListBudget": 6000 }
+}

@@ -1,0 +1,62 @@
+{
+  "measured_on": "2026-09-26",
+  "where": "Dubai, home connection",
+  "node": "v24.19.0",
+  "runs": 5,
+  "tool_definition_chars": 1792,
+  "tools_list_chars": 2732,
+  "competitor": {
+    "label": "mcp-server-fetch reading changelogs (no changelog server exists; this is what agents use today)",
+    "tool_definition_chars": 1105,
+    "tools_list_chars": 1104
+  },
+  "scenarios": [
+    {
+      "call": "changes_between: express 4.21.2 to 5.0.0 (History.md)",
+      "first_call_ms": 1973,
+      "repeat_ms": 1.6,
+      "result_chars": 2465
+    },
+    {
+      "call": "changes_between: requests 2.31.0 to 2.32.3 (HISTORY.md)",
+      "first_call_ms": 2337,
+      "repeat_ms": 0.9,
+      "result_chars": 1652
+    },
+    {
+      "call": "changes_between: serde 1.0.150 to 1.0.200 (GitHub releases)",
+      "first_call_ms": 4497,
+      "repeat_ms": 1.3,
+      "result_chars": 253
+    },
+    {
+      "call": "search_changelog: express, req.param",
+      "first_call_ms": 1756,
+      "repeat_ms": 5.3,
+      "result_chars": 650
+    },
+    {
+      "call": "release_notes: react 18.0.0",
+      "first_call_ms": 3603,
+      "repeat_ms": 8.1,
+      "result_chars": 1673
+    },
+    {
+      "call": "search_changelog: react, useId",
+      "first_call_ms": 3533,
+      "repeat_ms": 13.4,
+      "result_chars": 1209
+    }
+  ],
+  "example": {
+    "call": "changes_between: express 4.21.2 to 5.0.0 (History.md)",
+    "tool": "changes_between",
+    "arguments": {
+      "ecosystem": "npm",
+      "package": "express",
+      "from": "4.21.2",
+      "to": "5.0.0"
+    },
+    "result": "{\"versions\":5,\"major_upgrades\":[\"5.x\"],\"from_date\":\"2024-12-05\",\"to_date\":\"2024-09-10\",\"breaking\":[\"5.0.0: `res.status()` accepts only integers, and input must be greater than 99 and less than 1000\",\"5.0.0: will throw a `RangeError: Invalid status code: ${code}. Status code must be greater than 99 and less than 1000.` for inputs outside this range\",\"5.0.0: will throw a `TypeError: Invalid status code: ${code}. Status code must be an integer.` for non integer inputs\"],\"removed\":[\"5.0.0: `path-is-absolute` dependency - use `path.isAbsolute` instead\",\"5.0.0-beta.1: Named matching groups no longer available by position in `req.params`\",\"5.0.0-beta.1: Remove `debug` dependency\",\"5.0.0-beta.1: Remove `hidden` option; use `dotfiles` option instead\",\"5.0.0-beta.1: Remove `express.static.mime` export; use `mime-types` package instead\",\"5.0.0-alpha.7: `path-to-regexp` dependency\",\"5.0.0-alpha.7: Remove `DEBUG_FD` environment variable support\",\"5.0.0-alpha.6: `res.redirect(url, status)` signature - use `res.redirect(status, url)`\",\"5.0.0-alpha.6: `res.send(status, body)` signature - use `res.status(status).send(body)`\",\"5.0.0-alpha.4: Remove Express 3.x middleware error stubs\",\"5.0.0-alpha.3: `res.json(status, obj)` signature - use `res.status(status).json(obj)`\",\"5.0.0-alpha.3: `res.jsonp(status, obj)` signature - use `res.status(status).jsonp(obj)`\",\"5.0.0-alpha.3: `res.vary()` (no arguments) -- provide a field name as an argument\",\"5.0.0-alpha.2: `app.param(fn)`\",\"5.0.0-alpha.2: `req.param()` -- use `req.params`, `req.body`, or `req.query` instead\",\"5.0.0-alpha.1: `app.del` - use `app.delete`\",\"5.0.0-alpha.1: `req.acceptsCharset` - use `req.acceptsCharsets`\",\"5.0.0-alpha.1: `req.acceptsEncoding` - use `req.acceptsEncodings`\",\"5.0.0-alpha.1: `req.acceptsLanguage` - use `req.acceptsLanguages`\",\"5.0.0-alpha.1: `res.json(obj, status)` signature - use `res.json(status, obj)`\",\"5.0.0-alpha.1: `res.jsonp(obj, status)` signature - use `res.jsonp(status, obj)`\",\"5.0.0-alpha.1: `res.send(body, status)` signature - use `res.send(status, body)`\",\"5.0.0-alpha.1: `res.send(status)` signature - use `res.sendStatus(status)`\",\"5.0.0-alpha.1: `res.sendfile` - use `res.sendFile` instead\",\"5.0.0-alpha.1: `express.query` middleware\"],\"requirements\":[\"5.0.0-beta.1: Requires Node.js 4+\"],\"source\":\"https://github.com/expressjs/express/blob/HEAD/History.md\",\"without_notes\":\"4.22.0, 4.22.1, 4.22.2, 4.22.3\",\"package\":\"express\",\"from\":\"4.21.2\",\"to\":\"5.0.0\"}"
+  }
+}

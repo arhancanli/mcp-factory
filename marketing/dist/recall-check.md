@@ -73,4 +73,4 @@ model numbers robustly, verifies VINs, and says how confident each match is. htt
 
 ## Cross-links
 
-Footer: 11 servers, each measured before release: https://github.com/topics/arhancanli-mcp. Related: Citation Check (https://github.com/arhancanli/citation-check-mcp), Domain Health (https://github.com/arhancanli/domain-health-mcp), Drug Label (https://github.com/arhancanli/drug-label-mcp).
+Footer: 12 servers, each measured before release: https://github.com/topics/arhancanli-mcp. Related: Citation Check (https://github.com/arhancanli/citation-check-mcp), Domain Health (https://github.com/arhancanli/domain-health-mcp), Drug Label (https://github.com/arhancanli/drug-label-mcp).

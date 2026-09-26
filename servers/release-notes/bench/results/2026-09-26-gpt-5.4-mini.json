@@ -1,0 +1,500 @@
+{
+  "date": "2026-09-26",
+  "model": "gpt-5.4-mini",
+  "competitor_label": "mcp-server-fetch reading changelogs (no changelog server exists; this is what agents use today)",
+  "rows": {
+    "ours": [
+      {
+        "id": "express-removed",
+        "correct": true,
+        "answer": "5.0.0-alpha.2",
+        "tool_calls": 2,
+        "trace": [
+          {
+            "tool": "search_changelog",
+            "args": "{\"ecosystem\":\"npm\",\"package\":\"express\",\"text\":\"req.param() removed\"}"
+          },
+          {
+            "tool": "search_changelog",
+            "args": "{\"ecosystem\":\"npm\",\"package\":\"express\",\"text\":\"req.param\"}"
+          }
+        ],
+        "input": 2197,
+        "output": 94,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 6793
+      },
+      {
+        "id": "express-deprecated",
+        "correct": true,
+        "answer": "4.11.0",
+        "tool_calls": 3,
+        "trace": [
+          {
+            "tool": "search_changelog",
+            "args": "{\"ecosystem\":\"npm\",\"package\":\"express\",\"text\":\"req.param() deprecated\"}"
+          },
+          {
+            "tool": "search_changelog",
+            "args": "{\"ecosystem\":\"npm\",\"package\":\"express\",\"text\":\"req.param deprecated\"}"
+          },
+          {
+            "tool": "search_changelog",
+            "args": "{\"ecosystem\":\"npm\",\"package\":\"express\",\"text\":\"req.param\"}"
+          }
+        ],
+        "input": 2909,
+        "output": 98,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 4875
+      },
+      {
+        "id": "express-back",
+        "correct": true,
+        "answer": "back",
+        "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "search_changelog",
+            "args": "{\"ecosystem\":\"npm\",\"package\":\"express\",\"text\":\"magic string res.redirect res.location\"}"
+          }
+        ],
+        "input": 1182,
+        "output": 38,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 1948
+      },
+      {
+        "id": "express-status",
+        "correct": true,
+        "answer": "99 and 1000",
+        "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "release_notes",
+            "args": "{\"ecosystem\":\"npm\",\"package\":\"express\",\"version\":\"5.0.0\",\"max_chars\":12000}"
+          }
+        ],
+        "input": 1513,
+        "output": 47,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 2412
+      },
+      {
+        "id": "requests-cve",
+        "correct": true,
+        "answer": "CVE-2023-32681",
+        "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "release_notes",
+            "args": "{\"ecosystem\":\"pypi\",\"package\":\"requests\",\"version\":\"2.31.0\",\"max_chars\":4000}"
+          }
+        ],
+        "input": 1369,
+        "output": 51,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 4661
+      },
+      {
+        "id": "requests-python",
+        "correct": true,
+        "answer": "3.7",
+        "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "changes_between",
+            "args": "{\"ecosystem\":\"pypi\",\"package\":\"requests\",\"from\":\"2.31.0\",\"to\":\"2.32.0\"}"
+          }
+        ],
+        "input": 1406,
+        "output": 50,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 2199
+      },
+      {
+        "id": "requests-verify",
+        "correct": true,
+        "answer": "verify",
+        "tool_calls": 4,
+        "trace": [
+          {
+            "tool": "search_changelog",
+            "args": "{\"ecosystem\":\"pypi\",\"package\":\"requests\",\"text\":\"2.32.0 security issue setting a Session request option to False on the first request carried over to later requests to the same origin\"}",
+            "error": "MCP error -32602: Input validation error: Invalid arguments for tool search_changelog: Too big: expected string to have <=120 characters at text"
+          },
+          {
+            "tool": "search_changelog",
+            "args": "{\"ecosystem\":\"pypi\",\"package\":\"requests\",\"text\":\"security issue setting a Session option to False carried over later requests same origin\"}"
+          },
+          {
+            "tool": "search_changelog",
+            "args": "{\"ecosystem\":\"pypi\",\"package\":\"requests\",\"text\":\"False carried over to later requests same origin\"}"
+          },
+          {
+            "tool": "release_notes",
+            "args": "{\"ecosystem\":\"pypi\",\"package\":\"requests\",\"version\":\"2.32.0\",\"max_chars\":4000}"
+          }
+        ],
+        "input": 4053,
+        "output": 177,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 4754
+      },
+      {
+        "id": "serde-emscripten",
+        "correct": true,
+        "answer": "1.0.187",
+        "tool_calls": 2,
+        "trace": [
+          {
+            "tool": "search_changelog",
+            "args": "{\"ecosystem\":\"cargo\",\"package\":\"serde\",\"text\":\"Emscripten targets rustc older than 1.40 removed\"}"
+          },
+          {
+            "tool": "search_changelog",
+            "args": "{\"ecosystem\":\"cargo\",\"package\":\"serde\",\"text\":\"Emscripten\"}"
+          }
+        ],
+        "input": 1931,
+        "output": 81,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 7439
+      },
+      {
+        "id": "react-useid",
+        "correct": true,
+        "answer": "18.0.0",
+        "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "search_changelog",
+            "args": "{\"ecosystem\":\"npm\",\"package\":\"react\",\"text\":\"useId\"}"
+          }
+        ],
+        "input": 1486,
+        "output": 39,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 5409
+      }
+    ],
+    "competitor": [
+      {
+        "id": "express-removed",
+        "correct": true,
+        "answer": "5.0.0-alpha.2",
+        "tool_calls": 6,
+        "trace": [
+          {
+            "tool": "fetch",
+            "args": "{\"url\":\"https://raw.githubusercontent.com/expressjs/express/master/History.md\",\"max_length\":12000}"
+          },
+          {
+            "tool": "fetch",
+            "args": "{\"url\":\"https://registry.npmjs.org/express\",\"max_length\":2000}"
+          },
+          {
+            "tool": "fetch",
+            "args": "{\"url\": \"https://registry.npmjs.org/express/-/express-5.0.0-alpha.2.tgz\", \"max_length\": 1000}"
+          },
+          {
+            "tool": "fetch",
+            "args": "{\"url\": \"https://registry.npmjs.org/express/-/express-5.0.0-alpha.1.tgz\", \"max_length\": 1000}"
+          },
+          {
+            "tool": "fetch",
+            "args": "{\"url\": \"https://registry.npmjs.org/express/-/express-4.17.2.tgz\", \"max_length\": 1000}"
+          },
+          {
+            "tool": "fetch",
+            "args": "{\"url\":\"https://raw.githubusercontent.com/expressjs/express/master/History.md\",\"start_index\":12000,\"max_length\":12000}"
+          }
+        ],
+        "input": 14032,
+        "output": 300,
+        "cache_read": 16768,
+        "cache_write": 0,
+        "ms": 9822
+      },
+      {
+        "id": "express-deprecated",
+        "correct": false,
+        "answer": "4.0.0",
+        "tool_calls": 5,
+        "trace": [
+          {
+            "tool": "fetch",
+            "args": "{\"url\":\"https://expressjs.com/en/guide/migrating-4.html\", \"max_length\":4000}"
+          },
+          {
+            "tool": "fetch",
+            "args": "{\"url\":\"https://expressjs.com/en/guide/migrating-4.html\",\"max_length\":4000,\"start_index\":4000}"
+          },
+          {
+            "tool": "fetch",
+            "args": "{\"url\":\"https://expressjs.com/en/guide/migrating-4.html\",\"max_length\":2000,\"start_index\":8000}"
+          },
+          {
+            "tool": "fetch",
+            "args": "{\"url\":\"https://expressjs.com/en/guide/migrating-4.html\",\"max_length\":2000,\"start_index\":10000}"
+          },
+          {
+            "tool": "fetch",
+            "args": "{\"url\":\"https://expressjs.com/en/guide/migrating-4.html\",\"max_length\":1200,\"start_index\":12000}"
+          }
+        ],
+        "input": 5537,
+        "output": 211,
+        "cache_read": 9728,
+        "cache_write": 0,
+        "ms": 11745
+      },
+      {
+        "id": "express-back",
+        "correct": true,
+        "answer": "back",
+        "tool_calls": 2,
+        "trace": [
+          {
+            "tool": "fetch",
+            "args": "{\"url\":\"https://expressjs.com/en/guide/migrating-5.html\",\"max_length\":4000}"
+          },
+          {
+            "tool": "fetch",
+            "args": "{\"url\":\"https://expressjs.com/en/guide/migrating-5.html\",\"start_index\":4000,\"max_length\":4000}"
+          }
+        ],
+        "input": 3209,
+        "output": 82,
+        "cache_read": 1152,
+        "cache_write": 0,
+        "ms": 4562
+      },
+      {
+        "id": "express-status",
+        "correct": false,
+        "answer": "100 and 999",
+        "tool_calls": 6,
+        "trace": [
+          {
+            "tool": "fetch",
+            "args": "{\"url\":\"https://expressjs.com/en/5x/api.html#res.status\",\"max_length\":4000}"
+          },
+          {
+            "tool": "fetch",
+            "args": "{\"url\":\"https://expressjs.com/en/guide/migrating-5.html\",\"max_length\":6000}"
+          },
+          {
+            "tool": "fetch",
+            "args": "{\"url\":\"https://expressjs.com/en/guide/migrating-5.html\",\"start_index\":6000,\"max_length\":5000}"
+          },
+          {
+            "tool": "fetch",
+            "args": "{\"url\":\"https://expressjs.com/en/guide/migrating-5.html\",\"start_index\":11000,\"max_length\":5000}"
+          },
+          {
+            "tool": "fetch",
+            "args": "{\"url\":\"https://expressjs.com/en/guide/migrating-5.html\",\"start_index\":16000,\"max_length\":4000}"
+          },
+          {
+            "tool": "fetch",
+            "args": "{\"url\":\"https://expressjs.com/en/guide/migrating-5.html\",\"start_index\":20000,\"max_length\":3000}"
+          }
+        ],
+        "input": 8469,
+        "output": 244,
+        "cache_read": 15872,
+        "cache_write": 0,
+        "ms": 12641
+      },
+      {
+        "id": "requests-cve",
+        "correct": true,
+        "answer": "CVE-2023-32681",
+        "tool_calls": 4,
+        "trace": [
+          {
+            "tool": "fetch",
+            "args": "{\"url\":\"https://pypi.org/project/requests/2.31.0/\",\"max_length\":4000}"
+          },
+          {
+            "tool": "fetch",
+            "args": "{\"url\":\"https://pypi.org/project/requests/2.31.0/\",\"start_index\":4000,\"max_length\":4000}"
+          },
+          {
+            "tool": "fetch",
+            "args": "{\"url\":\"https://pypi.org/project/requests/2.31.0/\",\"start_index\":8000,\"max_length\":5000}"
+          },
+          {
+            "tool": "fetch",
+            "args": "{\"url\":\"https://requests.readthedocs.io/en/latest/community/updates/#2310-2023-05-22\",\"max_length\":4000}"
+          }
+        ],
+        "input": 7336,
+        "output": 180,
+        "cache_read": 9600,
+        "cache_write": 0,
+        "ms": 13304
+      },
+      {
+        "id": "requests-python",
+        "correct": true,
+        "answer": "3.7",
+        "tool_calls": 4,
+        "trace": [
+          {
+            "tool": "fetch",
+            "args": "{\"url\":\"https://pypi.org/project/requests/2.32.0/\",\"max_length\":6000}"
+          },
+          {
+            "tool": "fetch",
+            "args": "{\"url\":\"https://pypi.org/project/requests/2.32.0/\",\"start_index\":6000,\"max_length\":4000}"
+          },
+          {
+            "tool": "fetch",
+            "args": "{\"url\":\"https://requests.readthedocs.io/en/latest/community/updates/#2-32-0\",\"max_length\":4000}"
+          },
+          {
+            "tool": "fetch",
+            "args": "{\"url\":\"https://requests.readthedocs.io/en/latest/community/updates/\",\"start_index\":4000,\"max_length\":5000}"
+          }
+        ],
+        "input": 7858,
+        "output": 170,
+        "cache_read": 10624,
+        "cache_write": 0,
+        "ms": 11407
+      },
+      {
+        "id": "requests-verify",
+        "correct": true,
+        "answer": "verify",
+        "tool_calls": 3,
+        "trace": [
+          {
+            "tool": "fetch",
+            "args": "{\"url\":\"https://pypi.org/project/requests/2.32.0/\", \"max_length\":4000}"
+          },
+          {
+            "tool": "fetch",
+            "args": "{\"url\": \"https://github.com/psf/requests/releases/tag/v2.32.0\", \"max_length\": 4000}"
+          },
+          {
+            "tool": "fetch",
+            "args": "{\"url\": \"https://requests.readthedocs.io/en/latest/community/updates/?highlight=2.32.0\", \"max_length\": 4000}"
+          }
+        ],
+        "input": 4844,
+        "output": 136,
+        "cache_read": 1664,
+        "cache_write": 0,
+        "ms": 7752
+      },
+      {
+        "id": "serde-emscripten",
+        "correct": false,
+        "answer": "",
+        "tool_calls": 9,
+        "trace": [
+          {
+            "tool": "fetch",
+            "args": "{\"url\":\"https://docs.rs/crate/serde/latest/source/CHANGELOG.md\", \"max_length\":12000}"
+          },
+          {
+            "tool": "fetch",
+            "args": "{\"url\": \"https://raw.githubusercontent.com/serde-rs/serde/master/CHANGELOG.md\", \"max_length\": 20000}",
+            "error": "Failed to fetch https://raw.githubusercontent.com/serde-rs/serde/master/CHANGELOG.md - status code 404"
+          },
+          {
+            "tool": "fetch",
+            "args": "{\"url\": \"https://docs.rs/crate/serde/latest/source/CHANGELOG.md?raw=1\", \"max_length\": 20000}"
+          },
+          {
+            "tool": "fetch",
+            "args": "{\"url\":\"https://docs.rs/crate/serde/latest/source/src/lib.rs\",\"max_length\":2000}"
+          },
+          {
+            "tool": "fetch",
+            "args": "{\"url\":\"https://docs.rs/crate/serde/latest/source/CHANGELOG.md\",\"max_length\":20000,\"raw\":true}"
+          },
+          {
+            "tool": "fetch",
+            "args": "{\"url\":\"https://crates.io/crates/serde/1.0.229/changelog\",\"max_length\":12000}",
+            "error": "Failed to fetch https://crates.io/crates/serde/1.0.229/changelog - status code 404"
+          },
+          {
+            "tool": "fetch",
+            "args": "{\"url\":\"https://docs.rs/crate/serde/latest/source/CHANGELOG.md\",\"max_length\":50000,\"start_index\":12000,\"raw\":true}"
+          },
+          {
+            "tool": "fetch",
+            "args": "{\"url\":\"https://raw.githubusercontent.com/serde-rs/serde/master/crates-io.md\",\"max_length\":20000}"
+          },
+          {
+            "tool": "fetch",
+            "args": "{\"url\":\"https://api.github.com/repos/serde-rs/serde/releases?per_page=100\",\"max_length\":20000}"
+          }
+        ],
+        "input": 13970,
+        "output": 358,
+        "cache_read": 8960,
+        "cache_write": 0,
+        "ms": 18988
+      },
+      {
+        "id": "react-useid",
+        "correct": true,
+        "answer": "18.0.0",
+        "tool_calls": 3,
+        "trace": [
+          {
+            "tool": "fetch",
+            "args": "{\"url\":\"https://react.dev/reference/react/useId\",\"max_length\":4000}"
+          },
+          {
+            "tool": "fetch",
+            "args": "{\"url\":\"https://react.dev/reference/react/useId\",\"start_index\":4000,\"max_length\":2000}"
+          },
+          {
+            "tool": "fetch",
+            "args": "{\"url\":\"https://react.dev/blog/2022/03/29/react-v18\",\"max_length\":3000}"
+          }
+        ],
+        "input": 5160,
+        "output": 111,
+        "cache_read": 1152,
+        "cache_write": 0,
+        "ms": 7613
+      }
+    ]
+  },
+  "summary": {
+    "ours": {
+      "tasks": 9,
+      "correct": 9,
+      "tokens_in": 18046,
+      "tokens_out": 675,
+      "cached_share": 0,
+      "tool_calls": 16,
+      "median_ms": 4754
+    },
+    "competitor": {
+      "tasks": 9,
+      "correct": 6,
+      "tokens_in": 145935,
+      "tokens_out": 1792,
+      "cached_share": 0.517,
+      "tool_calls": 42,
+      "median_ms": 11407
+    }
+  }
+}

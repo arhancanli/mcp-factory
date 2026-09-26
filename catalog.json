@@ -229,6 +229,37 @@
       ]
     },
     {
+      "name": "release-notes-mcp",
+      "title": "Release Notes",
+      "category": "developer-tools",
+      "summary": "What changed between two versions of a package: breaking changes, deprecations, security fixes.",
+      "description": "Answers upgrade questions from a package's own changelog or GitHub releases: what changed between two versions, with breaking changes, deprecations, security fixes and raised requirements pulled out first; the notes for one version; and the version where something was added, deprecated or removed. npm, PyPI, crates.io, RubyGems, Go and Packagist. No key.",
+      "version": "0.1.0",
+      "repository": "https://github.com/arhancanli/release-notes-mcp",
+      "npm": "https://www.npmjs.com/package/release-notes-mcp",
+      "mcpName": "io.github.arhancanli/release-notes-mcp",
+      "hosts": [
+        "api.deps.dev",
+        "registry.npmjs.org",
+        "raw.githubusercontent.com",
+        "api.github.com"
+      ],
+      "tools": [
+        {
+          "name": "changes_between",
+          "title": "What changed between two versions"
+        },
+        {
+          "name": "release_notes",
+          "title": "Notes for one version"
+        },
+        {
+          "name": "search_changelog",
+          "title": "Find when something changed"
+        }
+      ]
+    },
+    {
       "name": "satellite-imagery-mcp",
       "title": "Satellite Imagery",
       "category": "geospatial",

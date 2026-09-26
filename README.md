@@ -23,6 +23,7 @@ Every server here:
 | [End of Life](https://github.com/arhancanli/end-of-life-mcp) | Is this version still supported? EOL dates, latest patch and upgrade target for 470+ products. | `npx -y end-of-life-mcp` |
 | [Internet Standards](https://github.com/arhancanli/internet-standards-mcp) | RFC sections, status, obsoleted-by chains, errata and IANA registries for coding agents. | `npx -y internet-standards-mcp` |
 | [Package Truth](https://github.com/arhancanli/package-truth-mcp) | Checks packages exist before install: version, deprecation, vulnerabilities, licence. 7 ecosystems. | `npx -y package-truth-mcp` |
+| [Release Notes](https://github.com/arhancanli/release-notes-mcp) | What changed between two versions of a package: breaking changes, deprecations, security fixes. | `npx -y release-notes-mcp` |
 
 ### Science and research
 

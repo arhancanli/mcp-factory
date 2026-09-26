@@ -1,0 +1,18 @@
+{
+  "competitor": {
+    "label": "mcp-server-fetch reading changelogs (no changelog server exists; this is what agents use today)",
+    "command": "uvx",
+    "args": ["mcp-server-fetch"]
+  },
+  "tasks": [
+    { "id": "express-removed", "prompt": "In which express (npm) release, counting pre-releases, was req.param() first removed? Give the exact version.", "expect": { "regex": "5\\.0\\.0-alpha\\.2" } },
+    { "id": "express-deprecated", "prompt": "In which express (npm) version was req.param() deprecated? Give the version only.", "expect": { "regex": "^\\W*4\\.11\\.0\\W*$" } },
+    { "id": "express-back", "prompt": "Express 5.0.0 stopped supporting a magic string in res.redirect() and res.location(). Which string? Give it only.", "expect": { "contains": ["back"] } },
+    { "id": "express-status", "prompt": "According to the express 5.0.0 release notes, res.status() only accepts integers greater than what number and less than what number? Answer as 'A and B'.", "expect": { "contains": ["99", "1000"] } },
+    { "id": "requests-cve", "prompt": "Which CVE does the requests (PyPI) 2.31.0 release fix? Give the CVE id only.", "expect": { "contains": ["CVE-2023-32681"] } },
+    { "id": "requests-python", "prompt": "Which CPython version did requests (PyPI) drop support for in version 2.32.0? Give the version only.", "expect": { "regex": "^\\W*3\\.7\\W*$" } },
+    { "id": "requests-verify", "prompt": "requests (PyPI) 2.32.0 fixed a security issue where setting a Session request option to False on the first request carried over to later requests to the same origin. Which option? Give its name only.", "expect": { "regex": "^\\W*verify\\W*" } },
+    { "id": "serde-emscripten", "prompt": "In which serde (crates.io) version was support for Emscripten targets on rustc older than 1.40 removed? Give the version only.", "expect": { "regex": "^\\W*1\\.0\\.187\\W*$" } },
+    { "id": "react-useid", "prompt": "In which React (npm package react) version was the useId hook added? Give the version only.", "expect": { "regex": "^\\W*18\\.0\\.0\\W*$" } }
+  ]
+}

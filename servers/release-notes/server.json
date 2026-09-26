@@ -1,0 +1,16 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.arhancanli/release-notes-mcp",
+  "description": "What changed between two versions of a package: breaking changes, deprecations, security fixes.",
+  "repository": { "url": "https://github.com/arhancanli/release-notes-mcp", "source": "github" },
+  "version": "0.1.0",
+  "packages": [
+    {
+      "registryType": "npm",
+      "registryBaseUrl": "https://registry.npmjs.org",
+      "identifier": "release-notes-mcp",
+      "version": "0.1.0",
+      "transport": { "type": "stdio" }
+    }
+  ]
+}

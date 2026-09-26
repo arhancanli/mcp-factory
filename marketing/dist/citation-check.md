@@ -86,5 +86,5 @@ https://github.com/arhancanli/citation-check-mcp
 
 ## Cross-links
 
-Footer for every post: 11 servers, each measured before release:
+Footer for every post: 12 servers, each measured before release:
 https://github.com/topics/arhancanli-mcp. Related: Domain Health (https://github.com/arhancanli/domain-health-mcp), Drug Label (https://github.com/arhancanli/drug-label-mcp), End of Life (https://github.com/arhancanli/end-of-life-mcp).

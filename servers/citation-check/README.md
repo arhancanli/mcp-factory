@@ -243,9 +243,9 @@ Tool definitions the model reads on every turn (name, description, input schema)
 - [Internet Standards](https://github.com/arhancanli/internet-standards-mcp): RFC sections, status, obsoleted-by chains, errata and IANA registries for coding agents.
 - [Package Truth](https://github.com/arhancanli/package-truth-mcp): Checks packages exist before install: version, deprecation, vulnerabilities, licence. 7 ecosystems.
 - [Recall Check](https://github.com/arhancanli/recall-check-mcp): One recall check across CPSC, FDA and NHTSA: match by name, model number, UPC or VIN.
+- [Release Notes](https://github.com/arhancanli/release-notes-mcp): What changed between two versions of a package: breaking changes, deprecations, security fixes.
 - [Satellite Imagery](https://github.com/arhancanli/satellite-imagery-mcp): Find the clearest Sentinel-2, Landsat, Sentinel-1 or NAIP scene for any place, with band links.
-- [Vuln Priority](https://github.com/arhancanli/vuln-priority-mcp): Which vulnerabilities to fix first: CISA KEV, EPSS, CVSS and CISA's SSVC decisions in one ranking.
-- [The whole collection](https://github.com/arhancanli/mcp-factory#servers), 2 more
+- [The whole collection](https://github.com/arhancanli/mcp-factory#servers), 3 more
 <!-- family:end -->
 
 ## License

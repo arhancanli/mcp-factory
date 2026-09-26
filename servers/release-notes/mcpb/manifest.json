@@ -1,0 +1,59 @@
+{
+  "manifest_version": "0.3",
+  "name": "release-notes-mcp",
+  "display_name": "Release Notes",
+  "version": "0.1.0",
+  "description": "Answers upgrade questions from a package's own changelog or GitHub releases: what changed between two versions, with breaking changes, deprecations, security fixes and raised requirements pulled out first; the notes for one version; and the version where something was added, deprecated or removed. npm, PyPI, crates.io, RubyGems, Go and Packagist. No key.",
+  "author": {
+    "name": "Arhan Canli",
+    "url": "https://github.com/arhancanli"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/arhancanli/release-notes-mcp"
+  },
+  "homepage": "https://github.com/arhancanli/release-notes-mcp#readme",
+  "documentation": "https://github.com/arhancanli/release-notes-mcp#readme",
+  "support": "https://github.com/arhancanli/release-notes-mcp/issues",
+  "license": "MIT",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "mcp-server",
+    "developer-tools"
+  ],
+  "server": {
+    "type": "node",
+    "entry_point": "src/server.mjs",
+    "mcp_config": {
+      "command": "node",
+      "args": [
+        "${__dirname}/src/server.mjs"
+      ]
+    }
+  },
+  "tools": [
+    {
+      "name": "changes_between",
+      "description": "What changed between two versions"
+    },
+    {
+      "name": "release_notes",
+      "description": "Notes for one version"
+    },
+    {
+      "name": "search_changelog",
+      "description": "Find when something changed"
+    }
+  ],
+  "compatibility": {
+    "platforms": [
+      "darwin",
+      "win32",
+      "linux"
+    ],
+    "runtimes": {
+      "node": ">=20"
+    }
+  }
+}
