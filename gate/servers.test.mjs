@@ -15,6 +15,7 @@ import { buildCatalog, renderCollection } from "../scripts/render.mjs";
 import { catalogText, renderServerReadme } from "../scripts/sync.mjs";
 import { mcpbManifest } from "../scripts/mcpb-manifest.mjs";
 import { writeDerived } from "../scripts/new-server.mjs";
+import { readPerf } from "../scripts/perf.mjs";
 import { MAX_DESCRIPTION_CHARS } from "../kit/index.mjs";
 
 const TEMPLATE_PROBE = path.join(ROOT, ".gate-tmp", "template-probe");
@@ -154,6 +155,15 @@ for (const dir of targets) {
     }
   });
 
+  test(`${label}: latency and cost were measured against the live upstream`, () => {
+    if (dir === TEMPLATE_PROBE) return;
+    const perf = readPerf(dir);
+    assert.ok(perf, "no bench/perf.json: run node scripts/perf.mjs <name> before shipping");
+    assert.ok(perf.scenarios.length >= 3, "measure at least three realistic calls");
+    assert.ok(perf.example?.result, "perf.json carries a real example result");
+    for (const sc of perf.scenarios) assert.ok(sc.first_call_ms > 0 && sc.repeat_ms >= 0 && sc.result_chars > 0);
+  });
+
   test(`${label}: README blocks and the bundle manifest are generated from the live server`, async () => {
     const readme = readFileSync(path.join(dir, "README.md"), "utf8");
     assert.equal(readme, await renderServerReadme(dir, dir === TEMPLATE_PROBE ? probeCatalog : catalog), "README is stale; run npm run sync");
@@ -203,4 +213,18 @@ test("catalog.json and the root README list every server, generated from the liv
 test("server names are unique across the collection", () => {
   const names = catalog.servers.map((s) => s.name);
   assert.equal(new Set(names).size, names.length);
+});
+
+test("launch copy renders from measured facts, with no unfilled placeholder, and is current", async () => {
+  const { facts, fill, renderProfile } = await import("../scripts/launch-kit.mjs");
+  const dist = path.join(ROOT, "marketing/dist");
+  for (const dir of servers) {
+    const name = path.basename(dir);
+    const src = path.join(ROOT, "marketing", `${name}.md`);
+    if (!existsSync(src)) continue;
+    const out = fill(readFileSync(src, "utf8"), await facts(dir, catalog), name);
+    assert.ok(!/\{\{\w+\}\}/.test(out));
+    assert.equal(readFileSync(path.join(dist, `${name}.md`), "utf8"), out, `marketing/dist/${name}.md is stale; run node scripts/launch-kit.mjs`);
+  }
+  assert.equal(readFileSync(path.join(dist, "profile-README.md"), "utf8"), renderProfile(catalog));
 });

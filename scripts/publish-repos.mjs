@@ -26,6 +26,13 @@ const exists = (repo) => {
   }
 };
 
+/** GitHub topics: the shared collection topic (one topic page lists every server), the MCP topics,
+ * the category and the package keywords; GitHub allows 20, lowercase letters, digits and dashes. */
+export function repoTopics(pkg) {
+  const all = [CONFIG.collectionTopic, "mcp", "mcp-server", "model-context-protocol", pkg.factory.category, ...(pkg.keywords ?? [])];
+  return [...new Set(all.map((t) => String(t).toLowerCase().replace(/[^a-z0-9-]/g, "-")).filter((t) => /^[a-z0-9][a-z0-9-]{0,49}$/.test(t)))].slice(0, 20);
+}
+
 export function publishServer(name, { makePublic = false, dry = false } = {}) {
   assertCommitted(name);
   const dir = path.join(ROOT, "servers", name);
@@ -59,7 +66,7 @@ export function publishServer(name, { makePublic = false, dry = false } = {}) {
     const remoteTree = sh("git", ["rev-parse", "origin/main^{tree}"], clone);
     if (remoteTree !== tree) throw new Error(`parity failed for ${repo}: remote tree ${remoteTree} != factory tree ${tree}`);
     const signature = sh("git", ["log", "-1", "--format=%an <%ae> %G?", "origin/main"], clone);
-    sh("gh", ["repo", "edit", repo, "--description", reg.description, "--add-topic", ["mcp", "mcp-server", "model-context-protocol", pkg.factory.category].join(",")]);
+    sh("gh", ["repo", "edit", repo, "--description", reg.description, "--homepage", `https://www.npmjs.com/package/${pkg.name}`, "--add-topic", repoTopics(pkg).join(",")]);
     if (makePublic) sh("gh", ["repo", "edit", repo, "--visibility", "public", "--accept-visibility-change-consequences"]);
     return { repo, tree, action: changed ? "pushed" : "already in sync", signature };
   } finally {

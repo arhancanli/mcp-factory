@@ -8,6 +8,7 @@ import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import path from "node:path";
 import { inspectServer, listServerDirs, readJson, replaceBlock, ROOT, syncKit, syncRepoFiles } from "./lib.mjs";
 import { mcpbManifest } from "./mcpb-manifest.mjs";
+import { readPerf, renderExample, renderPerf } from "./perf.mjs";
 import { buildCatalog, renderBadges, renderCollection, renderFamily, renderInstall, renderToolTable } from "./render.mjs";
 
 export async function renderServerReadme(dir, catalog) {
@@ -18,6 +19,9 @@ export async function renderServerReadme(dir, catalog) {
   text = replaceBlock(text, "install", renderInstall(pkg));
   text = replaceBlock(text, "tools", renderToolTable(tools));
   text = replaceBlock(text, "family", renderFamily(catalog, pkg.name));
+  const perf = readPerf(dir);
+  text = replaceBlock(text, "example", renderExample(perf));
+  text = replaceBlock(text, "perf", renderPerf(perf));
   return text;
 }
 

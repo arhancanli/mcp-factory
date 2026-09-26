@@ -12,6 +12,11 @@ Built and maintained by [Arhan Canli](https://github.com/arhancanli).
 <!-- install:start -->
 <!-- install:end -->
 
+## Example
+
+<!-- example:start -->
+<!-- example:end -->
+
 ## Tools
 
 <!-- tools:start -->
@@ -30,6 +35,11 @@ Built and maintained by [Arhan Canli](https://github.com/arhancanli).
 <!-- bench:start -->
 Not yet measured.
 <!-- bench:end -->
+
+## Performance
+
+<!-- perf:start -->
+<!-- perf:end -->
 
 ## More MCP servers by Arhan Canli
 

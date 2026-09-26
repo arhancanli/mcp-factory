@@ -2,3 +2,4 @@ node_modules/
 .gate-tmp/
 *.tgz
 .DS_Store
+.claude/

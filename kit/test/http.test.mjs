@@ -109,6 +109,16 @@ test("non-JSON bodies become upstream_bad_json; allowed statuses return data und
   assert.deepEqual(await make(nf.impl).getJson("https://api.example.org/x", { allowStatus: [404] }), { status: 404, data: undefined });
 });
 
+test("definitive not-found answers are cached; retryable failures are not", async () => {
+  const cache = new TtlCache({ ttlMs: 60_000 });
+  const { impl, calls } = fakeFetch([respond(404, "gone"), respond(503, "busy")]);
+  const f = make(impl, { cache, retries: 0 });
+  assert.equal((await f.getJson("https://api.example.org/missing", { allowStatus: [404] })).status, 404);
+  assert.equal((await f.getJson("https://api.example.org/missing", { allowStatus: [404] })).status, 404);
+  assert.equal(calls.length, 1);
+  await rejectsWith(f.getJson("https://api.example.org/busy"), "upstream_status");
+});
+
 test("successful reads are cached; failures are not", async () => {
   const cache = new TtlCache({ ttlMs: 60_000 });
   const { impl, calls } = fakeFetch([respond(500, "err"), respond(200, '{"v":1}')]);
@@ -136,4 +146,21 @@ test("TtlCache expires entries and evicts the least recently used", () => {
   assert.equal(c.get("a"), 1);
   now = 11;
   assert.equal(c.get("a"), undefined);
+});
+
+test("identical reads in flight share one upstream call; writes never do", async () => {
+  let calls = 0;
+  const slow = async () => {
+    calls++;
+    await new Promise((r) => setTimeout(r, 20));
+    return respond(200, '{"n":1}');
+  };
+  const f = make(slow);
+  const results = await Promise.all([f.getJson("https://api.example.org/same"), f.getJson("https://api.example.org/same"), f.getJson("https://api.example.org/same")]);
+  assert.equal(calls, 1);
+  assert.deepEqual(results.map((r) => r.data), [{ n: 1 }, { n: 1 }, { n: 1 }]);
+  await Promise.all([f.request("https://api.example.org/w", { method: "POST", body: "{}" }), f.request("https://api.example.org/w", { method: "POST", body: "{}" })]);
+  assert.equal(calls, 3);
+  await f.getJson("https://api.example.org/same");
+  assert.equal(calls, 4, "once settled, the next read goes out again (or to the cache)");
 });

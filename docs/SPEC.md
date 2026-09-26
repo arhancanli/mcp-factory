@@ -40,6 +40,10 @@ Every server moves through five stations. A server that fails a station goes bac
    competitor: right tool chosen, right answer, tokens used, latency. Results are published in the
    server's README with the date and models. A server ships only if it beats or matches the
    competitor on accuracy and uses fewer tokens, or covers tasks the competitor cannot do.
+   **Measure.** `node scripts/perf.mjs <name>` runs the server's standard scenarios against the
+   live upstream: first-call time in a fresh process, repeat time (the server's own overhead),
+   result size, and tool-definition size against the competitor's. The README's Performance and
+   Example blocks are rendered from that file; a server without it does not pass the gate.
 5. **Ship.** Every server has its own repository, `github.com/arhancanli/<package name>`, so each
    one collects its own stars, issues and releases. `servers/<name>` in the factory is byte for byte
    that repository: `npm run sync` vendors the kit and the repository scaffolding (CI, release,
@@ -58,6 +62,15 @@ first) and a link to the whole collection, so each repository sends readers to t
 catalog is also the base for what comes after the individual servers: a hub that routes an agent to
 the right server by tool search instead of loading every tool list, and compositions that chain
 servers (for example, checking every package a paper's code depends on).
+
+## Marketing
+
+Each server has hand-written launch copy in `marketing/<name>.md` (Show HN, Reddit, X, LinkedIn,
+directory blurbs, the awesome-mcp-servers entry) whose numbers are placeholders filled from the
+measured files by `scripts/launch-kit.mjs`, so no post carries a typed or stale figure. Every
+repository carries the shared topic `arhancanli-mcp`, links its related servers and the whole
+collection, and the owner's GitHub profile README is rendered from the catalog. The owner posts;
+nothing is posted on his behalf.
 
 ## After shipping
 
