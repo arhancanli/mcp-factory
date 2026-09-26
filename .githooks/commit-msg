@@ -1,0 +1,8 @@
+#!/bin/sh
+# Refuses a commit message that credits anyone but the owner (same patterns as gate/repo.test.mjs).
+node --input-type=module -e '
+import { readFileSync } from "node:fs";
+import { creditViolations } from "./scripts/credit.mjs";
+const v = creditViolations(readFileSync(process.argv[1], "utf8"));
+if (v.length) { console.error("commit-msg: message credits someone other than the owner: " + v.join(", ")); process.exit(1); }
+' "$1"

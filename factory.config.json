@@ -1,0 +1,10 @@
+{
+  "brand": "canli",
+  "packageName": "{name}-mcp",
+  "mcpNamePrefix": "io.github.arhancanli/",
+  "githubOwner": "arhancanli",
+  "githubRepo": "mcp-factory",
+  "author": { "name": "Arhan Canli", "url": "https://github.com/arhancanli" },
+  "license": "MIT",
+  "defaultToolListBudget": 6000
+}

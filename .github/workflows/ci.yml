@@ -1,0 +1,46 @@
+# The factory gate on every push and pull request, on every Node line the servers support:
+# kit tests, the per-server gate (real stdio, tool-list budget, drift, credit, registry files),
+# each server's own golden tests, and a packed-tarball install of every server.
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions: read-all
+
+jobs:
+  gate:
+    name: Gate on Node ${{ matrix.node }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    strategy:
+      matrix:
+        node: [20, 22, 24]
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: ${{ matrix.node }}
+          cache: npm
+      - run: npm ci --ignore-scripts
+      - run: npm audit --audit-level=high
+      - run: npm test
+      - name: Every server's packed tarball installs from its shrinkwrap and answers initialize
+        run: |
+          for dir in servers/*/; do
+            [ -f "$dir/package.json" ] || continue
+            name="$(node -p "require('./$dir/package.json').name")"
+            (cd "$dir" && npm pack --silent --pack-destination /tmp)
+            rm -rf /tmp/smoke && mkdir -p /tmp/smoke
+            tar xzf /tmp/"$name"-*.tgz -C /tmp/smoke
+            (cd /tmp/smoke/package && npm ci --omit=dev --ignore-scripts --no-audit --no-fund)
+            printf '%s\n' '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2025-06-18","capabilities":{},"clientInfo":{"name":"ci","version":"1"}}}' \
+              | timeout 20 node /tmp/smoke/package/src/server.mjs | grep -q '"serverInfo"'
+            echo "ok $name"
+          done
