@@ -78,4 +78,4 @@ values from nine IANA registries. https://github.com/arhancanli/internet-standar
 
 ## Cross-links
 
-Footer: 15 servers, each measured before release: https://github.com/topics/arhancanli-mcp. Related: Actions Check (https://github.com/arhancanli/actions-check-mcp), Citation Check (https://github.com/arhancanli/citation-check-mcp), Contact Check (https://github.com/arhancanli/contact-check-mcp).
+Footer: 16 servers, each measured before release: https://github.com/topics/arhancanli-mcp. Related: Actions Check (https://github.com/arhancanli/actions-check-mcp), Citation Check (https://github.com/arhancanli/citation-check-mcp), Contact Check (https://github.com/arhancanli/contact-check-mcp).

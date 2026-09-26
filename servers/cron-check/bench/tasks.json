@@ -1,0 +1,19 @@
+{
+  "competitor": {
+    "label": "@pipeworx/mcp-crontab, a published cron MCP server",
+    "command": "npx",
+    "args": ["-y", "@pipeworx/mcp-crontab"]
+  },
+  "tasks": [
+    { "id": "or-rule", "prompt": "With standard Unix (Vixie) cron, does the expression '0 0 13 * 5' fire on Friday 2026-11-06? Answer yes or no.", "expect": { "regex": "^\\W*yes\\b" } },
+    { "id": "next-weekday", "prompt": "When does the Unix cron expression '0 9 * * 1-5' (UTC) next fire after 2026-09-26T12:00:00Z? Give the time in ISO 8601 UTC.", "expect": { "contains": ["2026-09-28T09:00"] } },
+    { "id": "feb30", "prompt": "Does the cron expression '0 0 30 2 *' ever fire? Answer yes or no.", "expect": { "regex": "^\\W*no\\b" } },
+    { "id": "step-seven", "prompt": "The cron expression '*/7 * * * *' fires at minute 56 of an hour. How many minutes later is its next run? Give the number only.", "expect": { "number": 4 } },
+    { "id": "github-floor", "prompt": "In a GitHub Actions workflow, will a schedule of cron '*/2 * * * *' actually run every 2 minutes? Answer yes or no.", "expect": { "regex": "^\\W*no\\b" } },
+    { "id": "ny-dst", "prompt": "A Unix cron job '30 2 * * *' runs in the America/New_York time zone. Does 02:30 local time exist on 2026-03-08, so the job fires at its normal time that day? Answer yes or no.", "expect": { "regex": "^\\W*no\\b" } },
+    { "id": "to-aws", "prompt": "Convert the Unix cron expression '0 9 * * 1-5' into an AWS EventBridge cron expression. Give the expression only.", "expect": { "regex": "cron\\(0 9 \\? \\* (MON-FRI|2-6) \\*\\)" } },
+    { "id": "aws-weekday", "prompt": "On which day of the week does the AWS EventBridge schedule 'cron(15 10 ? * 2 *)' run? Give the day name only.", "expect": { "regex": "^\\W*monday\\W*$" } },
+    { "id": "quartz-last-friday", "prompt": "When does the Quartz cron expression '0 15 10 ? * 6L' next fire after 2026-09-26T12:00:00Z (UTC)? Give the date as YYYY-MM-DD.", "expect": { "contains": ["2026-10-30"] } },
+    { "id": "quartz-sunday", "prompt": "In Quartz cron's day-of-week field, which day is 1? Give the day name only.", "expect": { "regex": "^\\W*sunday\\W*$" } }
+  ]
+}

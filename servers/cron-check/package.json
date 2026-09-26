@@ -1,0 +1,19 @@
+{
+  "name": "cron-check-mcp",
+  "version": "0.1.0",
+  "description": "Cron expressions checked instead of guessed: a plain-English explanation, validation with the gotchas that bite (day-of-month OR day-of-week, steps that do not divide evenly, dates that never come), the next run times in any time zone with daylight-saving effects noted, and conversion between Unix cron, GitHub Actions, Kubernetes, AWS EventBridge, Quartz and Spring. Offline, no key.",
+  "type": "module",
+  "license": "MIT",
+  "author": { "name": "Arhan Canli", "url": "https://github.com/arhancanli" },
+  "bin": { "cron-check-mcp": "src/server.mjs" },
+  "files": ["src", "README.md", "LICENSE", "npm-shrinkwrap.json"],
+  "engines": { "node": ">=20" },
+  "scripts": { "test": "node --test test/*.test.mjs", "start": "node src/server.mjs" },
+  "dependencies": { "@modelcontextprotocol/sdk": "1.30.1", "cronstrue": "3.27.0", "zod": "4.6.5" },
+  "mcpName": "io.github.arhancanli/cron-check-mcp",
+  "keywords": ["mcp", "model-context-protocol", "mcp-server", "developer-tools"],
+  "repository": { "type": "git", "url": "git+https://github.com/arhancanli/cron-check-mcp.git" },
+  "homepage": "https://github.com/arhancanli/cron-check-mcp#readme",
+  "bugs": { "url": "https://github.com/arhancanli/cron-check-mcp/issues" },
+  "factory": { "displayName": "Cron Check", "category": "developer-tools", "allowHosts": [], "dependencyReasons": { "cronstrue": "Plain-English descriptions of cron expressions in every dialect (seconds, years, L, W, #), used by four million installs a week; writing and testing another describer would repeat it." }, "toolListBudget": 6000 }
+}

@@ -1,0 +1,59 @@
+{
+  "manifest_version": "0.3",
+  "name": "cron-check-mcp",
+  "display_name": "Cron Check",
+  "version": "0.1.0",
+  "description": "Cron expressions checked instead of guessed: a plain-English explanation, validation with the gotchas that bite (day-of-month OR day-of-week, steps that do not divide evenly, dates that never come), the next run times in any time zone with daylight-saving effects noted, and conversion between Unix cron, GitHub Actions, Kubernetes, AWS EventBridge, Quartz and Spring. Offline, no key.",
+  "author": {
+    "name": "Arhan Canli",
+    "url": "https://github.com/arhancanli"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/arhancanli/cron-check-mcp"
+  },
+  "homepage": "https://github.com/arhancanli/cron-check-mcp#readme",
+  "documentation": "https://github.com/arhancanli/cron-check-mcp#readme",
+  "support": "https://github.com/arhancanli/cron-check-mcp/issues",
+  "license": "MIT",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "mcp-server",
+    "developer-tools"
+  ],
+  "server": {
+    "type": "node",
+    "entry_point": "src/server.mjs",
+    "mcp_config": {
+      "command": "node",
+      "args": [
+        "${__dirname}/src/server.mjs"
+      ]
+    }
+  },
+  "tools": [
+    {
+      "name": "convert_cron",
+      "description": "Convert cron between schedulers"
+    },
+    {
+      "name": "explain_cron",
+      "description": "Explain and check cron expressions"
+    },
+    {
+      "name": "next_runs",
+      "description": "When a cron expression fires"
+    }
+  ],
+  "compatibility": {
+    "platforms": [
+      "darwin",
+      "win32",
+      "linux"
+    ],
+    "runtimes": {
+      "node": ">=20"
+    }
+  }
+}

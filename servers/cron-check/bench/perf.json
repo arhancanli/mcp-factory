@@ -1,0 +1,52 @@
+{
+  "measured_on": "2026-09-26",
+  "where": "Dubai, home connection",
+  "node": "v24.19.0",
+  "runs": 5,
+  "tool_definition_chars": 1872,
+  "tools_list_chars": 3017,
+  "competitor": {
+    "label": "@pipeworx/mcp-crontab, a published cron MCP server",
+    "tool_definition_chars": 834,
+    "tools_list_chars": 832
+  },
+  "scenarios": [
+    {
+      "call": "explain_cron: 10 expressions across dialects",
+      "first_call_ms": 13,
+      "repeat_ms": 4,
+      "result_chars": 2248
+    },
+    {
+      "call": "next_runs: 02:30 daily in New York across the spring-forward change",
+      "first_call_ms": 8,
+      "repeat_ms": 0.4,
+      "result_chars": 452
+    },
+    {
+      "call": "convert_cron: weekdays at 09:00 to AWS EventBridge",
+      "first_call_ms": 4,
+      "repeat_ms": 0.4,
+      "result_chars": 187
+    }
+  ],
+  "example": {
+    "call": "explain_cron: 10 expressions across dialects",
+    "tool": "explain_cron",
+    "arguments": {
+      "expressions": [
+        "0 9 * * 1-5",
+        "*/7 * * * *",
+        "0 0 1 * 1",
+        "0 0 30 2 *",
+        "cron(0 12 ? * MON-FRI *)",
+        "0 0/5 14 * * ?",
+        "0 10 ? * 6#3",
+        "@daily",
+        "61 * * * *",
+        "0 0 L * *"
+      ]
+    },
+    "result": "{\"results\":[{\"expression\":\"0 9 * * 1-5\",\"valid\":true,\"dialect\":\"unix\",\"description\":\"At 09:00, Monday through Friday\",\"next_utc\":[\"2026-09-28T09:00:00Z\",\"2026-09-29T09:00:00Z\",\"2026-09-30T09:00:00Z\"]},{\"expression\":\"*/7 * * * *\",\"valid\":true,\"dialect\":\"unix\",\"description\":\"Every 7 minutes\",\"next_utc\":[\"2026-09-26T17:14:00Z\",\"2026-09-26T17:21:00Z\",\"2026-09-26T17:28:00Z\"],\"warnings\":[\"*/7 in the minute field restarts at 0 each hour, so the last gap is shorter than 7.\"]},{\"expression\":\"0 0 1 * 1\",\"valid\":true,\"dialect\":\"unix\",\"description\":\"At 00:00, on day 1 of the month, and on Monday\",\"next_utc\":[\"2026-09-28T00:00:00Z\",\"2026-10-01T00:00:00Z\",\"2026-10-05T00:00:00Z\"],\"warnings\":[\"Both day fields are restricted, so it runs on days matching either one (day-of-month OR day-of-week), not only days matching both.\"]},{\"expression\":\"0 0 30 2 *\",\"valid\":false,\"dialect\":\"unix\",\"description\":\"At 00:00, on day 30 of the month, only in February\",\"error\":\"It never fires: no date in the next six years matches (for example February 30).\"},{\"expression\":\"cron(0 12 ? * MON-FRI *)\",\"valid\":true,\"dialect\":\"aws\",\"description\":\"At 12:00, Monday through Friday\",\"next_utc\":[\"2026-09-28T12:00:00Z\",\"2026-09-29T12:00:00Z\",\"2026-09-30T12:00:00Z\"],\"warnings\":[\"EventBridge cron runs in UTC unless the schedule sets a time zone (EventBridge Scheduler).\"]},{\"expression\":\"0 0/5 14 * * ?\",\"valid\":true,\"dialect\":\"quartz\",\"description\":\"Every 5 minutes, between 14:00 and 14:59\",\"next_utc\":[\"2026-09-27T14:00:00Z\",\"2026-09-27T14:05:00Z\",\"2026-09-27T14:10:00Z\"]},{\"expression\":\"0 10 ? * 6#3\",\"valid\":false,\"error\":\"\\\"?\\\" uses ?, which unix cron does not have; those belong to Quartz and AWS cron (pass dialect: \\\"quartz\\\" or \\\"aws\\\").\"},{\"expression\":\"@daily\",\"valid\":true,\"dialect\":\"kubernetes\",\"description\":\"At 00:00\",\"next_utc\":[\"2026-09-27T00:00:00Z\",\"2026-09-28T00:00:00Z\",\"2026-09-29T00:00:00Z\"],\"warnings\":[\"Kubernetes CronJobs use the controller's time zone unless spec.timeZone is set.\"]},{\"expression\":\"61 * * * *\",\"valid\":false,\"error\":\"minute: \\\"61\\\" is outside 0-59.\"},{\"expression\":\"0 0 L * *\",\"valid\":false,\"error\":\"\\\"L\\\" uses L, W or #, which unix cron does not have; those belong to Quartz and AWS cron (pass dialect: \\\"quartz\\\" or \\\"aws\\\").\"}]}"
+  }
+}

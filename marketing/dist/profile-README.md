@@ -1,10 +1,11 @@
 # Arhan Canli
 
-I build MCP servers that are measured against the best alternative before they ship: correct answers, small tool lists, fast first calls. 15 so far, each in its own repository, all MIT.
+I build MCP servers that are measured against the best alternative before they ship: correct answers, small tool lists, fast first calls. 16 so far, each in its own repository, all MIT.
 
 **Developer tools**
 
 - [Actions Check](https://github.com/arhancanli/actions-check-mcp): Checks GitHub Actions workflows: outdated actions, old Node runtimes, retired runners, injection.
+- [Cron Check](https://github.com/arhancanli/cron-check-mcp): Explains cron expressions, lists next run times in any time zone, converts between cron dialects.
 - [Domain Health](https://github.com/arhancanli/domain-health-mcp): Email and domain checks: SPF lookup limits, DKIM keys, DMARC, DNS records, registration expiry.
 - [End of Life](https://github.com/arhancanli/end-of-life-mcp): Is this version still supported? EOL dates, latest patch and upgrade target for 470+ products.
 - [Internet Standards](https://github.com/arhancanli/internet-standards-mcp): RFC sections, status, obsoleted-by chains, errata and IANA registries for coding agents.

@@ -95,6 +95,32 @@
       ]
     },
     {
+      "name": "cron-check-mcp",
+      "title": "Cron Check",
+      "category": "developer-tools",
+      "summary": "Explains cron expressions, lists next run times in any time zone, converts between cron dialects.",
+      "description": "Cron expressions checked instead of guessed: a plain-English explanation, validation with the gotchas that bite (day-of-month OR day-of-week, steps that do not divide evenly, dates that never come), the next run times in any time zone with daylight-saving effects noted, and conversion between Unix cron, GitHub Actions, Kubernetes, AWS EventBridge, Quartz and Spring. Offline, no key.",
+      "version": "0.1.0",
+      "repository": "https://github.com/arhancanli/cron-check-mcp",
+      "npm": "https://www.npmjs.com/package/cron-check-mcp",
+      "mcpName": "io.github.arhancanli/cron-check-mcp",
+      "hosts": [],
+      "tools": [
+        {
+          "name": "convert_cron",
+          "title": "Convert cron between schedulers"
+        },
+        {
+          "name": "explain_cron",
+          "title": "Explain and check cron expressions"
+        },
+        {
+          "name": "next_runs",
+          "title": "When a cron expression fires"
+        }
+      ]
+    },
+    {
       "name": "domain-health-mcp",
       "title": "Domain Health",
       "category": "developer-tools",
