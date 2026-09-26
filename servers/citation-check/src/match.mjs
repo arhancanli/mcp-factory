@@ -22,6 +22,7 @@ export function fromText(raw) {
   const quoted = text.match(/[“"]([^”"]{15,400})[”"]/)?.[1];
   const apa = text.match(/\((?:1[89]|20)\d{2}[a-z]?\)\.\s+([^.?!]{15,400}[.?!])/)?.[1]?.replace(/[.]$/, "");
   // First author's family name: "A. Vaswani", "Vaswani, A.", "Vaswani A," (Vancouver) or "van der Maaten L,".
+  const etAl = text.match(/^\s*((?:(?:van|von|de|der|den|del|da|di|la|le)\s+)*[\p{Lu}][\p{L}'\u2019-]+)\s+et\s+al\b/u);
   const lead = text.match(/^\s*(?:(?:[A-Z]\.\s*){1,3}([\p{Lu}][\p{L}'’-]+)|((?:(?:van|von|de|der|den|del|da|di|la|le)\s+)*[\p{Lu}][\p{L}'’-]+)(?:\s+[A-Z]{1,3}\.?)?\s*[,.])/u);
   // For searching only (never for scoring): in "Authors. Title. Journal. Year." layouts the title is
   // the segment after the author list.
@@ -33,7 +34,7 @@ export function fromText(raw) {
     tokens: tokens(text),
     guessTitle,
     title: quoted ?? apa,
-    firstFamily: lead ? (lead[1] ?? lead[2]) : undefined,
+    firstFamily: etAl ? etAl[1] : lead ? (lead[1] ?? lead[2]) : undefined,
     years: findYears(text),
     doi: findDoi(text),
     arxiv: findArxiv(text),
@@ -91,14 +92,21 @@ export function compare(c, r) {
   if (rFirst) {
     if (c.authors?.length) author = sameFamily(c.authors[0].family, rFirst);
     else if (c.firstFamily) author = sameFamily(c.firstFamily, rFirst) || familyIn(rFirst, tokens(c.firstFamily));
-    else {
-      const seg = span && span.start > 0 ? c.tokens.slice(0, span.start) : null;
-      if (seg?.length) author = familyIn(rFirst, seg);
+    else if (span) {
+      // Authors usually come before the title; free-text queries also put them after it.
+      const before = span.start > 0 ? c.tokens.slice(0, span.start) : [];
+      const after = c.tokens.slice(span.end);
+      if (before.length && familyIn(rFirst, before)) author = true;
+      else if (after.length && familyIn(rFirst, after)) author = true;
+      else if (before.length) author = false;
     }
   }
 
   let year = null;
   if (c.years.length && r.years?.length) year = c.years.some((cy) => r.years.some((ry) => Math.abs(cy - ry) <= 1));
+  // A record dated by a later copy (see citedSince in sources.mjs) cannot contradict a year shortly
+  // before its first citations: the original was published then.
+  if (year === false && r.citedSince && c.years.some((cy) => cy >= r.citedSince - 5 && cy <= r.citedSince + 1)) year = null;
   return { title, author, year };
 }
 
@@ -106,7 +114,10 @@ export function compare(c, r) {
 export function rank(c, r, i) {
   const s = compare(c, r);
   const derivative = isDerivativeTitle(norm(stripNoticePrefix(r.title))) && !mentionsDerivative(norm(c.title ?? c.raw));
-  return { s, derivative, score: s.title + (s.author === true ? 0.3 : s.author === false ? -0.3 : 0) + (s.year === true ? 0.2 : s.year === false ? -0.2 : 0) - (derivative ? 1 : 0) - i * 0.001 };
+  // Among equally good matches the more cited work is the likelier one (a paper over the letter
+  // that repeats its title); the weight is small enough never to outvote title, author or year.
+  const cited = Number.isFinite(r.cited) ? Math.min(Math.log10(r.cited + 1) / 50, 0.1) : 0;
+  return { s, derivative, score: s.title + (s.author === true ? 0.3 : s.author === false ? -0.3 : 0) + (s.year === true ? 0.2 : s.year === false ? -0.2 : 0) - (derivative ? 1 : 0) + cited - i * 0.001 };
 }
 
 export function diffs(c, r, s) {

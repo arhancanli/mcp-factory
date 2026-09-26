@@ -24,8 +24,10 @@ Citation Check gives each reference a verdict an agent can act on:
 | `unverifiable` | The DOI is registered, but no source returns metadata to compare against |
 
 Every result also carries flags such as `retracted`, `partially_retracted`, `expression_of_concern`,
-`corrected`, `doi_added`, `identifier_points_to_different_work`, `doi_not_registered` and
-`published_version_exists`, with the notice DOIs and dates.
+`corrected`, `doi_added`, `identifier_points_to_different_work`, `doi_not_registered`,
+`published_version_exists` and `doi_may_be_later_copy`, with the notice DOIs and dates. The last
+one catches a quiet index error: OpenAlex sometimes files a classic paper under the DOI of a later
+repost or book chapter, which shows because the work is cited years before that DOI's date.
 
 It reads pasted reference lists in any common style (Vancouver, APA, numbered, one per line) and
 BibTeX, and returns corrected BibTeX that keeps your citation keys. No account or key needed.
@@ -202,8 +204,8 @@ Measured 2026-09-26 with gpt-5.4-mini, 10 fixed tasks graded by fixed checks (`b
 
 | Server | Correct | Input tokens | Output tokens | Tool calls | Median time |
 | --- | --- | --- | --- | --- | --- |
-| This server | 9/10 | 16205 | 679 | 16 | 5.7 s |
-| doi-mcp, the most starred citation verifier | 9/10 | 17165 | 630 | 12 | 3.9 s |
+| This server | 9/10 | 13618 | 498 | 11 | 4.2 s |
+| doi-mcp, the most starred citation verifier | 9/10 | 15314 | 567 | 11 | 3.8 s |
 <!-- bench:end -->
 
 ## Performance

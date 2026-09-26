@@ -8,6 +8,7 @@
 // does not index (conference papers, arXiv-only preprints); doi.org says whether a DOI exists at
 // all when neither Crossref nor DataCite knows it.
 import { stripMarkup, splitDisplayName } from "./text.mjs";
+import { arxivDoi, findArxiv } from "./ids.mjs";
 
 export const HOSTS = ["api.crossref.org", "api.datacite.org", "eutils.ncbi.nlm.nih.gov", "api.openalex.org", "doi.org"];
 
@@ -81,11 +82,12 @@ export function fromCrossref(w) {
     // Crossref can list one notice twice (from the publisher and from Retraction Watch): keep one.
     updates: [...new Map((w["updated-by"] ?? []).map((u) => [`${u.type}|${u.DOI?.toLowerCase()}`, { type: String(u.type), doi: u.DOI?.toLowerCase(), date: u.updated?.["date-time"]?.slice(0, 10) }])).values()],
     preprintOf: w.relation?.["is-preprint-of"]?.[0]?.id?.toLowerCase(),
+    cited: w["is-referenced-by-count"],
     source: "crossref",
   };
 }
 
-const CROSSREF_SELECT = "DOI,title,subtitle,author,issued,published-print,published-online,created,container-title,volume,issue,page,publisher,type,updated-by,relation,URL";
+const CROSSREF_SELECT = "DOI,title,subtitle,author,issued,published-print,published-online,created,container-title,volume,issue,page,publisher,type,updated-by,relation,URL,is-referenced-by-count";
 
 /** Crossref records for up to 40 DOIs in one list request; DOIs Crossref does not know are absent. */
 export async function crossrefByDois(ctx, dois) {
@@ -170,6 +172,20 @@ export async function pubmedRecords(ctx, pmids) {
 
 const OPENALEX_KIND = { article: "article", "book-chapter": "incollection", book: "book", preprint: "preprint", dissertation: "thesis", dataset: "dataset", report: "report" };
 
+// OpenAlex sometimes files a classic work under the DOI of a later copy (a 2025 repost of a 2017
+// paper, a 2023 book chapter sharing a 2014 paper's title) and dates it by that copy. Its citation
+// counts give it away: most of them come from years before the date it shows. Returns the first
+// year with a real share of citations, or undefined when the date is plausible.
+function citedSince(w) {
+  const counts = w.counts_by_year ?? [];
+  const total = counts.reduce((n, c) => n + (c.cited_by_count ?? 0), 0);
+  const year = w.publication_year;
+  if (!year || total < 100) return undefined;
+  const early = counts.filter((c) => c.year <= year - 2).reduce((n, c) => n + c.cited_by_count, 0);
+  if (early / total < 0.5) return undefined;
+  return Math.min(...counts.filter((c) => c.cited_by_count >= total * 0.002).map((c) => c.year));
+}
+
 export function fromOpenalex(w) {
   const src = w.primary_location?.source;
   const doi = w.doi ? w.doi.replace(/^https:\/\/doi\.org\//i, "").toLowerCase() : undefined;
@@ -187,25 +203,63 @@ export function fromOpenalex(w) {
     kind: w.type_crossref === "proceedings-article" ? "inproceedings" : (OPENALEX_KIND[w.type] ?? "misc"),
     url: doi ? `https://doi.org/${doi}` : w.id,
     updates: w.is_retracted ? [{ type: "retraction" }] : [],
+    cited: w.cited_by_count,
+    citedSince: citedSince(w),
+    openalexId: w.id?.split("/").pop(),
     source: "openalex",
   };
 }
 
-const OPENALEX_SELECT = "id,doi,display_name,authorships,publication_year,primary_location,biblio,type,type_crossref,is_retracted";
+const OPENALEX_SELECT = "id,doi,display_name,authorships,publication_year,primary_location,biblio,type,type_crossref,is_retracted,cited_by_count,counts_by_year";
+
+// When OpenAlex refuses (its free daily allowance is shared by everyone behind an IP), it says for
+// how long; later calls skip it until then instead of asking again.
+function openalexPaused(ctx) {
+  return (ctx.openalexPausedUntil ?? 0) > Date.now();
+}
+function openalexRefused(ctx, res) {
+  if (![429, 402, 403].includes(res.status)) return false;
+  const after = Number(res.headers?.get?.("retry-after"));
+  ctx.openalexPausedUntil = Date.now() + (Number.isFinite(after) && after > 0 ? Math.min(after, 3600) : 60) * 1000;
+  return true;
+}
 
 /** OpenAlex search; null when OpenAlex refuses (daily credits spent or rate limited). */
-export async function openalexSearch(ctx, query, rows = 5, { byTitle = false } = {}) {
+export async function openalexSearch(ctx, query, rows = 5, { byTitle = false, mostCited = false } = {}) {
+  if (openalexPaused(ctx)) return null;
   const key = ctx.openalexKey ? `&api_key=${enc(ctx.openalexKey)}` : "";
   const q = query.replace(/[,|:]/g, " ").slice(0, 300);
   const find = byTitle ? `filter=${enc(`title.search:${q}`)}` : `search=${enc(q)}`;
-  const res = await ctx.fetcher.request(`https://api.openalex.org/works?${find}&per_page=${rows}&select=${OPENALEX_SELECT}${key}`);
-  if (res.status === 429 || res.status === 402 || res.status === 403) return null;
-  if (!res.ok) return null;
+  const sort = mostCited ? "&sort=cited_by_count:desc" : "";
+  const res = await ctx.fetcher.request(`https://api.openalex.org/works?${find}${sort}&per_page=${rows}&select=${OPENALEX_SELECT}${key}`);
+  if (openalexRefused(ctx, res) || !res.ok) return null;
   try {
     return (JSON.parse(res.text).results ?? []).map(fromOpenalex);
   } catch {
     return null;
   }
+}
+
+/**
+ * For a record dated by a later copy (citedSince): the arXiv original among the work's OpenAlex
+ * locations, carrying the work's citation count. Null when there is none, or when the arXiv record
+ * names this DOI as its published version (then the DOI is the journal version, not a copy).
+ */
+export async function arxivOriginal(ctx, r) {
+  if (!r.openalexId || openalexPaused(ctx)) return null;
+  const key = ctx.openalexKey ? `&api_key=${enc(ctx.openalexKey)}` : "";
+  const res = await ctx.fetcher.request(`https://api.openalex.org/works/${enc(r.openalexId)}?select=locations${key}`);
+  if (openalexRefused(ctx, res) || !res.ok) return null;
+  let locations;
+  try {
+    locations = JSON.parse(res.text).locations ?? [];
+  } catch {
+    return null;
+  }
+  const id = locations.map((l) => findArxiv(l.landing_page_url ?? "")).find(Boolean);
+  const orig = id ? await dataciteWork(ctx, arxivDoi(id.replace(/v\d+$/, ""))) : null;
+  if (!orig || (r.doi && orig.preprintOf === r.doi)) return null;
+  return { ...orig, cited: r.cited };
 }
 
 /** Whether any registration agency knows the DOI (doi.org handle API: responseCode 1 exists, 100 does not). */

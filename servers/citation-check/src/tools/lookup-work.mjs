@@ -1,12 +1,21 @@
 import { z } from "zod";
 import { compact, defineTool, ToolError } from "../kit/index.mjs";
 import { toBibtex } from "../bibtex.mjs";
-import { summarizeRecord, updateFlags } from "../check.mjs";
+import { pick, summarizeRecord, updateFlags } from "../check.mjs";
 import { arxivDoi, cleanDoi, findArxiv, findDoi, findPmid } from "../ids.mjs";
-import { compare, fromText, rank, TITLE_MATCH } from "../match.mjs";
-import { crossrefSearch, crossrefWork, dataciteWork, doiRegistered, openalexSearch, pubmedRecords } from "../sources.mjs";
+import { discussedTitle, familyIn, stripNoticePrefix } from "../text.mjs";
+import { fromText, TITLE_MATCH } from "../match.mjs";
+import { arxivOriginal, crossrefSearch, crossrefWork, dataciteSearch, dataciteWork, doiRegistered, openalexSearch, pubmedRecords } from "../sources.mjs";
 
 const MAX_AUTHORS = 20;
+
+const SEARCH_WORDS = /\b(?:retraction|retracted|retract|notice|notices|correction|corrigendum|erratum|expression of concern|comment|reply|doi|paper|article|study|published|citation|reference|the|of)\b/gi;
+
+/** The query without words that describe the search rather than the work, and without years. */
+export const stripSearchWords = (q) => q.replace(SEARCH_WORDS, " ").replace(/\b(19|20)\d{2}\b/g, " ").replace(/\s+/g, " ").trim();
+
+/** OpenAlex records dated by a later copy, replaced by their arXiv original where there is one. */
+const originals = (ctx, pool) => Promise.all(pool.map(async (r) => (r.citedSince ? ((await arxivOriginal(ctx, r)) ?? r) : r)));
 
 async function byIdentifier(ctx, id) {
   const doi = cleanDoi(id) ?? findDoi(id);
@@ -45,14 +54,53 @@ export const lookupWork = defineTool({
   annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: true },
   handler: async ({ id }, ctx) => {
     let r = await byIdentifier(ctx, id);
+    let mismatch;
     if (!r) {
-      const c = fromText(id);
-      const pool = [...(await crossrefSearch(ctx, id)), ...((await openalexSearch(ctx, id)) ?? [])];
-      const best = pool.map((x, i) => ({ x, ...rank(c, x, i) })).sort((a, b) => b.score - a.score)[0];
-      if (!best || compare(c, best.x).title < TITLE_MATCH) {
-        throw new ToolError("not_found", `No work matches "${id.slice(0, 120)}" in Crossref or OpenAlex.${best ? ` Closest: "${best.x.title}" (${best.x.doi ?? best.x.url}).` : ""}`);
+      // Search as typed; if nothing matches strongly, search again without the words agents add
+      // about the search itself ("... Science 2011 retraction notice"), which push the paper out of
+      // the candidates. Replies, comments and notices are never taken as the work itself (pick).
+      // A match "fits" when the title matches and neither the first author nor the year contradicts
+      // the query: a same-titled letter (the Wakefield paper has one) matches the title but not the
+      // author, and must not end the search.
+      const fits = (b) => b && b.s.title >= TITLE_MATCH && b.s.author !== false && b.s.year !== false;
+      const better = (a, b) => (!b || (fits(a) && !fits(b)) || (fits(a) === fits(b) && a.score > b.score) ? a : b);
+      let best = null;
+      let discussed;
+      // Search words are dropped from the query, but its years still decide whether a match fits.
+      const years = fromText(id).years;
+      for (const q of [id, stripSearchWords(id)].filter((x, i, a) => x && a.indexOf(x) === i)) {
+        const c = { ...fromText(q), years };
+        const pool = await originals(ctx, [...(await crossrefSearch(ctx, q, 10)), ...((await openalexSearch(ctx, q)) ?? [])]);
+        discussed ??= pool.map((x) => discussedTitle(x.title)).find(Boolean);
+        const found = pick(c, pool);
+        if (found) best = better(found, best);
+        if (fits(best)) break;
       }
-      r = best.x;
+      // Still no fit: the title is known (from a near match, or from comments that name the work),
+      // so search that exact title, most cited first; an original outranks its comments and letters.
+      const title = discussed ?? (best && best.s.title >= TITLE_MATCH ? stripNoticePrefix(best.r.title) : undefined);
+      if (!fits(best) && title) {
+        const c = { ...fromText(stripSearchWords(id)), years };
+        // The first author for DataCite (where arXiv originals are): from the query, or the near
+        // match's first author when the query names them.
+        const hint = c.firstFamily ?? (best?.r.authors?.[0]?.family && familyIn(best.r.authors[0].family, c.tokens) ? best.r.authors[0].family : undefined);
+        // Without OpenAlex (its free daily allowance is shared per IP), a deeper Crossref search for
+        // the exact title reaches an original that its comments outrank (the arsenic paper is 15th).
+        const oa = await openalexSearch(ctx, title, 10, { byTitle: true, mostCited: true });
+        const pool = await originals(ctx, [...(oa ?? (await crossrefSearch(ctx, title, 20))), ...(await dataciteSearch(ctx, title, hint))]);
+        const found = pick(c, pool);
+        if (found) best = better(found, best);
+      }
+      mismatch = best && best.s.title >= TITLE_MATCH && !fits(best) ? best : undefined;
+      if (best?.r && best.s.title >= TITLE_MATCH && best.r.source === "openalex" && best.r.doi) {
+        // Crossref holds the retraction and correction notices; prefer its record for the same DOI.
+        const { citedSince } = best.r;
+        best.r = { ...((await crossrefWork(ctx, best.r.doi)) ?? best.r), citedSince };
+      }
+      if (!best || best.s.title < TITLE_MATCH) {
+        throw new ToolError("not_found", `No work matches "${id.slice(0, 120)}" in Crossref or OpenAlex.${best ? ` Closest: "${best.r.title}" (${best.r.doi ?? best.r.url}).` : ""}`);
+      }
+      r = best.r;
     }
     const flags = updateFlags(r);
     if (r.preprintOf) flags.push("published_version_exists");
@@ -70,6 +118,11 @@ export const lookupWork = defineTool({
       notices: (r.updates ?? []).filter((u) => u.doi || u.date).map((u) => compact({ type: u.type, notice_doi: u.doi, date: u.date })),
       published_version: r.preprintOf ? `https://doi.org/${r.preprintOf}` : undefined,
       bibtex: toBibtex(r),
+      note: r.citedSince
+        ? `This work is cited from ${r.citedSince} on, years before this record's date: the DOI is probably a later copy (a repost or reprint) of an older work without a DOI, such as a conference paper. Cite the original.`
+        : mismatch
+          ? `Closest record; its ${mismatch.s.year === false ? "year" : "first author"} differs from the query. Check it is the work meant.`
+          : undefined,
     });
   },
 });

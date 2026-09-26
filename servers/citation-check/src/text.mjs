@@ -177,3 +177,15 @@ export function familyIn(family, toks) {
 }
 
 export const clipText = (s, n) => (s.length <= n ? s : `${s.slice(0, n - 3).trimEnd()}...`);
+
+/**
+ * The title a comment, reply or recommendation is about: "Comment on “A Bacterium ...”" and
+ * "Faculty Opinions recommendation of A bacterium ..." both name the work they discuss.
+ */
+export function discussedTitle(title) {
+  const t = String(title ?? "");
+  const quoted = t.match(/[\u201c"]([^\u201d"]{10,})[\u201d"]/);
+  if (quoted) return quoted[1].trim();
+  const m = t.match(/^(?:comments? on|reply to|replies to|response to|correction to|retraction of|review of|faculty opinions recommendation of|f1000prime recommendation of)\s*[:.]?\s*(.{10,})$/i);
+  return m ? m[1].trim() : undefined;
+}

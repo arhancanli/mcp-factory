@@ -7,204 +7,354 @@
       {
         "id": "invented-citation",
         "correct": true,
+        "answer": "No",
         "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "check_references",
+            "args": "{\"text\":\"Chen L, Okafor B. Neural cartography of hallucinated citations in legal briefs. Journal of Imaginary Studies. 2022;14(2):33-47.\"}"
+          }
+        ],
         "input": 1193,
         "output": 60,
         "cache_read": 0,
         "cache_write": 0,
-        "ms": 5757
+        "ms": 6427
       },
       {
         "id": "retracted-doi",
         "correct": true,
+        "answer": "yes",
         "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "check_retractions",
+            "args": "{\"dois\":[\"10.1126/science.1197258\"]}"
+          }
+        ],
         "input": 1122,
         "output": 35,
         "cache_read": 0,
         "cache_write": 0,
-        "ms": 3285
+        "ms": 2932
       },
       {
         "id": "year-of-work",
         "correct": true,
-        "tool_calls": 2,
-        "input": 1851,
-        "output": 62,
+        "answer": "2013",
+        "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "lookup_work",
+            "args": "{\"id\":\"Nanometre-scale thermometry in a living cell Kucsko Nature\"}"
+          }
+        ],
+        "input": 1307,
+        "output": 38,
         "cache_read": 0,
         "cache_write": 0,
-        "ms": 5054
+        "ms": 4228
       },
       {
         "id": "borrowed-doi",
         "correct": true,
-        "tool_calls": 2,
-        "input": 2035,
-        "output": 88,
+        "answer": "no",
+        "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "lookup_work",
+            "args": "{\"id\":\"doi:10.1038/nature12373\"}"
+          }
+        ],
+        "input": 1357,
+        "output": 32,
         "cache_read": 0,
         "cache_write": 0,
-        "ms": 9283
+        "ms": 2370
       },
       {
         "id": "find-doi",
-        "correct": true,
-        "tool_calls": 2,
-        "input": 1963,
-        "output": 117,
+        "correct": false,
+        "answer": "10.1016/S0140-6736(05)77837-5",
+        "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "lookup_work",
+            "args": "{\"id\":\"Wakefield et al., \\\"Ileal-lymphoid-nodular hyperplasia, non-specific colitis, and pervasive developmental disorder in children\\\", The Lancet, 1998\"}"
+          }
+        ],
+        "input": 1345,
+        "output": 77,
         "cache_read": 0,
         "cache_write": 0,
-        "ms": 7641
+        "ms": 4956
       },
       {
         "id": "retraction-year",
         "correct": true,
-        "tool_calls": 3,
-        "input": 2846,
-        "output": 110,
+        "answer": "2010",
+        "tool_calls": 2,
+        "trace": [
+          {
+            "tool": "lookup_work",
+            "args": "{\"id\":\"Wakefield ileal-lymphoid-nodular hyperplasia Lancet retracted\"}",
+            "error": "{\"error\":{\"code\":\"not_found\",\"message\":\"No work matches \\\"Wakefield ileal-lymphoid-nodular hyperplasia Lancet retracted\\\" in Crossref or OpenAlex. Closest: \\\"RETRACTED: Ileal-lymphoid-nodular hyperplasia, non-specific colitis, and pervasive developmental disorder in children\\\" (10.1016/s0140-6736(97"
+          },
+          {
+            "tool": "lookup_work",
+            "args": "{\"id\":\"10.1016/S0140-6736(97)11096-0\"}"
+          }
+        ],
+        "input": 2250,
+        "output": 74,
         "cache_read": 0,
         "cache_write": 0,
-        "ms": 7434
+        "ms": 7135
       },
       {
         "id": "notice-doi",
-        "correct": false,
+        "correct": true,
+        "answer": "10.1126/science.adu5488",
         "tool_calls": 1,
-        "input": 1130,
+        "trace": [
+          {
+            "tool": "lookup_work",
+            "args": "{\"id\":\"A Bacterium That Can Grow by Using Arsenic Instead of Phosphorus Science 2011 retraction notice\"}"
+          }
+        ],
+        "input": 1492,
         "output": 56,
         "cache_read": 0,
         "cache_write": 0,
-        "ms": 5650
+        "ms": 8698
       },
       {
         "id": "arxiv-author",
         "correct": true,
-        "tool_calls": 2,
-        "input": 1765,
-        "output": 53,
+        "answer": "Vaswani",
+        "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "lookup_work",
+            "args": "{\"id\":\"1706.03762\"}"
+          }
+        ],
+        "input": 1252,
+        "output": 28,
         "cache_read": 0,
         "cache_write": 0,
-        "ms": 4392
+        "ms": 2408
       },
       {
         "id": "wrong-year",
         "correct": true,
+        "answer": "2013",
         "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "check_references",
+            "args": "{\"text\":\"Kucsko G, Maurer PC. Nanometre-scale thermometry in a living cell. Nature. 2011;500:54-58.\",\"bibtex\":false}"
+          }
+        ],
         "input": 1251,
         "output": 61,
         "cache_read": 0,
         "cache_write": 0,
-        "ms": 4781
+        "ms": 4159
       },
       {
         "id": "invented-doi",
         "correct": true,
+        "answer": "no",
         "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "lookup_work",
+            "args": "{\"id\":\"10.9999/this-doi-does-not-exist-xyz\"}",
+            "error": "{\"error\":{\"code\":\"doi_not_registered\",\"message\":\"No registration agency knows the DOI 10.9999/this-doi-does-not-exist-xyz. It is likely mistyped or invented.\"}}"
+          }
+        ],
         "input": 1049,
         "output": 37,
         "cache_read": 0,
         "cache_write": 0,
-        "ms": 2681
+        "ms": 3028
       }
     ],
     "competitor": [
       {
         "id": "invented-citation",
         "correct": true,
+        "answer": "No",
         "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "verifyCitation",
+            "args": "{\"title\":\"Neural cartography of hallucinated citations in legal briefs\",\"authors\":[\"Chen\",\"Okafor\"],\"year\":2022,\"journal\":\"Journal of Imaginary Studies\"}"
+          }
+        ],
         "input": 1402,
-        "output": 61,
+        "output": 55,
         "cache_read": 0,
         "cache_write": 0,
-        "ms": 3863
+        "ms": 4043
       },
       {
         "id": "retracted-doi",
         "correct": true,
+        "answer": "Yes",
         "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "verifyCitation",
+            "args": "{\"doi\":\"10.1126/science.1197258\"}"
+          }
+        ],
         "input": 1400,
         "output": 32,
         "cache_read": 0,
         "cache_write": 0,
-        "ms": 2543
+        "ms": 2711
       },
       {
         "id": "year-of-work",
         "correct": true,
+        "answer": "2013",
         "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "verifyCitation",
+            "args": "{\"title\":\"Nanometre-scale thermometry in a living cell\",\"authors\":[\"Kucsko\"],\"journal\":\"Nature\"}"
+          }
+        ],
         "input": 1354,
         "output": 45,
         "cache_read": 0,
         "cache_write": 0,
-        "ms": 4235
+        "ms": 3796
       },
       {
         "id": "borrowed-doi",
         "correct": true,
+        "answer": "no",
         "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "verifyCitation",
+            "args": "{\"title\":\"Quantum entanglement improves photosynthesis yields in wheat\",\"authors\":[\"Smith\",\"Doe\"],\"year\":2021,\"doi\":\"10.1038/nature12373\",\"journal\":\"Nature Plants\"}"
+          }
+        ],
         "input": 1418,
         "output": 60,
         "cache_read": 0,
         "cache_write": 0,
-        "ms": 2421
+        "ms": 2894
       },
       {
         "id": "find-doi",
         "correct": true,
+        "answer": "10.1016/S0140-6736(97)11096-0",
         "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "verifyCitation",
+            "args": "{\"title\":\"Ileal-lymphoid-nodular hyperplasia, non-specific colitis, and pervasive developmental disorder in children\",\"authors\":[\"Wakefield\"],\"year\":1998,\"journal\":\"The Lancet\"}"
+          }
+        ],
         "input": 1452,
         "output": 80,
         "cache_read": 0,
         "cache_write": 0,
-        "ms": 4475
+        "ms": 3815
       },
       {
         "id": "retraction-year",
         "correct": true,
-        "tool_calls": 2,
-        "input": 3144,
-        "output": 113,
+        "answer": "2010",
+        "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "verifyCitation",
+            "args": "{\"title\":\"Retraction of: ileal-lymphoid-nodular hyperplasia, non-specific colitis, and pervasive developmental disorder in children\",\"authors\":[\"Wakefield\"],\"journal\":\"The Lancet\"}"
+          }
+        ],
+        "input": 1694,
+        "output": 63,
         "cache_read": 0,
         "cache_write": 0,
-        "ms": 5397
+        "ms": 3874
       },
       {
         "id": "notice-doi",
         "correct": false,
+        "answer": "10.1126/science.1201381",
         "tool_calls": 1,
-        "input": 1370,
-        "output": 69,
+        "trace": [
+          {
+            "tool": "verifyCitation",
+            "args": "{\"title\":\"A Bacterium That Can Grow by Using Arsenic Instead of Phosphorus retraction notice\",\"journal\":\"Science\",\"year\":2011}"
+          }
+        ],
+        "input": 1454,
+        "output": 61,
         "cache_read": 0,
         "cache_write": 0,
-        "ms": 3504
+        "ms": 3309
       },
       {
         "id": "arxiv-author",
         "correct": true,
+        "answer": "Vaswani",
         "tool_calls": 1,
-        "input": 1541,
-        "output": 36,
+        "trace": [
+          {
+            "tool": "verifyCitation",
+            "args": "{\"doi\":\"10.48550/arXiv.1706.03762\",\"year\":2017}"
+          }
+        ],
+        "input": 1546,
+        "output": 41,
         "cache_read": 0,
         "cache_write": 0,
-        "ms": 2950
+        "ms": 3135
       },
       {
         "id": "wrong-year",
         "correct": true,
+        "answer": "2013",
         "tool_calls": 2,
-        "input": 2900,
-        "output": 97,
+        "trace": [
+          {
+            "tool": "verifyCitation",
+            "args": "{\"title\":\"Nanometre-scale thermometry in a living cell\",\"authors\":[\"Kucsko\",\"Maurer\"],\"year\":2011,\"journal\":\"Nature\"}"
+          },
+          {
+            "tool": "verifyCitation",
+            "args": "{\"title\":\"Nanometre-scale thermometry in a living cell\",\"authors\":[\"Kucsko\",\"Maurer\"],\"journal\":\"Nature\"}"
+          }
+        ],
+        "input": 2410,
+        "output": 93,
         "cache_read": 0,
         "cache_write": 0,
-        "ms": 6952
+        "ms": 6014
       },
       {
         "id": "invented-doi",
         "correct": true,
+        "answer": "no",
         "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "verifyCitation",
+            "args": "{\"doi\":\"10.9999/this-doi-does-not-exist-xyz\"}"
+          }
+        ],
         "input": 1184,
         "output": 37,
         "cache_read": 0,
         "cache_write": 0,
-        "ms": 2603
+        "ms": 2608
       }
     ]
   },
@@ -212,20 +362,20 @@
     "ours": {
       "tasks": 10,
       "correct": 9,
-      "tokens_in": 16205,
-      "tokens_out": 679,
+      "tokens_in": 13618,
+      "tokens_out": 498,
       "cached_share": 0,
-      "tool_calls": 16,
-      "median_ms": 5650
+      "tool_calls": 11,
+      "median_ms": 4228
     },
     "competitor": {
       "tasks": 10,
       "correct": 9,
-      "tokens_in": 17165,
-      "tokens_out": 630,
+      "tokens_in": 15314,
+      "tokens_out": 567,
       "cached_share": 0,
-      "tool_calls": 12,
-      "median_ms": 3863
+      "tool_calls": 11,
+      "median_ms": 3796
     }
   }
 }

@@ -96,3 +96,12 @@ test("check_retractions: statuses in one batched request; problems, then unknown
   ]);
   assert.equal(calls.filter((c) => c.startsWith("api.crossref.org/works?filter=")).length, 1);
 });
+
+test("lookup_work: when the sources rank only comments on a paper, the paper itself is found through them", async () => {
+  const client = await connect();
+  const { res, data } = await call(client, "lookup_work", { id: "A Bacterium That Can Grow by Using Arsenic Instead of Phosphorus Science 2011 retraction notice" });
+  assert.ok(!res.isError);
+  assert.equal(data.doi, "10.1126/science.1197258");
+  assert.ok(data.flags.includes("retracted"));
+  assert.ok(data.notices.some((n) => n.notice_doi === "10.1126/science.adu5488"));
+});

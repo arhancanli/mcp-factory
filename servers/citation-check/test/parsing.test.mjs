@@ -5,7 +5,9 @@ import { cleanDoi, findArxiv, findDoi, findPmid, findYears } from "../src/ids.mj
 import { latexToText, parseBibtex, parseNames, toBibtex } from "../src/bibtex.mjs";
 import { compare, fromBibtex, fromText, rank } from "../src/match.mjs";
 import { pick, splitReferences } from "../src/check.mjs";
-import { flagForUpdate, fromCrossref, limits } from "../src/sources.mjs";
+import { discussedTitle } from "../src/text.mjs";
+import { stripSearchWords } from "../src/tools/lookup-work.mjs";
+import { flagForUpdate, fromCrossref, fromOpenalex, limits, openalexSearch } from "../src/sources.mjs";
 import { createContext } from "../src/server.mjs";
 
 test("DOIs: links, prefixes, sentence punctuation and balanced brackets", () => {
@@ -117,4 +119,39 @@ test("pick: a reply or correction is never taken as the cited work, even when it
   assert.equal(pick(c, [letter, record()]).r.title, "Nanometre-scale thermometry in a living cell");
   const citesNotice = fromText("Editors. Retraction note: Nanometre-scale thermometry in a living cell. Nature. 2014.");
   assert.ok(pick(citesNotice, [record({ title: "Retraction note: Nanometre-scale thermometry in a living cell", years: [2014], authors: [] })]), "a citation of the notice itself can match the notice");
+});
+
+test("comments lead to the work they discuss; search words are stripped", () => {
+  assert.equal(discussedTitle("Comment on \u201cA Bacterium That Can Grow by Using Arsenic Instead of Phosphorus\u201d"), "A Bacterium That Can Grow by Using Arsenic Instead of Phosphorus");
+  assert.equal(discussedTitle("Faculty Opinions recommendation of A bacterium that can grow by using arsenic instead of phosphorus."), "A bacterium that can grow by using arsenic instead of phosphorus.");
+  assert.equal(discussedTitle("Nanometre-scale thermometry in a living cell"), undefined);
+  assert.equal(stripSearchWords("A Bacterium That Can Grow Science 2011 retraction notice"), "A Bacterium That Can Grow Science");
+});
+
+test("an OpenAlex record dated by a later copy is caught by its citations, and cannot contradict the real year", () => {
+  // The Attention paper, as OpenAlex files it: under a 2025 repost's DOI, cited since 2017.
+  const counts = [[2026, 1161], [2025, 135], [2024, 26], [2023, 92], [2022, 771], [2021, 11180], [2020, 8258], [2019, 4208], [2018, 1010], [2017, 63], [2016, 1]];
+  const w = { id: "https://openalex.org/W2626778328", doi: "https://doi.org/10.65215/2q58a426", display_name: "Attention Is All You Need", publication_year: 2025, cited_by_count: 26907, counts_by_year: counts.map(([year, n]) => ({ year, cited_by_count: n })), authorships: [{ author: { display_name: "Ashish Vaswani" } }] };
+  const r = fromOpenalex(w);
+  assert.equal(r.citedSince, 2017);
+  assert.equal(r.openalexId, "W2626778328");
+  // A work cited mostly in the years after its date is plausible, whatever its age.
+  assert.equal(fromOpenalex({ ...w, publication_year: 2017 }).citedSince, undefined);
+  assert.equal(fromOpenalex({ ...w, counts_by_year: [{ year: 2016, cited_by_count: 40 }] }).citedSince, undefined, "too few citations to judge");
+  assert.equal(compare(fromText("Vaswani A, et al. Attention is all you need. NeurIPS 2017."), r).year, null);
+  assert.equal(compare(fromText("Vaswani A, et al. Attention is all you need. NeurIPS 2005."), r).year, false, "a year long before its first citations still contradicts");
+  assert.equal(compare(fromText("Goodfellow I, et al. Generative adversarial nets. NeurIPS 2014."), { ...r, title: "Generative adversarial nets", authors: [{ family: "Goodfellow" }] }).year, null);
+});
+
+test("OpenAlex: a refusal pauses it for as long as it asks, instead of asking on every call", async () => {
+  let calls = 0;
+  const fetchImpl = async () => {
+    calls++;
+    return new Response('{"error":"Rate limit exceeded"}', { status: 429, headers: { "retry-after": "35557", "content-type": "application/json" } });
+  };
+  const ctx = createContext({ fetchImpl, env: {} });
+  assert.equal(await openalexSearch(ctx, "attention is all you need"), null);
+  assert.equal(await openalexSearch(ctx, "generative adversarial nets"), null);
+  assert.equal(calls, 1);
+  assert.ok(ctx.openalexPausedUntil - Date.now() > 3000 * 1000 && ctx.openalexPausedUntil - Date.now() <= 3600 * 1000, "capped at an hour");
 });

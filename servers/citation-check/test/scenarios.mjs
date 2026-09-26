@@ -27,5 +27,6 @@ export const SCENARIOS = [
   { label: "lookup_work: PMID of a retracted paper", tool: "lookup_work", args: { id: "PMID: 9500320" } },
   { label: "lookup_work: DOI link", tool: "lookup_work", args: { id: "https://doi.org/10.1126/science.1197258" } },
   { label: "check_retractions: 5 inputs", tool: "check_retractions", args: { dois: RETRACTION_DOIS } },
+  { label: "lookup_work: a famous paper's title plus search words", tool: "lookup_work", args: { id: "A Bacterium That Can Grow by Using Arsenic Instead of Phosphorus Science 2011 retraction notice" } },
   { label: "lookup_work: invented DOI", tool: "lookup_work", args: { id: "10.9999/this-doi-does-not-exist-xyz" }, expectError: true },
 ];

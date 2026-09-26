@@ -24,6 +24,12 @@ for (const s of SCENARIOS) {
   const res = await client.callTool({ name: s.tool, arguments: s.args });
   if (Boolean(res.isError) !== Boolean(s.expectError)) console.error(`unexpected result for ${s.label}: ${res.content[0].text.slice(0, 200)}`);
 }
+// An outage recorded here would become what the golden tests expect: refuse to write it.
+const refused = Object.entries(recorded).filter(([, v]) => [402, 403, 429].includes(v.status) || v.status >= 500);
+if (refused.length) {
+  console.error(`not written: ${refused.length} refused responses (${refused.map(([k, v]) => `${v.status} ${k.slice(0, 60)}`).slice(0, 3).join("; ")}). Record again when the sources answer.`);
+  process.exit(1);
+}
 const sorted = Object.fromEntries(Object.entries(recorded).sort(([x], [y]) => x.localeCompare(y)));
 writeFileSync(new URL("./fixtures/sources.json", import.meta.url), `${JSON.stringify(sorted)}\n`);
 console.log(`recorded ${Object.keys(sorted).length} responses, ${JSON.stringify(sorted).length} bytes`);
