@@ -46,8 +46,10 @@ test("no file in the repository credits anyone but the owner", () => {
 });
 
 test("no authored file contains an em dash", () => {
-  // Recorded upstream responses (test/fixtures) stay byte for byte as the source sent them.
-  const offenders = repoFiles().filter((f) => !f.includes("/test/fixtures/") && readFileSync(path.join(ROOT, f), "utf8").includes(EM_DASH));
+  // Recorded data stays byte for byte as it arrived: upstream responses (test/fixtures) and the
+  // models' own answers in benchmark results (bench/results).
+  const recorded = (f) => f.includes("/test/fixtures/") || f.includes("/bench/results/");
+  const offenders = repoFiles().filter((f) => !recorded(f) && readFileSync(path.join(ROOT, f), "utf8").includes(EM_DASH));
   assert.deepEqual(offenders, []);
 });
 

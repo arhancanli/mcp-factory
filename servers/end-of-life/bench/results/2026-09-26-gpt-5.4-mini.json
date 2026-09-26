@@ -1,0 +1,387 @@
+{
+  "date": "2026-09-26",
+  "model": "gpt-5.4-mini",
+  "competitor_label": "endoflife-mcp, the only published end-of-life server",
+  "rows": {
+    "ours": [
+      {
+        "id": "python38",
+        "correct": true,
+        "answer": "no",
+        "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "check_versions",
+            "args": "{\"items\":[\"python 3.8\"]}"
+          }
+        ],
+        "input": 1211,
+        "output": 28,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 3237
+      },
+      {
+        "id": "python38-eol",
+        "correct": true,
+        "answer": "2024-10-07",
+        "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "product_lifecycle",
+            "args": "{\"product\":\"python 3.8\",\"include_ended\":5}"
+          }
+        ],
+        "input": 1639,
+        "output": 40,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 1958
+      },
+      {
+        "id": "node18-upgrade",
+        "correct": true,
+        "answer": "24",
+        "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "product_lifecycle",
+            "args": "{\"product\":\"node\",\"include_ended\":3}"
+          }
+        ],
+        "input": 1479,
+        "output": 31,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 2061
+      },
+      {
+        "id": "node18-nearest",
+        "correct": true,
+        "answer": "22",
+        "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "check_versions",
+            "args": "{\"items\":[\"node@18\",\"node@20\",\"node@22\",\"node@24\"]}"
+          }
+        ],
+        "input": 1519,
+        "output": 39,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 2022
+      },
+      {
+        "id": "nvmrc",
+        "correct": true,
+        "answer": "18",
+        "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "product_lifecycle",
+            "args": "{\"product\":\"node\",\"include_ended\":5}"
+          }
+        ],
+        "input": 1551,
+        "output": 31,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 1884
+      },
+      {
+        "id": "bullseye",
+        "correct": true,
+        "answer": "11",
+        "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "check_versions",
+            "args": "{\"items\":[\"python:3.8-slim-bullseye\"]}"
+          }
+        ],
+        "input": 1237,
+        "output": 35,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 1944
+      },
+      {
+        "id": "postgres13",
+        "correct": true,
+        "answer": "yes",
+        "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "check_versions",
+            "args": "{\"items\":[\"postgresql 13\"]}"
+          }
+        ],
+        "input": 1184,
+        "output": 27,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 2307
+      },
+      {
+        "id": "ubuntu2004",
+        "correct": true,
+        "answer": "extended",
+        "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "check_versions",
+            "args": "{\"items\":[\"ubuntu 20.04\"]}"
+          }
+        ],
+        "input": 1251,
+        "output": 28,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 2060
+      },
+      {
+        "id": "django42-latest",
+        "correct": true,
+        "answer": "4.2.30",
+        "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "check_versions",
+            "args": "{\"items\":[\"django 4.2\"]}"
+          }
+        ],
+        "input": 1178,
+        "output": 33,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 2273
+      },
+      {
+        "id": "alpine317",
+        "correct": true,
+        "answer": "No",
+        "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "check_versions",
+            "args": "{\"items\":[\"alpine 3.17\"]}"
+          }
+        ],
+        "input": 1204,
+        "output": 29,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 2354
+      }
+    ],
+    "competitor": [
+      {
+        "id": "python38",
+        "correct": true,
+        "answer": "no",
+        "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "check_eol",
+            "args": "{\"product\":\"python\",\"version\":\"3.8\"}"
+          }
+        ],
+        "input": 2829,
+        "output": 30,
+        "cache_read": 1152,
+        "cache_write": 0,
+        "ms": 2344
+      },
+      {
+        "id": "python38-eol",
+        "correct": true,
+        "answer": "2024-10-07",
+        "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "check_eol",
+            "args": "{\"product\":\"python\",\"version\":\"3.8\"}"
+          }
+        ],
+        "input": 2819,
+        "output": 36,
+        "cache_read": 1152,
+        "cache_write": 0,
+        "ms": 2244
+      },
+      {
+        "id": "node18-upgrade",
+        "correct": false,
+        "answer": "26",
+        "tool_calls": 2,
+        "trace": [
+          {
+            "tool": "check_eol",
+            "args": "{\"product\":\"nodejs\",\"version\":\"18\"}"
+          },
+          {
+            "tool": "get_product_lifecycle",
+            "args": "{\"product\":\"nodejs\"}"
+          }
+        ],
+        "input": 14540,
+        "output": 50,
+        "cache_read": 2816,
+        "cache_write": 0,
+        "ms": 3732
+      },
+      {
+        "id": "node18-nearest",
+        "correct": true,
+        "answer": "22",
+        "tool_calls": 2,
+        "trace": [
+          {
+            "tool": "check_eol",
+            "args": "{\"product\":\"nodejs\",\"version\":\"18\"}"
+          },
+          {
+            "tool": "get_product_lifecycle",
+            "args": "{\"product\": \"nodejs\"}"
+          }
+        ],
+        "input": 14534,
+        "output": 66,
+        "cache_read": 2816,
+        "cache_write": 0,
+        "ms": 28792
+      },
+      {
+        "id": "nvmrc",
+        "correct": true,
+        "answer": "18",
+        "tool_calls": 2,
+        "trace": [
+          {
+            "tool": "list_products",
+            "args": "{\"query\":\"nodejs\"}"
+          },
+          {
+            "tool": "get_product_lifecycle",
+            "args": "{\"product\":\"nodejs\"}"
+          }
+        ],
+        "input": 15650,
+        "output": 47,
+        "cache_read": 1152,
+        "cache_write": 0,
+        "ms": 3513
+      },
+      {
+        "id": "bullseye",
+        "correct": true,
+        "answer": "11",
+        "tool_calls": 2,
+        "trace": [
+          {
+            "tool": "list_products",
+            "args": "{\"query\":\"python\"}"
+          },
+          {
+            "tool": "get_product_lifecycle",
+            "args": "{\"product\":\"python\"}"
+          }
+        ],
+        "input": 22397,
+        "output": 43,
+        "cache_read": 2304,
+        "cache_write": 0,
+        "ms": 3499
+      },
+      {
+        "id": "postgres13",
+        "correct": true,
+        "answer": "yes",
+        "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "check_eol",
+            "args": "{\"product\":\"postgresql\",\"version\":\"13\"}"
+          }
+        ],
+        "input": 914,
+        "output": 29,
+        "cache_read": 2304,
+        "cache_write": 0,
+        "ms": 2231
+      },
+      {
+        "id": "ubuntu2004",
+        "correct": true,
+        "answer": "extended",
+        "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "check_eol",
+            "args": "{\"product\":\"ubuntu\",\"version\":\"20.04\"}"
+          }
+        ],
+        "input": 2078,
+        "output": 30,
+        "cache_read": 1152,
+        "cache_write": 0,
+        "ms": 2217
+      },
+      {
+        "id": "django42-latest",
+        "correct": true,
+        "answer": "4.2.30",
+        "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "check_eol",
+            "args": "{\"product\":\"django\",\"version\":\"4.2\"}"
+          }
+        ],
+        "input": 2061,
+        "output": 35,
+        "cache_read": 1152,
+        "cache_write": 0,
+        "ms": 2566
+      },
+      {
+        "id": "alpine317",
+        "correct": true,
+        "answer": "No",
+        "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "check_eol",
+            "args": "{\"product\":\"alpine linux\",\"version\":\"3.17\"}"
+          }
+        ],
+        "input": 2076,
+        "output": 32,
+        "cache_read": 1152,
+        "cache_write": 0,
+        "ms": 2690
+      }
+    ]
+  },
+  "summary": {
+    "ours": {
+      "tasks": 10,
+      "correct": 10,
+      "tokens_in": 13453,
+      "tokens_out": 321,
+      "cached_share": 0,
+      "tool_calls": 10,
+      "median_ms": 2061
+    },
+    "competitor": {
+      "tasks": 10,
+      "correct": 9,
+      "tokens_in": 97050,
+      "tokens_out": 398,
+      "cached_share": 0.177,
+      "tool_calls": 14,
+      "median_ms": 2690
+    }
+  }
+}

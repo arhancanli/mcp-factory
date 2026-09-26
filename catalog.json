@@ -212,6 +212,42 @@
           "title": "Scene bands and files"
         }
       ]
+    },
+    {
+      "name": "vuln-priority-mcp",
+      "title": "Vuln Priority",
+      "category": "security",
+      "summary": "Which vulnerabilities to fix first: CISA KEV, EPSS, CVSS and CISA's SSVC decisions in one ranking.",
+      "description": "Ranks CVEs and package vulnerabilities by real-world risk: CISA's Known Exploited Vulnerabilities catalog, FIRST EPSS exploit probability, CVSS, and CISA's SSVC decisions from the CVE record, with the fixed version for each package. No key.",
+      "version": "0.1.0",
+      "repository": "https://github.com/arhancanli/vuln-priority-mcp",
+      "npm": "https://www.npmjs.com/package/vuln-priority-mcp",
+      "mcpName": "io.github.arhancanli/vuln-priority-mcp",
+      "hosts": [
+        "www.cisa.gov",
+        "raw.githubusercontent.com",
+        "api.first.org",
+        "cveawg.mitre.org",
+        "api.osv.dev"
+      ],
+      "tools": [
+        {
+          "name": "package_vulns",
+          "title": "Rank a project's package vulnerabilities"
+        },
+        {
+          "name": "prioritize_vulns",
+          "title": "Rank vulnerabilities by real-world risk"
+        },
+        {
+          "name": "recent_exploited",
+          "title": "Newly exploited vulnerabilities"
+        },
+        {
+          "name": "vuln_details",
+          "title": "One vulnerability in depth"
+        }
+      ]
     }
   ]
 }

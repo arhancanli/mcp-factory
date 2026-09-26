@@ -1,6 +1,6 @@
 # Arhan Canli
 
-I build MCP servers that are measured against the best alternative before they ship: correct answers, small tool lists, fast first calls. 7 so far, each in its own repository, all MIT.
+I build MCP servers that are measured against the best alternative before they ship: correct answers, small tool lists, fast first calls. 8 so far, each in its own repository, all MIT.
 
 **Developer tools**
 
@@ -23,5 +23,9 @@ I build MCP servers that are measured against the best alternative before they s
 **Consumer safety**
 
 - [Recall Check](https://github.com/arhancanli/recall-check-mcp): One recall check across CPSC, FDA and NHTSA: match by name, model number, UPC or VIN.
+
+**Security**
+
+- [Vuln Priority](https://github.com/arhancanli/vuln-priority-mcp): Which vulnerabilities to fix first: CISA KEV, EPSS, CVSS and CISA's SSVC decisions in one ranking.
 
 All of them: [github.com/topics/arhancanli-mcp](https://github.com/topics/arhancanli-mcp)

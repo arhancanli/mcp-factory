@@ -59,9 +59,16 @@ async function runTaskOpenAI(model, mcp, tools, task) {
   const started = performance.now();
   for (let turn = 0; turn < MAX_TURNS; turn++) {
     let res;
+    // Rate limits, server errors and dropped connections are retried; a stalled request is cut at
+    // two minutes. The wait counts toward the task's time, which is why the median is reported.
     for (let attempt = 0; ; attempt++) {
-      res = await fetch(`${base}/chat/completions`, { method: "POST", headers: { Authorization: `Bearer ${process.env.OPENAI_API_KEY}`, "Content-Type": "application/json" }, body: JSON.stringify({ model, messages, tools: fnTools }) });
-      if (res.status !== 429 || attempt >= 5) break;
+      try {
+        res = await fetch(`${base}/chat/completions`, { method: "POST", headers: { Authorization: `Bearer ${process.env.OPENAI_API_KEY}`, "Content-Type": "application/json" }, body: JSON.stringify({ model, messages, tools: fnTools }), signal: AbortSignal.timeout(120_000) });
+      } catch (err) {
+        if (attempt >= 5) throw err;
+        res = undefined;
+      }
+      if ((res && res.status !== 429 && res.status < 500) || attempt >= 5) break;
       await new Promise((r) => setTimeout(r, 2000 * (attempt + 1)));
     }
     if (!res.ok) throw new Error(`OpenAI answered ${res.status}: ${(await res.text()).slice(0, 200)}`);

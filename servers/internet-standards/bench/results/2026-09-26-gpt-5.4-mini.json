@@ -7,225 +7,423 @@
       {
         "id": "obsolete-chain",
         "correct": true,
+        "answer": "9110 9111 9112",
         "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "rfc_info",
+            "args": "{\"ids\":[\"2616\"]}"
+          }
+        ],
         "input": 1583,
-        "output": 36,
+        "output": 34,
         "cache_read": 0,
         "cache_write": 0,
-        "ms": 3014
+        "ms": 3529
       },
       {
         "id": "is-current",
         "correct": true,
+        "answer": "no",
         "tool_calls": 1,
-        "input": 1517,
-        "output": 26,
+        "trace": [
+          {
+            "tool": "rfc_info",
+            "args": "{\"ids\":[\"RFC 7231\"]}"
+          }
+        ],
+        "input": 1521,
+        "output": 28,
         "cache_read": 0,
         "cache_write": 0,
-        "ms": 2101
+        "ms": 1813
       },
       {
         "id": "section-title",
-        "correct": false,
-        "tool_calls": 4,
-        "input": 4754,
-        "output": 123,
+        "correct": true,
+        "answer": "404 Not Found",
+        "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "rfc_section",
+            "args": "{\"rfc\":\"9110\",\"section\":\"15.5.5\"}"
+          }
+        ],
+        "input": 1514,
+        "output": 37,
         "cache_read": 0,
         "cache_write": 0,
-        "ms": 7435
+        "ms": 3488
       },
       {
         "id": "status-418",
-        "correct": false,
-        "tool_calls": 5,
-        "input": 3966,
-        "output": 169,
+        "correct": true,
+        "answer": "(Unused)",
+        "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "iana_lookup",
+            "args": "{\"registry\":\"http-status-codes\",\"query\":\"418\"}"
+          }
+        ],
+        "input": 1382,
+        "output": 33,
         "cache_read": 0,
         "cache_write": 0,
-        "ms": 10209
+        "ms": 2287
       },
       {
         "id": "media-type-ref",
-        "correct": false,
-        "tool_calls": 3,
-        "input": 3508,
-        "output": 83,
+        "correct": true,
+        "answer": "RFC 8259",
+        "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "iana_lookup",
+            "args": "{\"registry\":\"media-types\",\"query\":\"application/json\"}"
+          }
+        ],
+        "input": 1349,
+        "output": 33,
         "cache_read": 0,
         "cache_write": 0,
-        "ms": 16821
+        "ms": 2014
       },
       {
         "id": "port",
         "correct": true,
-        "tool_calls": 2,
-        "input": 2069,
-        "output": 56,
+        "answer": "postgresql",
+        "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "iana_lookup",
+            "args": "{\"registry\":\"port-numbers\",\"query\":\"5432\"}"
+          }
+        ],
+        "input": 1415,
+        "output": 32,
         "cache_read": 0,
         "cache_write": 0,
-        "ms": 3822
+        "ms": 1964
       },
       {
         "id": "bcp14",
         "correct": true,
+        "answer": "RFC 2119 and RFC 8174",
         "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "rfc_info",
+            "args": "{\"ids\":[\"BCP 14\"]}"
+          }
+        ],
         "input": 1634,
-        "output": 50,
+        "output": 36,
         "cache_read": 0,
         "cache_write": 0,
-        "ms": 2182
+        "ms": 3299
       },
       {
         "id": "errata",
-        "correct": false,
-        "tool_calls": 5,
-        "input": 4974,
-        "output": 175,
-        "cache_read": 1152,
+        "correct": true,
+        "answer": "7138",
+        "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "rfc_section",
+            "args": "{\"rfc\":\"9110\",\"section\":\"12.5.1\"}"
+          }
+        ],
+        "input": 2903,
+        "output": 36,
+        "cache_read": 0,
         "cache_write": 0,
-        "ms": 6299
+        "ms": 2003
       },
       {
         "id": "draft",
         "correct": true,
+        "answer": "RFC 9110",
         "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "rfc_info",
+            "args": "{\"ids\":[\"draft-ietf-httpbis-semantics\"]}"
+          }
+        ],
         "input": 1590,
-        "output": 34,
+        "output": 35,
         "cache_read": 0,
         "cache_write": 0,
-        "ms": 1816
+        "ms": 1795
       },
       {
         "id": "cipher",
-        "correct": false,
-        "tool_calls": 4,
-        "input": 3937,
-        "output": 140,
+        "correct": true,
+        "answer": "0x13,0x01",
+        "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "iana_lookup",
+            "args": "{\"registry\":\"tls-cipher-suites\",\"query\":\"TLS_AES_128_GCM_SHA256\"}"
+          }
+        ],
+        "input": 1403,
+        "output": 46,
         "cache_read": 0,
         "cache_write": 0,
-        "ms": 6012
+        "ms": 2120
       }
     ],
     "competitor": [
       {
         "id": "obsolete-chain",
         "correct": false,
+        "answer": "7230, 7231, 7232, 7233, 7234, 7235",
         "tool_calls": 7,
-        "input": 10288,
-        "output": 213,
-        "cache_read": 0,
+        "trace": [
+          {
+            "tool": "get_rfc_dependencies",
+            "args": "{\"rfc\":2616,\"includeReferencedBy\":false}"
+          },
+          {
+            "tool": "get_rfc_dependencies",
+            "args": "{\"rfc\": 7230, \"includeReferencedBy\": true}"
+          },
+          {
+            "tool": "get_rfc_dependencies",
+            "args": "{\"rfc\": 7231, \"includeReferencedBy\": true}"
+          },
+          {
+            "tool": "get_rfc_dependencies",
+            "args": "{\"rfc\": 7232, \"includeReferencedBy\": true}"
+          },
+          {
+            "tool": "get_rfc_dependencies",
+            "args": "{\"rfc\": 7233, \"includeReferencedBy\": true}"
+          },
+          {
+            "tool": "get_rfc_dependencies",
+            "args": "{\"rfc\": 7234, \"includeReferencedBy\": true}"
+          },
+          {
+            "tool": "get_rfc_dependencies",
+            "args": "{\"rfc\": 7235, \"includeReferencedBy\": true}"
+          }
+        ],
+        "input": 15148,
+        "output": 218,
+        "cache_read": 2688,
         "cache_write": 0,
-        "ms": 16046
+        "ms": 15479
       },
       {
         "id": "is-current",
         "correct": true,
-        "tool_calls": 2,
-        "input": 7742,
-        "output": 60,
-        "cache_read": 2176,
+        "answer": "No",
+        "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "get_rfc_dependencies",
+            "args": "{\"rfc\":7231,\"includeReferencedBy\":true}"
+          }
+        ],
+        "input": 6058,
+        "output": 35,
+        "cache_read": 0,
         "cache_write": 0,
-        "ms": 5040
+        "ms": 4051
       },
       {
         "id": "section-title",
         "correct": true,
+        "answer": "404 Not Found",
         "tool_calls": 1,
-        "input": 12154,
+        "trace": [
+          {
+            "tool": "get_rfc_structure",
+            "args": "{\"rfc\":9110,\"includeContent\":false}"
+          }
+        ],
+        "input": 1274,
         "output": 35,
-        "cache_read": 0,
+        "cache_read": 10880,
         "cache_write": 0,
-        "ms": 2818
+        "ms": 3102
       },
       {
         "id": "status-418",
         "correct": false,
+        "answer": "I’m a teapot",
         "tool_calls": 1,
-        "input": 2439,
-        "output": 35,
-        "cache_read": 0,
+        "trace": [
+          {
+            "tool": "get_rfc_structure",
+            "args": "{\"rfc\":2324,\"includeContent\":false}"
+          }
+        ],
+        "input": 1287,
+        "output": 36,
+        "cache_read": 1152,
         "cache_write": 0,
-        "ms": 2891
+        "ms": 2581
       },
       {
         "id": "media-type-ref",
         "correct": false,
-        "tool_calls": 4,
-        "input": 18790,
-        "output": 123,
+        "answer": "4627",
+        "tool_calls": 3,
+        "trace": [
+          {
+            "tool": "get_definitions",
+            "args": "{\"rfc\":7159,\"term\":\"application/json\"}"
+          },
+          {
+            "tool": "get_definitions",
+            "args": "{\"rfc\":8259,\"term\":\"application/json\"}"
+          },
+          {
+            "tool": "get_rfc_structure",
+            "args": "{\"rfc\":8259,\"includeContent\":true}"
+          }
+        ],
+        "input": 14165,
+        "output": 84,
         "cache_read": 0,
         "cache_write": 0,
-        "ms": 7359
+        "ms": 6275
       },
       {
         "id": "port",
         "correct": true,
-        "tool_calls": 3,
-        "input": 3354,
-        "output": 99,
-        "cache_read": 1664,
+        "answer": "PostgreSQL",
+        "tool_calls": 2,
+        "trace": [
+          {
+            "tool": "get_definitions",
+            "args": "{\"rfc\": 0, \"term\": \"5432\"}",
+            "error": "{\n  \"error\": \"RFC number must be positive, got 0\"\n}"
+          },
+          {
+            "tool": "get_rfc_dependencies",
+            "args": "{\"rfc\": 0, \"includeReferencedBy\": false}",
+            "error": "{\n  \"error\": \"RFC number must be positive, got 0\"\n}"
+          }
+        ],
+        "input": 1638,
+        "output": 76,
+        "cache_read": 0,
         "cache_write": 0,
-        "ms": 5279
+        "ms": 2127
       },
       {
         "id": "bcp14",
         "correct": true,
-        "tool_calls": 3,
-        "input": 3333,
-        "output": 91,
-        "cache_read": 1152,
+        "answer": "2119 8174",
+        "tool_calls": 4,
+        "trace": [
+          {
+            "tool": "get_definitions",
+            "args": "{\"rfc\":2119,\"term\":\"BCP 14\"}"
+          },
+          {
+            "tool": "get_rfc_dependencies",
+            "args": "{\"rfc\":2119,\"includeReferencedBy\":false}"
+          },
+          {
+            "tool": "get_rfc_structure",
+            "args": "{\"rfc\":2119,\"includeContent\":true}"
+          },
+          {
+            "tool": "get_rfc_structure",
+            "args": "{\"rfc\":8174,\"includeContent\":true}"
+          }
+        ],
+        "input": 7092,
+        "output": 117,
+        "cache_read": 2176,
         "cache_write": 0,
-        "ms": 6042
+        "ms": 7444
       },
       {
         "id": "errata",
         "correct": false,
-        "tool_calls": 3,
-        "input": 7613,
-        "output": 91,
+        "answer": "no verified technical erratum found",
+        "tool_calls": 2,
+        "trace": [
+          {
+            "tool": "get_related_sections",
+            "args": "{\"rfc\":9110,\"section\":\"12.5.1\"}"
+          },
+          {
+            "tool": "validate_statement",
+            "args": "{\"rfc\":9110,\"statement\":\"There is a verified technical erratum for RFC 9110 section 12.5.1.\"}"
+          }
+        ],
+        "input": 5215,
+        "output": 81,
         "cache_read": 0,
         "cache_write": 0,
-        "ms": 3657
+        "ms": 2924
       },
       {
         "id": "draft",
         "correct": true,
+        "answer": "9110",
         "tool_calls": 1,
-        "input": 12148,
+        "trace": [
+          {
+            "tool": "get_rfc_structure",
+            "args": "{\"rfc\":9110,\"includeContent\":false}"
+          }
+        ],
+        "input": 1268,
         "output": 34,
-        "cache_read": 0,
+        "cache_read": 10880,
         "cache_write": 0,
-        "ms": 2113
+        "ms": 2109
       },
       {
         "id": "cipher",
-        "correct": true,
+        "correct": false,
+        "answer": "0x1301",
         "tool_calls": 2,
-        "input": 131550,
-        "output": 84,
+        "trace": [
+          {
+            "tool": "validate_statement",
+            "args": "{\"rfc\":8446,\"statement\":\"TLS_AES_128_GCM_SHA256\"}"
+          },
+          {
+            "tool": "get_rfc_structure",
+            "args": "{\"rfc\":8446,\"includeContent\":true}"
+          }
+        ],
+        "input": 125404,
+        "output": 66,
         "cache_read": 0,
         "cache_write": 0,
-        "ms": 5560
+        "ms": 6128
       }
     ]
   },
   "summary": {
     "ours": {
       "tasks": 10,
-      "correct": 5,
-      "tokens_in": 30684,
-      "tokens_out": 892,
-      "cached_share": 0.038,
-      "tool_calls": 27,
-      "median_ms": 6012
+      "correct": 10,
+      "tokens_in": 16294,
+      "tokens_out": 350,
+      "cached_share": 0,
+      "tool_calls": 10,
+      "median_ms": 2120
     },
     "competitor": {
       "tasks": 10,
-      "correct": 6,
-      "tokens_in": 214403,
-      "tokens_out": 865,
-      "cached_share": 0.023,
-      "tool_calls": 27,
-      "median_ms": 5279
+      "correct": 5,
+      "tokens_in": 206325,
+      "tokens_out": 782,
+      "cached_share": 0.135,
+      "tool_calls": 24,
+      "median_ms": 4051
     }
   }
 }

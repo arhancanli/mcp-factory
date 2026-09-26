@@ -169,7 +169,8 @@ Measured 2026-09-26 with gpt-5.4-mini, 10 fixed tasks graded by fixed checks (`b
 
 | Server | Correct | Input tokens | Output tokens | Tool calls | Median time |
 | --- | --- | --- | --- | --- | --- |
-| This server | 7/10 | 17936 | 1039 | 15 | 3.9 s |
+| This server | 10/10 | 20400 | 650 | 9 | 3.0 s |
+| planetary-computer-mcp (run with mcp<2 pinned; its default install fails to start) | 10/10 | 23709 | 980 | 14 | 3.4 s |
 <!-- bench:end -->
 
 ## Performance
@@ -206,6 +207,7 @@ Tool definitions the model reads on every turn (name, description, input schema)
 - [Internet Standards](https://github.com/arhancanli/internet-standards-mcp): RFC sections, status, obsoleted-by chains, errata and IANA registries for coding agents.
 - [Package Truth](https://github.com/arhancanli/package-truth-mcp): Checks packages exist before install: version, deprecation, vulnerabilities, licence. 7 ecosystems.
 - [Recall Check](https://github.com/arhancanli/recall-check-mcp): One recall check across CPSC, FDA and NHTSA: match by name, model number, UPC or VIN.
+- [Vuln Priority](https://github.com/arhancanli/vuln-priority-mcp): Which vulnerabilities to fix first: CISA KEV, EPSS, CVSS and CISA's SSVC decisions in one ranking.
 - [The whole collection](https://github.com/arhancanli/mcp-factory#servers)
 <!-- family:end -->
 

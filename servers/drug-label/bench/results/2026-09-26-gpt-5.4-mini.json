@@ -6,226 +6,413 @@
     "ours": [
       {
         "id": "boxed-warning",
-        "correct": false,
-        "tool_calls": 4,
-        "input": 2889,
-        "output": 131,
+        "correct": true,
+        "answer": "WARNING: BLEEDING RISK",
+        "tool_calls": 2,
+        "trace": [
+          {
+            "tool": "find_drug",
+            "args": "{\"name\":\"warfarin\"}"
+          },
+          {
+            "tool": "label_section",
+            "args": "{\"setid\": \"19a69a72-ac5d-45d5-a94d-a5aaecbe4730\", \"topic\": \"boxed_warning\"}"
+          }
+        ],
+        "input": 3011,
+        "output": 92,
         "cache_read": 0,
         "cache_write": 0,
-        "ms": 9705
+        "ms": 8501
       },
       {
         "id": "no-boxed-warning",
         "correct": true,
-        "tool_calls": 1,
-        "input": 1250,
-        "output": 25,
+        "answer": "No",
+        "tool_calls": 2,
+        "trace": [
+          {
+            "tool": "find_drug",
+            "args": "{\"name\":\"Lipitor\"}"
+          },
+          {
+            "tool": "label_section",
+            "args": "{\"setid\":\"a60cc18b-0631-4cf0-b021-9f52224ece65\",\"topic\":\"boxed_warning\"}"
+          }
+        ],
+        "input": 2328,
+        "output": 68,
         "cache_read": 0,
         "cache_write": 0,
-        "ms": 5158
+        "ms": 8499
       },
       {
         "id": "grapefruit",
         "correct": true,
-        "tool_calls": 3,
-        "input": 2799,
-        "output": 79,
+        "answer": "1.2 liters daily",
+        "tool_calls": 2,
+        "trace": [
+          {
+            "tool": "find_drug",
+            "args": "{\"name\":\"Lipitor\"}"
+          },
+          {
+            "tool": "search_label",
+            "args": "{\"setid\":\"a60cc18b-0631-4cf0-b021-9f52224ece65\",\"term\":\"grapefruit juice\"}"
+          }
+        ],
+        "input": 3097,
+        "output": 75,
         "cache_read": 0,
         "cache_write": 0,
-        "ms": 6177
+        "ms": 2817
       },
       {
         "id": "contraindication",
         "correct": true,
-        "tool_calls": 3,
-        "input": 2792,
-        "output": 74,
-        "cache_read": 0,
+        "answer": "30",
+        "tool_calls": 2,
+        "trace": [
+          {
+            "tool": "find_drug",
+            "args": "{\"name\":\"metformin\"}"
+          },
+          {
+            "tool": "label_section",
+            "args": "{\"drug\":\"metformin\",\"topic\":\"warnings\"}"
+          }
+        ],
+        "input": 3833,
+        "output": 48,
+        "cache_read": 1152,
         "cache_write": 0,
-        "ms": 9523
+        "ms": 8149
       },
       {
         "id": "spelling",
         "correct": true,
-        "tool_calls": 2,
-        "input": 2049,
-        "output": 50,
+        "answer": "atorvastatin",
+        "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "find_drug",
+            "args": "{\"name\":\"atorvastatn\"}"
+          }
+        ],
+        "input": 1730,
+        "output": 29,
         "cache_read": 0,
         "cache_write": 0,
-        "ms": 7096
+        "ms": 6185
       },
       {
         "id": "brand-of",
         "correct": true,
+        "answer": "Lipitor",
         "tool_calls": 1,
-        "input": 1253,
+        "trace": [
+          {
+            "tool": "find_drug",
+            "args": "{\"name\":\"atorvastatin\"}"
+          }
+        ],
+        "input": 1710,
         "output": 27,
         "cache_read": 0,
         "cache_write": 0,
-        "ms": 1816
+        "ms": 1719
       },
       {
         "id": "originator",
-        "correct": false,
-        "tool_calls": 4,
-        "input": 2942,
-        "output": 100,
+        "correct": true,
+        "answer": "Viatris Specialty LLC",
+        "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "find_drug",
+            "args": "{\"name\":\"Lipitor\"}"
+          }
+        ],
+        "input": 1364,
+        "output": 29,
         "cache_read": 0,
         "cache_write": 0,
-        "ms": 6546
+        "ms": 1947
       },
       {
         "id": "drug-class",
-        "correct": false,
+        "correct": true,
+        "answer": "HMG-CoA Reductase Inhibitor",
         "tool_calls": 1,
-        "input": 1253,
-        "output": 32,
+        "trace": [
+          {
+            "tool": "find_drug",
+            "args": "{\"name\":\"atorvastatin\"}"
+          }
+        ],
+        "input": 1710,
+        "output": 35,
         "cache_read": 0,
         "cache_write": 0,
-        "ms": 2530
+        "ms": 1820
       },
       {
         "id": "recall-class",
-        "correct": false,
-        "tool_calls": 2,
-        "input": 1990,
-        "output": 65,
+        "correct": true,
+        "answer": "Class II",
+        "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "recalls_shortages",
+            "args": "{\"drug\":\"metformin\"}"
+          }
+        ],
+        "input": 2559,
+        "output": 27,
         "cache_read": 0,
         "cache_write": 0,
-        "ms": 5530
+        "ms": 4123
       },
       {
         "id": "unknown",
         "correct": true,
+        "answer": "no",
         "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "find_drug",
+            "args": "{\"name\":\"zzqq-fake-drug\"}",
+            "error": "{\"error\":{\"code\":\"not_found\",\"message\":\"RxNorm has no drug named \\\"zzqq-fake-drug\\\" and no close spelling.\"}}"
+          }
+        ],
         "input": 1235,
         "output": 29,
         "cache_read": 0,
         "cache_write": 0,
-        "ms": 3074
+        "ms": 3204
       }
     ],
     "competitor": [
       {
         "id": "boxed-warning",
         "correct": true,
+        "answer": "The boxed warning heading for warfarin is: “WARNING: BLEEDING RISK”",
         "tool_calls": 1,
-        "input": 11192,
-        "output": 143,
-        "cache_read": 0,
+        "trace": [
+          {
+            "tool": "drug-label",
+            "args": "{\"field\":\"drug_name\",\"value\":\"warfarin\",\"limit\":1,\"detail\":\"summary\"}",
+            "error": "OPENFDA_API_KEY is not set. This server reads the key from its process environment; a .env file is not loaded. Add it to the \"env\" block of your MCP client configuration. Get a free key at https://open.fda.gov/apis/authentication/\n\nTo run without a key on the unauthenticated tier (40 requests/minute"
+          }
+        ],
+        "input": 1201,
+        "output": 57,
+        "cache_read": 9984,
         "cache_write": 0,
-        "ms": 2708
+        "ms": 2175
       },
       {
         "id": "no-boxed-warning",
         "correct": true,
+        "answer": "no",
         "tool_calls": 1,
-        "input": 679,
-        "output": 39,
+        "trace": [
+          {
+            "tool": "drug-label",
+            "args": "{\"field\":\"brand_name\",\"value\":\"Lipitor\",\"detail\":\"summary\",\"limit\":1}",
+            "error": "OPENFDA_API_KEY is not set. This server reads the key from its process environment; a .env file is not loaded. Add it to the \"env\" block of your MCP client configuration. Get a free key at https://open.fda.gov/apis/authentication/\n\nTo run without a key on the unauthenticated tier (40 requests/minute"
+          }
+        ],
+        "input": 678,
+        "output": 38,
         "cache_read": 10496,
         "cache_write": 0,
-        "ms": 2003
+        "ms": 1756
       },
       {
         "id": "grapefruit",
-        "correct": true,
+        "correct": false,
+        "answer": "I’m unable to access the Lipitor label from FDA data in this environment.",
         "tool_calls": 1,
-        "input": 693,
-        "output": 43,
+        "trace": [
+          {
+            "tool": "drug-label",
+            "args": "{\"field\":\"brand_name\",\"value\":\"Lipitor\",\"limit\":1,\"detail\":\"full\"}",
+            "error": "OPENFDA_API_KEY is not set. This server reads the key from its process environment; a .env file is not loaded. Add it to the \"env\" block of your MCP client configuration. Get a free key at https://open.fda.gov/apis/authentication/\n\nTo run without a key on the unauthenticated tier (40 requests/minute"
+          }
+        ],
+        "input": 692,
+        "output": 53,
         "cache_read": 10496,
         "cache_write": 0,
-        "ms": 2091
+        "ms": 1952
       },
       {
         "id": "contraindication",
         "correct": true,
+        "answer": "30",
         "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "drug-label",
+            "args": "{\"field\":\"drug_name\",\"value\":\"metformin\",\"limit\":5,\"detail\":\"safety\",\"sort\":\"effective_time:desc\"}",
+            "error": "OPENFDA_API_KEY is not set. This server reads the key from its process environment; a .env file is not loaded. Add it to the \"env\" block of your MCP client configuration. Get a free key at https://open.fda.gov/apis/authentication/\n\nTo run without a key on the unauthenticated tier (40 requests/minute"
+          }
+        ],
         "input": 696,
         "output": 47,
         "cache_read": 10496,
         "cache_write": 0,
-        "ms": 2049
+        "ms": 2011
       },
       {
         "id": "spelling",
         "correct": true,
+        "answer": "atorvastatin",
         "tool_calls": 2,
-        "input": 1247,
-        "output": 75,
+        "trace": [
+          {
+            "tool": "drug-label",
+            "args": "{\"field\":\"drug_name\",\"value\":\"atorvastatn\",\"detail\":\"summary\",\"limit\":5}",
+            "error": "OPENFDA_API_KEY is not set. This server reads the key from its process environment; a .env file is not loaded. Add it to the \"env\" block of your MCP client configuration. Get a free key at https://open.fda.gov/apis/authentication/\n\nTo run without a key on the unauthenticated tier (40 requests/minute"
+          },
+          {
+            "tool": "drug-ndc",
+            "args": "{\"field\":\"generic_name\",\"value\":\"atorvastatn\",\"detail\":\"summary\",\"limit\":5}",
+            "error": "OPENFDA_API_KEY is not set. This server reads the key from its process environment; a .env file is not loaded. Add it to the \"env\" block of your MCP client configuration. Get a free key at https://open.fda.gov/apis/authentication/\n\nTo run without a key on the unauthenticated tier (40 requests/minute"
+          }
+        ],
+        "input": 1252,
+        "output": 78,
         "cache_read": 15744,
         "cache_write": 0,
-        "ms": 3003
+        "ms": 3104
       },
       {
         "id": "brand-of",
         "correct": true,
-        "tool_calls": 2,
-        "input": 1765,
-        "output": 88,
-        "cache_read": 15232,
+        "answer": "Lipitor",
+        "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "drug-ndc",
+            "args": "{\"field\":\"generic_name\",\"value\":\"ATORVASTATIN CALCIUM\",\"limit\":1,\"detail\":\"summary\"}",
+            "error": "OPENFDA_API_KEY is not set. This server reads the key from its process environment; a .env file is not loaded. Add it to the \"env\" block of your MCP client configuration. Get a free key at https://open.fda.gov/apis/authentication/\n\nTo run without a key on the unauthenticated tier (40 requests/minute"
+          }
+        ],
+        "input": 1202,
+        "output": 47,
+        "cache_read": 9984,
         "cache_write": 0,
-        "ms": 3121
+        "ms": 1888
       },
       {
         "id": "originator",
         "correct": false,
+        "answer": "Pfizer Inc.",
         "tool_calls": 1,
-        "input": 1201,
+        "trace": [
+          {
+            "tool": "drug-orangebook",
+            "args": "{\"field\":\"products.brand_name\",\"value\":\"Lipitor\",\"limit\":10,\"detail\":\"summary\"}",
+            "error": "OPENFDA_API_KEY is not set. This server reads the key from its process environment; a .env file is not loaded. Add it to the \"env\" block of your MCP client configuration. Get a free key at https://open.fda.gov/apis/authentication/\n\nTo run without a key on the unauthenticated tier (40 requests/minute"
+          }
+        ],
+        "input": 689,
         "output": 42,
-        "cache_read": 9984,
+        "cache_read": 10496,
         "cache_write": 0,
-        "ms": 2189
+        "ms": 2082
       },
       {
         "id": "drug-class",
-        "correct": false,
+        "correct": true,
+        "answer": "HMG-CoA reductase inhibitor",
         "tool_calls": 1,
-        "input": 687,
-        "output": 49,
+        "trace": [
+          {
+            "tool": "drug-ndc",
+            "args": "{\"field\":\"generic_name\",\"value\":\"atorvastatin\",\"limit\":5,\"detail\":\"summary\"}",
+            "error": "OPENFDA_API_KEY is not set. This server reads the key from its process environment; a .env file is not loaded. Add it to the \"env\" block of your MCP client configuration. Get a free key at https://open.fda.gov/apis/authentication/\n\nTo run without a key on the unauthenticated tier (40 requests/minute"
+          }
+        ],
+        "input": 685,
+        "output": 47,
         "cache_read": 10496,
         "cache_write": 0,
-        "ms": 1853
+        "ms": 2157
       },
       {
         "id": "recall-class",
         "correct": false,
+        "answer": "I can’t retrieve the FDA recall report right now because the FDA API key isn’t configured in this environment.",
         "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "drug-enforcement",
+            "args": "{\"field\":\"product_description\",\"value\":\"metformin\",\"limit\":1,\"detail\":\"summary\",\"sort\":\"report_date:desc\"}",
+            "error": "OPENFDA_API_KEY is not set. This server reads the key from its process environment; a .env file is not loaded. Add it to the \"env\" block of your MCP client configuration. Get a free key at https://open.fda.gov/apis/authentication/\n\nTo run without a key on the unauthenticated tier (40 requests/minute"
+          }
+        ],
         "input": 703,
-        "output": 61,
+        "output": 67,
         "cache_read": 10496,
         "cache_write": 0,
-        "ms": 2040
+        "ms": 2358
       },
       {
         "id": "unknown",
         "correct": true,
-        "tool_calls": 2,
-        "input": 1337,
-        "output": 82,
-        "cache_read": 15744,
+        "answer": "no",
+        "tool_calls": 4,
+        "trace": [
+          {
+            "tool": "drug-label",
+            "args": "{\"field\": \"drug_name\", \"value\": \"zzqq-fake-drug\", \"limit\": 1, \"detail\": \"summary\"}",
+            "error": "OPENFDA_API_KEY is not set. This server reads the key from its process environment; a .env file is not loaded. Add it to the \"env\" block of your MCP client configuration. Get a free key at https://open.fda.gov/apis/authentication/\n\nTo run without a key on the unauthenticated tier (40 requests/minute"
+          },
+          {
+            "tool": "drug-ndc",
+            "args": "{\"field\": \"generic_name\", \"value\": \"zzqq-fake-drug\", \"limit\": 1, \"detail\": \"summary\"}",
+            "error": "OPENFDA_API_KEY is not set. This server reads the key from its process environment; a .env file is not loaded. Add it to the \"env\" block of your MCP client configuration. Get a free key at https://open.fda.gov/apis/authentication/\n\nTo run without a key on the unauthenticated tier (40 requests/minute"
+          },
+          {
+            "tool": "drug-drugsfda",
+            "args": "{\"field\": \"openfda.generic_name\", \"value\": \"zzqq-fake-drug\", \"limit\": 1, \"detail\": \"summary\"}",
+            "error": "OPENFDA_API_KEY is not set. This server reads the key from its process environment; a .env file is not loaded. Add it to the \"env\" block of your MCP client configuration. Get a free key at https://open.fda.gov/apis/authentication/\n\nTo run without a key on the unauthenticated tier (40 requests/minute"
+          },
+          {
+            "tool": "drug-orangebook",
+            "args": "{\"field\": \"products.brand_name\", \"value\": \"zzqq-fake-drug\", \"limit\": 1, \"detail\": \"summary\"}",
+            "error": "OPENFDA_API_KEY is not set. This server reads the key from its process environment; a .env file is not loaded. Add it to the \"env\" block of your MCP client configuration. Get a free key at https://open.fda.gov/apis/authentication/\n\nTo run without a key on the unauthenticated tier (40 requests/minute"
+          }
+        ],
+        "input": 1113,
+        "output": 167,
+        "cache_read": 10496,
         "cache_write": 0,
-        "ms": 3119
+        "ms": 2584
       }
     ]
   },
   "summary": {
     "ours": {
       "tasks": 10,
-      "correct": 6,
-      "tokens_in": 20452,
-      "tokens_out": 612,
-      "cached_share": 0,
-      "tool_calls": 22,
-      "median_ms": 6177
+      "correct": 10,
+      "tokens_in": 23729,
+      "tokens_out": 459,
+      "cached_share": 0.049,
+      "tool_calls": 14,
+      "median_ms": 4123
     },
     "competitor": {
       "tasks": 10,
       "correct": 7,
-      "tokens_in": 129384,
-      "tokens_out": 669,
-      "cached_share": 0.844,
-      "tool_calls": 13,
-      "median_ms": 2189
+      "tokens_in": 118095,
+      "tokens_out": 643,
+      "cached_share": 0.925,
+      "tool_calls": 14,
+      "median_ms": 2157
     }
   }
 }

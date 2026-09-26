@@ -46,6 +46,12 @@ Every server here:
 | Server | What it does | Run |
 | --- | --- | --- |
 | [Recall Check](https://github.com/arhancanli/recall-check-mcp) | One recall check across CPSC, FDA and NHTSA: match by name, model number, UPC or VIN. | `npx -y recall-check-mcp` |
+
+### Security
+
+| Server | What it does | Run |
+| --- | --- | --- |
+| [Vuln Priority](https://github.com/arhancanli/vuln-priority-mcp) | Which vulnerabilities to fix first: CISA KEV, EPSS, CVSS and CISA's SSVC decisions in one ranking. | `npx -y vuln-priority-mcp` |
 <!-- servers:end -->
 
 ## How they are made
