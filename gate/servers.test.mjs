@@ -81,9 +81,15 @@ for (const dir of targets) {
     assert.equal(pkg.mcpName, `${CONFIG.mcpNamePrefix}${pkg.name}`);
     assert.ok(pkg.factory?.displayName);
     assert.ok(pkg.factory?.category in CONFIG.categories, `unknown category ${pkg.factory?.category}`);
-    assert.ok(Array.isArray(pkg.factory?.allowHosts) && pkg.factory.allowHosts.length > 0);
+    // An empty list is an offline server: the host scan below still refuses any URL it would call.
+    assert.ok(Array.isArray(pkg.factory?.allowHosts));
     assert.ok(Number.isInteger(pkg.factory?.toolListBudget) && pkg.factory.toolListBudget > 0);
-    assert.deepEqual(Object.keys(pkg.dependencies ?? {}).sort(), ["@modelcontextprotocol/sdk", "zod"]);
+    // The SDK and zod, plus only what factory.dependencyReasons justifies in writing.
+    const reasons = pkg.factory?.dependencyReasons ?? {};
+    const extra = Object.keys(pkg.dependencies ?? {}).filter((d) => !["@modelcontextprotocol/sdk", "zod"].includes(d)).sort();
+    assert.deepEqual(extra, Object.keys(reasons).sort(), "every dependency beyond the SDK and zod has a written reason, and every reason a dependency");
+    for (const r of Object.values(reasons)) assert.ok(typeof r === "string" && r.length >= 30, "a reason says why no smaller option works");
+    for (const d of ["@modelcontextprotocol/sdk", "zod"]) assert.ok(pkg.dependencies?.[d], `${d} is a dependency`);
     for (const v of Object.values(pkg.dependencies)) assert.match(v, /^\d+\.\d+\.\d+$/, "dependencies are pinned exactly");
     assert.ok(pkg.files.includes("npm-shrinkwrap.json"));
 

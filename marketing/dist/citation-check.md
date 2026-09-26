@@ -86,5 +86,5 @@ https://github.com/arhancanli/citation-check-mcp
 
 ## Cross-links
 
-Footer for every post: 8 servers, each measured before release:
+Footer for every post: 9 servers, each measured before release:
 https://github.com/topics/arhancanli-mcp. Related: Drug Label (https://github.com/arhancanli/drug-label-mcp), End of Life (https://github.com/arhancanli/end-of-life-mcp), Internet Standards (https://github.com/arhancanli/internet-standards-mcp).

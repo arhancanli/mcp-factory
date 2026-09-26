@@ -92,5 +92,5 @@ measured against the best alternative before release. https://github.com/arhanca
 
 ## Cross-links
 
-Mention the collection in every post footer where it fits: 8 servers so far,
+Mention the collection in every post footer where it fits: 9 servers so far,
 each measured before release: https://github.com/topics/arhancanli-mcp. Related: Citation Check (https://github.com/arhancanli/citation-check-mcp), Drug Label (https://github.com/arhancanli/drug-label-mcp), End of Life (https://github.com/arhancanli/end-of-life-mcp).

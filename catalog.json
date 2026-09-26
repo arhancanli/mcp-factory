@@ -248,6 +248,40 @@
           "title": "One vulnerability in depth"
         }
       ]
+    },
+    {
+      "name": "world-time-mcp",
+      "title": "World Time",
+      "category": "productivity",
+      "summary": "Time anywhere, DST-safe conversions, holidays for 200+ countries, business days and meeting slots.",
+      "description": "Time and calendar answers agents get wrong: the time anywhere by city, country or zone, DST-safe conversions that flag skipped and repeated hours, public holidays for 200+ countries and their regions, business-day arithmetic with each country's own weekend, and meeting slots across time zones. Works offline, no key.",
+      "version": "0.1.0",
+      "repository": "https://github.com/arhancanli/world-time-mcp",
+      "npm": "https://www.npmjs.com/package/world-time-mcp",
+      "mcpName": "io.github.arhancanli/world-time-mcp",
+      "hosts": [],
+      "tools": [
+        {
+          "name": "business_days",
+          "title": "Add or count business days"
+        },
+        {
+          "name": "date_info",
+          "title": "Facts and arithmetic for a date"
+        },
+        {
+          "name": "holidays",
+          "title": "Public holidays"
+        },
+        {
+          "name": "meeting_slots",
+          "title": "Find meeting times across time zones"
+        },
+        {
+          "name": "world_time",
+          "title": "Time in places, now or converted"
+        }
+      ]
     }
   ]
 }

@@ -73,4 +73,4 @@ left and upgrade path. https://github.com/arhancanli/end-of-life-mcp
 
 ## Cross-links
 
-Footer: 8 servers, each measured before release: https://github.com/topics/arhancanli-mcp. Related: Citation Check (https://github.com/arhancanli/citation-check-mcp), Drug Label (https://github.com/arhancanli/drug-label-mcp), Internet Standards (https://github.com/arhancanli/internet-standards-mcp).
+Footer: 9 servers, each measured before release: https://github.com/topics/arhancanli-mcp. Related: Citation Check (https://github.com/arhancanli/citation-check-mcp), Drug Label (https://github.com/arhancanli/drug-label-mcp), Internet Standards (https://github.com/arhancanli/internet-standards-mcp).

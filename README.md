@@ -52,6 +52,12 @@ Every server here:
 | Server | What it does | Run |
 | --- | --- | --- |
 | [Vuln Priority](https://github.com/arhancanli/vuln-priority-mcp) | Which vulnerabilities to fix first: CISA KEV, EPSS, CVSS and CISA's SSVC decisions in one ranking. | `npx -y vuln-priority-mcp` |
+
+### Productivity
+
+| Server | What it does | Run |
+| --- | --- | --- |
+| [World Time](https://github.com/arhancanli/world-time-mcp) | Time anywhere, DST-safe conversions, holidays for 200+ countries, business days and meeting slots. | `npx -y world-time-mcp` |
 <!-- servers:end -->
 
 ## How they are made
