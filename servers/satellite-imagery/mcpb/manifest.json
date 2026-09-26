@@ -1,0 +1,62 @@
+{
+  "manifest_version": "0.3",
+  "name": "satellite-imagery-mcp",
+  "display_name": "Satellite Imagery",
+  "version": "0.1.0",
+  "description": "Finds the best satellite scenes for a place and time from Earth Search (Sentinel-2, Landsat, Sentinel-1 radar and NAIP), ranked by how much of your area each covers, cloud cover and date, with previews, band download links and licences.",
+  "author": {
+    "name": "Arhan Canli",
+    "url": "https://github.com/arhancanli"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/arhancanli/satellite-imagery-mcp"
+  },
+  "homepage": "https://github.com/arhancanli/satellite-imagery-mcp#readme",
+  "documentation": "https://github.com/arhancanli/satellite-imagery-mcp#readme",
+  "support": "https://github.com/arhancanli/satellite-imagery-mcp/issues",
+  "license": "MIT",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "mcp-server",
+    "geospatial",
+    "satellite",
+    "sentinel-2",
+    "landsat",
+    "stac",
+    "earth-observation",
+    "remote-sensing",
+    "imagery"
+  ],
+  "server": {
+    "type": "node",
+    "entry_point": "src/server.mjs",
+    "mcp_config": {
+      "command": "node",
+      "args": [
+        "${__dirname}/src/server.mjs"
+      ]
+    }
+  },
+  "tools": [
+    {
+      "name": "find_imagery",
+      "description": "Find satellite imagery"
+    },
+    {
+      "name": "scene_assets",
+      "description": "Scene bands and files"
+    }
+  ],
+  "compatibility": {
+    "platforms": [
+      "darwin",
+      "win32",
+      "linux"
+    ],
+    "runtimes": {
+      "node": ">=20"
+    }
+  }
+}

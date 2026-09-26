@@ -1,0 +1,61 @@
+{
+  "name": "satellite-imagery-mcp",
+  "version": "0.1.0",
+  "description": "Finds the best satellite scenes for a place and time from Earth Search (Sentinel-2, Landsat, Sentinel-1 radar and NAIP), ranked by how much of your area each covers, cloud cover and date, with previews, band download links and licences.",
+  "type": "module",
+  "license": "MIT",
+  "author": {
+    "name": "Arhan Canli",
+    "url": "https://github.com/arhancanli"
+  },
+  "bin": {
+    "satellite-imagery-mcp": "src/server.mjs"
+  },
+  "files": [
+    "src",
+    "README.md",
+    "LICENSE",
+    "npm-shrinkwrap.json"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.mjs",
+    "start": "node src/server.mjs"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "1.30.1",
+    "zod": "4.6.5"
+  },
+  "mcpName": "io.github.arhancanli/satellite-imagery-mcp",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "mcp-server",
+    "geospatial",
+    "satellite",
+    "sentinel-2",
+    "landsat",
+    "stac",
+    "earth-observation",
+    "remote-sensing",
+    "imagery"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arhancanli/satellite-imagery-mcp.git"
+  },
+  "homepage": "https://github.com/arhancanli/satellite-imagery-mcp#readme",
+  "bugs": {
+    "url": "https://github.com/arhancanli/satellite-imagery-mcp/issues"
+  },
+  "factory": {
+    "displayName": "Satellite Imagery",
+    "category": "geospatial",
+    "allowHosts": [
+      "earth-search.aws.element84.com"
+    ],
+    "toolListBudget": 4000
+  }
+}

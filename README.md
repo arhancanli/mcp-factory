@@ -34,6 +34,12 @@ Every server here:
 | --- | --- | --- |
 | [Drug Label](https://github.com/arhancanli/drug-label-mcp) | FDA drug label answers with section citations, RxNorm name resolution, recalls and shortages. | `npx -y drug-label-mcp` |
 
+### Maps, earth and transport
+
+| Server | What it does | Run |
+| --- | --- | --- |
+| [Satellite Imagery](https://github.com/arhancanli/satellite-imagery-mcp) | Find the clearest Sentinel-2, Landsat, Sentinel-1 or NAIP scene for any place, with band links. | `npx -y satellite-imagery-mcp` |
+
 ### Consumer safety
 
 | Server | What it does | Run |

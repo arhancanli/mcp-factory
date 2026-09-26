@@ -20,6 +20,7 @@ const base = {
 
 test("defineTool accepts a tool that follows every rule", () => {
   assert.equal(defineTool(base).name, "echo_word");
+  assert.equal(defineTool({ ...base, name: "exact_len", input: { box: z.array(z.number()).length(4) } }).name, "exact_len", "an exact length bounds an array");
 });
 
 test("defineTool refuses each broken rule by name", () => {

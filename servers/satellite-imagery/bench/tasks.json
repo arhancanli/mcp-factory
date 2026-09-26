@@ -1,0 +1,91 @@
+{
+  "competitor": {
+    "label": "planetary-computer-mcp (run with mcp<2 pinned; its default install fails to start)",
+    "command": "uvx",
+    "args": [
+      "--with",
+      "mcp<2",
+      "planetary-computer-mcp"
+    ]
+  },
+  "tasks": [
+    {
+      "id": "clearest-dubai",
+      "prompt": "Find the clearest Sentinel-2 scene covering the Burj Khalifa area (25.197 N, 55.274 E) between 2026-08-01 and 2026-09-26. Give its cloud cover in percent only.",
+      "expect": {
+        "number": 0,
+        "tol": 1
+      }
+    },
+    {
+      "id": "coverage",
+      "prompt": "For the point 25.197 N, 55.274 E, does the best Sentinel-2 scene from August 2026 cover the whole 1 km area around it? Answer yes or no.",
+      "expect": {
+        "regex": "^yes\\b"
+      }
+    },
+    {
+      "id": "landsat-platform",
+      "prompt": "Find a Landsat scene over San Francisco (bbox -122.52, 37.70, -122.35, 37.83) from summer 2026 with under 5% cloud. Which Landsat satellite took the clearest one? Answer landsat-8 or landsat-9.",
+      "expect": {
+        "regex": "landsat-?\\s?(8|9)"
+      }
+    },
+    {
+      "id": "radar",
+      "prompt": "Which collection lets you see London through cloud: Sentinel-2, Landsat or Sentinel-1? Give one name.",
+      "expect": {
+        "contains": [
+          "sentinel-1"
+        ]
+      }
+    },
+    {
+      "id": "red-band",
+      "prompt": "What is the resolution in metres of the red band of Sentinel-2 scene S2B_T40RCN_20260830T065854_L2A? Give the number only.",
+      "expect": {
+        "number": 10
+      }
+    },
+    {
+      "id": "wavelength",
+      "prompt": "What is the centre wavelength in micrometres of the red band in Sentinel-2 scene S2B_T40RCN_20260830T065854_L2A? Give the number only.",
+      "expect": {
+        "number": 0.665,
+        "tol": 0.001
+      }
+    },
+    {
+      "id": "licence",
+      "prompt": "What credit line does using Sentinel-2 imagery require? Give the credit text only.",
+      "expect": {
+        "contains": [
+          "copernicus sentinel data"
+        ]
+      }
+    },
+    {
+      "id": "requester-pays",
+      "prompt": "Are Landsat Collection 2 files on AWS free to download, or billed to the downloader (requester pays)? Answer free or requester pays.",
+      "expect": {
+        "contains": [
+          "requester pays"
+        ]
+      }
+    },
+    {
+      "id": "ocean",
+      "prompt": "Is there a Sentinel-2 scene with 0% cloud at 0 N, 160 W on 2026-09-01? Answer yes or no.",
+      "expect": {
+        "regex": "^no\\b"
+      }
+    },
+    {
+      "id": "newest-radar",
+      "prompt": "What is the date of the newest Sentinel-1 scene over London (51.5 N, 0.12 W) in September 2026 up to the 26th? Give YYYY-MM-DD only.",
+      "expect": {
+        "regex": "^2026-09-2[0-6]$"
+      }
+    }
+  ]
+}

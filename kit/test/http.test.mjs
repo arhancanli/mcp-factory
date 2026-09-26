@@ -222,3 +222,24 @@ test("a stalled read attempt is abandoned and retried within the deadline", asyn
     clearTimeout(hold);
   }
 });
+
+test("an idempotent POST (a search) is cached per body, shared in flight and retried; a plain POST is not", async () => {
+  const cache = new TtlCache({ ttlMs: 60_000 });
+  let calls = 0;
+  const impl = async (_url, init) => {
+    calls++;
+    if (calls === 1) return respond(503, "busy", { "retry-after": "0" });
+    return respond(200, JSON.stringify({ echo: init.body }));
+  };
+  const f = make(impl, { cache });
+  const opts = { method: "POST", headers: { "Content-Type": "application/json" }, body: '{"q":1}', idempotent: true };
+  const [a, b] = await Promise.all([f.request("https://api.example.org/search", opts), f.request("https://api.example.org/search", opts)]);
+  assert.equal(a.status, 200, "retried after the 503");
+  assert.equal(b.text, a.text);
+  await f.request("https://api.example.org/search", opts);
+  assert.equal(calls, 2, "one retry, then cached");
+  await f.request("https://api.example.org/search", { ...opts, body: '{"q":2}' });
+  assert.equal(calls, 3, "another body is another request");
+  await f.request("https://api.example.org/search", { method: "POST", body: '{"q":1}' });
+  assert.equal(calls, 4, "a POST not marked idempotent is never cached");
+});

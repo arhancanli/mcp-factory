@@ -1,0 +1,57 @@
+{
+  "measured_on": "2026-09-26",
+  "where": "Dubai, home connection",
+  "node": "v24.19.0",
+  "runs": 3,
+  "tool_definition_chars": 1731,
+  "tools_list_chars": 2699,
+  "competitor": {
+    "label": "planetary-computer-mcp (run with mcp<2 pinned; its default install fails to start)",
+    "tool_definition_chars": 2776,
+    "tools_list_chars": 4812
+  },
+  "scenarios": [
+    {
+      "call": "find_imagery: Sentinel-2 around a point in Dubai, 8 weeks",
+      "first_call_ms": 2124,
+      "repeat_ms": 0.7,
+      "result_chars": 1971
+    },
+    {
+      "call": "find_imagery: Landsat over San Francisco, a summer",
+      "first_call_ms": 1746,
+      "repeat_ms": 0.6,
+      "result_chars": 1647
+    },
+    {
+      "call": "find_imagery: Sentinel-1 radar over London, newest first",
+      "first_call_ms": 1754,
+      "repeat_ms": 0.9,
+      "result_chars": 1292
+    },
+    {
+      "call": "scene_assets: one Sentinel-2 scene",
+      "first_call_ms": 1224,
+      "repeat_ms": 0.5,
+      "result_chars": 5602
+    },
+    {
+      "call": "find_imagery: open ocean, no cloud allowed",
+      "first_call_ms": 962,
+      "repeat_ms": 0.2,
+      "result_chars": 441
+    }
+  ],
+  "example": {
+    "call": "find_imagery: Sentinel-2 around a point in Dubai, 8 weeks",
+    "tool": "find_imagery",
+    "arguments": {
+      "lat": 25.197,
+      "lon": 55.274,
+      "start": "2026-08-01",
+      "end": "2026-09-26",
+      "limit": 3
+    },
+    "result": "{\"collection\":\"Sentinel-2 surface reflectance (Collection 1, L2A), 10 m, every 5 days\",\"area\":[55.264072,25.188017,55.283928,25.205983],\"matched\":14,\"scenes\":[{\"id\":\"S2B_T40RCN_20260830T065854_L2A\",\"date\":\"2026-08-30T07:02:38\",\"cloud_cover\":0,\"area_covered_pct\":100,\"platform\":\"sentinel-2b\",\"thumbnail\":\"https://e84-earth-search-sentinel-data.s3.us-west-2.amazonaws.com/sentinel-2-c1-l2a/40/R/CN/2026/8/S2B_T40RCN_20260830T065854_L2A/L2A_PVI.jpg\",\"true_color\":\"https://e84-earth-search-sentinel-data.s3.us-west-2.amazonaws.com/sentinel-2-c1-l2a/40/R/CN/2026/8/S2B_T40RCN_20260830T065854_L2A/TCI.tif\",\"item\":\"https://earth-search.aws.element84.com/v1/collections/sentinel-2-c1-l2a/items/S2B_T40RCN_20260830T065854_L2A\"},{\"id\":\"S2B_T40RCN_20260919T065429_L2A\",\"date\":\"2026-09-19T07:02:39\",\"cloud_cover\":0,\"area_covered_pct\":100,\"platform\":\"sentinel-2b\",\"thumbnail\":\"https://e84-earth-search-sentinel-data.s3.us-west-2.amazonaws.com/sentinel-2-c1-l2a/40/R/CN/2026/9/S2B_T40RCN_20260919T065429_L2A/L2A_PVI.jpg\",\"true_color\":\"https://e84-earth-search-sentinel-data.s3.us-west-2.amazonaws.com/sentinel-2-c1-l2a/40/R/CN/2026/9/S2B_T40RCN_20260919T065429_L2A/TCI.tif\",\"item\":\"https://earth-search.aws.element84.com/v1/collections/sentinel-2-c1-l2a/items/S2B_T40RCN_20260919T065429_L2A\"},{\"id\":\"S2B_T40RCN_20260909T070216_L2A\",\"date\":\"2026-09-09T07:02:38\",\"cloud_cover\":0,\"area_covered_pct\":100,\"platform\":\"sentinel-2b\",\"thumbnail\":\"https://e84-earth-search-sentinel-data.s3.us-west-2.amazonaws.com/sentinel-2-c1-l2a/40/R/CN/2026/9/S2B_T40RCN_20260909T070216_L2A/L2A_PVI.jpg\",\"true_color\":\"https://e84-earth-search-sentinel-data.s3.us-west-2.amazonaws.com/sentinel-2-c1-l2a/40/R/CN/2026/9/S2B_T40RCN_20260909T070216_L2A/TCI.tif\",\"item\":\"https://earth-search.aws.element84.com/v1/collections/sentinel-2-c1-l2a/items/S2B_T40RCN_20260909T070216_L2A\"}],\"examined\":14,\"licence\":\"Copernicus Sentinel data: free and open use; credit 'Contains modified Copernicus Sentinel data [year]'.\"}"
+  }
+}

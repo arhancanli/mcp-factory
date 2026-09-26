@@ -160,6 +160,30 @@
           "title": "Vehicle recalls"
         }
       ]
+    },
+    {
+      "name": "satellite-imagery-mcp",
+      "title": "Satellite Imagery",
+      "category": "geospatial",
+      "summary": "Find the clearest Sentinel-2, Landsat, Sentinel-1 or NAIP scene for any place, with band links.",
+      "description": "Finds the best satellite scenes for a place and time from Earth Search (Sentinel-2, Landsat, Sentinel-1 radar and NAIP), ranked by how much of your area each covers, cloud cover and date, with previews, band download links and licences.",
+      "version": "0.1.0",
+      "repository": "https://github.com/arhancanli/satellite-imagery-mcp",
+      "npm": "https://www.npmjs.com/package/satellite-imagery-mcp",
+      "mcpName": "io.github.arhancanli/satellite-imagery-mcp",
+      "hosts": [
+        "earth-search.aws.element84.com"
+      ],
+      "tools": [
+        {
+          "name": "find_imagery",
+          "title": "Find satellite imagery"
+        },
+        {
+          "name": "scene_assets",
+          "title": "Scene bands and files"
+        }
+      ]
     }
   ]
 }
