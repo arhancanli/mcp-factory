@@ -18,12 +18,18 @@ const OWNER_EMAIL = "315329124+arhancanli@users.noreply.github.com";
 const SIGNING_KEY = path.join(os.homedir(), ".ssh/git_signing_ed25519.pub");
 
 const sh = (cmd, args, cwd) => execFileSync(cmd, args, { cwd, encoding: "utf8", stdio: ["ignore", "pipe", "pipe"] }).trim();
+// Only GitHub's own "not found" answer means absent; any other failure (a dropped connection, a
+// rate limit) is retried and then raised, never read as "create it".
 const exists = (repo) => {
-  try {
-    sh("gh", ["repo", "view", repo, "--json", "name"]);
-    return true;
-  } catch {
-    return false;
+  for (let attempt = 0; ; attempt++) {
+    try {
+      sh("gh", ["repo", "view", repo, "--json", "name"]);
+      return true;
+    } catch (err) {
+      if (/Could not resolve to a Repository/i.test(String(err.stderr ?? ""))) return false;
+      if (attempt >= 2) throw err;
+      execFileSync("sleep", [String(2 * (attempt + 1))]);
+    }
   }
 };
 
