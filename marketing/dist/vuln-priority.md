@@ -14,7 +14,7 @@ Post only after the release is on npm.
   decisions answer that, but live in three places.
 - Proof: one ranking from KEV, EPSS, CVSS and SSVC, a reason on every row, and for packages the one
   upgrade that fixes everything, checked against every advisory's ranges. Tool definitions of
-  2,298 characters against 20,295 for cve-mcp, the broadest published vulnerability server (41 tools).
+  2,298 characters against 12,864 for mukul975/cve-mcp-server, the most-starred vulnerability server (28 tools).
 
 ## Show HN
 
@@ -31,7 +31,7 @@ the next 30 days, and what did CISA's SSVC assessment say about exploitation and
 Each result gets a tier (act_now, high, medium, low) and a one-line reason. For packages it also
 gives the smallest upgrade that fixes every known advisory, checked against each advisory's affected
 ranges, because a later branch can be affected again. Duplicate advisories for the same CVE are
-merged. First calls took 0.6 to 2.3 s in my measurements, repeats 3 ms or less.
+merged. First calls took 0.6 to 2.9 s in my measurements, repeats 3 ms or less.
 
 No key, MIT: https://github.com/arhancanli/vuln-priority-mcp. `npx -y vuln-priority-mcp`
 
