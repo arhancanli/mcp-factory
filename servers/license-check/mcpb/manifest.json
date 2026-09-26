@@ -1,0 +1,59 @@
+{
+  "manifest_version": "0.3",
+  "name": "license-check-mcp",
+  "display_name": "License Check",
+  "version": "0.1.0",
+  "description": "Answers open source license questions from authoritative data: the SPDX identifier for any way a license is written, whether it is OSI approved and copyleft, and whether a dependency's license can be combined with your project's (OSADL's compatibility matrix, with the reason), for SPDX expressions with OR, AND and exceptions, and for whole dependency lists via deps.dev. Not legal advice. No key.",
+  "author": {
+    "name": "Arhan Canli",
+    "url": "https://github.com/arhancanli"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/arhancanli/license-check-mcp"
+  },
+  "homepage": "https://github.com/arhancanli/license-check-mcp#readme",
+  "documentation": "https://github.com/arhancanli/license-check-mcp#readme",
+  "support": "https://github.com/arhancanli/license-check-mcp/issues",
+  "license": "MIT",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "mcp-server",
+    "developer-tools"
+  ],
+  "server": {
+    "type": "node",
+    "entry_point": "src/server.mjs",
+    "mcp_config": {
+      "command": "node",
+      "args": [
+        "${__dirname}/src/server.mjs"
+      ]
+    }
+  },
+  "tools": [
+    {
+      "name": "check_compatibility",
+      "description": "Can these licenses go in my project?"
+    },
+    {
+      "name": "license_info",
+      "description": "Identify licenses"
+    },
+    {
+      "name": "package_licenses",
+      "description": "Licenses of packages"
+    }
+  ],
+  "compatibility": {
+    "platforms": [
+      "darwin",
+      "win32",
+      "linux"
+    ],
+    "runtimes": {
+      "node": ">=20"
+    }
+  }
+}

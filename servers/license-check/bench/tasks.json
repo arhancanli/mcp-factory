@@ -1,0 +1,18 @@
+{
+  "competitor": {
+    "label": "mcp-server-fetch reading license sources (no license server exists; this is what agents use today)",
+    "command": "uvx",
+    "args": ["mcp-server-fetch"]
+  },
+  "tasks": [
+    { "id": "apache-in-gpl2", "prompt": "According to OSADL's license compatibility matrix, may Apache-2.0 licensed code be included in a project licensed GPL-2.0-only? Answer yes or no.", "expect": { "regex": "^\\W*no\\b" } },
+    { "id": "apache-in-gpl3", "prompt": "According to OSADL's license compatibility matrix, may Apache-2.0 licensed code be included in a project licensed GPL-3.0-only? Answer yes or no.", "expect": { "regex": "^\\W*yes\\b" } },
+    { "id": "lgpl-in-gpl2", "prompt": "According to OSADL's license compatibility matrix, may LGPL-2.1-or-later code be included in a GPL-2.0-only project? Answer yes, no, or depends.", "expect": { "regex": "depend|check" } },
+    { "id": "new-bsd", "prompt": "What is the SPDX identifier of the license commonly called 'New BSD'? Give the identifier only.", "expect": { "regex": "^\\W*BSD-3-Clause\\W*$" } },
+    { "id": "sspl-osi", "prompt": "Is the Server Side Public License (SSPL) approved by the OSI? Answer yes or no.", "expect": { "regex": "^\\W*no\\b" } },
+    { "id": "gpl2-deprecated", "prompt": "The SPDX identifier 'GPL-2.0' is deprecated. Which current SPDX identifier means the same license? Give the identifier only.", "expect": { "regex": "^\\W*GPL-2\\.0-only\\W*$" } },
+    { "id": "mpl-copyleft", "prompt": "How does OSADL classify the copyleft of MPL-2.0: no copyleft, full copyleft, or restricted copyleft? Answer with one of those.", "expect": { "regex": "restricted" } },
+    { "id": "pyqt5-license", "prompt": "Which license does the PyPI package PyQt5, version 5.15.11, declare? Give its SPDX identifier.", "expect": { "contains": ["GPL-3.0"] } },
+    { "id": "caniuse-license", "prompt": "Which license does the npm package caniuse-lite, version 1.0.30001812, declare? Give its SPDX identifier.", "expect": { "contains": ["CC-BY-4.0"] } }
+  ]
+}

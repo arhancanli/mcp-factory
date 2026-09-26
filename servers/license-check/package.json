@@ -1,0 +1,19 @@
+{
+  "name": "license-check-mcp",
+  "version": "0.1.0",
+  "description": "Answers open source license questions from authoritative data: the SPDX identifier for any way a license is written, whether it is OSI approved and copyleft, and whether a dependency's license can be combined with your project's (OSADL's compatibility matrix, with the reason), for SPDX expressions with OR, AND and exceptions, and for whole dependency lists via deps.dev. Not legal advice. No key.",
+  "type": "module",
+  "license": "MIT",
+  "author": { "name": "Arhan Canli", "url": "https://github.com/arhancanli" },
+  "bin": { "license-check-mcp": "src/server.mjs" },
+  "files": ["src", "README.md", "LICENSE", "npm-shrinkwrap.json"],
+  "engines": { "node": ">=20" },
+  "scripts": { "test": "node --test test/*.test.mjs", "start": "node src/server.mjs" },
+  "dependencies": { "@modelcontextprotocol/sdk": "1.30.1", "zod": "4.6.5" },
+  "mcpName": "io.github.arhancanli/license-check-mcp",
+  "keywords": ["mcp", "model-context-protocol", "mcp-server", "developer-tools"],
+  "repository": { "type": "git", "url": "git+https://github.com/arhancanli/license-check-mcp.git" },
+  "homepage": "https://github.com/arhancanli/license-check-mcp#readme",
+  "bugs": { "url": "https://github.com/arhancanli/license-check-mcp/issues" },
+  "factory": { "displayName": "License Check", "category": "developer-tools", "allowHosts": ["www.osadl.org", "raw.githubusercontent.com", "api.deps.dev"], "linkHosts": ["spdx.org"], "toolListBudget": 6000 }
+}

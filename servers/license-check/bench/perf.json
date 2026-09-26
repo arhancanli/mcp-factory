@@ -1,0 +1,55 @@
+{
+  "measured_on": "2026-09-26",
+  "where": "Dubai, home connection",
+  "node": "v24.19.0",
+  "runs": 5,
+  "tool_definition_chars": 1720,
+  "tools_list_chars": 2963,
+  "competitor": {
+    "label": "mcp-server-fetch reading license sources (no license server exists; this is what agents use today)",
+    "tool_definition_chars": 1105,
+    "tools_list_chars": 1104
+  },
+  "scenarios": [
+    {
+      "call": "check_compatibility: 6 licenses in a GPL-2.0-only project",
+      "first_call_ms": 2663,
+      "repeat_ms": 0.3,
+      "result_chars": 1602
+    },
+    {
+      "call": "check_compatibility: a proprietary project, copyleft and content licenses",
+      "first_call_ms": 5308,
+      "repeat_ms": 0.5,
+      "result_chars": 1485
+    },
+    {
+      "call": "license_info: 6 licenses written informally",
+      "first_call_ms": 2206,
+      "repeat_ms": 0.5,
+      "result_chars": 1913
+    },
+    {
+      "call": "package_licenses: 4 packages against MIT",
+      "first_call_ms": 3157,
+      "repeat_ms": 0.3,
+      "result_chars": 657
+    }
+  ],
+  "example": {
+    "call": "check_compatibility: 6 licenses in a GPL-2.0-only project",
+    "tool": "check_compatibility",
+    "arguments": {
+      "project": "GPL-2.0-only",
+      "licenses": [
+        "Apache-2.0",
+        "MIT",
+        "MIT OR GPL-3.0-only",
+        "GPL-2.0-only WITH Classpath-exception-2.0",
+        "LGPL-2.1-or-later",
+        "Foo License"
+      ]
+    },
+    "result": "{\"project\":\"GPL-2.0-only\",\"counts\":{\"no\":1,\"unknown\":1,\"check\":1,\"yes\":3},\"results\":[{\"license\":\"Apache-2.0\",\"verdict\":\"no\",\"copyleft\":\"No\",\"reason\":\"Incompatibility of the Apache-2.0 license with the GPL-2.0-only license is explicitly stated in the GPL-2.0-only license checklist.\"},{\"license\":\"Foo License\",\"verdict\":\"unknown\",\"reason\":\"\\\"Foo License\\\" is not a license SPDX lists; check its terms by hand.\"},{\"license\":\"LGPL-2.1-or-later\",\"verdict\":\"check\",\"copyleft\":\"Yes (restricted)\",\"reason\":\"Depending compatibility of the LGPL-2.1-or-later license with the GPL-2.0-only license is explicitly stated in the GPL-2.0-only license checklist. Interpretation: LGPL-2.1-or-later licensed material must first be relicensed under GPL-2.0-only before compatibility with other GPL-2.0 licensed material can be established.\"},{\"license\":\"MIT\",\"verdict\":\"yes\",\"copyleft\":\"No\",\"reason\":\"Compatibility of the MIT license with the GPL-2.0-only license is explicitly stated in the GPL-2.0-only license checklist.\"},{\"license\":\"MIT OR GPL-3.0-only\",\"expression\":\"(MIT OR GPL-3.0-only)\",\"verdict\":\"yes\",\"via\":\"MIT\",\"reason\":\"Compatibility of the MIT license with the GPL-2.0-only license is explicitly stated in the GPL-2.0-only license checklist.\",\"note\":\"You may choose any of: MIT (yes), GPL-3.0-only (no).\"},{\"license\":\"GPL-2.0-only WITH Classpath-exception-2.0\",\"verdict\":\"yes\",\"copyleft\":\"Yes\",\"reason\":\"The same license.\",\"note\":\"GPL-2.0-only WITH Classpath-exception-2.0: the exception relaxes the license's conditions.\"}],\"note\":\"Not legal advice: verdicts follow OSADL's license compatibility matrix.\"}"
+  }
+}

@@ -1,0 +1,485 @@
+{
+  "date": "2026-09-26",
+  "model": "gpt-5.4-mini",
+  "competitor_label": "mcp-server-fetch reading license sources (no license server exists; this is what agents use today)",
+  "rows": {
+    "ours": [
+      {
+        "id": "apache-in-gpl2",
+        "correct": true,
+        "answer": "no",
+        "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "check_compatibility",
+            "args": "{\"project\":\"GPL-2.0-only\",\"licenses\":[\"Apache-2.0\"]}"
+          }
+        ],
+        "input": 1223,
+        "output": 39,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 4710
+      },
+      {
+        "id": "apache-in-gpl3",
+        "correct": true,
+        "answer": "yes",
+        "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "check_compatibility",
+            "args": "{\"project\":\"GPL-3.0-only\",\"licenses\":[\"Apache-2.0\"]}"
+          }
+        ],
+        "input": 1221,
+        "output": 39,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 1582
+      },
+      {
+        "id": "lgpl-in-gpl2",
+        "correct": true,
+        "answer": "depends",
+        "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "check_compatibility",
+            "args": "{\"project\":\"GPL-2.0-only\",\"licenses\":[\"LGPL-2.1-or-later\"]}"
+          }
+        ],
+        "input": 1283,
+        "output": 43,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 1915
+      },
+      {
+        "id": "new-bsd",
+        "correct": true,
+        "answer": "BSD-3-Clause",
+        "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "license_info",
+            "args": "{\"licenses\":[\"New BSD\"]}"
+          }
+        ],
+        "input": 1177,
+        "output": 29,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 1948
+      },
+      {
+        "id": "sspl-osi",
+        "correct": true,
+        "answer": "no",
+        "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "license_info",
+            "args": "{\"licenses\":[\"SSPL\"]}"
+          }
+        ],
+        "input": 1144,
+        "output": 26,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 1553
+      },
+      {
+        "id": "gpl2-deprecated",
+        "correct": true,
+        "answer": "GPL-2.0-only",
+        "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "license_info",
+            "args": "{\"licenses\":[\"GPL-2.0\"]}"
+          }
+        ],
+        "input": 1204,
+        "output": 34,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 2649
+      },
+      {
+        "id": "mpl-copyleft",
+        "correct": true,
+        "answer": "restricted copyleft",
+        "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "license_info",
+            "args": "{\"licenses\":[\"MPL-2.0\"]}"
+          }
+        ],
+        "input": 1210,
+        "output": 32,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 2768
+      },
+      {
+        "id": "pyqt5-license",
+        "correct": true,
+        "answer": "GPL-3.0",
+        "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "package_licenses",
+            "args": "{\"packages\":[{\"ecosystem\":\"PyPI\",\"name\":\"PyQt5\",\"version\":\"5.15.11\"}]}"
+          }
+        ],
+        "input": 1147,
+        "output": 48,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 3126
+      },
+      {
+        "id": "caniuse-license",
+        "correct": true,
+        "answer": "CC-BY-4.0",
+        "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "package_licenses",
+            "args": "{\"packages\":[{\"ecosystem\":\"npm\",\"name\":\"caniuse-lite\",\"version\":\"1.0.30001812\"}]}"
+          }
+        ],
+        "input": 1151,
+        "output": 52,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 2472
+      }
+    ],
+    "competitor": [
+      {
+        "id": "apache-in-gpl2",
+        "correct": false,
+        "answer": "",
+        "tool_calls": 8,
+        "trace": [
+          {
+            "tool": "fetch",
+            "args": "{\"url\":\"https://www.osadl.org/license-compatibility;jsessionid=ignored\",\"max_length\":4000}",
+            "error": "Failed to fetch https://www.osadl.org/license-compatibility;jsessionid=ignored - status code 404"
+          },
+          {
+            "tool": "fetch",
+            "args": "{\"url\":\"https://www.osadl.org/license-compatibility_matrix.html\",\"max_length\":5000}"
+          },
+          {
+            "tool": "fetch",
+            "args": "{\"url\":\"https://www.osadl.org/uploads/tx_osadllca/Apache-2.0-GPL-2.0-only.svg\",\"max_length\":4000,\"raw\":true}",
+            "error": "Failed to fetch https://www.osadl.org/uploads/tx_osadllca/Apache-2.0-GPL-2.0-only.svg - status code 404"
+          },
+          {
+            "tool": "fetch",
+            "args": "{\"url\":\"https://www.osadl.org/uploads/tx_osadllca/compatibility_matrix.svg\",\"max_length\":2000,\"raw\":true}",
+            "error": "Failed to fetch https://www.osadl.org/uploads/tx_osadllca/compatibility_matrix.svg - status code 404"
+          },
+          {
+            "tool": "fetch",
+            "args": "{\"url\":\"https://www.osadl.org/uploads/tx_osadllca/License-Compatibility-Chart.pdf\",\"max_length\":2000,\"raw\":true}",
+            "error": "Failed to fetch https://www.osadl.org/uploads/tx_osadllca/License-Compatibility-Chart.pdf - status code 404"
+          },
+          {
+            "tool": "fetch",
+            "args": "{\"url\":\"https://www.osadl.org/fileadmin/checklists/compatibility/Apache-2.0_GPL-2.0-only.png\",\"max_length\":2000,\"raw\":true}",
+            "error": "Failed to fetch https://www.osadl.org/fileadmin/checklists/compatibility/Apache-2.0_GPL-2.0-only.png - status code 404"
+          },
+          {
+            "tool": "fetch",
+            "args": "{\"url\":\"https://www.osadl.org/Matrix-license-compatibility.oss-compliance-lists.0.html\",\"max_length\":5000}"
+          },
+          {
+            "tool": "fetch",
+            "args": "{\"url\":\"https://www.osadl.org/Matrix-license-compatibility.oss-compliance-lists.0.html\",\"start_index\":5000,\"max_length\":5000}"
+          }
+        ],
+        "input": 5732,
+        "output": 352,
+        "cache_read": 3456,
+        "cache_write": 0,
+        "ms": 24467
+      },
+      {
+        "id": "apache-in-gpl3",
+        "correct": true,
+        "answer": "Yes",
+        "tool_calls": 5,
+        "trace": [
+          {
+            "tool": "fetch",
+            "args": "{\"url\":\"https://www.osadl.org/LicenseCompatibility.com.license-compatibility-matrix.0.html\",\"max_length\":4000}"
+          },
+          {
+            "tool": "fetch",
+            "args": "{\"url\":\"https://www.osadl.org/fileadmin/checklists/License-Compatibility-00.pdf\",\"max_length\":2000,\"raw\":true}",
+            "error": "Failed to fetch https://www.osadl.org/fileadmin/checklists/License-Compatibility-00.pdf - status code 404"
+          },
+          {
+            "tool": "fetch",
+            "args": "{\"url\":\"https://www.osadl.org/fileadmin/checklists/License_Compatibility.pdf\",\"max_length\":2000,\"raw\":true}",
+            "error": "Failed to fetch https://www.osadl.org/fileadmin/checklists/License_Compatibility.pdf - status code 404"
+          },
+          {
+            "tool": "fetch",
+            "args": "{\"url\":\"https://www.osadl.org/LicenseCompatibility.com.license-compatibility-matrix.0.html?output=1\",\"max_length\":8000}"
+          },
+          {
+            "tool": "fetch",
+            "args": "{\"url\":\"https://www.osadl.org/uploads/media/OSADL_License_Compatibility_Matrix.pdf\",\"max_length\":2000,\"raw\":true}",
+            "error": "Failed to fetch https://www.osadl.org/uploads/media/OSADL_License_Compatibility_Matrix.pdf - status code 404"
+          }
+        ],
+        "input": 5246,
+        "output": 218,
+        "cache_read": 1664,
+        "cache_write": 0,
+        "ms": 17711
+      },
+      {
+        "id": "lgpl-in-gpl2",
+        "correct": false,
+        "answer": "no",
+        "tool_calls": 6,
+        "trace": [
+          {
+            "tool": "fetch",
+            "args": "{\"url\":\"https://www.osadl.org/LicenseCompatibilityMatrix\", \"max_length\":12000}",
+            "error": "Failed to fetch https://www.osadl.org/LicenseCompatibilityMatrix - status code 404"
+          },
+          {
+            "tool": "fetch",
+            "args": "{\"url\":\"https://www.osadl.org/CompatibilityMatrix\",\"max_length\":12000}",
+            "error": "Failed to fetch https://www.osadl.org/CompatibilityMatrix - status code 404"
+          },
+          {
+            "tool": "fetch",
+            "args": "{\"url\":\"https://www.osadl.org/page/License-Compatibility-Graph.5.html\",\"max_length\":12000}",
+            "error": "Failed to fetch https://www.osadl.org/page/License-Compatibility-Graph.5.html - status code 404"
+          },
+          {
+            "tool": "fetch",
+            "args": "{\"url\":\"https://www.osadl.org/Matrix.oss-lic.html\",\"max_length\":12000}"
+          },
+          {
+            "tool": "fetch",
+            "args": "{\"url\":\"https://www.osadl.org/fileadmin/checklists/compatibility/compatibility_matrix.pdf\",\"max_length\":12000,\"raw\":true}",
+            "error": "Failed to fetch https://www.osadl.org/fileadmin/checklists/compatibility/compatibility_matrix.pdf - status code 404"
+          },
+          {
+            "tool": "fetch",
+            "args": "{\"url\":\"https://www.osadl.org/page/compatibility.html\",\"max_length\":12000}",
+            "error": "Failed to fetch https://www.osadl.org/page/compatibility.html - status code 404"
+          }
+        ],
+        "input": 4344,
+        "output": 214,
+        "cache_read": 1152,
+        "cache_write": 0,
+        "ms": 17952
+      },
+      {
+        "id": "new-bsd",
+        "correct": true,
+        "answer": "BSD-3-Clause",
+        "tool_calls": 4,
+        "trace": [
+          {
+            "tool": "fetch",
+            "args": "{\"url\":\"https://spdx.org/licenses/\", \"max_length\":2000}"
+          },
+          {
+            "tool": "fetch",
+            "args": "{\"url\":\"https://spdx.org/licenses/\",\"max_length\":4000,\"start_index\":2000}"
+          },
+          {
+            "tool": "fetch",
+            "args": "{\"url\":\"https://spdx.org/licenses/\",\"max_length\":4000,\"start_index\":6000}"
+          },
+          {
+            "tool": "fetch",
+            "args": "{\"url\":\"https://spdx.org/licenses/BSD-3-Clause.html\",\"max_length\":1500}"
+          }
+        ],
+        "input": 6420,
+        "output": 138,
+        "cache_read": 5888,
+        "cache_write": 0,
+        "ms": 15093
+      },
+      {
+        "id": "sspl-osi",
+        "correct": true,
+        "answer": "no",
+        "tool_calls": 3,
+        "trace": [
+          {
+            "tool": "fetch",
+            "args": "{\"url\":\"https://opensource.org/licenses\", \"max_length\":4000}"
+          },
+          {
+            "tool": "fetch",
+            "args": "{\"url\":\"https://opensource.org/license/server-side-public-license\",\"max_length\":3000}",
+            "error": "Failed to fetch https://opensource.org/license/server-side-public-license - status code 404"
+          },
+          {
+            "tool": "fetch",
+            "args": "{\"url\":\"https://opensource.org/licenses\", \"max_length\":20000, \"start_index\":12000}"
+          }
+        ],
+        "input": 5556,
+        "output": 97,
+        "cache_read": 2304,
+        "cache_write": 0,
+        "ms": 9033
+      },
+      {
+        "id": "gpl2-deprecated",
+        "correct": false,
+        "answer": "",
+        "tool_calls": 8,
+        "trace": [
+          {
+            "tool": "fetch",
+            "args": "{\"url\":\"https://spdx.org/licenses/GPL-2.0.html\",\"max_length\":3000}"
+          },
+          {
+            "tool": "fetch",
+            "args": "{\"url\":\"https://spdx.org/licenses/GPL-2.0.html\",\"max_length\":2000,\"start_index\":3000}"
+          },
+          {
+            "tool": "fetch",
+            "args": "{\"url\":\"https://spdx.org/licenses/GPL-2.0.html\",\"max_length\":2000,\"start_index\":5000}"
+          },
+          {
+            "tool": "fetch",
+            "args": "{\"url\":\"https://spdx.org/licenses/GPL-2.0.html\",\"max_length\":2000,\"start_index\":7000}"
+          },
+          {
+            "tool": "fetch",
+            "args": "{\"url\":\"https://spdx.org/licenses/GPL-2.0.html\",\"max_length\":2000,\"start_index\":9000}"
+          },
+          {
+            "tool": "fetch",
+            "args": "{\"url\":\"https://spdx.org/licenses/GPL-2.0.html\",\"max_length\":2000,\"start_index\":11000}"
+          },
+          {
+            "tool": "fetch",
+            "args": "{\"url\":\"https://spdx.org/licenses/GPL-2.0.html\",\"max_length\":2000,\"start_index\":13000}"
+          },
+          {
+            "tool": "fetch",
+            "args": "{\"url\":\"https://spdx.org/licenses/GPL-2.0.html\",\"max_length\":2000,\"start_index\":15000}"
+          }
+        ],
+        "input": 8133,
+        "output": 314,
+        "cache_read": 10880,
+        "cache_write": 0,
+        "ms": 20471
+      },
+      {
+        "id": "mpl-copyleft",
+        "correct": true,
+        "answer": "restricted copyleft",
+        "tool_calls": 5,
+        "trace": [
+          {
+            "tool": "fetch",
+            "args": "{\"url\":\"https://www.osadl.org/License-MPL-2.0.licenseMPL-2.0.0.html\", \"max_length\":4000}"
+          },
+          {
+            "tool": "fetch",
+            "args": "{\"url\":\"https://www.osadl.org/License-MPL-2.0.licenseMPL-2.0.0.html?show=text\",\"max_length\":8000}"
+          },
+          {
+            "tool": "fetch",
+            "args": "{\"url\":\"https://www.osadl.org/?id=2&license_id=MPL-2.0\",\"max_length\":6000,\"raw\":true}",
+            "error": "Failed to fetch https://www.osadl.org/?id=2&license_id=MPL-2.0 - status code 404"
+          },
+          {
+            "tool": "fetch",
+            "args": "{\"url\":\"https://www.osadl.org/\", \"max_length\":2000}"
+          },
+          {
+            "tool": "fetch",
+            "args": "{\"url\":\"https://www.osadl.org/\",\"max_length\":4000,\"start_index\":2000}"
+          }
+        ],
+        "input": 4494,
+        "output": 210,
+        "cache_read": 4480,
+        "cache_write": 0,
+        "ms": 21473
+      },
+      {
+        "id": "pyqt5-license",
+        "correct": true,
+        "answer": "GPL-3.0-only",
+        "tool_calls": 2,
+        "trace": [
+          {
+            "tool": "fetch",
+            "args": "{\"url\":\"https://pypi.org/pypi/PyQt5/5.15.11/json\",\"max_length\":12000}",
+            "error": "The sites robots.txt (https://pypi.org/robots.txt), specifies that autonomous fetching of this page is not allowed, <useragent>ModelContextProtocol/1.0 (Autonomous; +https://github.com/modelcontextprotocol/servers)</useragent>\n<url>https://pypi.org/pypi/PyQt5/5.15.11/json</url><robots>\nSitemap: http"
+          },
+          {
+            "tool": "fetch",
+            "args": "{\"url\":\"https://pypi.org/project/PyQt5/5.15.11/\",\"max_length\":12000}"
+          }
+        ],
+        "input": 4086,
+        "output": 91,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 4870
+      },
+      {
+        "id": "caniuse-license",
+        "correct": true,
+        "answer": "CC-BY-4.0",
+        "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "fetch",
+            "args": "{\"url\":\"https://registry.npmjs.org/caniuse-lite/1.0.30001812\",\"max_length\":12000}"
+          }
+        ],
+        "input": 1650,
+        "output": 52,
+        "cache_read": 0,
+        "cache_write": 0,
+        "ms": 3061
+      }
+    ]
+  },
+  "summary": {
+    "ours": {
+      "tasks": 9,
+      "correct": 9,
+      "tokens_in": 10760,
+      "tokens_out": 342,
+      "cached_share": 0,
+      "tool_calls": 9,
+      "median_ms": 2472
+    },
+    "competitor": {
+      "tasks": 9,
+      "correct": 6,
+      "tokens_in": 75485,
+      "tokens_out": 1686,
+      "cached_share": 0.395,
+      "tool_calls": 42,
+      "median_ms": 17711
+    }
+  }
+}
