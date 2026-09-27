@@ -30,6 +30,7 @@ Every server here:
 | [License Check](https://github.com/arhancanli/license-check-mcp) | Open source license answers: SPDX ids, copyleft, and whether a dependency's license fits yours. | `npx -y license-check-mcp` |
 | [Package Truth](https://github.com/arhancanli/package-truth-mcp) | Checks packages exist before install: version, deprecation, vulnerabilities, licence. 7 ecosystems. | `npx -y package-truth-mcp` |
 | [Release Notes](https://github.com/arhancanli/release-notes-mcp) | What changed between two versions of a package: breaking changes, deprecations, security fixes. | `npx -y release-notes-mcp` |
+| [SQL Check](https://github.com/arhancanli/sql-check-mcp) | Runs SQL on real PostgreSQL and SQLite in memory: your schema, the database's own errors, results. | `npx -y sql-check-mcp` |
 
 ### Science and research
 

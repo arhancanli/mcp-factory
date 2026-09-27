@@ -494,6 +494,24 @@
       ]
     },
     {
+      "name": "sql-check-mcp",
+      "title": "SQL Check",
+      "category": "developer-tools",
+      "summary": "Runs SQL on real PostgreSQL and SQLite in memory: your schema, the database's own errors, results.",
+      "description": "Checks SQL on the real engines, in memory: PostgreSQL 18 (PGlite) and SQLite 3.49 (sql.js), no database server needed. Give your schema (migrations, DDL, sample rows) and the queries: every statement runs inside a transaction that is rolled back, and gets the database's own verdict: its error with line and column, PostgreSQL's hint, constraint violations, and the rows it returns. MySQL and SQL Server syntax that fails is named, with the form each engine accepts. No key, no network.",
+      "version": "0.1.0",
+      "repository": "https://github.com/arhancanli/sql-check-mcp",
+      "npm": "https://www.npmjs.com/package/sql-check-mcp",
+      "mcpName": "io.github.arhancanli/sql-check-mcp",
+      "hosts": [],
+      "tools": [
+        {
+          "name": "check_sql",
+          "title": "Run SQL on real PostgreSQL or SQLite"
+        }
+      ]
+    },
+    {
       "name": "vuln-priority-mcp",
       "title": "Vuln Priority",
       "category": "security",

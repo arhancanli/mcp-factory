@@ -1,6 +1,6 @@
 # Arhan Canli
 
-I build MCP servers that are measured against the best alternative before they ship: correct answers, small tool lists, fast first calls. 19 so far, each in its own repository, all MIT.
+I build MCP servers that are measured against the best alternative before they ship: correct answers, small tool lists, fast first calls. 20 so far, each in its own repository, all MIT.
 
 **Developer tools**
 
@@ -15,6 +15,7 @@ I build MCP servers that are measured against the best alternative before they s
 - [License Check](https://github.com/arhancanli/license-check-mcp): Open source license answers: SPDX ids, copyleft, and whether a dependency's license fits yours.
 - [Package Truth](https://github.com/arhancanli/package-truth-mcp): Checks packages exist before install: version, deprecation, vulnerabilities, licence. 7 ecosystems.
 - [Release Notes](https://github.com/arhancanli/release-notes-mcp): What changed between two versions of a package: breaking changes, deprecations, security fixes.
+- [SQL Check](https://github.com/arhancanli/sql-check-mcp): Runs SQL on real PostgreSQL and SQLite in memory: your schema, the database's own errors, results.
 
 **Science and research**
 

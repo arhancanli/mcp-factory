@@ -1,0 +1,51 @@
+{
+  "manifest_version": "0.3",
+  "name": "sql-check-mcp",
+  "display_name": "SQL Check",
+  "version": "0.1.0",
+  "description": "Checks SQL on the real engines, in memory: PostgreSQL 18 (PGlite) and SQLite 3.49 (sql.js), no database server needed. Give your schema (migrations, DDL, sample rows) and the queries: every statement runs inside a transaction that is rolled back, and gets the database's own verdict: its error with line and column, PostgreSQL's hint, constraint violations, and the rows it returns. MySQL and SQL Server syntax that fails is named, with the form each engine accepts. No key, no network.",
+  "author": {
+    "name": "Arhan Canli",
+    "url": "https://github.com/arhancanli"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/arhancanli/sql-check-mcp"
+  },
+  "homepage": "https://github.com/arhancanli/sql-check-mcp#readme",
+  "documentation": "https://github.com/arhancanli/sql-check-mcp#readme",
+  "support": "https://github.com/arhancanli/sql-check-mcp/issues",
+  "license": "MIT",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "mcp-server",
+    "developer-tools"
+  ],
+  "server": {
+    "type": "node",
+    "entry_point": "src/server.mjs",
+    "mcp_config": {
+      "command": "node",
+      "args": [
+        "${__dirname}/src/server.mjs"
+      ]
+    }
+  },
+  "tools": [
+    {
+      "name": "check_sql",
+      "description": "Run SQL on real PostgreSQL or SQLite"
+    }
+  ],
+  "compatibility": {
+    "platforms": [
+      "darwin",
+      "win32",
+      "linux"
+    ],
+    "runtimes": {
+      "node": ">=20"
+    }
+  }
+}
