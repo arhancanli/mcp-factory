@@ -1,0 +1,81 @@
+{
+ "competitor": {
+  "label": "mcp-server-fetch reading the Kubernetes documentation (manifest-checking MCP servers need a live cluster; this is what agents use without one)",
+  "command": "uvx",
+  "args": [
+   "mcp-server-fetch"
+  ]
+ },
+ "tasks": [
+  {
+   "id": "cronjob-api",
+   "prompt": "Which apiVersion must a CronJob manifest use on Kubernetes 1.25? Answer with the apiVersion only.",
+   "expect": {
+    "regex": "^\\W*batch/v1\\W*$"
+   }
+  },
+  {
+   "id": "psp-removed",
+   "prompt": "In which Kubernetes minor version was PodSecurityPolicy removed from the API? Answer like 1.NN.",
+   "expect": {
+    "regex": "^\\W*(v)?1\\.25\\b"
+   }
+  },
+  {
+   "id": "quantity-1gb",
+   "prompt": "Is `memory: 1GB` a valid Kubernetes resource quantity in a container's resources.limits? Answer yes or no.",
+   "expect": {
+    "regex": "^\\W*no\\b"
+   }
+  },
+  {
+   "id": "manifest-line",
+   "prompt": "The API server refuses this manifest. On which line is the invalid value? Answer with the line number only.\n\napiVersion: apps/v1\nkind: Deployment\nmetadata:\n  name: api\nspec:\n  replicas: 2\n  selector:\n    matchLabels:\n      app: api\n  template:\n    metadata:\n      labels:\n        app: api\n    spec:\n      containers:\n        - name: api\n          image: ghcr.io/example/api:1.4.2\n          imagePullPolicy: always\n          ports:\n            - containerPort: 8080\n          resources:\n            requests:\n              cpu: 250m\n              memory: 256Mi\n",
+   "expect": {
+    "number": 18
+   }
+  },
+  {
+   "id": "restricted-pod",
+   "prompt": "Would this Pod be admitted in a namespace that enforces the restricted Pod Security Standard? Answer yes or no.\n\napiVersion: v1\nkind: Pod\nmetadata:\n  name: worker\nspec:\n  securityContext:\n    runAsNonRoot: true\n  containers:\n    - name: worker\n      image: ghcr.io/example/worker:2.0.0\n      securityContext:\n        allowPrivilegeEscalation: false\n        capabilities:\n          drop: [ALL]\n",
+   "expect": {
+    "regex": "^\\W*no\\b"
+   }
+  },
+  {
+   "id": "flowschema-removed",
+   "prompt": "In which Kubernetes minor version was flowcontrol.apiserver.k8s.io/v1beta3 (FlowSchema) removed? Answer like 1.NN.",
+   "expect": {
+    "regex": "^\\W*(v)?1\\.32\\b"
+   }
+  },
+  {
+   "id": "ingress-pathtype",
+   "prompt": "When an Ingress moves from extensions/v1beta1 to networking.k8s.io/v1, which field becomes required on every HTTP path? Answer with the field name only.",
+   "expect": {
+    "regex": "^\\W*pathType\\W*$"
+   }
+  },
+  {
+   "id": "hpa-v2beta2",
+   "prompt": "Does Kubernetes 1.37 still serve autoscaling/v2beta2 HorizontalPodAutoscaler? Answer yes or no.",
+   "expect": {
+    "regex": "^\\W*no\\b"
+   }
+  },
+  {
+   "id": "maxsurge-default",
+   "prompt": "What is the default value of a Deployment's spec.strategy.rollingUpdate.maxSurge? Answer with the value only.",
+   "expect": {
+    "regex": "^\\W*25\\s?%"
+   }
+  },
+  {
+   "id": "baseline-caps",
+   "prompt": "Under the baseline Pod Security Standard, may a container add the NET_ADMIN capability? Answer yes or no.",
+   "expect": {
+    "regex": "^\\W*no\\b"
+   }
+  }
+ ]
+}

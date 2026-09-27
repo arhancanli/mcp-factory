@@ -1,0 +1,59 @@
+{
+  "manifest_version": "0.3",
+  "name": "kube-check-mcp",
+  "display_name": "Kube Check",
+  "version": "0.1.0",
+  "description": "Checks Kubernetes manifests (YAML or JSON, many documents per file) against the API of the Kubernetes version you run or plan to run, 1.19 to the newest: APIs removed or deprecated there with their replacement, unknown or misspelt fields, wrong types, Pod Security Standards (baseline, restricted) and common risks such as latest tags, missing limits and privileged containers. Every finding has its file, line and fix. No cluster or key needed.",
+  "author": {
+    "name": "Arhan Canli",
+    "url": "https://github.com/arhancanli"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/arhancanli/kube-check-mcp"
+  },
+  "homepage": "https://github.com/arhancanli/kube-check-mcp#readme",
+  "documentation": "https://github.com/arhancanli/kube-check-mcp#readme",
+  "support": "https://github.com/arhancanli/kube-check-mcp/issues",
+  "license": "MIT",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "mcp-server",
+    "developer-tools"
+  ],
+  "server": {
+    "type": "node",
+    "entry_point": "src/server.mjs",
+    "mcp_config": {
+      "command": "node",
+      "args": [
+        "${__dirname}/src/server.mjs"
+      ]
+    }
+  },
+  "tools": [
+    {
+      "name": "api_versions",
+      "description": "Which apiVersion does a kind need?"
+    },
+    {
+      "name": "check_manifests",
+      "description": "Check Kubernetes manifests"
+    },
+    {
+      "name": "field_help",
+      "description": "What does this Kubernetes field do?"
+    }
+  ],
+  "compatibility": {
+    "platforms": [
+      "darwin",
+      "win32",
+      "linux"
+    ],
+    "runtimes": {
+      "node": ">=20"
+    }
+  }
+}

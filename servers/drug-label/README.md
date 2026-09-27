@@ -234,7 +234,7 @@ All three are US government services. They do not endorse this server.
 - [Domain Health](https://github.com/arhancanli/domain-health-mcp): Email and domain checks: SPF lookup limits, DKIM keys, DMARC, DNS records, registration expiry.
 - [End of Life](https://github.com/arhancanli/end-of-life-mcp): Is this version still supported? EOL dates, latest patch and upgrade target for 470+ products.
 - [Internet Standards](https://github.com/arhancanli/internet-standards-mcp): RFC sections, status, obsoleted-by chains, errata and IANA registries for coding agents.
-- [The whole collection](https://github.com/arhancanli/mcp-factory#servers), 8 more
+- [The whole collection](https://github.com/arhancanli/mcp-factory#servers), 9 more
 <!-- family:end -->
 
 ## License

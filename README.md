@@ -25,6 +25,7 @@ Every server here:
 | [Domain Health](https://github.com/arhancanli/domain-health-mcp) | Email and domain checks: SPF lookup limits, DKIM keys, DMARC, DNS records, registration expiry. | `npx -y domain-health-mcp` |
 | [End of Life](https://github.com/arhancanli/end-of-life-mcp) | Is this version still supported? EOL dates, latest patch and upgrade target for 470+ products. | `npx -y end-of-life-mcp` |
 | [Internet Standards](https://github.com/arhancanli/internet-standards-mcp) | RFC sections, status, obsoleted-by chains, errata and IANA registries for coding agents. | `npx -y internet-standards-mcp` |
+| [Kube Check](https://github.com/arhancanli/kube-check-mcp) | Checks Kubernetes manifests for your version: removed APIs, unknown fields, Pod Security, risks. | `npx -y kube-check-mcp` |
 | [License Check](https://github.com/arhancanli/license-check-mcp) | Open source license answers: SPDX ids, copyleft, and whether a dependency's license fits yours. | `npx -y license-check-mcp` |
 | [Package Truth](https://github.com/arhancanli/package-truth-mcp) | Checks packages exist before install: version, deprecation, vulnerabilities, licence. 7 ecosystems. | `npx -y package-truth-mcp` |
 | [Release Notes](https://github.com/arhancanli/release-notes-mcp) | What changed between two versions of a package: breaking changes, deprecations, security fixes. | `npx -y release-notes-mcp` |

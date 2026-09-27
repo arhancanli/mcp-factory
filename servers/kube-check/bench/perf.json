@@ -1,0 +1,72 @@
+{
+  "measured_on": "2026-09-27",
+  "where": "Dubai, home connection",
+  "node": "v24.19.0",
+  "runs": 5,
+  "tool_definition_chars": 2212,
+  "tools_list_chars": 3614,
+  "competitor": null,
+  "scenarios": [
+    {
+      "call": "check_manifests: a Deployment with eight mistakes, a removed Ingress, CronJob and PodSecurityPolicy",
+      "first_call_ms": 906,
+      "repeat_ms": 2.7,
+      "result_chars": 5625
+    },
+    {
+      "call": "check_manifests: a clean Deployment, Service and Ingress under the restricted Pod Security level",
+      "first_call_ms": 907,
+      "repeat_ms": 2.6,
+      "result_chars": 67
+    },
+    {
+      "call": "check_manifests: a CRD with its resource, a cert-manager Certificate and a pod, restricted",
+      "first_call_ms": 867,
+      "repeat_ms": 2.9,
+      "result_chars": 3186
+    },
+    {
+      "call": "check_manifests: manifests written for 1.24, checked for the upgrade to 1.25",
+      "first_call_ms": 748,
+      "repeat_ms": 1.9,
+      "result_chars": 663
+    },
+    {
+      "call": "check_manifests: the same manifests on 1.24, where they are only deprecated",
+      "first_call_ms": 578,
+      "repeat_ms": 2.4,
+      "result_chars": 696
+    },
+    {
+      "call": "api_versions: six kinds and apiVersions",
+      "first_call_ms": 696,
+      "repeat_ms": 0.7,
+      "result_chars": 2010
+    },
+    {
+      "call": "field_help: a Deployment's rolling update surge",
+      "first_call_ms": 1088,
+      "repeat_ms": 0.9,
+      "result_chars": 826
+    },
+    {
+      "call": "field_help: search a Pod's fields for 'termination grace'",
+      "first_call_ms": 1015,
+      "repeat_ms": 1.9,
+      "result_chars": 1085
+    }
+  ],
+  "example": {
+    "call": "check_manifests: a Deployment with eight mistakes, a removed Ingress, CronJob and PodSecurityPolicy",
+    "tool": "check_manifests",
+    "arguments": {
+      "files": [
+        {
+          "path": "k8s/app.yaml",
+          "content": "apiVersion: apps/v1\nkind: Deployment\nmetadata:\n  name: Web_App\n  labels:\n    app: web\nspec:\n  replicas: 2\n  selector:\n    matchLabels:\n      app: web\n  template:\n    metadata:\n      labels:\n        app: website\n    spec:\n      containers:\n        - name: web\n          image: nginx\n          imagePullPolicy: always\n          port:\n            - containerPort: 80\n          resources:\n            requests:\n              memory: 512mb\n              cpu: \"2\"\n            limits:\n              cpu: \"1\"\n          env:\n            - name: DB_PASSWORD\n              value: hunter2\n            - name: DEBUG\n              value: yes\n          securityContext:\n            privileged: true\n---\napiVersion: extensions/v1beta1\nkind: Ingress\nmetadata:\n  name: web\nspec:\n  rules:\n    - host: example.com\n      http:\n        paths:\n          - path: /\n            backend:\n              serviceName: web\n              servicePort: 80\n---\napiVersion: v1\nkind: Service\nmetadata:\n  name: web\nspec:\n  selector:\n    app: web\n  ports:\n    - port: 80\n      targetPort: http\n---\napiVersion: batch/v1beta1\nkind: CronJob\nmetadata:\n  name: cleanup\nspec:\n  schedule: \"0 3 * *\"\n  jobTemplate:\n    spec:\n      template:\n        spec:\n          containers:\n            - name: c\n              image: busybox:1.36\n---\napiVersion: policy/v1beta1\nkind: PodSecurityPolicy\nmetadata:\n  name: restricted\nspec: {}\n"
+        }
+      ]
+    },
+    "result": "{\"kubernetes_version\":\"1.37\",\"objects\":5,\"counts\":{\"error\":12,\"warning\":5},\"findings\":[{\"file\":\"k8s/app.yaml\",\"line\":4,\"object\":\"Deployment/Web_App\",\"severity\":\"error\",\"rule\":\"invalid-name\",\"path\":\"metadata.name\",\"message\":\"The Deployment name \\\"Web_App\\\" is invalid: lowercase letters, digits, '-' and '.', starting and ending with a letter or digit.\"},{\"file\":\"k8s/app.yaml\",\"line\":9,\"object\":\"Deployment/Web_App\",\"severity\":\"error\",\"rule\":\"selector-mismatch\",\"path\":\"spec.selector\",\"message\":\"The selector does not match the pod template's labels (app=website): the API server refuses it.\",\"fix\":\"make spec.template.metadata.labels contain every selector label\"},{\"file\":\"k8s/app.yaml\",\"line\":20,\"object\":\"Deployment/Web_App\",\"severity\":\"error\",\"rule\":\"schema\",\"path\":\"spec.template.spec.containers[0].imagePullPolicy\",\"message\":\"\\\"always\\\" is not an allowed value\",\"did_you_mean\":\"Always\",\"allowed\":[\"Always\",\"IfNotPresent\",\"Never\"]},{\"file\":\"k8s/app.yaml\",\"line\":21,\"object\":\"Deployment/Web_App\",\"severity\":\"error\",\"rule\":\"schema\",\"path\":\"spec.template.spec.containers[0].port\",\"message\":\"unknown property \\\"port\\\"\",\"did_you_mean\":\"ports\"},{\"file\":\"k8s/app.yaml\",\"line\":25,\"object\":\"Deployment/Web_App\",\"severity\":\"error\",\"rule\":\"schema\",\"path\":\"spec.template.spec.containers[0].resources.requests.memory\",\"message\":\"\\\"512mb\\\" is not a quantity: write 512Mi (powers of 1024) or 512M (powers of 1000); units are Ki Mi Gi Ti Pi Ei or k M G T P E, and m means thousandths\",\"did_you_mean\":\"512Mi\"},{\"file\":\"k8s/app.yaml\",\"line\":26,\"object\":\"Deployment/Web_App\",\"severity\":\"error\",\"rule\":\"request-above-limit\",\"path\":\"spec.template.spec.containers[0].resources.requests.cpu\",\"message\":\"Container \\\"web\\\": the cpu request (2) is above its limit (1).\",\"fix\":\"raise the cpu limit or lower the request\"},{\"file\":\"k8s/app.yaml\",\"line\":33,\"object\":\"Deployment/Web_App\",\"severity\":\"error\",\"rule\":\"schema\",\"path\":\"spec.template.spec.containers[0].env[1].value\",\"message\":\"must be string, not boolean (quote the value in YAML)\",\"about\":\"Variable references $(VAR_NAME) are expanded using the previously defined environment variables in the container and any service environment variables.\"},{\"file\":\"k8s/app.yaml\",\"line\":37,\"object\":\"Ingress/web\",\"severity\":\"error\",\"rule\":\"removed-api\",\"path\":\"apiVersion\",\"message\":\"extensions/v1beta1 Ingress was removed in Kubernetes 1.22; use networking.k8s.io/v1.\",\"fix\":\"apiVersion: networking.k8s.io/v1, then fix the fields listed in after_migration\",\"after_migration\":[\"line 46: spec.rules[0].http.paths[0]: missing required property \\\"pathType\\\"\",\"line 48: spec.rules[0].http.paths[0].backend.serviceName: unknown property \\\"serviceName\\\" (did you mean service?)\",\"line 49: spec.rules[0].http.paths[0].backend.servicePort: unknown property \\\"servicePort\\\" (did you mean service?)\"]},{\"file\":\"k8s/app.yaml\",\"line\":62,\"object\":\"CronJob/cleanup\",\"severity\":\"error\",\"rule\":\"removed-api\",\"path\":\"apiVersion\",\"message\":\"batch/v1beta1 CronJob was removed in Kubernetes 1.25; use batch/v1.\",\"fix\":\"apiVersion: batch/v1\"},{\"file\":\"k8s/app.yaml\",\"line\":67,\"object\":\"CronJob/cleanup\",\"severity\":\"error\",\"rule\":\"invalid-schedule\",\"path\":\"spec.schedule\",\"message\":\"The schedule \\\"0 3 * *\\\" must have 5 fields (minute hour day-of-month month day-of-week) or be a macro such as @daily.\"},{\"file\":\"k8s/app.yaml\",\"line\":71,\"object\":\"CronJob/cleanup\",\"severity\":\"error\",\"rule\":\"invalid-restart-policy\",\"path\":\"spec.jobTemplate.spec.template.spec\",\"message\":\"A CronJob's pod template needs restartPolicy: OnFailure or Never (the default, Always, is refused).\"},{\"file\":\"k8s/app.yaml\",\"line\":76,\"object\":\"PodSecurityPolicy/restricted\",\"severity\":\"error\",\"rule\":\"removed-api\",\"path\":\"apiVersion\",\"message\":\"PodSecurityPolicy (policy/v1beta1) was removed in Kubernetes 1.25, with no replacement API.\",\"fix\":\"Pod Security admission: label the namespace with pod-security.kubernetes.io/enforce (baseline or restricted), or use a policy engine such as Kyverno or Gatekeeper\"},{\"file\":\"k8s/app.yaml\",\"line\":19,\"object\":\"Deployment/Web_App\",\"severity\":\"warning\",\"rule\":\"unpinned-image\",\"path\":\"spec.template.spec.containers[0].image\",\"message\":\"Container \\\"web\\\": image nginx is untagged (latest); each restart may run a different build.\",\"fix\":\"pin a version tag, or a digest (@sha256:...)\"},{\"file\":\"k8s/app.yaml\",\"line\":31,\"object\":\"Deployment/Web_App\",\"severity\":\"warning\",\"rule\":\"secret-in-env\",\"path\":\"spec.template.spec.containers[0].env[0].value\",\"message\":\"Container \\\"web\\\": DB_PASSWORD is written into the manifest in plain text.\",\"fix\":\"move it to a Secret and use valueFrom.secretKeyRef\"},{\"file\":\"k8s/app.yaml\",\"line\":35,\"object\":\"Deployment/Web_App\",\"severity\":\"warning\",\"rule\":\"pod-security-baseline/privileged\",\"path\":\"spec.template.spec.containers[0].securityContext.privileged\",\"message\":\"Container \\\"web\\\" is privileged: it has every capability of the node. (Pod Security baseline)\",\"fix\":\"remove privileged: true\"},{\"file\":\"k8s/app.yaml\",\"line\":56,\"object\":\"Service/web\",\"severity\":\"warning\",\"rule\":\"service-selects-nothing\",\"path\":\"spec.selector\",\"message\":\"Service \\\"web\\\" selects app=web, but Deployment \\\"Web_App\\\"'s pods have app=website: the Service reaches no pods.\",\"fix\":\"make the selector and the pod template labels agree\"},{\"file\":\"k8s/app.yaml\",\"line\":73,\"object\":\"CronJob/cleanup\",\"severity\":\"warning\",\"rule\":\"no-resources\",\"path\":\"spec.jobTemplate.spec.template.spec.containers[0]\",\"message\":\"Container \\\"c\\\" has no resource requests or limits: the scheduler places it blind and it can starve its neighbours.\",\"fix\":\"set resources.requests for cpu and memory, and a memory limit\"}]}"
+  }
+}

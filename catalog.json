@@ -285,6 +285,35 @@
       ]
     },
     {
+      "name": "kube-check-mcp",
+      "title": "Kube Check",
+      "category": "developer-tools",
+      "summary": "Checks Kubernetes manifests for your version: removed APIs, unknown fields, Pod Security, risks.",
+      "description": "Checks Kubernetes manifests (YAML or JSON, many documents per file) against the API of the Kubernetes version you run or plan to run, 1.19 to the newest: APIs removed or deprecated there with their replacement, unknown or misspelt fields, wrong types, Pod Security Standards (baseline, restricted) and common risks such as latest tags, missing limits and privileged containers. Every finding has its file, line and fix. No cluster or key needed.",
+      "version": "0.1.0",
+      "repository": "https://github.com/arhancanli/kube-check-mcp",
+      "npm": "https://www.npmjs.com/package/kube-check-mcp",
+      "mcpName": "io.github.arhancanli/kube-check-mcp",
+      "hosts": [
+        "raw.githubusercontent.com",
+        "endoflife.date"
+      ],
+      "tools": [
+        {
+          "name": "api_versions",
+          "title": "Which apiVersion does a kind need?"
+        },
+        {
+          "name": "check_manifests",
+          "title": "Check Kubernetes manifests"
+        },
+        {
+          "name": "field_help",
+          "title": "What does this Kubernetes field do?"
+        }
+      ]
+    },
+    {
       "name": "license-check-mcp",
       "title": "License Check",
       "category": "developer-tools",

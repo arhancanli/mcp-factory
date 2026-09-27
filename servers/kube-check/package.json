@@ -1,0 +1,19 @@
+{
+  "name": "kube-check-mcp",
+  "version": "0.1.0",
+  "description": "Checks Kubernetes manifests (YAML or JSON, many documents per file) against the API of the Kubernetes version you run or plan to run, 1.19 to the newest: APIs removed or deprecated there with their replacement, unknown or misspelt fields, wrong types, Pod Security Standards (baseline, restricted) and common risks such as latest tags, missing limits and privileged containers. Every finding has its file, line and fix. No cluster or key needed.",
+  "type": "module",
+  "license": "MIT",
+  "author": { "name": "Arhan Canli", "url": "https://github.com/arhancanli" },
+  "bin": { "kube-check-mcp": "src/server.mjs" },
+  "files": ["src", "README.md", "LICENSE", "npm-shrinkwrap.json"],
+  "engines": { "node": ">=20" },
+  "scripts": { "test": "node --test test/*.test.mjs", "start": "node src/server.mjs" },
+  "dependencies": { "@modelcontextprotocol/sdk": "1.30.1", "ajv": "8.20.0", "yaml": "2.9.1", "zod": "4.6.5" },
+  "mcpName": "io.github.arhancanli/kube-check-mcp",
+  "keywords": ["mcp", "model-context-protocol", "mcp-server", "developer-tools"],
+  "repository": { "type": "git", "url": "git+https://github.com/arhancanli/kube-check-mcp.git" },
+  "homepage": "https://github.com/arhancanli/kube-check-mcp#readme",
+  "bugs": { "url": "https://github.com/arhancanli/kube-check-mcp/issues" },
+  "factory": { "displayName": "Kube Check", "category": "developer-tools", "allowHosts": ["raw.githubusercontent.com", "endoflife.date"], "dependencyReasons": { "ajv": "The reference JSON Schema validator; Kubernetes publishes its API as OpenAPI schemas, and a small validator would get their nested types and int-or-string fields wrong.", "yaml": "YAML 1.2 parsing with source positions and multi-document files, as kubectl reads manifests, so every finding has its line." }, "toolListBudget": 6000 }
+}
