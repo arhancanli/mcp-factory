@@ -1,0 +1,19 @@
+{
+  "name": "config-check-mcp",
+  "version": "0.1.0",
+  "description": "Validates configuration files (JSON, JSON with comments, YAML, TOML) against the schema for their file name from SchemaStore: tsconfig.json, package.json, docker-compose.yml, GitHub workflows, ESLint, Renovate and 1,400+ more. Every error has its line and path, the allowed values, and the property you probably meant for a misspelled key; and any setting can be looked up with its description and allowed values. No key.",
+  "type": "module",
+  "license": "MIT",
+  "author": { "name": "Arhan Canli", "url": "https://github.com/arhancanli" },
+  "bin": { "config-check-mcp": "src/server.mjs" },
+  "files": ["src", "README.md", "LICENSE", "npm-shrinkwrap.json"],
+  "engines": { "node": ">=20" },
+  "scripts": { "test": "node --test test/*.test.mjs", "start": "node src/server.mjs" },
+  "dependencies": { "@modelcontextprotocol/sdk": "1.30.1", "ajv": "8.20.0", "ajv-formats": "3.0.1", "jsonc-parser": "3.3.1", "smol-toml": "1.9.0", "yaml": "2.9.1", "zod": "4.6.5" },
+  "mcpName": "io.github.arhancanli/config-check-mcp",
+  "keywords": ["mcp", "model-context-protocol", "mcp-server", "developer-tools"],
+  "repository": { "type": "git", "url": "git+https://github.com/arhancanli/config-check-mcp.git" },
+  "homepage": "https://github.com/arhancanli/config-check-mcp#readme",
+  "bugs": { "url": "https://github.com/arhancanli/config-check-mcp/issues" },
+  "factory": { "displayName": "Config Check", "category": "developer-tools", "allowHosts": ["www.schemastore.org", "json.schemastore.org", "json-schema.org"], "dependencyReasons": { "ajv": "The reference JSON Schema validator; SchemaStore tests its own schemas with Ajv, and they use enough of every draft that a small validator would get them wrong.", "ajv-formats": "The string formats schemas declare (uri, email, date-time, regex...), checked as the schema intends.", "jsonc-parser": "JSON with comments and trailing commas (tsconfig, VS Code settings), with node offsets to report line numbers.", "yaml": "YAML 1.2 parsing with source positions, for compose files, workflows and other YAML configs.", "smol-toml": "TOML 1.0 parsing for pyproject.toml, Cargo.toml and similar configs." }, "toolListBudget": 6000 }
+}

@@ -20,6 +20,7 @@ Every server here:
 | Server | What it does | Run |
 | --- | --- | --- |
 | [Actions Check](https://github.com/arhancanli/actions-check-mcp) | Checks GitHub Actions workflows: outdated actions, old Node runtimes, retired runners, injection. | `npx -y actions-check-mcp` |
+| [Config Check](https://github.com/arhancanli/config-check-mcp) | Validates config files against their official schemas: tsconfig, compose, workflows, 1,400+ more. | `npx -y config-check-mcp` |
 | [Cron Check](https://github.com/arhancanli/cron-check-mcp) | Explains cron expressions, lists next run times in any time zone, converts between cron dialects. | `npx -y cron-check-mcp` |
 | [Domain Health](https://github.com/arhancanli/domain-health-mcp) | Email and domain checks: SPF lookup limits, DKIM keys, DMARC, DNS records, registration expiry. | `npx -y domain-health-mcp` |
 | [End of Life](https://github.com/arhancanli/end-of-life-mcp) | Is this version still supported? EOL dates, latest patch and upgrade target for 470+ products. | `npx -y end-of-life-mcp` |

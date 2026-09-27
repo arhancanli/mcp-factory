@@ -1,0 +1,92 @@
+{
+ "competitor": {
+  "label": "mcp-server-fetch reading SchemaStore (no config-validation MCP server exists; this is what agents use today)",
+  "command": "uvx",
+  "args": [
+   "mcp-server-fetch"
+  ]
+ },
+ "tasks": [
+  {
+   "id": "dependabot-semiannual",
+   "prompt": "In a .github/dependabot.yml update entry, is `schedule.interval: semiannually` an accepted value? Answer yes or no.",
+   "expect": {
+    "regex": "^\\W*yes\\b"
+   }
+  },
+  {
+   "id": "compose-condition",
+   "prompt": "This docker-compose.yml has `condition: service_ready` under depends_on:\n\nservices:\n  web:\n    image: nginx\n    depends_on:\n      db:\n        condition: service_ready\n  db:\n    image: postgres:16\n\nWhich values does `condition` accept? List all of them.",
+   "expect": {
+    "contains": [
+     "service_started",
+     "service_healthy",
+     "service_completed_successfully"
+    ]
+   }
+  },
+  {
+   "id": "workflow-permission",
+   "prompt": "In a GitHub Actions workflow, is `contents: write-all` a valid entry inside a `permissions:` block? Answer yes or no.",
+   "expect": {
+    "regex": "^\\W*no\\b"
+   }
+  },
+  {
+   "id": "tsconfig-typo",
+   "prompt": "This tsconfig.json compiles without the setting the author wanted:\n\n{\n  \"compilerOptions\": {\n    \"target\": \"es2022\",\n    \"strict\": true,\n    \"noUnusedLocal\": true,\n    \"verbatimModuleSyntax\": true\n  }\n}\n\nWhich key is not a real compiler option, and what is the correct key? Reply with the correct key only.",
+   "expect": {
+    "regex": "^\\W*noUnusedLocals\\W*$"
+   }
+  },
+  {
+   "id": "gitlab-when",
+   "prompt": "In .gitlab-ci.yml, a job has `rules: [{ if: '$CI_COMMIT_BRANCH == \"main\"', when: manual_only }]`. Is `manual_only` valid there? If not, list every value `when` accepts in a rule.",
+   "expect": {
+    "contains": [
+     "on_success",
+     "on_failure",
+     "always",
+     "never",
+     "manual",
+     "delayed"
+    ]
+   }
+  },
+  {
+   "id": "renovate-range",
+   "prompt": "In renovate.json, is `\"rangeStrategy\": \"bump-major\"` a valid setting? Answer yes or no.",
+   "expect": {
+    "regex": "^\\W*no\\b"
+   }
+  },
+  {
+   "id": "biome-indent",
+   "prompt": "This biome.json fails to load:\n\n{ \"formatter\": { \"indentStyle\": \"tabs\" } }\n\nWhat exact value should indentStyle have to indent with tabs? Reply with the value only.",
+   "expect": {
+    "regex": "^\\W*tab\\W*$"
+   }
+  },
+  {
+   "id": "workflow-line",
+   "prompt": "GitHub rejects this workflow file, .github/workflows/release.yml. On which line is the error? Answer with the line number only.\n\nname: Release\non:\n  push:\n    tags: [\"v*\"]\npermissions:\n  contents: write\njobs:\n  build:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v4\n      - uses: actions/setup-node@v4\n        with:\n          node-version: 22\n      - run: npm ci\n      - run: npm run build\n      - name: Upload\n        uses: actions/upload-artifact@v4\n        with:\n          name: dist\n          path: dist\n  publish:\n    needs: build\n    runs-on: ubuntu-latest\n    environment: npm\n    steps:\n      - uses: actions/download-artifact@v4\n        with:\n          name: dist\n      - run: npm publish\n        env:\n          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}\n        continue-on-error: false\n        timeout_minutes: 5\n      - name: Announce\n        run: echo \"released\"\n",
+   "expect": {
+    "number": 34
+   }
+  },
+  {
+   "id": "compose-start-interval",
+   "prompt": "Is `start_interval` a valid key under a service's `healthcheck` in a Compose file (docker-compose.yml)? Answer yes or no.",
+   "expect": {
+    "regex": "^\\W*yes\\b"
+   }
+  },
+  {
+   "id": "tsconfig-node20",
+   "prompt": "Does tsconfig.json accept `\"module\": \"node20\"` in compilerOptions? Answer yes or no.",
+   "expect": {
+    "regex": "^\\W*yes\\b"
+   }
+  }
+ ]
+}

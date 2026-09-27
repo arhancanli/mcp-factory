@@ -65,6 +65,36 @@
       ]
     },
     {
+      "name": "config-check-mcp",
+      "title": "Config Check",
+      "category": "developer-tools",
+      "summary": "Validates config files against their official schemas: tsconfig, compose, workflows, 1,400+ more.",
+      "description": "Validates configuration files (JSON, JSON with comments, YAML, TOML) against the schema for their file name from SchemaStore: tsconfig.json, package.json, docker-compose.yml, GitHub workflows, ESLint, Renovate and 1,400+ more. Every error has its line and path, the allowed values, and the property you probably meant for a misspelled key; and any setting can be looked up with its description and allowed values. No key.",
+      "version": "0.1.0",
+      "repository": "https://github.com/arhancanli/config-check-mcp",
+      "npm": "https://www.npmjs.com/package/config-check-mcp",
+      "mcpName": "io.github.arhancanli/config-check-mcp",
+      "hosts": [
+        "www.schemastore.org",
+        "json.schemastore.org",
+        "json-schema.org"
+      ],
+      "tools": [
+        {
+          "name": "config_help",
+          "title": "What does this config setting do?"
+        },
+        {
+          "name": "find_schema",
+          "title": "Which schema covers this file?"
+        },
+        {
+          "name": "validate_config",
+          "title": "Check config files against their schemas"
+        }
+      ]
+    },
+    {
       "name": "contact-check-mcp",
       "title": "Contact Check",
       "category": "data",

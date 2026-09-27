@@ -1,0 +1,76 @@
+{
+  "measured_on": "2026-09-27",
+  "where": "Dubai, home connection",
+  "node": "v24.19.0",
+  "runs": 5,
+  "tool_definition_chars": 2029,
+  "tools_list_chars": 3283,
+  "competitor": {
+    "label": "mcp-server-fetch reading SchemaStore (no config-validation MCP server exists; this is what agents use today)",
+    "tool_definition_chars": 1105,
+    "tools_list_chars": 1104
+  },
+  "scenarios": [
+    {
+      "call": "validate_config: tsconfig, a workflow, a compose file and pyproject.toml with typical mistakes",
+      "first_call_ms": 1705,
+      "repeat_ms": 8.2,
+      "result_chars": 2846
+    },
+    {
+      "call": "validate_config: a clean workflow, and a manifest.json three schemas claim",
+      "first_call_ms": 976,
+      "repeat_ms": 1.9,
+      "result_chars": 560
+    },
+    {
+      "call": "validate_config: YAML that does not parse",
+      "first_call_ms": 6,
+      "repeat_ms": 0.5,
+      "result_chars": 169
+    },
+    {
+      "call": "config_help: tsconfig's compilerOptions.moduleResolution",
+      "first_call_ms": 374,
+      "repeat_ms": 1.9,
+      "result_chars": 1056
+    },
+    {
+      "call": "config_help: search a workflow's settings for 'timeout'",
+      "first_call_ms": 344,
+      "repeat_ms": 2.7,
+      "result_chars": 372
+    },
+    {
+      "call": "find_schema: a file path and words",
+      "first_call_ms": 229,
+      "repeat_ms": 1.6,
+      "result_chars": 313
+    }
+  ],
+  "example": {
+    "call": "validate_config: tsconfig, a workflow, a compose file and pyproject.toml with typical mistakes",
+    "tool": "validate_config",
+    "arguments": {
+      "files": [
+        {
+          "path": "tsconfig.json",
+          "content": "{\n  // JSON with comments, as tsconfig allows\n  \"compilerOptions\": {\n    \"target\": \"es2099\",\n    \"moduleResolution\": \"nodenext\",\n    \"strictNullCheck\": true,\n    \"outdir\": \"dist\",\n    \"importsNotUsedAsValues\": \"remove\",\n  },\n  \"include\": \"src\"\n}\n"
+        },
+        {
+          "path": ".github/workflows/ci.yml",
+          "content": "name: CI\non:\n  push:\n    branch: [main]\n  pull_request:\njobs:\n  test:\n    runs_on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v4\n      - run: npm test\n        timeout: 10\n  build:\n    runs-on: ubuntu-latest\n    needs: test\n    steps:\n      - name: Build\n"
+        },
+        {
+          "path": "docker-compose.yml",
+          "content": "services:\n  web:\n    image: nginx:latest\n    port:\n      - \"80:80\"\n    depends_on:\n      - db\n    healthcheck:\n      test: [\"CMD\", \"curl\", \"-f\", \"http://localhost\"]\n      interval: 30\n  db:\n    image: postgres:16\n"
+        },
+        {
+          "path": "pyproject.toml",
+          "content": "[build-system]\nbuild-backend = \"hatchling.build\"\n\n[project]\nname = \"demo\"\nversion = \"0.1.0\"\nrequires-python = 3.11\ndependencies = \"requests>=2\"\n\n[tool.ruff]\nline_length = 100\n"
+        }
+      ]
+    },
+    "result": "{\"valid\":0,\"invalid\":4,\"files\":[{\"path\":\"tsconfig.json\",\"schema\":\"tsconfig.json\",\"schema_url\":\"https://www.schemastore.org/tsconfig.json\",\"valid\":false,\"warnings\":[{\"line\":6,\"path\":\"compilerOptions.strictNullCheck\",\"message\":\"\\\"strictNullCheck\\\" is not a setting the schema knows; did you mean \\\"strictNullChecks\\\"?\",\"did_you_mean\":\"strictNullChecks\"},{\"line\":7,\"path\":\"compilerOptions.outdir\",\"message\":\"\\\"outdir\\\" is not a setting the schema knows; did you mean \\\"outDir\\\"?\",\"did_you_mean\":\"outDir\"},{\"line\":8,\"path\":\"compilerOptions.importsNotUsedAsValues\",\"message\":\"deprecated: Deprecated in favor of verbatimModuleSyntax.\"},{\"line\":10,\"path\":\"include\",\"message\":\"must be array or null, not string (the schema's alternatives let the file pass, but this setting's own definition does not)\"}],\"errors\":[{\"line\":4,\"path\":\"compilerOptions.target\",\"message\":\"\\\"es2099\\\" is not an allowed value\",\"allowed\":[\"es3\",\"es5\",\"es6\",\"es2015\",\"es2016\",\"es2017\",\"es2018\",\"es2019\",\"es2020\",\"es2021\",\"es2022\",\"es2023\",\"es2024\",\"es2025\",\"esnext\"]}]},{\"path\":\".github/workflows/ci.yml\",\"schema\":\"GitHub Workflow\",\"schema_url\":\"https://www.schemastore.org/github-workflow.json\",\"valid\":false,\"errors\":[{\"line\":4,\"path\":\"on.push.branch\",\"message\":\"unknown property \\\"branch\\\"\",\"did_you_mean\":\"branches\"},{\"line\":8,\"path\":\"jobs.test.runs_on\",\"message\":\"unknown property \\\"runs_on\\\"\",\"did_you_mean\":\"runs-on\"},{\"line\":12,\"path\":\"jobs.test.steps[1].timeout\",\"message\":\"unknown property \\\"timeout\\\"\",\"did_you_mean\":\"timeout-minutes\"},{\"line\":17,\"path\":\"jobs.build.steps[0]\",\"message\":\"needs one of: \\\"uses\\\", \\\"run\\\", \\\"wait\\\", \\\"wait-all\\\", \\\"cancel\\\", \\\"parallel\\\"\"}]},{\"path\":\"docker-compose.yml\",\"schema\":\"docker-compose.yml\",\"schema_url\":\"https://raw.githubusercontent.com/compose-spec/compose-go/master/schema/compose-spec.json\",\"valid\":false,\"errors\":[{\"line\":4,\"path\":\"services.web.port\",\"message\":\"unknown property \\\"port\\\"\",\"did_you_mean\":\"ports\"},{\"line\":10,\"path\":\"services.web.healthcheck.interval\",\"message\":\"must be string, not integer\",\"about\":\"Time between running the check (e.g., '1s', '1m30s').\"}]},{\"path\":\"pyproject.toml\",\"schema\":\"PyProject\",\"schema_url\":\"https://raw.githubusercontent.com/SchemaStore/schemastore/master/src/schemas/json/pyproject.json\",\"valid\":false,\"errors\":[{\"line\":1,\"path\":\"build-system\",\"message\":\"missing required property \\\"requires\\\"\"},{\"line\":7,\"path\":\"project.requires-python\",\"message\":\"must be string, not number\",\"about\":\"Specifies the Python version(s) that the distribution is compatible with.\"},{\"line\":8,\"path\":\"project.dependencies\",\"message\":\"must be array, not string\",\"about\":\"An array of dependency specifier strings, each representing a mandatory dependent package of the project.\"},{\"line\":11,\"path\":\"tool.ruff.line_length\",\"message\":\"unknown property \\\"line_length\\\"\",\"did_you_mean\":\"line-length\"}]}]}"
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "manifest_version": "0.3",
+  "name": "config-check-mcp",
+  "display_name": "Config Check",
+  "version": "0.1.0",
+  "description": "Validates configuration files (JSON, JSON with comments, YAML, TOML) against the schema for their file name from SchemaStore: tsconfig.json, package.json, docker-compose.yml, GitHub workflows, ESLint, Renovate and 1,400+ more. Every error has its line and path, the allowed values, and the property you probably meant for a misspelled key; and any setting can be looked up with its description and allowed values. No key.",
+  "author": {
+    "name": "Arhan Canli",
+    "url": "https://github.com/arhancanli"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/arhancanli/config-check-mcp"
+  },
+  "homepage": "https://github.com/arhancanli/config-check-mcp#readme",
+  "documentation": "https://github.com/arhancanli/config-check-mcp#readme",
+  "support": "https://github.com/arhancanli/config-check-mcp/issues",
+  "license": "MIT",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "mcp-server",
+    "developer-tools"
+  ],
+  "server": {
+    "type": "node",
+    "entry_point": "src/server.mjs",
+    "mcp_config": {
+      "command": "node",
+      "args": [
+        "${__dirname}/src/server.mjs"
+      ]
+    }
+  },
+  "tools": [
+    {
+      "name": "config_help",
+      "description": "What does this config setting do?"
+    },
+    {
+      "name": "find_schema",
+      "description": "Which schema covers this file?"
+    },
+    {
+      "name": "validate_config",
+      "description": "Check config files against their schemas"
+    }
+  ],
+  "compatibility": {
+    "platforms": [
+      "darwin",
+      "win32",
+      "linux"
+    ],
+    "runtimes": {
+      "node": ">=20"
+    }
+  }
+}
