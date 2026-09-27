@@ -86,5 +86,5 @@ https://github.com/arhancanli/citation-check-mcp
 
 ## Cross-links
 
-Footer for every post: 20 servers, each measured before release:
+Footer for every post: 21 servers, each measured before release:
 https://github.com/topics/arhancanli-mcp. Related: Actions Check (https://github.com/arhancanli/actions-check-mcp), Config Check (https://github.com/arhancanli/config-check-mcp), Contact Check (https://github.com/arhancanli/contact-check-mcp).

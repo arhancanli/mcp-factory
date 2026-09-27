@@ -1,0 +1,19 @@
+{
+  "name": "regex-check-mcp",
+  "version": "0.1.0",
+  "description": "Tests regular expressions on the real engines, in process: JavaScript (V8), Python (CPython's re, via Pyodide), PCRE2 10.48 (PHP, grep -P, nginx) and RE2 (Go, BigQuery). Each engine gives its own verdict: compile errors with position, every match with its groups and named groups, and the result of a replacement; differences between engines are listed. Finds catastrophic backtracking (ReDoS) with an attack string and confirms it by timing the backtracking engines. Offline, no key.",
+  "type": "module",
+  "license": "MIT",
+  "author": { "name": "Arhan Canli", "url": "https://github.com/arhancanli" },
+  "bin": { "regex-check-mcp": "src/server.mjs" },
+  "files": ["src", "README.md", "LICENSE", "npm-shrinkwrap.json"],
+  "engines": { "node": ">=20" },
+  "scripts": { "test": "node --test test/*.test.mjs", "start": "node src/server.mjs" },
+  "dependencies": { "@modelcontextprotocol/sdk": "1.30.1", "pcre2-wasm": "10.48.0", "pyodide": "314.0.7", "re2-wasm": "1.0.2", "recheck": "4.5.0", "zod": "4.6.5" },
+  "mcpName": "io.github.arhancanli/regex-check-mcp",
+  "keywords": ["mcp", "model-context-protocol", "mcp-server", "developer-tools"],
+  "repository": { "type": "git", "url": "git+https://github.com/arhancanli/regex-check-mcp.git" },
+  "homepage": "https://github.com/arhancanli/regex-check-mcp#readme",
+  "bugs": { "url": "https://github.com/arhancanli/regex-check-mcp/issues" },
+  "factory": { "displayName": "Regex Check", "category": "developer-tools", "allowHosts": [], "dependencyReasons": { "pyodide": "CPython compiled to WebAssembly: Python patterns run on Python's own re module, so matches, groups and errors are exactly what Python gives.", "pcre2-wasm": "PCRE2 10.48 compiled to WebAssembly (MIT), the engine behind PHP's preg functions, grep -P and nginx, with match limits against runaway backtracking.", "re2-wasm": "Google's RE2 compiled to WebAssembly (Apache-2.0): the linear-time engine whose syntax Go's regexp and BigQuery accept.", "recheck": "A ReDoS checker (MIT) that proves catastrophic backtracking by building an attack string, instead of guessing from the pattern's shape." }, "toolListBudget": 6000 }
+}

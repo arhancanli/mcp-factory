@@ -234,7 +234,7 @@ All three are US government services. They do not endorse this server.
 - [Dockerfile Check](https://github.com/arhancanli/dockerfile-check-mcp): Checks Dockerfiles: build-breaking mistakes, base image tags that exist, digests, platforms, EOL.
 - [Domain Health](https://github.com/arhancanli/domain-health-mcp): Email and domain checks: SPF lookup limits, DKIM keys, DMARC, DNS records, registration expiry.
 - [End of Life](https://github.com/arhancanli/end-of-life-mcp): Is this version still supported? EOL dates, latest patch and upgrade target for 470+ products.
-- [The whole collection](https://github.com/arhancanli/mcp-factory#servers), 11 more
+- [The whole collection](https://github.com/arhancanli/mcp-factory#servers), 12 more
 <!-- family:end -->
 
 ## License

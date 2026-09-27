@@ -1,0 +1,52 @@
+{
+  "measured_on": "2026-09-27",
+  "where": "Dubai, home connection",
+  "node": "v24.19.0",
+  "runs": 5,
+  "tool_definition_chars": 1490,
+  "tools_list_chars": 2124,
+  "competitor": {
+    "label": "@jkumonpm/regex-tester-mcp, a published regex MCP server (JavaScript engine only)",
+    "tool_definition_chars": 1251,
+    "tools_list_chars": 1439
+  },
+  "scenarios": [
+    {
+      "call": "test_regex: Python-style named groups and \\d across four engines",
+      "first_call_ms": 983,
+      "repeat_ms": 3.8,
+      "result_chars": 1576
+    },
+    {
+      "call": "test_regex: a lookbehind, which RE2 refuses",
+      "first_call_ms": 859,
+      "repeat_ms": 0.6,
+      "result_chars": 750
+    },
+    {
+      "call": "check_redos: nested repetition, measured on the engines",
+      "first_call_ms": 2991,
+      "repeat_ms": 0.3,
+      "result_chars": 915
+    },
+    {
+      "call": "check_redos: an email pattern that is safe",
+      "first_call_ms": 68,
+      "repeat_ms": 0.3,
+      "result_chars": 128
+    }
+  ],
+  "example": {
+    "call": "test_regex: Python-style named groups and \\d across four engines",
+    "tool": "test_regex",
+    "arguments": {
+      "pattern": "(?P<year>\\d{4})-(\\d{2})",
+      "inputs": [
+        "on 2026-09",
+        "٢٠٢٦-٠٩ and 1999-12"
+      ],
+      "replacement": "\\2/\\1"
+    },
+    "result": "{\"engines\":[{\"flavor\":\"javascript\",\"engine\":\"V8 13.6.233.17-node.51 (Node v24.19.0)\",\"error\":{\"message\":\"Invalid group\"}},{\"flavor\":\"python\",\"engine\":\"CPython 3.14.2 re (Pyodide)\",\"results\":[{\"matches\":[{\"index\":3,\"text\":\"2026-09\",\"groups\":[\"2026\",\"09\"],\"named\":{\"year\":\"2026\"}}],\"match_count\":1,\"replaced\":\"on 09/2026\"},{\"matches\":[{\"index\":0,\"text\":\"٢٠٢٦-٠٩\",\"groups\":[\"٢٠٢٦\",\"٠٩\"],\"named\":{\"year\":\"٢٠٢٦\"}},{\"index\":12,\"text\":\"1999-12\",\"groups\":[\"1999\",\"12\"],\"named\":{\"year\":\"1999\"}}],\"match_count\":2,\"replaced\":\"٠٩/٢٠٢٦ and 12/1999\"}]},{\"flavor\":\"pcre\",\"engine\":\"PCRE2 10.48\",\"results\":[{\"matches\":[{\"index\":3,\"text\":\"2026-09\",\"groups\":[\"2026\",\"09\"],\"named\":{\"year\":\"2026\"}}],\"match_count\":1,\"replaced\":\"on 09/2026\"},{\"matches\":[{\"index\":12,\"text\":\"1999-12\",\"groups\":[\"1999\",\"12\"],\"named\":{\"year\":\"1999\"}}],\"match_count\":1,\"replaced\":\"٢٠٢٦-٠٩ and 12/1999\"}]},{\"flavor\":\"re2\",\"engine\":\"RE2 (re2-wasm 1.0.2)\",\"results\":[{\"matches\":[{\"index\":3,\"text\":\"2026-09\",\"groups\":[\"2026\",\"09\"],\"named\":{\"year\":\"2026\"}}],\"match_count\":1,\"replaced\":\"on \\\\2/\\\\1\"},{\"matches\":[{\"index\":12,\"text\":\"1999-12\",\"groups\":[\"1999\",\"12\"],\"named\":{\"year\":\"1999\"}}],\"match_count\":1,\"replaced\":\"٢٠٢٦-٠٩ and \\\\2/\\\\1\"}]}],\"agree\":false,\"differences\":[\"compiles in python, pcre, re2; refused by javascript (Invalid group)\",\"input 1 replaced: python, pcre: \\\"on 09/2026\\\"; re2: \\\"on \\\\\\\\2/\\\\\\\\1\\\"\",\"input 2: python: 2 matches (\\\"٢٠٢٦-٠٩\\\", \\\"1999-12\\\"); pcre, re2: 1 match (\\\"1999-12\\\")\",\"input 2 replaced: python: \\\"٠٩/٢٠٢٦ and 12/1999\\\"; pcre: \\\"٢٠٢٦-٠٩ and 12/1999\\\"; re2: \\\"٢٠٢٦-٠٩ and \\\\\\\\2/\\\\\\\\1\\\"\"]}"
+  }
+}

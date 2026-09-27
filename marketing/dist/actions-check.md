@@ -75,4 +75,4 @@ exact line to change and the SHA to pin each action to. https://github.com/arhan
 
 ## Cross-links
 
-Footer: 20 servers, each measured before release: https://github.com/topics/arhancanli-mcp. Related: Citation Check (https://github.com/arhancanli/citation-check-mcp), Config Check (https://github.com/arhancanli/config-check-mcp), Contact Check (https://github.com/arhancanli/contact-check-mcp).
+Footer: 21 servers, each measured before release: https://github.com/topics/arhancanli-mcp. Related: Citation Check (https://github.com/arhancanli/citation-check-mcp), Config Check (https://github.com/arhancanli/config-check-mcp), Contact Check (https://github.com/arhancanli/contact-check-mcp).

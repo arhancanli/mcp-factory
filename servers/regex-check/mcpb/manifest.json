@@ -1,0 +1,55 @@
+{
+  "manifest_version": "0.3",
+  "name": "regex-check-mcp",
+  "display_name": "Regex Check",
+  "version": "0.1.0",
+  "description": "Tests regular expressions on the real engines, in process: JavaScript (V8), Python (CPython's re, via Pyodide), PCRE2 10.48 (PHP, grep -P, nginx) and RE2 (Go, BigQuery). Each engine gives its own verdict: compile errors with position, every match with its groups and named groups, and the result of a replacement; differences between engines are listed. Finds catastrophic backtracking (ReDoS) with an attack string and confirms it by timing the backtracking engines. Offline, no key.",
+  "author": {
+    "name": "Arhan Canli",
+    "url": "https://github.com/arhancanli"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/arhancanli/regex-check-mcp"
+  },
+  "homepage": "https://github.com/arhancanli/regex-check-mcp#readme",
+  "documentation": "https://github.com/arhancanli/regex-check-mcp#readme",
+  "support": "https://github.com/arhancanli/regex-check-mcp/issues",
+  "license": "MIT",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "mcp-server",
+    "developer-tools"
+  ],
+  "server": {
+    "type": "node",
+    "entry_point": "src/server.mjs",
+    "mcp_config": {
+      "command": "node",
+      "args": [
+        "${__dirname}/src/server.mjs"
+      ]
+    }
+  },
+  "tools": [
+    {
+      "name": "check_redos",
+      "description": "Can this regex be made to hang?"
+    },
+    {
+      "name": "test_regex",
+      "description": "Test a regex on real engines"
+    }
+  ],
+  "compatibility": {
+    "platforms": [
+      "darwin",
+      "win32",
+      "linux"
+    ],
+    "runtimes": {
+      "node": ">=20"
+    }
+  }
+}

@@ -1,0 +1,82 @@
+{
+ "competitor": {
+  "label": "@jkumonpm/regex-tester-mcp, a published regex MCP server (JavaScript engine only)",
+  "command": "npx",
+  "args": [
+   "-y",
+   "@jkumonpm/regex-tester-mcp@1.0.2"
+  ]
+ },
+ "tasks": [
+  {
+   "id": "go-lookbehind",
+   "prompt": "Does Go's regexp package accept the pattern (?<=\\$)\\d+ ? Answer yes or no.",
+   "expect": {
+    "regex": "^\\W*no\\b"
+   }
+  },
+  {
+   "id": "py-unicode-digit",
+   "prompt": "In Python 3, does re.fullmatch(r'\\d+', '٢٠٢٦') (Arabic-Indic digits) return a match? Answer yes or no.",
+   "expect": {
+    "regex": "^\\W*yes\\b"
+   }
+  },
+  {
+   "id": "js-unicode-digit",
+   "prompt": "In JavaScript, what does /^\\d+$/.test('٢٠٢٦') (Arabic-Indic digits) return? Answer true or false.",
+   "expect": {
+    "regex": "^\\W*false\\b"
+   }
+  },
+  {
+   "id": "redos-nested",
+   "prompt": "Can the regex ^(a+)+$ be made to take exponential time in JavaScript's regex engine? Answer yes or no.",
+   "expect": {
+    "regex": "^\\W*yes\\b"
+   }
+  },
+  {
+   "id": "findall-count",
+   "prompt": "In Python 3, how many items does re.findall(r'a*', 'baac') return? Answer with the number only.",
+   "expect": {
+    "number": 4
+   }
+  },
+  {
+   "id": "py-dollar-newline",
+   "prompt": "In Python 3, does re.search(r'^abc$', 'abc\\n') (the string ends with a newline) find a match? Answer yes or no.",
+   "expect": {
+    "regex": "^\\W*yes\\b"
+   }
+  },
+  {
+   "id": "js-dollar-newline",
+   "prompt": "In JavaScript, what does /^abc$/.test('abc\\n') (the string ends with a newline) return? Answer true or false.",
+   "expect": {
+    "regex": "^\\W*false\\b"
+   }
+  },
+  {
+   "id": "py-lookbehind-alt",
+   "prompt": "Does Python 3's re module compile the pattern (?<=a|bc)d ? Answer yes or no.",
+   "expect": {
+    "regex": "^\\W*no\\b"
+   }
+  },
+  {
+   "id": "php-lookbehind-alt",
+   "prompt": "Does PHP's preg_match (PCRE2) accept the pattern /(?<=a|bc)d/ ? Answer yes or no.",
+   "expect": {
+    "regex": "^\\W*yes\\b"
+   }
+  },
+  {
+   "id": "word-unicode",
+   "prompt": "In JavaScript without flags, does /^\\w+$/ match 'café'? Answer yes or no.",
+   "expect": {
+    "regex": "^\\W*no\\b"
+   }
+  }
+ ]
+}

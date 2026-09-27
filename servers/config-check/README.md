@@ -234,7 +234,7 @@ Tool definitions the model reads on every turn (name, description, input schema)
 - [Internet Standards](https://github.com/arhancanli/internet-standards-mcp): RFC sections, status, obsoleted-by chains, errata and IANA registries for coding agents.
 - [Kube Check](https://github.com/arhancanli/kube-check-mcp): Checks Kubernetes manifests for your version: removed APIs, unknown fields, Pod Security, risks.
 - [License Check](https://github.com/arhancanli/license-check-mcp): Open source license answers: SPDX ids, copyleft, and whether a dependency's license fits yours.
-- [The whole collection](https://github.com/arhancanli/mcp-factory#servers), 11 more
+- [The whole collection](https://github.com/arhancanli/mcp-factory#servers), 12 more
 <!-- family:end -->
 
 ## License

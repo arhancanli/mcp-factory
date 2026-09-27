@@ -29,6 +29,7 @@ Every server here:
 | [Kube Check](https://github.com/arhancanli/kube-check-mcp) | Checks Kubernetes manifests for your version: removed APIs, unknown fields, Pod Security, risks. | `npx -y kube-check-mcp` |
 | [License Check](https://github.com/arhancanli/license-check-mcp) | Open source license answers: SPDX ids, copyleft, and whether a dependency's license fits yours. | `npx -y license-check-mcp` |
 | [Package Truth](https://github.com/arhancanli/package-truth-mcp) | Checks packages exist before install: version, deprecation, vulnerabilities, licence. 7 ecosystems. | `npx -y package-truth-mcp` |
+| [Regex Check](https://github.com/arhancanli/regex-check-mcp) | Tests regexes on real engines: JavaScript, Python, PCRE2, RE2 (Go). Matches, groups, ReDoS. | `npx -y regex-check-mcp` |
 | [Release Notes](https://github.com/arhancanli/release-notes-mcp) | What changed between two versions of a package: breaking changes, deprecations, security fixes. | `npx -y release-notes-mcp` |
 | [SQL Check](https://github.com/arhancanli/sql-check-mcp) | Runs SQL on real PostgreSQL and SQLite in memory: your schema, the database's own errors, results. | `npx -y sql-check-mcp` |
 
