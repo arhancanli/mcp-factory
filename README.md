@@ -22,6 +22,7 @@ Every server here:
 | [Actions Check](https://github.com/arhancanli/actions-check-mcp) | Checks GitHub Actions workflows: outdated actions, old Node runtimes, retired runners, injection. | `npx -y actions-check-mcp` |
 | [Config Check](https://github.com/arhancanli/config-check-mcp) | Validates config files against their official schemas: tsconfig, compose, workflows, 1,400+ more. | `npx -y config-check-mcp` |
 | [Cron Check](https://github.com/arhancanli/cron-check-mcp) | Explains cron expressions, lists next run times in any time zone, converts between cron dialects. | `npx -y cron-check-mcp` |
+| [Dockerfile Check](https://github.com/arhancanli/dockerfile-check-mcp) | Checks Dockerfiles: build-breaking mistakes, base image tags that exist, digests, platforms, EOL. | `npx -y dockerfile-check-mcp` |
 | [Domain Health](https://github.com/arhancanli/domain-health-mcp) | Email and domain checks: SPF lookup limits, DKIM keys, DMARC, DNS records, registration expiry. | `npx -y domain-health-mcp` |
 | [End of Life](https://github.com/arhancanli/end-of-life-mcp) | Is this version still supported? EOL dates, latest patch and upgrade target for 470+ products. | `npx -y end-of-life-mcp` |
 | [Internet Standards](https://github.com/arhancanli/internet-standards-mcp) | RFC sections, status, obsoleted-by chains, errata and IANA registries for coding agents. | `npx -y internet-standards-mcp` |

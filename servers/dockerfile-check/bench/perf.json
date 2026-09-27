@@ -1,0 +1,48 @@
+{
+  "measured_on": "2026-09-27",
+  "where": "Dubai, home connection",
+  "node": "v24.19.0",
+  "runs": 5,
+  "tool_definition_chars": 1429,
+  "tools_list_chars": 2364,
+  "competitor": null,
+  "scenarios": [
+    {
+      "call": "check_dockerfile: a three-stage Dockerfile with twelve problems",
+      "first_call_ms": 1983,
+      "repeat_ms": 1.3,
+      "result_chars": 4787
+    },
+    {
+      "call": "check_dockerfile: a clean two-stage Node.js build",
+      "first_call_ms": 836,
+      "repeat_ms": 1.6,
+      "result_chars": 443
+    },
+    {
+      "call": "check_dockerfile: an amd64-only base image built for linux/arm64",
+      "first_call_ms": 777,
+      "repeat_ms": 0.8,
+      "result_chars": 873
+    },
+    {
+      "call": "image_info: nine references across seven registries",
+      "first_call_ms": 2286,
+      "repeat_ms": 1.5,
+      "result_chars": 3174
+    }
+  ],
+  "example": {
+    "call": "check_dockerfile: a three-stage Dockerfile with twelve problems",
+    "tool": "check_dockerfile",
+    "arguments": {
+      "files": [
+        {
+          "path": "Dockerfile",
+          "content": "ARG NODE_VERSION=18\nFROM node:${NODE_VERSION}-alpine AS deps\nWORKDIR /app\nCOPY package*.json ./\nRUN npm ci\n\nFROM node:${NODE_VERSION}-alpine AS build\nWORKDIR /app\nCOPY --from=dep /app/node_modules ./node_modules\nCOPY . .\nRUN npm run build\n\nFROM python:3.8-slim-buster\nMAINTAINER ops@example.com\nARG GITHUB_TOKEN\nRUN apt-get update\nRUN apt-get install curl git\nCOPY ../shared/config.yml /etc/app/\nCOPY --from=build /app/dist /srv\nENV DATABASE_PASSWORD=hunter2\nEXPOSE 8080/http\nUSER root\nCMD ['python', '-m', 'http.server', '8080']\n"
+        }
+      ]
+    },
+    "result": "{\"files\":[{\"path\":\"Dockerfile\",\"counts\":{\"error\":5,\"warning\":9,\"info\":2},\"findings\":[{\"line\":9,\"severity\":\"error\",\"rule\":\"unknown-stage\",\"message\":\"--from=dep names no earlier stage (stages: deps, build), so Docker pulls an image called dep.\",\"fix\":\"use a stage name defined above, or a full image reference\"},{\"line\":17,\"severity\":\"error\",\"rule\":\"install-without-yes\",\"message\":\"apt-get install without -y waits for a confirmation the build cannot give, and the build fails.\",\"fix\":\"add -y (and --no-install-recommends)\"},{\"line\":18,\"severity\":\"error\",\"rule\":\"outside-context\",\"message\":\"COPY cannot reach outside the build context (../shared/config.yml).\",\"fix\":\"move the file into the context, or build from a parent directory\"},{\"line\":21,\"severity\":\"error\",\"rule\":\"invalid-port\",\"message\":\"EXPOSE 8080/http is not a port (1-65535, optionally /tcp or /udp).\"},{\"line\":23,\"severity\":\"error\",\"rule\":\"exec-form-quotes\",\"message\":\"Exec form needs double quotes: with single quotes this is run as a shell command, brackets and all.\",\"fix\":\"write [\\\"cmd\\\", \\\"arg\\\"]\"},{\"line\":2,\"severity\":\"warning\",\"rule\":\"end-of-life\",\"message\":\"node:18-alpine is built on Node.js 18, past its end of life (2025-04-30): no more security fixes.\",\"fix\":\"use node:24-alpine\"},{\"line\":7,\"severity\":\"warning\",\"rule\":\"end-of-life\",\"message\":\"node:18-alpine is built on Node.js 18, past its end of life (2025-04-30): no more security fixes.\",\"fix\":\"use node:24-alpine\"},{\"line\":13,\"severity\":\"warning\",\"rule\":\"end-of-life\",\"message\":\"python:3.8-slim-buster is built on Python 3.8, past its end of life (2024-10-07): no more security fixes.\",\"fix\":\"use python:3.14-slim\"},{\"line\":13,\"severity\":\"warning\",\"rule\":\"end-of-life\",\"message\":\"python:3.8-slim-buster is built on Debian 10, past its end of life except for paid extended support (2024-06-30): no more security fixes.\",\"fix\":\"move to Debian 13 (or 12, the nearest supported)\"},{\"line\":14,\"severity\":\"warning\",\"rule\":\"syntax\",\"message\":\"MAINTAINER has been deprecated.\"},{\"line\":15,\"severity\":\"warning\",\"rule\":\"secret-in-image\",\"message\":\"ARG GITHUB_TOKEN: build arguments are recorded in the image history; anyone who can pull the image can read it.\",\"fix\":\"use a build secret: RUN --mount=type=secret,id=... (and a runtime secret for ENV)\"},{\"line\":16,\"severity\":\"warning\",\"rule\":\"apt-update-alone\",\"message\":\"apt-get update in its own RUN is cached as a layer; a later install then uses stale package lists and can fail.\",\"fix\":\"run apt-get update && apt-get install in the same RUN\"},{\"line\":20,\"severity\":\"warning\",\"rule\":\"secret-in-image\",\"message\":\"ENV DATABASE_PASSWORD keeps the secret in the image; anyone who can pull the image can read it.\",\"fix\":\"use a build secret: RUN --mount=type=secret,id=... (and a runtime secret for ENV)\"},{\"line\":22,\"severity\":\"warning\",\"rule\":\"root-user\",\"message\":\"The final USER is root: the container starts as root (unless its entrypoint drops privileges itself).\",\"fix\":\"switch to an unprivileged user (USER 10001, or a named user) after the steps that need root\"},{\"line\":17,\"severity\":\"info\",\"rule\":\"apt-recommends\",\"message\":\"apt-get installs recommended packages too, which the image rarely needs.\",\"fix\":\"add --no-install-recommends\"},{\"line\":17,\"severity\":\"info\",\"rule\":\"apt-lists\",\"message\":\"The apt package lists stay in the image.\",\"fix\":\"end the RUN with && rm -rf /var/lib/apt/lists/*\"}],\"images\":[{\"line\":2,\"image\":\"node:18-alpine\",\"exists\":true,\"digest\":\"sha256:8d6421d663b4c28fd3ebc498332f249011d118945588d0a35cb9bc4b8ca09d9e\",\"pin\":\"node:18-alpine@sha256:8d6421d663b4c28fd3ebc498332f249011d118945588d0a35cb9bc4b8ca09d9e\",\"platforms\":[\"linux/amd64\",\"linux/ppc64le\",\"linux/s390x\",\"linux/arm/v7\",\"linux/arm64/v8\",\"linux/arm/v6\"],\"updated\":\"2025-03-27\",\"upgrade_image\":\"node:24-alpine\",\"lifecycle\":[\"Node.js 18: end of life (end of life 2025-04-30)\"]},{\"line\":7,\"image\":\"node:18-alpine\",\"exists\":true,\"digest\":\"sha256:8d6421d663b4c28fd3ebc498332f249011d118945588d0a35cb9bc4b8ca09d9e\",\"pin\":\"node:18-alpine@sha256:8d6421d663b4c28fd3ebc498332f249011d118945588d0a35cb9bc4b8ca09d9e\",\"platforms\":[\"linux/amd64\",\"linux/ppc64le\",\"linux/s390x\",\"linux/arm/v7\",\"linux/arm64/v8\",\"linux/arm/v6\"],\"updated\":\"2025-03-27\",\"upgrade_image\":\"node:24-alpine\",\"lifecycle\":[\"Node.js 18: end of life (end of life 2025-04-30)\"]},{\"line\":13,\"image\":\"python:3.8-slim-buster\",\"exists\":true,\"digest\":\"sha256:8799b0564103a9f36cfb8a8e1c562e11a9a6f2e3bb214e2adc23982b36a04511\",\"pin\":\"python:3.8-slim-buster@sha256:8799b0564103a9f36cfb8a8e1c562e11a9a6f2e3bb214e2adc23982b36a04511\",\"platforms\":[\"linux/amd64\",\"linux/386\",\"linux/arm/v7\",\"linux/arm64/v8\"],\"updated\":\"2023-06-13\",\"upgrade_image\":\"python:3.14-slim\",\"lifecycle\":[\"Python 3.8: end of life (end of life 2024-10-07)\",\"Debian 10: extended only (end of life 2024-06-30)\"]}]}]}"
+  }
+}

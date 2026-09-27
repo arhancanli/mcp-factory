@@ -1,0 +1,55 @@
+{
+  "manifest_version": "0.3",
+  "name": "dockerfile-check-mcp",
+  "display_name": "Dockerfile Check",
+  "version": "0.1.0",
+  "description": "Checks Dockerfiles the way a build and a security review would: syntax, instructions that break or slow the build (apt-get install without -y, copies from outside the context, exec form with single quotes), risky patterns (root user, secrets in ENV or ARG, unpinned images), and every base image against its registry: whether the tag exists (with the nearest real tags when it does not), its digest to pin, the platforms it is built for, when it was last rebuilt, and whether its runtime and OS are past end of life. Docker Hub, GHCR, Quay, GCR, MCR, ECR Public and registry.k8s.io. No key.",
+  "author": {
+    "name": "Arhan Canli",
+    "url": "https://github.com/arhancanli"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/arhancanli/dockerfile-check-mcp"
+  },
+  "homepage": "https://github.com/arhancanli/dockerfile-check-mcp#readme",
+  "documentation": "https://github.com/arhancanli/dockerfile-check-mcp#readme",
+  "support": "https://github.com/arhancanli/dockerfile-check-mcp/issues",
+  "license": "MIT",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "mcp-server",
+    "developer-tools"
+  ],
+  "server": {
+    "type": "node",
+    "entry_point": "src/server.mjs",
+    "mcp_config": {
+      "command": "node",
+      "args": [
+        "${__dirname}/src/server.mjs"
+      ]
+    }
+  },
+  "tools": [
+    {
+      "name": "check_dockerfile",
+      "description": "Check Dockerfiles"
+    },
+    {
+      "name": "image_info",
+      "description": "Does this image tag exist, and is it supported?"
+    }
+  ],
+  "compatibility": {
+    "platforms": [
+      "darwin",
+      "win32",
+      "linux"
+    ],
+    "runtimes": {
+      "node": ">=20"
+    }
+  }
+}

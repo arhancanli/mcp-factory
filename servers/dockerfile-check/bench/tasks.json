@@ -1,0 +1,81 @@
+{
+ "competitor": {
+  "label": "mcp-server-fetch reading Docker Hub and the docs (no Dockerfile-checking MCP server exists; this is what agents use today)",
+  "command": "uvx",
+  "args": [
+   "mcp-server-fetch"
+  ]
+ },
+ "tasks": [
+  {
+   "id": "tag-exists",
+   "prompt": "Does the Docker Hub image tag node:18.99-alpine exist? Answer yes or no.",
+   "expect": {
+    "regex": "^\\W*no\\b"
+   }
+  },
+  {
+   "id": "apt-no-yes",
+   "prompt": "On which line does this Dockerfile's build fail? Answer with the line number only.\n\nFROM python:3.12-slim\nWORKDIR /app\nCOPY requirements.txt .\nRUN pip install --no-cache-dir -r requirements.txt\nRUN apt-get update && apt-get install ffmpeg\nCOPY . .\nUSER 10001\nCMD [\"python\", \"main.py\"]\n",
+   "expect": {
+    "number": 5
+   }
+  },
+  {
+   "id": "mysql-arm64",
+   "prompt": "Is the Docker Hub image mysql:5.7 built for linux/arm64? Answer yes or no.",
+   "expect": {
+    "regex": "^\\W*no\\b"
+   }
+  },
+  {
+   "id": "python38",
+   "prompt": "Does the Python version in the image python:3.8-slim-buster still receive security fixes? Answer yes or no.",
+   "expect": {
+    "regex": "^\\W*no\\b"
+   }
+  },
+  {
+   "id": "dotnet6-eol",
+   "prompt": "In which year did the runtime in mcr.microsoft.com/dotnet/aspnet:6.0 reach its end of life? Answer with the year only.",
+   "expect": {
+    "number": 2024
+   }
+  },
+  {
+   "id": "copy-parent",
+   "prompt": "Can `COPY ../config.yml /app/` in a Dockerfile work when the image is built with `docker build .` from the Dockerfile's directory? Answer yes or no.",
+   "expect": {
+    "regex": "^\\W*no\\b"
+   }
+  },
+  {
+   "id": "unknown-stage",
+   "prompt": "Which line of this Dockerfile refers to a build stage that does not exist? Answer with the line number only.\n\nFROM node:24-alpine AS deps\nWORKDIR /app\nCOPY package*.json ./\nRUN npm ci\n\nFROM node:24-alpine AS build\nWORKDIR /app\nCOPY --from=dependencies /app/node_modules ./node_modules\nCOPY . .\nRUN npm run build\n",
+   "expect": {
+    "number": 8
+   }
+  },
+  {
+   "id": "single-quote-exec",
+   "prompt": "Is `CMD ['node', 'server.js']` (with single quotes) run in exec form by Docker? Answer yes or no.",
+   "expect": {
+    "regex": "^\\W*no\\b"
+   }
+  },
+  {
+   "id": "pause-s390x",
+   "prompt": "Is the image registry.k8s.io/pause:3.10 built for linux/s390x? Answer yes or no.",
+   "expect": {
+    "regex": "^\\W*yes\\b"
+   }
+  },
+  {
+   "id": "openjdk-17",
+   "prompt": "Can you still pull the Docker Hub image openjdk:17? Answer yes or no.",
+   "expect": {
+    "regex": "^\\W*no\\b"
+   }
+  }
+ ]
+}

@@ -1,0 +1,19 @@
+{
+  "name": "dockerfile-check-mcp",
+  "version": "0.1.0",
+  "description": "Checks Dockerfiles the way a build and a security review would: syntax, instructions that break or slow the build (apt-get install without -y, copies from outside the context, exec form with single quotes), risky patterns (root user, secrets in ENV or ARG, unpinned images), and every base image against its registry: whether the tag exists (with the nearest real tags when it does not), its digest to pin, the platforms it is built for, when it was last rebuilt, and whether its runtime and OS are past end of life. Docker Hub, GHCR, Quay, GCR, MCR, ECR Public and registry.k8s.io. No key.",
+  "type": "module",
+  "license": "MIT",
+  "author": { "name": "Arhan Canli", "url": "https://github.com/arhancanli" },
+  "bin": { "dockerfile-check-mcp": "src/server.mjs" },
+  "files": ["src", "README.md", "LICENSE", "npm-shrinkwrap.json"],
+  "engines": { "node": ">=20" },
+  "scripts": { "test": "node --test test/*.test.mjs", "start": "node src/server.mjs" },
+  "dependencies": { "@modelcontextprotocol/sdk": "1.30.1", "dockerfile-ast": "0.7.1", "dockerfile-utils": "0.16.3", "zod": "4.6.5" },
+  "mcpName": "io.github.arhancanli/dockerfile-check-mcp",
+  "keywords": ["mcp", "model-context-protocol", "mcp-server", "developer-tools"],
+  "repository": { "type": "git", "url": "git+https://github.com/arhancanli/dockerfile-check-mcp.git" },
+  "homepage": "https://github.com/arhancanli/dockerfile-check-mcp#readme",
+  "bugs": { "url": "https://github.com/arhancanli/dockerfile-check-mcp/issues" },
+  "factory": { "displayName": "Dockerfile Check", "category": "developer-tools", "allowHosts": ["hub.docker.com", "endoflife.date", "registry-1.docker.io", "auth.docker.io", "ghcr.io", "quay.io", "gcr.io", "us.gcr.io", "eu.gcr.io", "asia.gcr.io", "mcr.microsoft.com", "public.ecr.aws", "us-west1-docker.pkg.dev"], "dependencyReasons": { "dockerfile-ast": "The Dockerfile parser behind VS Code's Docker support: instructions with line ranges, continuation lines, flags, build stages and ARG defaults, exactly as Docker splits them.", "dockerfile-utils": "The Dockerfile validator from the same project (MIT), which checks every instruction's syntax and arguments the way Docker does." }, "toolListBudget": 6000 }
+}

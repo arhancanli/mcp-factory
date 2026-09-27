@@ -151,6 +151,42 @@
       ]
     },
     {
+      "name": "dockerfile-check-mcp",
+      "title": "Dockerfile Check",
+      "category": "developer-tools",
+      "summary": "Checks Dockerfiles: build-breaking mistakes, base image tags that exist, digests, platforms, EOL.",
+      "description": "Checks Dockerfiles the way a build and a security review would: syntax, instructions that break or slow the build (apt-get install without -y, copies from outside the context, exec form with single quotes), risky patterns (root user, secrets in ENV or ARG, unpinned images), and every base image against its registry: whether the tag exists (with the nearest real tags when it does not), its digest to pin, the platforms it is built for, when it was last rebuilt, and whether its runtime and OS are past end of life. Docker Hub, GHCR, Quay, GCR, MCR, ECR Public and registry.k8s.io. No key.",
+      "version": "0.1.0",
+      "repository": "https://github.com/arhancanli/dockerfile-check-mcp",
+      "npm": "https://www.npmjs.com/package/dockerfile-check-mcp",
+      "mcpName": "io.github.arhancanli/dockerfile-check-mcp",
+      "hosts": [
+        "hub.docker.com",
+        "endoflife.date",
+        "registry-1.docker.io",
+        "auth.docker.io",
+        "ghcr.io",
+        "quay.io",
+        "gcr.io",
+        "us.gcr.io",
+        "eu.gcr.io",
+        "asia.gcr.io",
+        "mcr.microsoft.com",
+        "public.ecr.aws",
+        "us-west1-docker.pkg.dev"
+      ],
+      "tools": [
+        {
+          "name": "check_dockerfile",
+          "title": "Check Dockerfiles"
+        },
+        {
+          "name": "image_info",
+          "title": "Does this image tag exist, and is it supported?"
+        }
+      ]
+    },
+    {
       "name": "domain-health-mcp",
       "title": "Domain Health",
       "category": "developer-tools",

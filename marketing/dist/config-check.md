@@ -78,4 +78,4 @@ schemas from SchemaStore, so AI agents fix the key before anyone runs it. https:
 
 ## Cross-links
 
-Footer: 18 servers, each measured before release: https://github.com/topics/arhancanli-mcp. Related: Actions Check (https://github.com/arhancanli/actions-check-mcp), Citation Check (https://github.com/arhancanli/citation-check-mcp), Contact Check (https://github.com/arhancanli/contact-check-mcp).
+Footer: 19 servers, each measured before release: https://github.com/topics/arhancanli-mcp. Related: Actions Check (https://github.com/arhancanli/actions-check-mcp), Citation Check (https://github.com/arhancanli/citation-check-mcp), Contact Check (https://github.com/arhancanli/contact-check-mcp).
