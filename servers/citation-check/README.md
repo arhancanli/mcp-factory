@@ -24,8 +24,10 @@ Citation Check gives each reference a verdict an agent can act on:
 | `unverifiable` | The DOI is registered, but no source returns metadata to compare against |
 
 Every result also carries flags such as `retracted`, `partially_retracted`, `expression_of_concern`,
-`corrected`, `doi_added`, `identifier_points_to_different_work`, `doi_not_registered` and
-`published_version_exists`, with the notice DOIs and dates.
+`corrected`, `doi_added`, `identifier_points_to_different_work`, `doi_not_registered`,
+`published_version_exists` and `doi_may_be_later_copy`, with the notice DOIs and dates. The last
+one catches a quiet index error: OpenAlex sometimes files a classic paper under the DOI of a later
+repost or book chapter, which shows because the work is cited years before that DOI's date.
 
 It reads pasted reference lists in any common style (Vancouver, APA, numbered, one per line) and
 BibTeX, and returns corrected BibTeX that keeps your citation keys. No account or key needed.
@@ -92,7 +94,7 @@ An agent calls `check_references` with:
 }
 ```
 
-and gets back (recorded from the live server on 2026-09-26):
+and gets back (recorded from the live server on 2026-09-27):
 
 ```json
 {
@@ -202,23 +204,25 @@ Measured 2026-09-26 with gpt-5.4-mini, 10 fixed tasks graded by fixed checks (`b
 
 | Server | Correct | Input tokens | Output tokens | Tool calls | Median time |
 | --- | --- | --- | --- | --- | --- |
-| This server | 9/10 | 16205 | 679 | 16 | 5.7 s |
-| doi-mcp, the most starred citation verifier | 9/10 | 17165 | 630 | 12 | 3.9 s |
+| This server | 9/10 | 13618 | 498 | 11 | 4.2 s |
+| doi-mcp, the most starred citation verifier | 9/10 | 15314 | 567 | 11 | 3.8 s |
 <!-- bench:end -->
 
 ## Performance
 
 <!-- perf:start -->
-Measured 2026-09-26 from Dubai, home connection against the live upstream, Node 24.19.0 (`bench/perf.json`, `scripts/perf.mjs` in the factory).
+Measured 2026-09-27 from Dubai, home connection against the live upstream, Node 24.19.0 (`bench/perf.json`, `scripts/perf.mjs` in the factory).
 
 | Call | First call | Repeat | Result size |
 | --- | --- | --- | --- |
-| check_references: 6 citations (retracted, invented, wrong year, borrowed DOI, arXiv-only) | 9594 ms | 3.1 ms | 2,894 chars |
-| check_references: 2 BibTeX entries with corrected BibTeX | 7491 ms | 1.8 ms | 1,059 chars |
-| lookup_work: arXiv id | 795 ms | 0.3 ms | 717 chars |
-| lookup_work: PMID of a retracted paper | 3394 ms | 0.4 ms | 1,281 chars |
-| lookup_work: DOI link | 763 ms | 0.3 ms | 1,356 chars |
-| check_retractions: 5 inputs | 1485 ms | 0.6 ms | 987 chars |
+| check_references: 6 citations (retracted, invented, wrong year, borrowed DOI, arXiv-only) | 7075 ms | 4.3 ms | 2,894 chars |
+| check_references: 2 BibTeX entries with corrected BibTeX | 5143 ms | 0.8 ms | 1,059 chars |
+| lookup_work: arXiv id | 770 ms | 0.6 ms | 717 chars |
+| lookup_work: PMID of a retracted paper | 2114 ms | 0.4 ms | 1,281 chars |
+| lookup_work: DOI link | 745 ms | 0.4 ms | 1,356 chars |
+| check_retractions: 5 inputs | 839 ms | 0.3 ms | 987 chars |
+| lookup_work: a 2017 paper the indexes also file under a later repost's DOI | 5692 ms | 2 ms | 717 chars |
+| lookup_work: a famous paper's title plus search words | 3739 ms | 6.6 ms | 1,356 chars |
 
 First call: a fresh server process, including the TLS connection and the upstream's own time. Repeat: the same call again, answered from the in-process cache, so it shows this server's own overhead.
 

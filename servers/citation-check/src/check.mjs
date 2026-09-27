@@ -9,7 +9,7 @@ import { compact, mapLimit } from "./kit/index.mjs";
 import { parseBibtex, toBibtex } from "./bibtex.mjs";
 import { arxivDoi } from "./ids.mjs";
 import { CLOSEST_SHOWN, compare, diffs, DIFFERENT_WORK, fromBibtex, fromText, isRetractionNotice, rank, TITLE_MATCH } from "./match.mjs";
-import { crossrefByDois, crossrefSearch, dataciteSearch, dataciteWork, doiRegistered, flagForUpdate, openalexSearch, pubmedRecords } from "./sources.mjs";
+import { arxivOriginal, crossrefByDois, crossrefSearch, dataciteSearch, dataciteWork, doiRegistered, flagForUpdate, openalexSearch, pubmedRecords } from "./sources.mjs";
 import { clipText } from "./text.mjs";
 
 export const MAX_REFERENCES = 30;
@@ -78,7 +78,8 @@ async function search(ctx, c, state) {
   const oa = await openalexSearch(ctx, title ?? c.raw, 5, { byTitle: Boolean(title) });
   if (oa === null) state.openalexUnavailable = true;
   else searched.push("openalex");
-  const alt = pick(c, oa ?? []);
+  // A record dated by a later copy gives way to its arXiv original when OpenAlex lists one.
+  const alt = pick(c, await Promise.all((oa ?? []).map(async (r) => (r.citedSince ? ((await arxivOriginal(ctx, r)) ?? r) : r))));
   if (alt && (!best || alt.score > best.score)) best = alt;
   return { ...(best ?? {}), searched };
 }
@@ -180,6 +181,7 @@ export async function checkCitations(ctx, cites, { bibtex = false } = {}) {
     const target = suggested ?? matched;
     if (target) {
       flags.push(...updateFlags(target));
+      if (target.citedSince) flags.push("doi_may_be_later_copy");
       if (target.preprintOf) flags.push("published_version_exists");
     }
     if (flags.length) row.flags = [...new Set(flags)];
