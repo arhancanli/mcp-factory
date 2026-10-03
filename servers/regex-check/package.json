@@ -9,7 +9,7 @@
   "files": ["src", "README.md", "LICENSE", "npm-shrinkwrap.json"],
   "engines": { "node": ">=20" },
   "scripts": { "test": "node --test test/*.test.mjs", "start": "node src/server.mjs" },
-  "dependencies": { "@modelcontextprotocol/sdk": "1.30.1", "pcre2-wasm": "10.48.0", "pyodide": "314.0.7", "re2-wasm": "1.0.2", "recheck": "4.5.0", "zod": "4.6.5" },
+  "dependencies": { "@modelcontextprotocol/sdk": "1.31.0", "pcre2-wasm": "10.48.0", "pyodide": "314.0.7", "re2-wasm": "1.0.2", "recheck": "4.5.0", "zod": "4.6.5" },
   "mcpName": "io.github.arhancanli/regex-check-mcp",
   "keywords": ["mcp", "model-context-protocol", "mcp-server", "developer-tools"],
   "repository": { "type": "git", "url": "git+https://github.com/arhancanli/regex-check-mcp.git" },
