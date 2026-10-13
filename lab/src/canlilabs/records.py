@@ -3,9 +3,12 @@
 import hashlib
 import importlib.metadata
 import json
+import os
 import platform
+import re
 import sqlite3
 import sys
+import tempfile
 import uuid
 from contextlib import contextmanager
 from datetime import UTC, datetime
@@ -24,12 +27,30 @@ def sha256_file(path):
     return digest.hexdigest()
 
 
-def write_json(path, value):
-    """Exclusive creation prevents a run or manifest from being silently rewritten."""
+def write_bytes(path, value):
+    """Publish complete, flushed bytes atomically without replacing existing content."""
     destination = Path(path)
     destination.parent.mkdir(parents=True, exist_ok=True)
-    with destination.open("x", encoding="utf-8") as stream:
-        stream.write(json.dumps(value, indent=2, sort_keys=True, allow_nan=False) + "\n")
+    descriptor, temporary = tempfile.mkstemp(prefix=".pending-", dir=destination.parent)
+    try:
+        with os.fdopen(descriptor, "wb") as stream:
+            stream.write(value)
+            stream.flush()
+            os.fsync(stream.fileno())
+        os.link(temporary, destination)
+        directory = os.open(destination.parent, os.O_RDONLY)
+        try:
+            os.fsync(directory)
+        finally:
+            os.close(directory)
+    finally:
+        os.unlink(temporary)
+
+
+def write_json(path, value):
+    # Serialize before creating a file: NaN or an unserializable value leaves no partial receipt.
+    value = (json.dumps(value, indent=2, sort_keys=True, allow_nan=False) + "\n").encode()
+    write_bytes(path, value)
 
 
 def source_fingerprint():
@@ -99,46 +120,160 @@ class Ledger:
         finally:
             db.close()
 
-    def start(self, config):
+    @staticmethod
+    def _run_id(run_id):
+        if not isinstance(run_id, str) or not re.fullmatch(r"[a-f0-9]{32}", run_id):
+            raise ValueError("Run ID must be a 32-character ID returned by runs.")
+
+    @staticmethod
+    def _receipt(path, document):
+        if path.exists():
+            if json.loads(path.read_text()) != document:
+                raise ValueError("A derived receipt differs from the authoritative ledger.")
+            return
+        write_json(path, document)
+
+    def _start(self, config, leased=False):
         run_id = uuid.uuid4().hex
         directory = self.workspace / "runs" / run_id
         directory.mkdir(parents=True, exist_ok=False)
-        provenance = {"code": source_fingerprint(), "environment": environment()}
-        created_at = datetime.now(UTC).isoformat()
-        with self.connect() as db:
-            db.execute(
-                "INSERT INTO runs VALUES (?, ?, ?, ?)",
-                (run_id, created_at, canonical(config), canonical(provenance)),
-            )
-        write_json(
-            directory / "started.json",
-            {
-                "run_id": run_id,
-                "created_at": created_at,
-                "config": config,
-                "provenance": provenance,
-            },
-        )
+        lease = None
+        try:
+            if leased:
+                import fcntl
+
+                lease = (directory / ".worker.lock").open("x+b")
+                # Acquire before making the started run visible in SQLite.
+                fcntl.flock(lease, fcntl.LOCK_EX | fcntl.LOCK_NB)
+            provenance = {"code": source_fingerprint(), "environment": environment()}
+            if leased:
+                identity = os.fstat(lease.fileno())
+                provenance["worker_lease"] = {
+                    "protocol": "posix-flock.v2",
+                    "file": ".worker.lock",
+                    "device": identity.st_dev,
+                    "inode": identity.st_ino,
+                }
+            created_at = datetime.now(UTC).isoformat()
+            with self.connect() as db:
+                db.execute(
+                    "INSERT INTO runs VALUES (?, ?, ?, ?)",
+                    (run_id, created_at, canonical(config), canonical(provenance)),
+                )
+            try:
+                write_json(
+                    directory / "started.json",
+                    {
+                        "run_id": run_id,
+                        "created_at": created_at,
+                        "config": config,
+                        "provenance": provenance,
+                    },
+                )
+            except OSError:
+                # SQLite is authoritative. Missing derived receipts can be repaired.
+                pass
+        except BaseException:
+            if lease:
+                lease.close()
+            raise
+        return run_id, directory, lease
+
+    def start(self, config):
+        """Create an administrative trial. Training workers must use active_run."""
+        run_id, directory, _lease = self._start(config)
         return run_id, directory
 
+    @contextmanager
+    def active_run(self, config):
+        """An OS-held lease prevents recovery from stopping a live training worker."""
+        run_id, directory, lease = self._start(config, leased=True)
+        try:
+            yield run_id, directory
+        finally:
+            lease.close()
+
     def finish(self, run_id, state, payload):
+        self._run_id(run_id)
+        serialized = canonical(payload)
         created_at = datetime.now(UTC).isoformat()
         with self.connect() as db:
             db.execute(
                 "INSERT INTO events(run_id, state, created_at, payload) VALUES (?, ?, ?, ?)",
-                (run_id, state, created_at, canonical(payload)),
+                (run_id, state, created_at, serialized),
             )
-            write_json(
+        try:
+            self._receipt(
                 self.workspace / "runs" / run_id / "finished.json",
                 {
+                    **payload,
                     "run_id": run_id,
                     "state": state,
                     "created_at": created_at,
-                    **payload,
                 },
             )
+        except (OSError, ValueError):
+            # Never convert a committed success to a failure because a receipt write failed.
+            return False
+        return True
+
+    def repair_receipts(self, run_id):
+        self._run_id(run_id)
+        record = self.get(run_id)
+        directory = self.workspace / "runs" / run_id
+        self._receipt(
+            directory / "started.json",
+            {key: record[key] for key in ["run_id", "created_at", "config", "provenance"]},
+        )
+        if record["state"] != "started":
+            with self.connect() as db:
+                event = db.execute(
+                    "SELECT created_at FROM events WHERE run_id = ?", (run_id,)
+                ).fetchone()
+            self._receipt(
+                directory / "finished.json",
+                {
+                    **record["result"],
+                    "run_id": run_id,
+                    "state": record["state"],
+                    "created_at": event["created_at"],
+                },
+            )
+        return {"run_id": run_id, "state": record["state"], "receipts_verified": True}
+
+    def recover(self, run_id, reason):
+        """Explicitly fail an abandoned trial; an active OS lease always blocks recovery."""
+        import fcntl
+
+        self._run_id(run_id)
+        if not isinstance(reason, str) or not reason.strip() or len(reason) > 1024:
+            raise ValueError("Recovery requires a non-empty reason of at most 1,024 characters.")
+        record = self.get(run_id)
+        expected = record["provenance"].get("worker_lease", {})
+        if expected.get("protocol") != "posix-flock.v2":
+            raise ValueError("Legacy/unleased trials need an offline audit before recovery.")
+        path = self.workspace / "runs" / run_id / ".worker.lock"
+        if not path.exists() or path.is_symlink():
+            raise ValueError("The worker lease file is missing or replaced; recovery refused.")
+        with path.open("r+b") as lease:
+            actual = os.fstat(lease.fileno())
+            if (actual.st_dev, actual.st_ino) != (expected["device"], expected["inode"]):
+                raise ValueError("The worker lease file was replaced; recovery refused.")
+            try:
+                fcntl.flock(lease, fcntl.LOCK_EX | fcntl.LOCK_NB)
+            except BlockingIOError as error:
+                raise ValueError("The training worker is active; recovery refused.") from error
+            if self.get(run_id)["state"] != "started":
+                raise ValueError("Only an unfinished started trial can be recovered.")
+            self.finish(
+                run_id,
+                "failed",
+                {"error_type": "InterruptedRun", "message": reason, "recovered": True},
+            )
+        return self.get(run_id)
 
     def get(self, run_id):
+        self._run_id(run_id)
         with self.connect() as db:
             row = db.execute(
                 """
@@ -187,6 +322,10 @@ class Ledger:
         }
 
     def artifact(self, run_id, filename):
+        if not isinstance(filename, str) or not re.fullmatch(
+            r"[a-zA-Z0-9][a-zA-Z0-9._-]{0,127}", filename
+        ):
+            raise ValueError("Artifact names must be bounded filenames without path components.")
         record = self.get(run_id)
         if record["state"] != "succeeded":
             raise ValueError("Only a succeeded run provides verified model artifacts.")
@@ -194,6 +333,8 @@ class Ledger:
         if expected is None:
             raise ValueError("That file is not a registered artifact of this run.")
         candidate = self.workspace / "runs" / record["run_id"] / filename
+        if candidate.is_symlink():
+            raise ValueError("Registered artifacts cannot be symbolic links.")
         if sha256_file(candidate) != expected:
             raise ValueError("Artifact hash mismatch; the saved model was modified.")
         return candidate

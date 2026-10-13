@@ -1,0 +1,10 @@
+{
+  "compressed_sha256": "66a90e1eb3e4f212e85a05afb92fd7bec8d08fa06c8f9d5b7900fc94dbbe33ad",
+  "csv": "classification.csv.gz",
+  "dataset_id": "20302311e828e8c2cce16c6aa9bec3c9e06872e8a9e2194a1f8c9c619bcf777e",
+  "license": "CC0-1.0",
+  "schema": "canlilabs.frozen-evaluation-fixture.v1",
+  "scope": "Public CC0 synthetic golden fixture from recorded CPU runs; no private data or weights.",
+  "source": "synthetic:sklearn.make_classification:seed=31415",
+  "split_sha256": "225724997c047a77da1705e986018022ca0c68235b41d64b3908cf76207323cf"
+}

@@ -33,6 +33,22 @@ Runs and datasets use a configurable local workspace; private material and
 checkpoints stay out of the repository. Small public validation receipts may be
 committed after content inspection.
 
+Registered numeric tables feed both multiclass and regression recipes. Explicit
+feature selection excludes targets, identifiers and declared subject/time fields.
+Feature-equivalent rows and subject links form disjoint components for random/group
+splitting; chronological splitting keeps ties together and rejects boundary leakage.
+Profiles use training rows for feature statistics. Split evidence binds exact data,
+source/licence metadata, feature order, task, class mapping and profile hashes.
+
+SQLite remains the authoritative append-only ledger. Complete JSON receipts are
+flushed and published atomically without overwrite. Workers acquire an OS lease
+before their started record becomes visible and hold it through finalization.
+Recovery requires the original lease file identity and an acquired exclusive lock;
+active or unverifiable workers cannot be failed based on elapsed time. Missing
+derived receipts can be rebuilt; altered receipts are reported. Comparisons require
+the same held-out protocol, preserve failure counts and choose no test-based winner.
+Hash-verified model cards describe exact results and remaining qualification gaps.
+
 CPU recipes provide a fast functional path. Accelerator and distributed recipes
 must separately document supported hardware, memory, deterministic limitations,
 checkpoint/recovery, throughput, and resource budgets. The CPU prototype does

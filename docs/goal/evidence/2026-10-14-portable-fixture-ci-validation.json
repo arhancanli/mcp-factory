@@ -1,0 +1,84 @@
+{
+  "checked_at": "2026-10-13T21:24:14.227470+00:00",
+  "checks": [
+    {
+      "conclusion": "success",
+      "details_url": "https://github.com/arhancanli/mcp-factory/runs/115544223365",
+      "name": "CodeQL",
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "details_url": "https://github.com/arhancanli/mcp-factory/actions/runs/38469205332/job/115543574311",
+      "name": "cpu-laboratory",
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "details_url": "https://github.com/arhancanli/mcp-factory/actions/runs/38469205303/job/115543573710",
+      "name": "analyze",
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "details_url": "https://github.com/arhancanli/mcp-factory/actions/runs/38469205179/job/115543573658",
+      "name": "Gate on Node 22",
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "details_url": "https://github.com/arhancanli/mcp-factory/actions/runs/38469205179/job/115543573649",
+      "name": "Gate on Node 24",
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "details_url": "https://github.com/arhancanli/mcp-factory/actions/runs/38469205179/job/115543573480",
+      "name": "Gate on Node 20",
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "details_url": "https://github.com/arhancanli/mcp-factory/actions/runs/38469205179/job/115543573313",
+      "name": "Every server works as its own repository",
+      "status": "completed"
+    }
+  ],
+  "evaluation_helper_sha256": "7f0c24bf54caf4f16c7042348a66e52ca3034a9811132d7716cf63a8f0eeff59",
+  "frozen_fixture": {
+    "compressed_sha256": "66a90e1eb3e4f212e85a05afb92fd7bec8d08fa06c8f9d5b7900fc94dbbe33ad",
+    "csv": "classification.csv.gz",
+    "dataset_id": "20302311e828e8c2cce16c6aa9bec3c9e06872e8a9e2194a1f8c9c619bcf777e",
+    "license": "CC0-1.0",
+    "schema": "canlilabs.frozen-evaluation-fixture.v1",
+    "scope": "Public CC0 synthetic golden fixture from recorded CPU runs; no private data or weights.",
+    "source": "synthetic:sklearn.make_classification:seed=31415",
+    "split_sha256": "225724997c047a77da1705e986018022ca0c68235b41d64b3908cf76207323cf"
+  },
+  "laboratory_checks": {
+    "behavioral_tests": 39,
+    "frozen_mcp_calls": 14,
+    "frozen_task_answers": 10,
+    "mcp_integrations": 2
+  },
+  "package_source": {
+    "files": {
+      "__init__.py": "0d9617e8d49b06405371c4f311b8053f94ba8dbb73079afe27d8dd9a483e785b",
+      "cli.py": "1cbff7b538e9240aa646d054d49c60337fa9023b6fa9e7a86728d96f3ec22b62",
+      "data.py": "8b57c116ef3520ac6d80b5782670d8d8a806174fe09595077e05c94e29dd6139",
+      "lifecycle.py": "e5c51bc28b22de9713943535a38bdb2431493a088f882072b9d99b06e6149ffc",
+      "pyproject.toml": "0e129549319ea93a5bc9d7f1353bbdc048fd24cb78aded5edc4f7d16cc87668e",
+      "reader.py": "98dee186df4309e487cd078365ca62b0089640bc4bfed7b34426e0f8ff4a32f5",
+      "recipes.py": "a121fcae293469bdf2b6211d00fc199ea3ebaf88f2b45f4fa8f9807219549521",
+      "records.py": "0026112cdc1a762eb9b7b1fbfa4c0683b1771d6a100880212380165c52e83145",
+      "tabular.py": "f739731f204ed61f215086c7e15f3ca3deeddf7c3fed870b78850f5fc06dbda2",
+      "uv.lock": "ff4d87ad46ffd50dfe81e2cf40351532df7313609239e7032db1962a114f0c69"
+    },
+    "sha256": "d39c84dae77351b72f5f9011f637d9be4260b8f62f4d72bc1a569cb2c608e7c5"
+  },
+  "pull_request": "https://github.com/arhancanli/mcp-factory/pull/10",
+  "retained_failure": "2026-10-14-frozen-fixture-ci-failure.json",
+  "schema": "canlilabs.ci-validation.v1",
+  "scope": "Portable frozen corpus and CPU/standalone validation; no agent comparison or public release.",
+  "tested_commit": "cecee19ecc07bd1e35f34749b2409e0a53a4ce83"
+}

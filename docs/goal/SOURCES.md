@@ -26,3 +26,13 @@ September scout demand, competitor counts, performance and benchmark records are
 historical evidence. They must be dated and refreshed before new superiority or
 current-adoption claims. Current source references do not prove our implementation
 passes their requirements; execution evidence is recorded separately.
+
+Primary references checked on 2026-10-14 (owner timezone):
+
+- [UCI Iris](https://archive.ics.uci.edu/dataset/53/iris): 150 examples, four numeric features, three classes; CC BY 4.0 and creator citation. Validation uses the named bezdekIris.data archive member with no unrecorded corrections.
+- [UCI Wine Quality](https://archive.ics.uci.edu/dataset/186/wine+quality): numeric regression/classification task, eleven predictors, red/white variants, CC BY 4.0 and original creator citation. Validation uses all 4,898 white-wine rows.
+- [scikit-learn Ridge](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Ridge.html): fixed regularized least squares for the bounded regression recipe.
+- [GroupShuffleSplit](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GroupShuffleSplit.html): group partition fractions concern groups rather than exact row fractions; our union-component splitter additionally links numeric duplicates.
+- [Python 3.12 file locks](https://docs.python.org/3.12/library/fcntl.html): POSIX exclusive/nonblocking flock and Unix availability for local worker liveness.
+- [Python filesystem operations](https://docs.python.org/3.12/library/os.html): flushed writes, fsync and exclusive link-based publication; validated on local macOS, Linux validation remains a separate gate.
+- [GitHub advanced CodeQL configuration](https://docs.github.com/en/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning): explicit JavaScript/TypeScript and Python analysis for the expanded laboratory.

@@ -8,7 +8,7 @@ from pathlib import Path
 
 import numpy as np
 
-from .records import canonical, sha256_file, write_json
+from .records import canonical, sha256_file, write_bytes, write_json
 
 MAX_DATASET_BYTES = 16 * 1024 * 1024
 MAX_ROWS = 100_000
@@ -46,20 +46,31 @@ def check_splits(rows, splits, id_column="id"):
     return {name: len(indices) for name, indices in splits.items()}
 
 
-def register_csv(workspace, source_path, *, source, license_id, target="label"):
-    if not source.strip() or not license_id.strip():
+def register_csv(
+    workspace, source_path, *, source, license_id, target="label", lineage=None, attribution=None
+):
+    if (
+        not isinstance(source, str)
+        or not isinstance(license_id, str)
+        or not source.strip()
+        or not license_id.strip()
+    ):
         raise ValueError("Dataset source and licence are required; do not infer training rights.")
+    if len(source) > 4096 or len(license_id) > 128 or len(target) > 128:
+        raise ValueError("Source, licence and target metadata exceed the local limits.")
     path = Path(source_path)
-    if path.stat().st_size > MAX_DATASET_BYTES:
+    with path.open("rb") as stream:
+        snapshot = stream.read(MAX_DATASET_BYTES + 1)
+    if len(snapshot) > MAX_DATASET_BYTES:
         raise ValueError(
             "The local CSV path supports at most 16 MiB; use a streaming recipe above it."
         )
-    with path.open(newline="", encoding="utf-8") as stream:
+    with io.StringIO(snapshot.decode("utf-8"), newline="") as stream:
         reader = csv.DictReader(stream)
         fields = reader.fieldnames
         if not fields or len(fields) != len(set(fields)) or target not in fields:
             raise ValueError("CSV needs unique column names and the declared target column.")
-        if len(fields) > 1024:
+        if len(fields) > 1024 or any(not name.strip() or len(name) > 128 for name in fields):
             raise ValueError("The local recipe supports at most 1,024 columns.")
         rows = []
         for row in reader:
@@ -70,13 +81,15 @@ def register_csv(workspace, source_path, *, source, license_id, target="label"):
                 raise ValueError("The local CSV recipe supports at most 100,000 rows.")
     if len(rows) < 10:
         raise ValueError("Provide at least ten complete rows for non-empty split evaluation.")
-    digest = sha256_file(path)
+    digest = hashlib.sha256(snapshot).hexdigest()
     directory = Path(workspace) / "datasets" / digest
     directory.mkdir(parents=True, exist_ok=True)
     destination = directory / "data.csv"
     if not destination.exists():
-        with destination.open("xb") as stream:
-            stream.write(path.read_bytes())
+        try:
+            write_bytes(destination, snapshot)
+        except FileExistsError:
+            pass  # A concurrent registration must still pass the hash check below.
     if sha256_file(destination) != digest:
         raise ValueError("Dataset hash mismatch; immutable stored content has changed.")
     manifest = {
@@ -88,18 +101,33 @@ def register_csv(workspace, source_path, *, source, license_id, target="label"):
         "target": target,
         "columns": fields,
         "rows": len(rows),
-        "bytes": path.stat().st_size,
+        "bytes": len(snapshot),
         "purpose": "training and independent evaluation",
         "rights_status": "declared_by_registrant",
         "file": "data.csv",
     }
+    if lineage is not None:
+        manifest["lineage"] = lineage
+    if attribution is not None:
+        manifest["attribution"] = attribution
+    if (
+        len((json.dumps(manifest, indent=2, sort_keys=True, allow_nan=False) + "\n").encode())
+        > 64 * 1024
+    ):
+        raise ValueError("Dataset metadata must fit within 64 KiB.")
     manifest_path = directory / "manifest.json"
     if manifest_path.exists():
         existing = json.loads(manifest_path.read_text())
         if existing != manifest:
             raise ValueError("The existing dataset has different source/licence/schema metadata.")
     else:
-        write_json(manifest_path, manifest)
+        try:
+            write_json(manifest_path, manifest)
+        except FileExistsError:
+            if json.loads(manifest_path.read_text()) != manifest:
+                raise ValueError(
+                    "Concurrent dataset registration has different metadata."
+                ) from None
     return manifest
 
 

@@ -1,99 +1,125 @@
 # Current status
 
-Updated: 2026-10-13. Overall goal: active; incomplete.
+Updated: 2026-10-14 (Asia/Dubai). Overall goal: active; incomplete.
 
-Repository: `arhancanli/mcp-factory`. Recovered base: `e52f29f` on `origin/main`.
-Active branch: `codex/canlilabs-foundation-20261013`. Worktree:
-`/Users/arhancanli/canlilabs-goal-20261013`. The original checkout remains on main.
-Implementation commit `d5f1ae2` is owner-signed (verified locally). Review:
-[PR #9](https://github.com/arhancanli/mcp-factory/pull/9), implementation validated;
-review readiness and the final documentation commit are being finalized.
-Standalone validation passed all 21 servers, 270 server tests, and packed-package
-initialization. Laboratory CI and CodeQL passed on the implementation commit.
-The corrected owner-email rule now passes factory CI on Node 20, 22 and 24.
-The next standalone job exposed an intermittent SQL Check test failure; its
-failure output had been discarded by the runner. Added bounded diagnostic output
-and separated normal engine startup/recovery deadlines from the test's three-second
-runaway-query deadline. The exact three-second cutoff, worker termination and
-replacement checks remain enforced. All 11 SQL Check tests pass locally. On
-implementation head `f83d50a`, all seven PR checks passed: Node 20/22/24 gates,
-21 standalone packages, laboratory CI, and both CodeQL checks. The laboratory's
-first attempt stalled in checkout before tests; a fresh runner succeeded. Exact
-check URLs and the tested commit are saved in
-[ci-validation.json](evidence/2026-10-13-ci-validation.json).
+Repository: `arhancanli/mcp-factory`. Actual `origin/main`: `e52f29f`.
+Active worktree: `/Users/arhancanli/canlilabs-data-20261014`.
+Branch: `codex/canlilabs-data-lifecycle-20261014`, based on foundation head
+`cd1dabf`. The original checkout remains clean on main. Foundation
+[PR #9](https://github.com/arhancanli/mcp-factory/pull/9) is open, ready for review
+and unmerged; all seven checks passed on its final head. The data/lifecycle slice
+is owner-signed at `9bda49c` and open as stacked
+[PR #10](https://github.com/arhancanli/mcp-factory/pull/10), ready for review.
+All seven checks passed on `4dc15f9` and portable-fixture head `cecee19`.
+GitHub verifies the owner signature.
+It depends on PR #9 and is not merged or published. Exact check URLs and the tested
+source are in [data-ci-validation.json](evidence/2026-10-14-data-ci-validation.json).
+The later [portable-fixture CI receipt](evidence/2026-10-14-portable-fixture-ci-validation.json)
+also records the successful ten-task step and frozen hashes.
+The final data review passed all seven checks at `77b292d`; its
+[reviewed CI receipt](evidence/2026-10-14-reviewed-data-ci-validation.json) binds
+42 lab tests and twelve public runs to the current package fingerprint.
 
-## Implemented and verified locally
+## Current executable laboratory
 
-- Durable goal, 25 requirement IDs, nine-phase-plus-recovery roadmap, full model
-  coverage matrix, prioritized backlog and home/repository continuation rules.
-  Original MCP quality, distribution, adoption and maintenance goals are preserved.
-- Python 3.12 package and locked environment; real CPU logistic-regression, PyTorch
-  MLP and FrozenLake Q-learning recipes; held-out/independent evaluation and baselines;
-  checkpoint save/reload verification; bounded inference.
-- Content-addressed CSV data with source/licence metadata and schema bounds,
-  explicit splits, duplicate-content/identity leakage checks and tampering guards.
-- Append-only local trial ledger with unique IDs, failures, configs, seeds,
-  source/dependency/data/split hashes, metrics and artifact hashes.
-- Three read-only MCP pilot tools for listing/inspecting experiments and checking
-  dataset provenance/hash. Real stdio integration verified no database modification.
-- Shared HTTP now binds loopback by default, validates Host and Origin before
-  creating a context, requires explicit trusted hosts for remote binding, and keeps
-  bodies/connections bounded. Unexpected error details are withheld from logs.
-- MCP SDK upgraded from 1.30.1 to 1.32.1 across the factory/template/21 server
-  manifests; regenerated all shrinkwraps and synchronized vendored kit/docs.
-  Root npm audit reports zero vulnerabilities. The advisory concerns SDK OAuth
-  clients; the server implementations themselves were not claimed exploitable.
-- Existing factory baseline: 287/287 checks. Updated factory: 290/290 checks.
-  Laboratory: 14/14 behavioral tests. MCP stdio integration: 1/1. Frozen pilot
-  task answers: 10/10 verified through 14 real MCP calls. Agent/incumbent evaluation
-  of the pilot has not been executed.
+- Locked Python 3.12 CPU environment; real ML, PyTorch MLP and tabular RL recipes.
+  Registered tables now support binary/multiclass classification and regression,
+  explicit feature order, original-label inference and checkpoint reload checks.
+- Atomic, content-addressed CSV registration with declared source/licence,
+  attribution and optional lineage. Public ingestion records original archive,
+  member and converted hashes plus transformations. Dataset metadata stays bounded.
+- Explicit random/group/time split evidence with every row accounted for, numeric
+  feature duplicates held together, transitive subject links, strict chronology and
+  timestamp ties. Exact target copies and non-finite inputs are rejected.
+  Profiles use training rows for feature statistics. Semantic/approximate leakage
+  and task-specific time windows remain separate qualification work.
+- Append-only trial ledger, configs/seeds/source/environment/data/split/artifact
+  hashes and failed attempts. Workers hold a POSIX lease before a run becomes
+  visible. Recovery refuses live, missing, replaced or unverifiable legacy leases.
+  Interrupted workers can be recorded as failed without replacing final states.
+- SQLite is authoritative; complete derived JSON receipts are published atomically.
+  Receipt I/O errors cannot turn committed successes into failures. Missing copies
+  can be rebuilt; altered copies are reported. Hash-verified model cards and
+  comparisons on identical held-out protocols retain failure/trial counts and
+  perform no automatic test-based promotion.
+- Three read-only MCP tools remain within the compact tool-list budget. Dataset
+  inspection can verify a run's split, training profile and source/licence hashes,
+  with no raw rows, split positions or weights returned. Real stdio tests confirm
+  the database is unchanged and tampered split/rights metadata is rejected.
 
-Nine final validation runs across seeds 7, 19, 43 are recorded in
-[lab-final-runs.json](evidence/2026-10-13-lab-final-runs.json). Classical ML test
-accuracy was 87.9%; MLP test accuracy was 96.3-97.1%, against a 50.4% majority
-baseline on the fixed synthetic classification fixture. Tabular policies achieved
-200/200 successes per seed on the small deterministic RL environment, against
-3/200 for each random baseline. These are smoke-task results, not general model
-or research-performance claims. The main local ledger held 19 total attempts when
-the nine-run final cohort was recorded. Temporary test ledgers are separate.
+Local checks: 42 behavioral lab tests, two real stdio integrations, lint/format,
+290 factory checks and ten frozen task answers through fourteen MCP calls.
+Lab lint/format, behavioral tests and integrations passed in macOS CI, with Node
+20/22/24 gates, all 21 standalone packages and JavaScript/Python CodeQL. The ten
+frozen task answers also passed locally and are now added as a required lab CI step.
+Its first run caught a regenerated-fixture hash difference across hosts after all
+behavioral/integration tests passed. The helper now uses the exact public CC0
+synthetic fixture and splits from the recorded cohort, checking all hashes.
+The portable step then passed on `cecee19`: CI logs verify all ten answers through
+fourteen MCP calls. The earlier failure is retained. All seven checks passed again.
+These task answers are not an agent/incumbent benchmark. A final data review added
+three edge-case tests and corrections for numeric target aliases and large time
+ties. All 42 tests, integrations and frozen tasks pass in CI at `77b292d`.
+The final receipt commit changes documentation only; recheck current PR state on resume.
 
-## Actual factory/release gaps
+Three separate twelve-run public cohorts are retained. The reviewed cohort in
+[registered-data-reviewed-runs.json](evidence/2026-10-14-registered-data-reviewed-runs.json) uses
+fixed seeds 7/19/43, split seed 2718, default ML parameters and 30 DL epochs.
+Both recipes achieved 30/30 Iris test predictions per seed against a 1/3 majority
+baseline. On 967 held-out Wine Quality examples, ridge RMSE was 0.719 and MLP RMSE
+0.666-0.677, against 0.859 for the training-mean baseline. All checkpoints reloaded.
+These are two small public tasks on fixed splits, not population uncertainty,
+strongest-model evidence or production qualification. Both source pages declare
+CC BY 4.0; receipts retain creator attribution and conversion lineage. UCI data and
+weights stay local; the committed frozen fixture is public CC0 synthetic data.
+The two earlier cohorts retain their source hashes; the newest receipt matches
+the reviewed package and keeps all twelve new trials. Parameters were unchanged.
+Its exact package fingerprint is
+`17633f3a0172315349a6a595f5c811a514645ebe2d4bc0d331ddb5e39130d24e`.
+Iris has one duplicate feature row;
+Wine Quality has 937. All rows are retained in disjoint components. Wine split
+counts are 2,959 training, 972 validation and 967 test examples.
 
-The [second public audit](evidence/2026-10-13-factory-audit-second.json) inspected
-21 source/catalog entries, 21 performance files and 16 agent benchmark directories.
-Five lack agent comparison results: Config Check, Dockerfile Check, Kube Check,
-Regex Check and SQL Check. Twelve servers meet the audit's basic historical
-accuracy/token comparison calculation in at least one result; this does not prove
-the strongest current incumbent or every full shipping criterion.
+The foundation's nine final synthetic/RL runs and 19 main-workspace attempts at
+recording remain in their dated receipt. Original smoke results and earlier failed
+canary evidence are retained; newer work does not overwrite historical records.
 
-All 21 exact npm version lookups returned missing packages; no npm publication is
-being claimed. No matching Registry versions were verified. Most Registry queries
-timed out and remain unknown, while completed unmatched searches are recorded
-separately. Repository tree parity and release signatures are unverified.
+## Verified factory foundation and remaining release gaps
 
-The audit observed 18 successful last canaries, two failures (Recall Check and
-Release Notes), and one unknown query (SQL Check). SQL Check's earlier audited
-canary had succeeded. Recall Check's full live canary passed locally during triage;
-its remote failure has not been treated as fixed or hidden. Release Notes returns
-the correct version but its canary hard-coded a date removed from Express's
-current History.md. Its stable version/deprecation assertion was repaired, with
-an undated-heading/registry-date regression test (10/10 server tests). A subsequent
-live attempt encountered an upstream timeout. After improving error diagnosis and
-cleanup, its next full live canary passed. Both originally failing remote canaries
-now pass locally; deployment and later remote health remain separate evidence.
+The foundation upgraded SDK 1.30.1 to 1.32.1 across the kit/template/21 packages,
+regenerated locks/vendor copies/docs and passed npm audit with zero vulnerabilities.
+It added loopback defaults, exact Host/Origin validation, declared remote hosts,
+bounded HTTP bodies/connections and safe unexpected-error logs. Factory checks:
+290/290. Standalone validation: 21 packages, 270 server tests and every packed
+initialize. Node 20/22/24, macOS lab and both CodeQL checks passed on PR #9.
+Its SQL timing repair preserves the exact runaway-query deadline and recovery
+assertions. The owner identity/signing/credit gates remain enforced.
 
-Open upstream PRs #3-#8 were dependency updates at recovery and have not been merged
-here. This branch implements the SDK pin proposed in #4 as part of its tested
-foundation; it does not merge that PR. Initial npm publishing uses the existing
-owner browser-confirmation/Trusted Publisher workflow, after quality evidence.
+The [second release audit](evidence/2026-10-13-factory-audit-second.json) contains
+21 source/catalog entries, 21 saved performance files and 16 agent benchmark
+directories. Config Check, Dockerfile Check, Kube Check, Regex Check and SQL Check
+lack agent comparisons. Twelve servers meet a simple historical accuracy/token
+calculation in at least one saved result; this is less than current best-in-niche
+qualification. All 21 declared exact npm versions returned missing. Matching
+Registry versions were not verified; timed-out queries remain unknown. Repository
+parity, public release assets/provenance and maintained release counts remain
+unverified. The laboratory pilot is not counted as a standalone release.
 
-## Next work
+The audit recorded 18 successful latest canaries, Recall Check and Release Notes
+failures, and SQL Check unknown. Both failing canaries passed later local triage.
+Release Notes' stable assertion and undated-history fallback were repaired;
+remote deployment and subsequent health remain separate work. Dependency PRs
+#3-#8 were open at recovery and were not merged. Existing initial npm publishing
+uses owner browser confirmation/Trusted Publisher after qualification.
 
-The executable foundation is verified and open for review. The documentation
-follow-up changes no runtime behavior; verify its current PR checks when resuming.
-Then follow [BACKLOG.md](BACKLOG.md): close canary/benchmark/publication deficits;
-add trainable registered data and lifecycle/recovery; qualify lab/data MCP niches;
-add Linux/accelerator/deep-RL/foundation-model paths; scale through 100, 500, 2,000
-distinct qualifying releases. The pilot is not counted as a standalone release.
-All broad learning tracks and sustained adoption/maintenance objectives remain
-active in REQUIREMENTS.md and COVERAGE.md.
+## Next unmet gates
+
+Integrate the reviewed foundation and data slice under the existing owner review
+policy. Independently advance release-readiness evidence and missing MCP comparisons,
+remote canary rollout, Linux CPU validation, promotion/rollback and checkpoint
+resume, accelerator/deep-RL/foundation-model recipes, and practical education.
+[BACKLOG.md](BACKLOG.md), [REQUIREMENTS.md](REQUIREMENTS.md) and
+[COVERAGE.md](COVERAGE.md) preserve every original and expanded objective.
+Scale through 100, 500 and at least 2,000 distinct maintained qualifying releases;
+publication, demand, current competitor evidence, discovery and adoption still
+require proof. No broad objective is closed by this local milestone.

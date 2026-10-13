@@ -55,10 +55,10 @@ export const TOOLS = [
   }),
   defineTool({
     name: "lab_inspect_dataset", title: "Inspect dataset provenance",
-    description: "Reads a registered dataset's source, declared licence, schema, row/byte counts and content hash, and verifies the stored CSV hash. Uses the dataset_id from an experiment. Does not return private rows or infer training rights from a licence declaration.",
-    input: { dataset_id: z.string().regex(/^[a-f0-9]{64}$/).max(64).describe("Dataset content hash from a laboratory experiment") },
-    output: { dataset_id: z.string(), source: z.string(), license: z.string(), rows: z.number(), columns: z.array(z.string()), content_hash_verified: z.boolean() },
-    annotations, handler: ({ dataset_id }, ctx) => read(ctx, "dataset", [dataset_id]),
+    description: "Reads source, declared licence, schema, counts and CSV hash. Optionally verifies a run's split hash and reports strategy, leakage checks and training-only profile statistics. IDs come from lab_get_experiment. Returns metadata without rows, row positions or model weights; declared rights are not independently inferred.",
+    input: { dataset_id: z.string().regex(/^[a-f0-9]{64}$/).max(64).describe("Dataset content hash from an experiment"), split_sha256: z.string().regex(/^[a-f0-9]{64}$/).max(64).optional().describe("Optional split hash from the same experiment") },
+    output: { dataset_id: z.string(), source: z.string(), license: z.string(), rows: z.number(), columns: z.array(z.string()), content_hash_verified: z.boolean(), split_hash_verified: z.boolean().optional(), manifest_hash_verified: z.boolean().optional(), split: z.unknown().optional(), profile: z.unknown().optional() },
+    annotations, handler: ({ dataset_id, split_sha256 }, ctx) => read(ctx, "dataset", [dataset_id, ...(split_sha256 ? ["--split-sha256", split_sha256] : [])]),
   }),
 ];
 
