@@ -370,3 +370,19 @@ This measures planning, not end-to-end fleet capacity or any new release count.
 Saved the source hashes and precise limitations in the local capacity receipt.
 The root Node gate still checks all servers; broader maintenance and laboratory
 objectives remain active. Signed stacked review and fresh remote CI follow.
+
+## 2026-10-14: factory capacity review validated
+
+All eight checks passed on owner-signed implementation 03dd00e: Node 20/22/24,
+planner, standalone shard, stable aggregate and both CodeQL checks. Downloaded
+the completed job logs and confirmed 302 factory tests, 270 tests across all
+21 standalone packages, real packed MCP calls and exact committed tree parity
+for every package. The serial package workload took 101,481 ms in this CI run;
+this is one 21-package cohort, not capacity evidence for two thousand packages.
+Saved exact check URLs, tree/integrity/timing records and raw-log hashes.
+
+PR #12 is stacked on open #11, #10 and #9 and is ready for review. No owner merge,
+publication or launch was performed. The evidence update changes documentation
+only. Preserve every broader requirement: current scout/agent/performance and
+release proof, full factory-gate scalability, maintained discovery/adoption,
+Linux/accelerator/deeper learning, delivery and education. Overall goal active.
