@@ -75,7 +75,8 @@ test("ToolError, UpstreamError and unexpected errors become short isError result
     const c = await client.callTool({ name: "boom", arguments: { word: "x" } });
     assert.equal(JSON.parse(c.content[0].text).error.code, "internal_error");
     assert.ok(!c.content[0].text.includes("secret internal detail"));
-    assert.ok(logged.some((l) => l.includes("secret internal detail")), "the real cause is logged on the server");
+    assert.ok(logged.some((l) => l.includes("RangeError")), "the error class is logged for diagnosis");
+    assert.ok(logged.every((l) => !l.includes("secret internal detail")), "logs never expose arbitrary error details");
   } finally {
     process.stderr.write = origWrite;
   }

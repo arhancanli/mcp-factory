@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<evaluation>
+  <qa_pair>
+    <question>In the frozen nine-run laboratory cohort, compare the seed-19 classical ML and deep-learning runs on their held-out test accuracy. Check their data provenance to confirm that both use the same dataset and split. Which recipe has the higher test accuracy? Answer with its recipe ID.</question>
+    <answer>dl</answer>
+  </qa_pair>
+  <qa_pair>
+    <question>List the three deep-learning experiments in the frozen cohort and inspect their held-out test accuracy. Which training seed achieved the highest accuracy? Return the integer seed.</question>
+    <answer>7</answer>
+  </qa_pair>
+  <qa_pair>
+    <question>Inspect all three reinforcement-learning runs in the frozen cohort and sum their independent evaluation successes. How many successes were recorded across the three trained policies? Return the integer total.</question>
+    <answer>600</answer>
+  </qa_pair>
+  <qa_pair>
+    <question>Inspect the seed-43 deep-learning and classical ML runs in the frozen cohort. Using their 240-example test split and their test accuracies, how many additional correct test predictions did deep learning make? Return the integer difference.</question>
+    <answer>21</answer>
+  </qa_pair>
+  <qa_pair>
+    <question>Inspect a classical ML run's split counts and then inspect its registered dataset's row count and verified hash. What percentage of its complete dataset belongs to the training split? Return the integer percentage without a percent sign.</question>
+    <answer>60</answer>
+  </qa_pair>
+  <qa_pair>
+    <question>Inspect all three reinforcement-learning experiments in the frozen cohort. Compare the random-policy baselines' mean episode lengths. Which training seed's baseline had the longest mean episode length? Return the integer seed.</question>
+    <answer>7</answer>
+  </qa_pair>
+  <qa_pair>
+    <question>Inspect the three classical ML runs in the frozen cohort. Compare the SHA-256 hashes of their registered model.npz checkpoints. How many distinct checkpoint hashes are present? Return the integer count.</question>
+    <answer>1</answer>
+  </qa_pair>
+  <qa_pair>
+    <question>Inspect the seed-7 classical ML and deep-learning runs in the frozen cohort and retrieve each one's registered dataset provenance. What declared licence is shared by their verified datasets? Return its licence identifier.</question>
+    <answer>CC0-1.0</answer>
+  </qa_pair>
+  <qa_pair>
+    <question>Inspect all three reinforcement-learning runs in the frozen cohort. Each records trained-policy and random-policy evaluation successes. How many additional evaluation successes did the trained policies achieve in total across the three runs? Return the integer difference.</question>
+    <answer>591</answer>
+  </qa_pair>
+  <qa_pair>
+    <question>Inspect all deep-learning and classical ML runs in the frozen cohort. Compare their recorded dataset_id and split_sha256 pairs. How many distinct dataset-and-split pairs were used across these six classification experiments? Return the integer count.</question>
+    <answer>1</answer>
+  </qa_pair>
+</evaluation>

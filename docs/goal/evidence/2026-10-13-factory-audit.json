@@ -1,0 +1,1852 @@
+{
+  "schema": "canlilabs.audit.v1",
+  "generated_at": "2026-10-13T18:41:10.398Z",
+  "source_commit": "e52f29fe924d0c552cac836c0f4b3dc6f110f462",
+  "online_checks": true,
+  "summary": {
+    "catalog_entries": 21,
+    "agent_benchmarks_present": 16,
+    "missing_agent_benchmarks": [
+      "config-check-mcp",
+      "dockerfile-check-mcp",
+      "kube-check-mcp",
+      "regex-check-mcp",
+      "sql-check-mcp"
+    ],
+    "performance_files": 21,
+    "npm_versions_found": 0,
+    "registry_versions_found": 0,
+    "last_canary_success": 18,
+    "all_quality_gates_verified": false
+  },
+  "servers": [
+    {
+      "name": "actions-check-mcp",
+      "version": "0.1.0",
+      "category": "developer-tools",
+      "tools": 3,
+      "repository": "https://github.com/arhancanli/actions-check-mcp",
+      "mcp_name": "io.github.arhancanli/actions-check-mcp",
+      "golden_test_files": [
+        "rules.test.mjs",
+        "tools.test.mjs"
+      ],
+      "canary_implemented": true,
+      "performance": {
+        "path": "servers/actions-check/bench/perf.json",
+        "date": "2026-09-26",
+        "scenarios": 4,
+        "tools_list_chars": 2689
+      },
+      "benchmarks": [
+        {
+          "path": "servers/actions-check/bench/results/2026-09-26-gpt-5.4-mini.json",
+          "date": "2026-09-26",
+          "model": "gpt-5.4-mini",
+          "competitor": "mcp-server-fetch reading GitHub (no workflow-checking server exists; this is what agents use today)",
+          "ours": {
+            "tasks": 9,
+            "correct": 8,
+            "tokens_in": 12672,
+            "tokens_out": 677,
+            "cached_share": 0.131,
+            "tool_calls": 9,
+            "median_ms": 2079
+          },
+          "competitor_summary": {
+            "tasks": 9,
+            "correct": 6,
+            "tokens_in": 109430,
+            "tokens_out": 898,
+            "cached_share": 0.663,
+            "tool_calls": 21,
+            "median_ms": 4198
+          },
+          "comparable": true,
+          "accuracy_at_least_equal": true,
+          "lower_total_tokens": true,
+          "basic_shipping_rule_met": true
+        }
+      ],
+      "agent_benchmark_present": true,
+      "public_release": {
+        "checked_at": "2026-10-13T18:39:43.108Z",
+        "npm": {
+          "status": "missing",
+          "source": "https://registry.npmjs.org/actions-check-mcp/0.1.0",
+          "version": null,
+          "integrity": null,
+          "attestations": null
+        },
+        "repository": {
+          "status": "found",
+          "source": "https://api.github.com/repos/arhancanli/actions-check-mcp",
+          "url": "https://github.com/arhancanli/actions-check-mcp",
+          "stars": 0,
+          "open_issues": 4,
+          "pushed_at": "2026-10-10T01:44:49Z"
+        },
+        "release": {
+          "status": "missing",
+          "source": "https://api.github.com/repos/arhancanli/actions-check-mcp/releases/tags/v0.1.0",
+          "url": null,
+          "published_at": null,
+          "assets": []
+        },
+        "canary": {
+          "status": "found",
+          "source": "https://api.github.com/repos/arhancanli/actions-check-mcp/actions/workflows/canary.yml/runs?per_page=1",
+          "last_run": {
+            "url": "https://github.com/arhancanli/actions-check-mcp/actions/runs/38414420182",
+            "conclusion": "success",
+            "status": "completed",
+            "started_at": "2026-10-13T14:33:46Z"
+          }
+        },
+        "registry": {
+          "status": "error",
+          "source": "https://registry.modelcontextprotocol.io/v0.1/servers?search=io.github.arhancanli%2Factions-check-mcp&limit=100",
+          "entry": null,
+          "search_may_be_paginated": false
+        },
+        "source_parity_verified": false,
+        "signatures_verified": false
+      }
+    },
+    {
+      "name": "citation-check-mcp",
+      "version": "0.1.0",
+      "category": "science-research",
+      "tools": 3,
+      "repository": "https://github.com/arhancanli/citation-check-mcp",
+      "mcp_name": "io.github.arhancanli/citation-check-mcp",
+      "golden_test_files": [
+        "parsing.test.mjs",
+        "tools.test.mjs"
+      ],
+      "canary_implemented": true,
+      "performance": {
+        "path": "servers/citation-check/bench/perf.json",
+        "date": "2026-09-27",
+        "scenarios": 8,
+        "tools_list_chars": 2979
+      },
+      "benchmarks": [
+        {
+          "path": "servers/citation-check/bench/results/2026-09-26-gpt-5.4-mini.json",
+          "date": "2026-09-26",
+          "model": "gpt-5.4-mini",
+          "competitor": "doi-mcp, the most starred citation verifier",
+          "ours": {
+            "tasks": 10,
+            "correct": 9,
+            "tokens_in": 16205,
+            "tokens_out": 679,
+            "cached_share": 0,
+            "tool_calls": 16,
+            "median_ms": 5650
+          },
+          "competitor_summary": {
+            "tasks": 10,
+            "correct": 9,
+            "tokens_in": 17165,
+            "tokens_out": 630,
+            "cached_share": 0,
+            "tool_calls": 12,
+            "median_ms": 3863
+          },
+          "comparable": true,
+          "accuracy_at_least_equal": true,
+          "lower_total_tokens": true,
+          "basic_shipping_rule_met": true
+        }
+      ],
+      "agent_benchmark_present": true,
+      "public_release": {
+        "checked_at": "2026-10-13T18:39:43.114Z",
+        "npm": {
+          "status": "missing",
+          "source": "https://registry.npmjs.org/citation-check-mcp/0.1.0",
+          "version": null,
+          "integrity": null,
+          "attestations": null
+        },
+        "repository": {
+          "status": "found",
+          "source": "https://api.github.com/repos/arhancanli/citation-check-mcp",
+          "url": "https://github.com/arhancanli/citation-check-mcp",
+          "stars": 0,
+          "open_issues": 4,
+          "pushed_at": "2026-10-10T03:55:04Z"
+        },
+        "release": {
+          "status": "missing",
+          "source": "https://api.github.com/repos/arhancanli/citation-check-mcp/releases/tags/v0.1.0",
+          "url": null,
+          "published_at": null,
+          "assets": []
+        },
+        "canary": {
+          "status": "found",
+          "source": "https://api.github.com/repos/arhancanli/citation-check-mcp/actions/workflows/canary.yml/runs?per_page=1",
+          "last_run": {
+            "url": "https://github.com/arhancanli/citation-check-mcp/actions/runs/38414086180",
+            "conclusion": "success",
+            "status": "completed",
+            "started_at": "2026-10-13T14:31:25Z"
+          }
+        },
+        "registry": {
+          "status": "error",
+          "source": "https://registry.modelcontextprotocol.io/v0.1/servers?search=io.github.arhancanli%2Fcitation-check-mcp&limit=100",
+          "entry": null,
+          "search_may_be_paginated": false
+        },
+        "source_parity_verified": false,
+        "signatures_verified": false
+      }
+    },
+    {
+      "name": "config-check-mcp",
+      "version": "0.1.0",
+      "category": "developer-tools",
+      "tools": 3,
+      "repository": "https://github.com/arhancanli/config-check-mcp",
+      "mcp_name": "io.github.arhancanli/config-check-mcp",
+      "golden_test_files": [
+        "rules.test.mjs",
+        "tools.test.mjs"
+      ],
+      "canary_implemented": true,
+      "performance": {
+        "path": "servers/config-check/bench/perf.json",
+        "date": "2026-09-27",
+        "scenarios": 6,
+        "tools_list_chars": 3283
+      },
+      "benchmarks": [],
+      "agent_benchmark_present": false,
+      "public_release": {
+        "checked_at": "2026-10-13T18:39:41.442Z",
+        "npm": {
+          "status": "missing",
+          "source": "https://registry.npmjs.org/config-check-mcp/0.1.0",
+          "version": null,
+          "integrity": null,
+          "attestations": null
+        },
+        "repository": {
+          "status": "found",
+          "source": "https://api.github.com/repos/arhancanli/config-check-mcp",
+          "url": "https://github.com/arhancanli/config-check-mcp",
+          "stars": 0,
+          "open_issues": 7,
+          "pushed_at": "2026-10-11T21:47:24Z"
+        },
+        "release": {
+          "status": "missing",
+          "source": "https://api.github.com/repos/arhancanli/config-check-mcp/releases/tags/v0.1.0",
+          "url": null,
+          "published_at": null,
+          "assets": []
+        },
+        "canary": {
+          "status": "found",
+          "source": "https://api.github.com/repos/arhancanli/config-check-mcp/actions/workflows/canary.yml/runs?per_page=1",
+          "last_run": {
+            "url": "https://github.com/arhancanli/config-check-mcp/actions/runs/38414489179",
+            "conclusion": "success",
+            "status": "completed",
+            "started_at": "2026-10-13T14:34:14Z"
+          }
+        },
+        "registry": {
+          "status": "not_found_in_search",
+          "source": "https://registry.modelcontextprotocol.io/v0.1/servers?search=io.github.arhancanli%2Fconfig-check-mcp&limit=100",
+          "entry": null,
+          "search_may_be_paginated": false
+        },
+        "source_parity_verified": false,
+        "signatures_verified": false
+      }
+    },
+    {
+      "name": "contact-check-mcp",
+      "version": "0.1.0",
+      "category": "data",
+      "tools": 3,
+      "repository": "https://github.com/arhancanli/contact-check-mcp",
+      "mcp_name": "io.github.arhancanli/contact-check-mcp",
+      "golden_test_files": [
+        "rules.test.mjs",
+        "tools.test.mjs"
+      ],
+      "canary_implemented": true,
+      "performance": {
+        "path": "servers/contact-check/bench/perf.json",
+        "date": "2026-09-26",
+        "scenarios": 3,
+        "tools_list_chars": 3109
+      },
+      "benchmarks": [
+        {
+          "path": "servers/contact-check/bench/results/2026-09-26-gpt-5.4-mini.json",
+          "date": "2026-09-26",
+          "model": "gpt-5.4-mini",
+          "competitor": "mcp-server-fetch (no open contact-validation server exists; this is what agents use today)",
+          "ours": {
+            "tasks": 10,
+            "correct": 10,
+            "tokens_in": 10735,
+            "tokens_out": 285,
+            "cached_share": 0,
+            "tool_calls": 8,
+            "median_ms": 2271
+          },
+          "competitor_summary": {
+            "tasks": 10,
+            "correct": 9,
+            "tokens_in": 10584,
+            "tokens_out": 310,
+            "cached_share": 0,
+            "tool_calls": 7,
+            "median_ms": 1978
+          },
+          "comparable": true,
+          "accuracy_at_least_equal": true,
+          "lower_total_tokens": false,
+          "basic_shipping_rule_met": false
+        }
+      ],
+      "agent_benchmark_present": true,
+      "public_release": {
+        "checked_at": "2026-10-13T18:39:52.590Z",
+        "npm": {
+          "status": "missing",
+          "source": "https://registry.npmjs.org/contact-check-mcp/0.1.0",
+          "version": null,
+          "integrity": null,
+          "attestations": null
+        },
+        "repository": {
+          "status": "found",
+          "source": "https://api.github.com/repos/arhancanli/contact-check-mcp",
+          "url": "https://github.com/arhancanli/contact-check-mcp",
+          "stars": 0,
+          "open_issues": 4,
+          "pushed_at": "2026-10-10T15:56:20Z"
+        },
+        "release": {
+          "status": "missing",
+          "source": "https://api.github.com/repos/arhancanli/contact-check-mcp/releases/tags/v0.1.0",
+          "url": null,
+          "published_at": null,
+          "assets": []
+        },
+        "canary": {
+          "status": "found",
+          "source": "https://api.github.com/repos/arhancanli/contact-check-mcp/actions/workflows/canary.yml/runs?per_page=1",
+          "last_run": {
+            "url": "https://github.com/arhancanli/contact-check-mcp/actions/runs/38414420801",
+            "conclusion": "success",
+            "status": "completed",
+            "started_at": "2026-10-13T14:33:46Z"
+          }
+        },
+        "registry": {
+          "status": "not_found_in_search",
+          "source": "https://registry.modelcontextprotocol.io/v0.1/servers?search=io.github.arhancanli%2Fcontact-check-mcp&limit=100",
+          "entry": null,
+          "search_may_be_paginated": false
+        },
+        "source_parity_verified": false,
+        "signatures_verified": false
+      }
+    },
+    {
+      "name": "cron-check-mcp",
+      "version": "0.1.0",
+      "category": "developer-tools",
+      "tools": 3,
+      "repository": "https://github.com/arhancanli/cron-check-mcp",
+      "mcp_name": "io.github.arhancanli/cron-check-mcp",
+      "golden_test_files": [
+        "rules.test.mjs",
+        "tools.test.mjs"
+      ],
+      "canary_implemented": true,
+      "performance": {
+        "path": "servers/cron-check/bench/perf.json",
+        "date": "2026-09-26",
+        "scenarios": 3,
+        "tools_list_chars": 3017
+      },
+      "benchmarks": [
+        {
+          "path": "servers/cron-check/bench/results/2026-09-26-gpt-5.4-mini.json",
+          "date": "2026-09-26",
+          "model": "gpt-5.4-mini",
+          "competitor": "@pipeworx/mcp-crontab, a published cron MCP server",
+          "ours": {
+            "tasks": 10,
+            "correct": 10,
+            "tokens_in": 13063,
+            "tokens_out": 485,
+            "cached_share": 0,
+            "tool_calls": 10,
+            "median_ms": 1982
+          },
+          "competitor_summary": {
+            "tasks": 10,
+            "correct": 6,
+            "tokens_in": 9967,
+            "tokens_out": 444,
+            "cached_share": 0,
+            "tool_calls": 11,
+            "median_ms": 1936
+          },
+          "comparable": true,
+          "accuracy_at_least_equal": true,
+          "lower_total_tokens": false,
+          "basic_shipping_rule_met": false
+        }
+      ],
+      "agent_benchmark_present": true,
+      "public_release": {
+        "checked_at": "2026-10-13T18:39:53.724Z",
+        "npm": {
+          "status": "missing",
+          "source": "https://registry.npmjs.org/cron-check-mcp/0.1.0",
+          "version": null,
+          "integrity": null,
+          "attestations": null
+        },
+        "repository": {
+          "status": "found",
+          "source": "https://api.github.com/repos/arhancanli/cron-check-mcp",
+          "url": "https://github.com/arhancanli/cron-check-mcp",
+          "stars": 0,
+          "open_issues": 5,
+          "pushed_at": "2026-10-10T07:35:29Z"
+        },
+        "release": {
+          "status": "missing",
+          "source": "https://api.github.com/repos/arhancanli/cron-check-mcp/releases/tags/v0.1.0",
+          "url": null,
+          "published_at": null,
+          "assets": []
+        },
+        "canary": {
+          "status": "found",
+          "source": "https://api.github.com/repos/arhancanli/cron-check-mcp/actions/workflows/canary.yml/runs?per_page=1",
+          "last_run": {
+            "url": "https://github.com/arhancanli/cron-check-mcp/actions/runs/38414574475",
+            "conclusion": "success",
+            "status": "completed",
+            "started_at": "2026-10-13T14:34:51Z"
+          }
+        },
+        "registry": {
+          "status": "not_found_in_search",
+          "source": "https://registry.modelcontextprotocol.io/v0.1/servers?search=io.github.arhancanli%2Fcron-check-mcp&limit=100",
+          "entry": null,
+          "search_may_be_paginated": false
+        },
+        "source_parity_verified": false,
+        "signatures_verified": false
+      }
+    },
+    {
+      "name": "dockerfile-check-mcp",
+      "version": "0.1.0",
+      "category": "developer-tools",
+      "tools": 2,
+      "repository": "https://github.com/arhancanli/dockerfile-check-mcp",
+      "mcp_name": "io.github.arhancanli/dockerfile-check-mcp",
+      "golden_test_files": [
+        "rules.test.mjs",
+        "tools.test.mjs"
+      ],
+      "canary_implemented": true,
+      "performance": {
+        "path": "servers/dockerfile-check/bench/perf.json",
+        "date": "2026-09-27",
+        "scenarios": 4,
+        "tools_list_chars": 2364
+      },
+      "benchmarks": [],
+      "agent_benchmark_present": false,
+      "public_release": {
+        "checked_at": "2026-10-13T18:39:55.377Z",
+        "npm": {
+          "status": "missing",
+          "source": "https://registry.npmjs.org/dockerfile-check-mcp/0.1.0",
+          "version": null,
+          "integrity": null,
+          "attestations": null
+        },
+        "repository": {
+          "status": "found",
+          "source": "https://api.github.com/repos/arhancanli/dockerfile-check-mcp",
+          "url": "https://github.com/arhancanli/dockerfile-check-mcp",
+          "stars": 0,
+          "open_issues": 7,
+          "pushed_at": "2026-10-11T18:39:32Z"
+        },
+        "release": {
+          "status": "missing",
+          "source": "https://api.github.com/repos/arhancanli/dockerfile-check-mcp/releases/tags/v0.1.0",
+          "url": null,
+          "published_at": null,
+          "assets": []
+        },
+        "canary": {
+          "status": "found",
+          "source": "https://api.github.com/repos/arhancanli/dockerfile-check-mcp/actions/workflows/canary.yml/runs?per_page=1",
+          "last_run": {
+            "url": "https://github.com/arhancanli/dockerfile-check-mcp/actions/runs/38414338604",
+            "conclusion": "success",
+            "status": "completed",
+            "started_at": "2026-10-13T14:33:11Z"
+          }
+        },
+        "registry": {
+          "status": "not_found_in_search",
+          "source": "https://registry.modelcontextprotocol.io/v0.1/servers?search=io.github.arhancanli%2Fdockerfile-check-mcp&limit=100",
+          "entry": null,
+          "search_may_be_paginated": false
+        },
+        "source_parity_verified": false,
+        "signatures_verified": false
+      }
+    },
+    {
+      "name": "domain-health-mcp",
+      "version": "0.1.0",
+      "category": "developer-tools",
+      "tools": 5,
+      "repository": "https://github.com/arhancanli/domain-health-mcp",
+      "mcp_name": "io.github.arhancanli/domain-health-mcp",
+      "golden_test_files": [
+        "rules.test.mjs",
+        "tools.test.mjs"
+      ],
+      "canary_implemented": true,
+      "performance": {
+        "path": "servers/domain-health/bench/perf.json",
+        "date": "2026-09-26",
+        "scenarios": 9,
+        "tools_list_chars": 4239
+      },
+      "benchmarks": [
+        {
+          "path": "servers/domain-health/bench/results/2026-09-26-gpt-5.4-mini.json",
+          "date": "2026-09-26",
+          "model": "gpt-5.4-mini",
+          "competitor": "mcp-dns, the most-used DNS lookup server",
+          "ours": {
+            "tasks": 13,
+            "correct": 13,
+            "tokens_in": 29631,
+            "tokens_out": 583,
+            "cached_share": 0.134,
+            "tool_calls": 18,
+            "median_ms": 2789
+          },
+          "competitor_summary": {
+            "tasks": 13,
+            "correct": 3,
+            "tokens_in": 13058,
+            "tokens_out": 734,
+            "cached_share": 0,
+            "tool_calls": 29,
+            "median_ms": 2644
+          },
+          "comparable": true,
+          "accuracy_at_least_equal": true,
+          "lower_total_tokens": false,
+          "basic_shipping_rule_met": false
+        }
+      ],
+      "agent_benchmark_present": true,
+      "public_release": {
+        "checked_at": "2026-10-13T18:40:04.568Z",
+        "npm": {
+          "status": "missing",
+          "source": "https://registry.npmjs.org/domain-health-mcp/0.1.0",
+          "version": null,
+          "integrity": null,
+          "attestations": null
+        },
+        "repository": {
+          "status": "found",
+          "source": "https://api.github.com/repos/arhancanli/domain-health-mcp",
+          "url": "https://github.com/arhancanli/domain-health-mcp",
+          "stars": 0,
+          "open_issues": 4,
+          "pushed_at": "2026-10-10T04:45:23Z"
+        },
+        "release": {
+          "status": "missing",
+          "source": "https://api.github.com/repos/arhancanli/domain-health-mcp/releases/tags/v0.1.0",
+          "url": null,
+          "published_at": null,
+          "assets": []
+        },
+        "canary": {
+          "status": "found",
+          "source": "https://api.github.com/repos/arhancanli/domain-health-mcp/actions/workflows/canary.yml/runs?per_page=1",
+          "last_run": {
+            "url": "https://github.com/arhancanli/domain-health-mcp/actions/runs/38414102729",
+            "conclusion": "success",
+            "status": "completed",
+            "started_at": "2026-10-13T14:31:31Z"
+          }
+        },
+        "registry": {
+          "status": "not_found_in_search",
+          "source": "https://registry.modelcontextprotocol.io/v0.1/servers?search=io.github.arhancanli%2Fdomain-health-mcp&limit=100",
+          "entry": null,
+          "search_may_be_paginated": false
+        },
+        "source_parity_verified": false,
+        "signatures_verified": false
+      }
+    },
+    {
+      "name": "drug-label-mcp",
+      "version": "0.1.0",
+      "category": "health-medicine",
+      "tools": 4,
+      "repository": "https://github.com/arhancanli/drug-label-mcp",
+      "mcp_name": "io.github.arhancanli/drug-label-mcp",
+      "golden_test_files": [
+        "parsing.test.mjs",
+        "tools.test.mjs"
+      ],
+      "canary_implemented": true,
+      "performance": {
+        "path": "servers/drug-label/bench/perf.json",
+        "date": "2026-09-26",
+        "scenarios": 7,
+        "tools_list_chars": 3819
+      },
+      "benchmarks": [
+        {
+          "path": "servers/drug-label/bench/results/2026-09-26-gpt-5.4-mini.json",
+          "date": "2026-09-26",
+          "model": "gpt-5.4-mini",
+          "competitor": "@ythalorossy/openfda, the most downloaded openFDA server",
+          "ours": {
+            "tasks": 10,
+            "correct": 10,
+            "tokens_in": 23729,
+            "tokens_out": 459,
+            "cached_share": 0.049,
+            "tool_calls": 14,
+            "median_ms": 4123
+          },
+          "competitor_summary": {
+            "tasks": 10,
+            "correct": 7,
+            "tokens_in": 118095,
+            "tokens_out": 643,
+            "cached_share": 0.925,
+            "tool_calls": 14,
+            "median_ms": 2157
+          },
+          "comparable": true,
+          "accuracy_at_least_equal": true,
+          "lower_total_tokens": true,
+          "basic_shipping_rule_met": true
+        }
+      ],
+      "agent_benchmark_present": true,
+      "public_release": {
+        "checked_at": "2026-10-13T18:40:05.544Z",
+        "npm": {
+          "status": "missing",
+          "source": "https://registry.npmjs.org/drug-label-mcp/0.1.0",
+          "version": null,
+          "integrity": null,
+          "attestations": null
+        },
+        "repository": {
+          "status": "found",
+          "source": "https://api.github.com/repos/arhancanli/drug-label-mcp",
+          "url": "https://github.com/arhancanli/drug-label-mcp",
+          "stars": 0,
+          "open_issues": 4,
+          "pushed_at": "2026-10-10T21:17:30Z"
+        },
+        "release": {
+          "status": "missing",
+          "source": "https://api.github.com/repos/arhancanli/drug-label-mcp/releases/tags/v0.1.0",
+          "url": null,
+          "published_at": null,
+          "assets": []
+        },
+        "canary": {
+          "status": "error",
+          "source": "https://api.github.com/repos/arhancanli/drug-label-mcp/actions/workflows/canary.yml/runs?per_page=1",
+          "last_run": null
+        },
+        "registry": {
+          "status": "not_found_in_search",
+          "source": "https://registry.modelcontextprotocol.io/v0.1/servers?search=io.github.arhancanli%2Fdrug-label-mcp&limit=100",
+          "entry": null,
+          "search_may_be_paginated": false
+        },
+        "source_parity_verified": false,
+        "signatures_verified": false
+      }
+    },
+    {
+      "name": "end-of-life-mcp",
+      "version": "0.1.0",
+      "category": "developer-tools",
+      "tools": 3,
+      "repository": "https://github.com/arhancanli/end-of-life-mcp",
+      "mcp_name": "io.github.arhancanli/end-of-life-mcp",
+      "golden_test_files": [
+        "rules.test.mjs",
+        "tools.test.mjs"
+      ],
+      "canary_implemented": true,
+      "performance": {
+        "path": "servers/end-of-life/bench/perf.json",
+        "date": "2026-09-26",
+        "scenarios": 3,
+        "tools_list_chars": 3165
+      },
+      "benchmarks": [
+        {
+          "path": "servers/end-of-life/bench/results/2026-09-26-gpt-5.4-mini.json",
+          "date": "2026-09-26",
+          "model": "gpt-5.4-mini",
+          "competitor": "endoflife-mcp, the only published end-of-life server",
+          "ours": {
+            "tasks": 10,
+            "correct": 10,
+            "tokens_in": 13453,
+            "tokens_out": 321,
+            "cached_share": 0,
+            "tool_calls": 10,
+            "median_ms": 2061
+          },
+          "competitor_summary": {
+            "tasks": 10,
+            "correct": 9,
+            "tokens_in": 97050,
+            "tokens_out": 398,
+            "cached_share": 0.177,
+            "tool_calls": 14,
+            "median_ms": 2690
+          },
+          "comparable": true,
+          "accuracy_at_least_equal": true,
+          "lower_total_tokens": true,
+          "basic_shipping_rule_met": true
+        }
+      ],
+      "agent_benchmark_present": true,
+      "public_release": {
+        "checked_at": "2026-10-13T18:40:10.381Z",
+        "npm": {
+          "status": "missing",
+          "source": "https://registry.npmjs.org/end-of-life-mcp/0.1.0",
+          "version": null,
+          "integrity": null,
+          "attestations": null
+        },
+        "repository": {
+          "status": "found",
+          "source": "https://api.github.com/repos/arhancanli/end-of-life-mcp",
+          "url": "https://github.com/arhancanli/end-of-life-mcp",
+          "stars": 0,
+          "open_issues": 4,
+          "pushed_at": "2026-10-10T14:45:11Z"
+        },
+        "release": {
+          "status": "missing",
+          "source": "https://api.github.com/repos/arhancanli/end-of-life-mcp/releases/tags/v0.1.0",
+          "url": null,
+          "published_at": null,
+          "assets": []
+        },
+        "canary": {
+          "status": "found",
+          "source": "https://api.github.com/repos/arhancanli/end-of-life-mcp/actions/workflows/canary.yml/runs?per_page=1",
+          "last_run": {
+            "url": "https://github.com/arhancanli/end-of-life-mcp/actions/runs/38414530198",
+            "conclusion": "success",
+            "status": "completed",
+            "started_at": "2026-10-13T14:34:32Z"
+          }
+        },
+        "registry": {
+          "status": "error",
+          "source": "https://registry.modelcontextprotocol.io/v0.1/servers?search=io.github.arhancanli%2Fend-of-life-mcp&limit=100",
+          "entry": null,
+          "search_may_be_paginated": false
+        },
+        "source_parity_verified": false,
+        "signatures_verified": false
+      }
+    },
+    {
+      "name": "internet-standards-mcp",
+      "version": "0.1.0",
+      "category": "developer-tools",
+      "tools": 4,
+      "repository": "https://github.com/arhancanli/internet-standards-mcp",
+      "mcp_name": "io.github.arhancanli/internet-standards-mcp",
+      "golden_test_files": [
+        "parsing.test.mjs",
+        "tools.test.mjs"
+      ],
+      "canary_implemented": true,
+      "performance": {
+        "path": "servers/internet-standards/bench/perf.json",
+        "date": "2026-09-26",
+        "scenarios": 8,
+        "tools_list_chars": 3610
+      },
+      "benchmarks": [
+        {
+          "path": "servers/internet-standards/bench/results/2026-09-26-gpt-5.4-mini.json",
+          "date": "2026-09-26",
+          "model": "gpt-5.4-mini",
+          "competitor": "rfcxml-mcp, the most active RFC server",
+          "ours": {
+            "tasks": 10,
+            "correct": 10,
+            "tokens_in": 16294,
+            "tokens_out": 350,
+            "cached_share": 0,
+            "tool_calls": 10,
+            "median_ms": 2120
+          },
+          "competitor_summary": {
+            "tasks": 10,
+            "correct": 5,
+            "tokens_in": 206325,
+            "tokens_out": 782,
+            "cached_share": 0.135,
+            "tool_calls": 24,
+            "median_ms": 4051
+          },
+          "comparable": true,
+          "accuracy_at_least_equal": true,
+          "lower_total_tokens": true,
+          "basic_shipping_rule_met": true
+        }
+      ],
+      "agent_benchmark_present": true,
+      "public_release": {
+        "checked_at": "2026-10-13T18:40:19.572Z",
+        "npm": {
+          "status": "missing",
+          "source": "https://registry.npmjs.org/internet-standards-mcp/0.1.0",
+          "version": null,
+          "integrity": null,
+          "attestations": null
+        },
+        "repository": {
+          "status": "found",
+          "source": "https://api.github.com/repos/arhancanli/internet-standards-mcp",
+          "url": "https://github.com/arhancanli/internet-standards-mcp",
+          "stars": 0,
+          "open_issues": 4,
+          "pushed_at": "2026-10-10T03:06:56Z"
+        },
+        "release": {
+          "status": "missing",
+          "source": "https://api.github.com/repos/arhancanli/internet-standards-mcp/releases/tags/v0.1.0",
+          "url": null,
+          "published_at": null,
+          "assets": []
+        },
+        "canary": {
+          "status": "found",
+          "source": "https://api.github.com/repos/arhancanli/internet-standards-mcp/actions/workflows/canary.yml/runs?per_page=1",
+          "last_run": {
+            "url": "https://github.com/arhancanli/internet-standards-mcp/actions/runs/38414430604",
+            "conclusion": "success",
+            "status": "completed",
+            "started_at": "2026-10-13T14:33:50Z"
+          }
+        },
+        "registry": {
+          "status": "error",
+          "source": "https://registry.modelcontextprotocol.io/v0.1/servers?search=io.github.arhancanli%2Finternet-standards-mcp&limit=100",
+          "entry": null,
+          "search_may_be_paginated": false
+        },
+        "source_parity_verified": false,
+        "signatures_verified": false
+      }
+    },
+    {
+      "name": "kube-check-mcp",
+      "version": "0.1.0",
+      "category": "developer-tools",
+      "tools": 3,
+      "repository": "https://github.com/arhancanli/kube-check-mcp",
+      "mcp_name": "io.github.arhancanli/kube-check-mcp",
+      "golden_test_files": [
+        "rules.test.mjs",
+        "tools.test.mjs"
+      ],
+      "canary_implemented": true,
+      "performance": {
+        "path": "servers/kube-check/bench/perf.json",
+        "date": "2026-09-27",
+        "scenarios": 8,
+        "tools_list_chars": 3614
+      },
+      "benchmarks": [],
+      "agent_benchmark_present": false,
+      "public_release": {
+        "checked_at": "2026-10-13T18:40:20.547Z",
+        "npm": {
+          "status": "missing",
+          "source": "https://registry.npmjs.org/kube-check-mcp/0.1.0",
+          "version": null,
+          "integrity": null,
+          "attestations": null
+        },
+        "repository": {
+          "status": "found",
+          "source": "https://api.github.com/repos/arhancanli/kube-check-mcp",
+          "url": "https://github.com/arhancanli/kube-check-mcp",
+          "stars": 0,
+          "open_issues": 7,
+          "pushed_at": "2026-10-11T23:38:21Z"
+        },
+        "release": {
+          "status": "missing",
+          "source": "https://api.github.com/repos/arhancanli/kube-check-mcp/releases/tags/v0.1.0",
+          "url": null,
+          "published_at": null,
+          "assets": []
+        },
+        "canary": {
+          "status": "found",
+          "source": "https://api.github.com/repos/arhancanli/kube-check-mcp/actions/workflows/canary.yml/runs?per_page=1",
+          "last_run": {
+            "url": "https://github.com/arhancanli/kube-check-mcp/actions/runs/38414139902",
+            "conclusion": "success",
+            "status": "completed",
+            "started_at": "2026-10-13T14:31:48Z"
+          }
+        },
+        "registry": {
+          "status": "error",
+          "source": "https://registry.modelcontextprotocol.io/v0.1/servers?search=io.github.arhancanli%2Fkube-check-mcp&limit=100",
+          "entry": null,
+          "search_may_be_paginated": false
+        },
+        "source_parity_verified": false,
+        "signatures_verified": false
+      }
+    },
+    {
+      "name": "license-check-mcp",
+      "version": "0.1.0",
+      "category": "developer-tools",
+      "tools": 3,
+      "repository": "https://github.com/arhancanli/license-check-mcp",
+      "mcp_name": "io.github.arhancanli/license-check-mcp",
+      "golden_test_files": [
+        "rules.test.mjs",
+        "tools.test.mjs"
+      ],
+      "canary_implemented": true,
+      "performance": {
+        "path": "servers/license-check/bench/perf.json",
+        "date": "2026-09-26",
+        "scenarios": 4,
+        "tools_list_chars": 2963
+      },
+      "benchmarks": [
+        {
+          "path": "servers/license-check/bench/results/2026-09-26-gpt-5.4-mini.json",
+          "date": "2026-09-26",
+          "model": "gpt-5.4-mini",
+          "competitor": "mcp-server-fetch reading license sources (no license server exists; this is what agents use today)",
+          "ours": {
+            "tasks": 9,
+            "correct": 9,
+            "tokens_in": 10760,
+            "tokens_out": 342,
+            "cached_share": 0,
+            "tool_calls": 9,
+            "median_ms": 2472
+          },
+          "competitor_summary": {
+            "tasks": 9,
+            "correct": 6,
+            "tokens_in": 75485,
+            "tokens_out": 1686,
+            "cached_share": 0.395,
+            "tool_calls": 42,
+            "median_ms": 17711
+          },
+          "comparable": true,
+          "accuracy_at_least_equal": true,
+          "lower_total_tokens": true,
+          "basic_shipping_rule_met": true
+        }
+      ],
+      "agent_benchmark_present": true,
+      "public_release": {
+        "checked_at": "2026-10-13T18:40:25.385Z",
+        "npm": {
+          "status": "missing",
+          "source": "https://registry.npmjs.org/license-check-mcp/0.1.0",
+          "version": null,
+          "integrity": null,
+          "attestations": null
+        },
+        "repository": {
+          "status": "found",
+          "source": "https://api.github.com/repos/arhancanli/license-check-mcp",
+          "url": "https://github.com/arhancanli/license-check-mcp",
+          "stars": 0,
+          "open_issues": 4,
+          "pushed_at": "2026-10-10T22:07:27Z"
+        },
+        "release": {
+          "status": "missing",
+          "source": "https://api.github.com/repos/arhancanli/license-check-mcp/releases/tags/v0.1.0",
+          "url": null,
+          "published_at": null,
+          "assets": []
+        },
+        "canary": {
+          "status": "found",
+          "source": "https://api.github.com/repos/arhancanli/license-check-mcp/actions/workflows/canary.yml/runs?per_page=1",
+          "last_run": {
+            "url": "https://github.com/arhancanli/license-check-mcp/actions/runs/38414314394",
+            "conclusion": "success",
+            "status": "completed",
+            "started_at": "2026-10-13T14:33:01Z"
+          }
+        },
+        "registry": {
+          "status": "error",
+          "source": "https://registry.modelcontextprotocol.io/v0.1/servers?search=io.github.arhancanli%2Flicense-check-mcp&limit=100",
+          "entry": null,
+          "search_may_be_paginated": false
+        },
+        "source_parity_verified": false,
+        "signatures_verified": false
+      }
+    },
+    {
+      "name": "package-truth-mcp",
+      "version": "0.1.0",
+      "category": "developer-tools",
+      "tools": 3,
+      "repository": "https://github.com/arhancanli/package-truth-mcp",
+      "mcp_name": "io.github.arhancanli/package-truth-mcp",
+      "golden_test_files": [
+        "check.test.mjs",
+        "manifest.test.mjs",
+        "ranges.test.mjs",
+        "tools.test.mjs"
+      ],
+      "canary_implemented": true,
+      "performance": {
+        "path": "servers/package-truth/bench/perf.json",
+        "date": "2026-09-26",
+        "scenarios": 6,
+        "tools_list_chars": 3899
+      },
+      "benchmarks": [
+        {
+          "path": "servers/package-truth/bench/results/2026-09-26-gpt-5.4-mini.json",
+          "date": "2026-09-26",
+          "model": "gpt-5.4-mini",
+          "competitor": "package-version-check-mcp, the best maintained alternative",
+          "ours": {
+            "tasks": 10,
+            "correct": 10,
+            "tokens_in": 13226,
+            "tokens_out": 533,
+            "cached_share": 0,
+            "tool_calls": 10,
+            "median_ms": 3351
+          },
+          "competitor_summary": {
+            "tasks": 10,
+            "correct": 7,
+            "tokens_in": 28924,
+            "tokens_out": 540,
+            "cached_share": 0.757,
+            "tool_calls": 10,
+            "median_ms": 2905
+          },
+          "comparable": true,
+          "accuracy_at_least_equal": true,
+          "lower_total_tokens": true,
+          "basic_shipping_rule_met": true
+        }
+      ],
+      "agent_benchmark_present": true,
+      "public_release": {
+        "checked_at": "2026-10-13T18:40:34.576Z",
+        "npm": {
+          "status": "missing",
+          "source": "https://registry.npmjs.org/package-truth-mcp/0.1.0",
+          "version": null,
+          "integrity": null,
+          "attestations": null
+        },
+        "repository": {
+          "status": "found",
+          "source": "https://api.github.com/repos/arhancanli/package-truth-mcp",
+          "url": "https://github.com/arhancanli/package-truth-mcp",
+          "stars": 0,
+          "open_issues": 4,
+          "pushed_at": "2026-10-10T23:36:49Z"
+        },
+        "release": {
+          "status": "missing",
+          "source": "https://api.github.com/repos/arhancanli/package-truth-mcp/releases/tags/v0.1.0",
+          "url": null,
+          "published_at": null,
+          "assets": []
+        },
+        "canary": {
+          "status": "found",
+          "source": "https://api.github.com/repos/arhancanli/package-truth-mcp/actions/workflows/canary.yml/runs?per_page=1",
+          "last_run": {
+            "url": "https://github.com/arhancanli/package-truth-mcp/actions/runs/38414453887",
+            "conclusion": "success",
+            "status": "completed",
+            "started_at": "2026-10-13T14:33:59Z"
+          }
+        },
+        "registry": {
+          "status": "error",
+          "source": "https://registry.modelcontextprotocol.io/v0.1/servers?search=io.github.arhancanli%2Fpackage-truth-mcp&limit=100",
+          "entry": null,
+          "search_may_be_paginated": false
+        },
+        "source_parity_verified": false,
+        "signatures_verified": false
+      }
+    },
+    {
+      "name": "recall-check-mcp",
+      "version": "0.1.0",
+      "category": "consumer-safety",
+      "tools": 3,
+      "repository": "https://github.com/arhancanli/recall-check-mcp",
+      "mcp_name": "io.github.arhancanli/recall-check-mcp",
+      "golden_test_files": [
+        "matching.test.mjs",
+        "tools.test.mjs"
+      ],
+      "canary_implemented": true,
+      "performance": {
+        "path": "servers/recall-check/bench/perf.json",
+        "date": "2026-09-26",
+        "scenarios": 6,
+        "tools_list_chars": 3187
+      },
+      "benchmarks": [
+        {
+          "path": "servers/recall-check/bench/results/2026-09-26-gpt-5.4-mini.json",
+          "date": "2026-09-26",
+          "model": "gpt-5.4-mini",
+          "competitor": "@cyanheads/cpsc-recalls-mcp-server, the most downloaded recall server",
+          "ours": {
+            "tasks": 10,
+            "correct": 10,
+            "tokens_in": 37571,
+            "tokens_out": 550,
+            "cached_share": 0.446,
+            "tool_calls": 13,
+            "median_ms": 4717
+          },
+          "competitor_summary": {
+            "tasks": 10,
+            "correct": 6,
+            "tokens_in": 99067,
+            "tokens_out": 750,
+            "cached_share": 0.707,
+            "tool_calls": 15,
+            "median_ms": 2347
+          },
+          "comparable": true,
+          "accuracy_at_least_equal": true,
+          "lower_total_tokens": true,
+          "basic_shipping_rule_met": true
+        }
+      ],
+      "agent_benchmark_present": true,
+      "public_release": {
+        "checked_at": "2026-10-13T18:40:35.554Z",
+        "npm": {
+          "status": "missing",
+          "source": "https://registry.npmjs.org/recall-check-mcp/0.1.0",
+          "version": null,
+          "integrity": null,
+          "attestations": null
+        },
+        "repository": {
+          "status": "found",
+          "source": "https://api.github.com/repos/arhancanli/recall-check-mcp",
+          "url": "https://github.com/arhancanli/recall-check-mcp",
+          "stars": 0,
+          "open_issues": 4,
+          "pushed_at": "2026-10-10T18:36:05Z"
+        },
+        "release": {
+          "status": "missing",
+          "source": "https://api.github.com/repos/arhancanli/recall-check-mcp/releases/tags/v0.1.0",
+          "url": null,
+          "published_at": null,
+          "assets": []
+        },
+        "canary": {
+          "status": "found",
+          "source": "https://api.github.com/repos/arhancanli/recall-check-mcp/actions/workflows/canary.yml/runs?per_page=1",
+          "last_run": {
+            "url": "https://github.com/arhancanli/recall-check-mcp/actions/runs/38414112009",
+            "conclusion": "failure",
+            "status": "completed",
+            "started_at": "2026-10-13T14:31:35Z"
+          }
+        },
+        "registry": {
+          "status": "error",
+          "source": "https://registry.modelcontextprotocol.io/v0.1/servers?search=io.github.arhancanli%2Frecall-check-mcp&limit=100",
+          "entry": null,
+          "search_may_be_paginated": false
+        },
+        "source_parity_verified": false,
+        "signatures_verified": false
+      }
+    },
+    {
+      "name": "regex-check-mcp",
+      "version": "0.1.0",
+      "category": "developer-tools",
+      "tools": 2,
+      "repository": "https://github.com/arhancanli/regex-check-mcp",
+      "mcp_name": "io.github.arhancanli/regex-check-mcp",
+      "golden_test_files": [
+        "rules.test.mjs",
+        "tools.test.mjs"
+      ],
+      "canary_implemented": true,
+      "performance": {
+        "path": "servers/regex-check/bench/perf.json",
+        "date": "2026-09-27",
+        "scenarios": 4,
+        "tools_list_chars": 2124
+      },
+      "benchmarks": [],
+      "agent_benchmark_present": false,
+      "public_release": {
+        "checked_at": "2026-10-13T18:40:40.390Z",
+        "npm": {
+          "status": "missing",
+          "source": "https://registry.npmjs.org/regex-check-mcp/0.1.0",
+          "version": null,
+          "integrity": null,
+          "attestations": null
+        },
+        "repository": {
+          "status": "found",
+          "source": "https://api.github.com/repos/arhancanli/regex-check-mcp",
+          "url": "https://github.com/arhancanli/regex-check-mcp",
+          "stars": 0,
+          "open_issues": 8,
+          "pushed_at": "2026-10-11T14:57:34Z"
+        },
+        "release": {
+          "status": "missing",
+          "source": "https://api.github.com/repos/arhancanli/regex-check-mcp/releases/tags/v0.1.0",
+          "url": null,
+          "published_at": null,
+          "assets": []
+        },
+        "canary": {
+          "status": "found",
+          "source": "https://api.github.com/repos/arhancanli/regex-check-mcp/actions/workflows/canary.yml/runs?per_page=1",
+          "last_run": {
+            "url": "https://github.com/arhancanli/regex-check-mcp/actions/runs/38414425459",
+            "conclusion": "success",
+            "status": "completed",
+            "started_at": "2026-10-13T14:33:48Z"
+          }
+        },
+        "registry": {
+          "status": "error",
+          "source": "https://registry.modelcontextprotocol.io/v0.1/servers?search=io.github.arhancanli%2Fregex-check-mcp&limit=100",
+          "entry": null,
+          "search_may_be_paginated": false
+        },
+        "source_parity_verified": false,
+        "signatures_verified": false
+      }
+    },
+    {
+      "name": "release-notes-mcp",
+      "version": "0.1.0",
+      "category": "developer-tools",
+      "tools": 3,
+      "repository": "https://github.com/arhancanli/release-notes-mcp",
+      "mcp_name": "io.github.arhancanli/release-notes-mcp",
+      "golden_test_files": [
+        "rules.test.mjs",
+        "tools.test.mjs"
+      ],
+      "canary_implemented": true,
+      "performance": {
+        "path": "servers/release-notes/bench/perf.json",
+        "date": "2026-09-26",
+        "scenarios": 6,
+        "tools_list_chars": 2732
+      },
+      "benchmarks": [
+        {
+          "path": "servers/release-notes/bench/results/2026-09-26-gpt-5.4-mini.json",
+          "date": "2026-09-26",
+          "model": "gpt-5.4-mini",
+          "competitor": "mcp-server-fetch reading changelogs (no changelog server exists; this is what agents use today)",
+          "ours": {
+            "tasks": 9,
+            "correct": 9,
+            "tokens_in": 18046,
+            "tokens_out": 675,
+            "cached_share": 0,
+            "tool_calls": 16,
+            "median_ms": 4754
+          },
+          "competitor_summary": {
+            "tasks": 9,
+            "correct": 6,
+            "tokens_in": 145935,
+            "tokens_out": 1792,
+            "cached_share": 0.517,
+            "tool_calls": 42,
+            "median_ms": 11407
+          },
+          "comparable": true,
+          "accuracy_at_least_equal": true,
+          "lower_total_tokens": true,
+          "basic_shipping_rule_met": true
+        }
+      ],
+      "agent_benchmark_present": true,
+      "public_release": {
+        "checked_at": "2026-10-13T18:40:49.580Z",
+        "npm": {
+          "status": "missing",
+          "source": "https://registry.npmjs.org/release-notes-mcp/0.1.0",
+          "version": null,
+          "integrity": null,
+          "attestations": null
+        },
+        "repository": {
+          "status": "found",
+          "source": "https://api.github.com/repos/arhancanli/release-notes-mcp",
+          "url": "https://github.com/arhancanli/release-notes-mcp",
+          "stars": 0,
+          "open_issues": 4,
+          "pushed_at": "2026-10-10T15:44:48Z"
+        },
+        "release": {
+          "status": "missing",
+          "source": "https://api.github.com/repos/arhancanli/release-notes-mcp/releases/tags/v0.1.0",
+          "url": null,
+          "published_at": null,
+          "assets": []
+        },
+        "canary": {
+          "status": "error",
+          "source": "https://api.github.com/repos/arhancanli/release-notes-mcp/actions/workflows/canary.yml/runs?per_page=1",
+          "last_run": null
+        },
+        "registry": {
+          "status": "error",
+          "source": "https://registry.modelcontextprotocol.io/v0.1/servers?search=io.github.arhancanli%2Frelease-notes-mcp&limit=100",
+          "entry": null,
+          "search_may_be_paginated": false
+        },
+        "source_parity_verified": false,
+        "signatures_verified": false
+      }
+    },
+    {
+      "name": "satellite-imagery-mcp",
+      "version": "0.1.0",
+      "category": "geospatial",
+      "tools": 2,
+      "repository": "https://github.com/arhancanli/satellite-imagery-mcp",
+      "mcp_name": "io.github.arhancanli/satellite-imagery-mcp",
+      "golden_test_files": [
+        "geo.test.mjs",
+        "tools.test.mjs"
+      ],
+      "canary_implemented": true,
+      "performance": {
+        "path": "servers/satellite-imagery/bench/perf.json",
+        "date": "2026-09-26",
+        "scenarios": 5,
+        "tools_list_chars": 2641
+      },
+      "benchmarks": [
+        {
+          "path": "servers/satellite-imagery/bench/results/2026-09-26-gpt-5.4-mini.json",
+          "date": "2026-09-26",
+          "model": "gpt-5.4-mini",
+          "competitor": "planetary-computer-mcp (run with mcp<2 pinned; its default install fails to start)",
+          "ours": {
+            "tasks": 10,
+            "correct": 10,
+            "tokens_in": 20400,
+            "tokens_out": 650,
+            "cached_share": 0,
+            "tool_calls": 9,
+            "median_ms": 2968
+          },
+          "competitor_summary": {
+            "tasks": 10,
+            "correct": 10,
+            "tokens_in": 23709,
+            "tokens_out": 980,
+            "cached_share": 0.167,
+            "tool_calls": 14,
+            "median_ms": 3429
+          },
+          "comparable": true,
+          "accuracy_at_least_equal": true,
+          "lower_total_tokens": true,
+          "basic_shipping_rule_met": true
+        }
+      ],
+      "agent_benchmark_present": true,
+      "public_release": {
+        "checked_at": "2026-10-13T18:40:44.661Z",
+        "npm": {
+          "status": "missing",
+          "source": "https://registry.npmjs.org/satellite-imagery-mcp/0.1.0",
+          "version": null,
+          "integrity": null,
+          "attestations": null
+        },
+        "repository": {
+          "status": "found",
+          "source": "https://api.github.com/repos/arhancanli/satellite-imagery-mcp",
+          "url": "https://github.com/arhancanli/satellite-imagery-mcp",
+          "stars": 0,
+          "open_issues": 4,
+          "pushed_at": "2026-10-10T07:16:12Z"
+        },
+        "release": {
+          "status": "missing",
+          "source": "https://api.github.com/repos/arhancanli/satellite-imagery-mcp/releases/tags/v0.1.0",
+          "url": null,
+          "published_at": null,
+          "assets": []
+        },
+        "canary": {
+          "status": "found",
+          "source": "https://api.github.com/repos/arhancanli/satellite-imagery-mcp/actions/workflows/canary.yml/runs?per_page=1",
+          "last_run": {
+            "url": "https://github.com/arhancanli/satellite-imagery-mcp/actions/runs/38414243125",
+            "conclusion": "success",
+            "status": "completed",
+            "started_at": "2026-10-13T14:32:31Z"
+          }
+        },
+        "registry": {
+          "status": "not_found_in_search",
+          "source": "https://registry.modelcontextprotocol.io/v0.1/servers?search=io.github.arhancanli%2Fsatellite-imagery-mcp&limit=100",
+          "entry": null,
+          "search_may_be_paginated": false
+        },
+        "source_parity_verified": false,
+        "signatures_verified": false
+      }
+    },
+    {
+      "name": "sql-check-mcp",
+      "version": "0.1.0",
+      "category": "developer-tools",
+      "tools": 1,
+      "repository": "https://github.com/arhancanli/sql-check-mcp",
+      "mcp_name": "io.github.arhancanli/sql-check-mcp",
+      "golden_test_files": [
+        "rules.test.mjs",
+        "tools.test.mjs"
+      ],
+      "canary_implemented": true,
+      "performance": {
+        "path": "servers/sql-check/bench/perf.json",
+        "date": "2026-09-27",
+        "scenarios": 3,
+        "tools_list_chars": 1357
+      },
+      "benchmarks": [],
+      "agent_benchmark_present": false,
+      "public_release": {
+        "checked_at": "2026-10-13T18:40:55.394Z",
+        "npm": {
+          "status": "missing",
+          "source": "https://registry.npmjs.org/sql-check-mcp/0.1.0",
+          "version": null,
+          "integrity": null,
+          "attestations": null
+        },
+        "repository": {
+          "status": "found",
+          "source": "https://api.github.com/repos/arhancanli/sql-check-mcp",
+          "url": "https://github.com/arhancanli/sql-check-mcp",
+          "stars": 0,
+          "open_issues": 7,
+          "pushed_at": "2026-10-11T06:17:40Z"
+        },
+        "release": {
+          "status": "missing",
+          "source": "https://api.github.com/repos/arhancanli/sql-check-mcp/releases/tags/v0.1.0",
+          "url": null,
+          "published_at": null,
+          "assets": []
+        },
+        "canary": {
+          "status": "found",
+          "source": "https://api.github.com/repos/arhancanli/sql-check-mcp/actions/workflows/canary.yml/runs?per_page=1",
+          "last_run": {
+            "url": "https://github.com/arhancanli/sql-check-mcp/actions/runs/38414229042",
+            "conclusion": "success",
+            "status": "completed",
+            "started_at": "2026-10-13T14:32:25Z"
+          }
+        },
+        "registry": {
+          "status": "error",
+          "source": "https://registry.modelcontextprotocol.io/v0.1/servers?search=io.github.arhancanli%2Fsql-check-mcp&limit=100",
+          "entry": null,
+          "search_may_be_paginated": false
+        },
+        "source_parity_verified": false,
+        "signatures_verified": false
+      }
+    },
+    {
+      "name": "vuln-priority-mcp",
+      "version": "0.1.0",
+      "category": "security",
+      "tools": 4,
+      "repository": "https://github.com/arhancanli/vuln-priority-mcp",
+      "mcp_name": "io.github.arhancanli/vuln-priority-mcp",
+      "golden_test_files": [
+        "rules.test.mjs",
+        "tools.test.mjs"
+      ],
+      "canary_implemented": true,
+      "performance": {
+        "path": "servers/vuln-priority/bench/perf.json",
+        "date": "2026-09-26",
+        "scenarios": 8,
+        "tools_list_chars": 4019
+      },
+      "benchmarks": [
+        {
+          "path": "servers/vuln-priority/bench/results/2026-09-26-gpt-5.4-mini-cve-mcp.json",
+          "date": "2026-09-26",
+          "model": "gpt-5.4-mini",
+          "competitor": "cve-mcp, the broadest published vulnerability server (41 tools)",
+          "ours": {
+            "tasks": 12,
+            "correct": 12,
+            "tokens_in": 25253,
+            "tokens_out": 520,
+            "cached_share": 0,
+            "tool_calls": 12,
+            "median_ms": 2616
+          },
+          "competitor_summary": {
+            "tasks": 12,
+            "correct": 10,
+            "tokens_in": 222717,
+            "tokens_out": 742,
+            "cached_share": 0.562,
+            "tool_calls": 19,
+            "median_ms": 4089
+          },
+          "comparable": true,
+          "accuracy_at_least_equal": true,
+          "lower_total_tokens": true,
+          "basic_shipping_rule_met": true
+        },
+        {
+          "path": "servers/vuln-priority/bench/results/2026-09-26-gpt-5.4-mini.json",
+          "date": "2026-09-26",
+          "model": "gpt-5.4-mini",
+          "competitor": "mukul975/cve-mcp-server, the most-starred vulnerability server (28 tools)",
+          "ours": {
+            "tasks": 12,
+            "correct": 12,
+            "tokens_in": 25253,
+            "tokens_out": 530,
+            "cached_share": 0,
+            "tool_calls": 12,
+            "median_ms": 2993
+          },
+          "competitor_summary": {
+            "tasks": 12,
+            "correct": 7,
+            "tokens_in": 130333,
+            "tokens_out": 1174,
+            "cached_share": 0.852,
+            "tool_calls": 34,
+            "median_ms": 3412
+          },
+          "comparable": true,
+          "accuracy_at_least_equal": true,
+          "lower_total_tokens": true,
+          "basic_shipping_rule_met": true
+        }
+      ],
+      "agent_benchmark_present": true,
+      "public_release": {
+        "checked_at": "2026-10-13T18:40:59.663Z",
+        "npm": {
+          "status": "missing",
+          "source": "https://registry.npmjs.org/vuln-priority-mcp/0.1.0",
+          "version": null,
+          "integrity": null,
+          "attestations": null
+        },
+        "repository": {
+          "status": "found",
+          "source": "https://api.github.com/repos/arhancanli/vuln-priority-mcp",
+          "url": "https://github.com/arhancanli/vuln-priority-mcp",
+          "stars": 1,
+          "open_issues": 4,
+          "pushed_at": "2026-10-10T13:26:26Z"
+        },
+        "release": {
+          "status": "missing",
+          "source": "https://api.github.com/repos/arhancanli/vuln-priority-mcp/releases/tags/v0.1.0",
+          "url": null,
+          "published_at": null,
+          "assets": []
+        },
+        "canary": {
+          "status": "found",
+          "source": "https://api.github.com/repos/arhancanli/vuln-priority-mcp/actions/workflows/canary.yml/runs?per_page=1",
+          "last_run": {
+            "url": "https://github.com/arhancanli/vuln-priority-mcp/actions/runs/38414220565",
+            "conclusion": "success",
+            "status": "completed",
+            "started_at": "2026-10-13T14:32:22Z"
+          }
+        },
+        "registry": {
+          "status": "error",
+          "source": "https://registry.modelcontextprotocol.io/v0.1/servers?search=io.github.arhancanli%2Fvuln-priority-mcp&limit=100",
+          "entry": null,
+          "search_may_be_paginated": false
+        },
+        "source_parity_verified": false,
+        "signatures_verified": false
+      }
+    },
+    {
+      "name": "web-reader-mcp",
+      "version": "0.1.0",
+      "category": "productivity",
+      "tools": 4,
+      "repository": "https://github.com/arhancanli/web-reader-mcp",
+      "mcp_name": "io.github.arhancanli/web-reader-mcp",
+      "golden_test_files": [
+        "rules.test.mjs",
+        "tools.test.mjs"
+      ],
+      "canary_implemented": true,
+      "performance": {
+        "path": "servers/web-reader/bench/perf.json",
+        "date": "2026-09-26",
+        "scenarios": 7,
+        "tools_list_chars": 3635
+      },
+      "benchmarks": [
+        {
+          "path": "servers/web-reader/bench/results/2026-09-26-gpt-5.4-mini.json",
+          "date": "2026-09-26",
+          "model": "gpt-5.4-mini",
+          "competitor": "mcp-server-fetch, the official reference fetch server",
+          "ours": {
+            "tasks": 10,
+            "correct": 10,
+            "tokens_in": 28243,
+            "tokens_out": 833,
+            "cached_share": 0.095,
+            "tool_calls": 17,
+            "median_ms": 3977
+          },
+          "competitor_summary": {
+            "tasks": 10,
+            "correct": 8,
+            "tokens_in": 418342,
+            "tokens_out": 1682,
+            "cached_share": 0.684,
+            "tool_calls": 39,
+            "median_ms": 13056
+          },
+          "comparable": true,
+          "accuracy_at_least_equal": true,
+          "lower_total_tokens": true,
+          "basic_shipping_rule_met": true
+        }
+      ],
+      "agent_benchmark_present": true,
+      "public_release": {
+        "checked_at": "2026-10-13T18:41:00.953Z",
+        "npm": {
+          "status": "missing",
+          "source": "https://registry.npmjs.org/web-reader-mcp/0.1.0",
+          "version": null,
+          "integrity": null,
+          "attestations": null
+        },
+        "repository": {
+          "status": "found",
+          "source": "https://api.github.com/repos/arhancanli/web-reader-mcp",
+          "url": "https://github.com/arhancanli/web-reader-mcp",
+          "stars": 0,
+          "open_issues": 4,
+          "pushed_at": "2026-10-10T09:06:39Z"
+        },
+        "release": {
+          "status": "missing",
+          "source": "https://api.github.com/repos/arhancanli/web-reader-mcp/releases/tags/v0.1.0",
+          "url": null,
+          "published_at": null,
+          "assets": []
+        },
+        "canary": {
+          "status": "found",
+          "source": "https://api.github.com/repos/arhancanli/web-reader-mcp/actions/workflows/canary.yml/runs?per_page=1",
+          "last_run": {
+            "url": "https://github.com/arhancanli/web-reader-mcp/actions/runs/38414614994",
+            "conclusion": "success",
+            "status": "completed",
+            "started_at": "2026-10-13T14:35:07Z"
+          }
+        },
+        "registry": {
+          "status": "not_found_in_search",
+          "source": "https://registry.modelcontextprotocol.io/v0.1/servers?search=io.github.arhancanli%2Fweb-reader-mcp&limit=100",
+          "entry": null,
+          "search_may_be_paginated": false
+        },
+        "source_parity_verified": false,
+        "signatures_verified": false
+      }
+    },
+    {
+      "name": "world-time-mcp",
+      "version": "0.1.0",
+      "category": "productivity",
+      "tools": 5,
+      "repository": "https://github.com/arhancanli/world-time-mcp",
+      "mcp_name": "io.github.arhancanli/world-time-mcp",
+      "golden_test_files": [
+        "rules.test.mjs",
+        "tools.test.mjs"
+      ],
+      "canary_implemented": true,
+      "performance": {
+        "path": "servers/world-time/bench/perf.json",
+        "date": "2026-09-26",
+        "scenarios": 6,
+        "tools_list_chars": 4632
+      },
+      "benchmarks": [
+        {
+          "path": "servers/world-time/bench/results/2026-09-26-gpt-5.4-mini.json",
+          "date": "2026-09-26",
+          "model": "gpt-5.4-mini",
+          "competitor": "mcp-server-time, the official reference time server",
+          "ours": {
+            "tasks": 13,
+            "correct": 13,
+            "tokens_in": 24880,
+            "tokens_out": 573,
+            "cached_share": 0.046,
+            "tool_calls": 14,
+            "median_ms": 1950
+          },
+          "competitor_summary": {
+            "tasks": 13,
+            "correct": 8,
+            "tokens_in": 9843,
+            "tokens_out": 565,
+            "cached_share": 0.117,
+            "tool_calls": 15,
+            "median_ms": 1735
+          },
+          "comparable": true,
+          "accuracy_at_least_equal": true,
+          "lower_total_tokens": false,
+          "basic_shipping_rule_met": false
+        }
+      ],
+      "agent_benchmark_present": true,
+      "public_release": {
+        "checked_at": "2026-10-13T18:41:10.398Z",
+        "npm": {
+          "status": "missing",
+          "source": "https://registry.npmjs.org/world-time-mcp/0.1.0",
+          "version": null,
+          "integrity": null,
+          "attestations": null
+        },
+        "repository": {
+          "status": "found",
+          "source": "https://api.github.com/repos/arhancanli/world-time-mcp",
+          "url": "https://github.com/arhancanli/world-time-mcp",
+          "stars": 0,
+          "open_issues": 4,
+          "pushed_at": "2026-10-10T23:37:17Z"
+        },
+        "release": {
+          "status": "missing",
+          "source": "https://api.github.com/repos/arhancanli/world-time-mcp/releases/tags/v0.1.0",
+          "url": null,
+          "published_at": null,
+          "assets": []
+        },
+        "canary": {
+          "status": "found",
+          "source": "https://api.github.com/repos/arhancanli/world-time-mcp/actions/workflows/canary.yml/runs?per_page=1",
+          "last_run": {
+            "url": "https://github.com/arhancanli/world-time-mcp/actions/runs/38414507884",
+            "conclusion": "success",
+            "status": "completed",
+            "started_at": "2026-10-13T14:34:22Z"
+          }
+        },
+        "registry": {
+          "status": "error",
+          "source": "https://registry.modelcontextprotocol.io/v0.1/servers?search=io.github.arhancanli%2Fworld-time-mcp&limit=100",
+          "entry": null,
+          "search_may_be_paginated": false
+        },
+        "source_parity_verified": false,
+        "signatures_verified": false
+      }
+    }
+  ]
+}

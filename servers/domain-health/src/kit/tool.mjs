@@ -123,7 +123,7 @@ export function wrapHandler(tool, ctx, log = (line) => process.stderr.write(`${l
     } catch (err) {
       if (err instanceof ToolError) return errorResult(err.code, err.message, err.details);
       if (err instanceof UpstreamError) return errorResult(err.code, `${err.message} No automatic retry beyond the built-in ones was sent.`);
-      log(`${tool.name}: unexpected ${err?.name ?? "error"}: ${err?.message ?? String(err)}`);
+      log(`${tool.name}: unexpected ${err?.name ?? "error"}; details withheld to protect upstream data and credentials`);
       return errorResult("internal_error", "The tool failed unexpectedly. The failure was logged on the server; retrying with the same input will likely fail again.");
     }
   };

@@ -1,0 +1,41 @@
+name: Laboratory
+
+on:
+  push:
+    branches: [main]
+    paths: ["lab/**", "kit/**", "package.json", "package-lock.json", ".github/workflows/lab.yml"]
+  pull_request:
+    paths: ["lab/**", "kit/**", "package.json", "package-lock.json", ".github/workflows/lab.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  cpu-laboratory:
+    # The locked Darwin path avoids pulling CUDA libraries into the CPU pilot.
+    # Linux CPU/distributed validation is a separate tracked milestone.
+    runs-on: macos-15
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020
+        with:
+          node-version: 24
+          cache: npm
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1
+        with:
+          python-version: "3.12"
+      - uses: astral-sh/setup-uv@94527f2e458b27549849d47d273a16bec83a01e9
+        with:
+          version: "0.11.20"
+          enable-cache: true
+          cache-dependency-glob: lab/uv.lock
+      - run: npm ci --ignore-scripts
+      - run: uv sync --frozen --project lab
+      - run: uv run --project lab ruff check lab/src lab/tests lab/scripts
+      - run: uv run --project lab ruff format --check lab/src lab/tests lab/scripts
+      - run: uv run --project lab pytest -q lab/tests
+      - run: npm run test:lab-mcp
