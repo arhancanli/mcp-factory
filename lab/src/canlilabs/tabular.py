@@ -207,7 +207,9 @@ def _splits(rows, targets, fingerprints, config):
         boundaries = np.flatnonzero(sorted_times[1:] != sorted_times[:-1]) + 1
         if len(boundaries) < 2:
             raise ValueError("A time split needs at least three distinct timestamps.")
-        first = int(boundaries[np.abs(boundaries - 0.6 * len(rows)).argmin()])
+        # Reserve a later boundary for validation/test, even when large time ties dominate.
+        candidates = boundaries[:-1]
+        first = int(candidates[np.abs(candidates - 0.6 * len(rows)).argmin()])
         later = boundaries[boundaries > first]
         if not len(later):
             raise ValueError("Timestamp ties leave no independent test split.")
@@ -293,8 +295,9 @@ def prepare_tabular(workspace, config):
     train = features[splits["train"]]
     unique_fingerprints = set(fingerprints)
     labels_by_fingerprint = {}
-    for fingerprint, row in zip(fingerprints, rows, strict=True):
-        labels_by_fingerprint.setdefault(fingerprint, set()).add(row[manifest["target"]])
+    for fingerprint, target in zip(fingerprints, targets, strict=True):
+        # Regression aliases such as 1 and 1.0 are the same numeric target.
+        labels_by_fingerprint.setdefault(fingerprint, set()).add(target)
     profile = {
         "schema": "canlilabs.tabular-profile.v1",
         "dataset_id": manifest["dataset_id"],

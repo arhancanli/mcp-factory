@@ -120,6 +120,21 @@ signatures verify, and the original main checkout remains untouched. Continue wi
 source-tied MCP release readiness and current quality comparisons, then the rest
 of the preserved laboratory/scaling requirements. Overall goal remains active.
 
+## 2026-10-14: final data edge-case review
+
+Review found that regression profiles compared raw target spellings when counting
+conflicts: 1 and 1.0 could be reported as different despite identical numeric
+targets. Corrected the profile to compare prepared target values. Also reserved a
+second timestamp boundary when choosing the first time cut; large tied timestamp
+groups can now form all three valid ordered partitions instead of being rejected.
+Three targeted regression cases pass. The full suite is now 42/42, and both real
+MCP integrations pass. The change affects data preparation; no test feedback tunes
+model parameters. Re-ran the fixed twelve-run public cohort to bind evidence to
+source fingerprint 17633f3a0172315349a6a595f5c811a514645ebe2d4bc0d331ddb5e39130d24e.
+All results match the earlier fixed cohort. Retained all three cohorts (36 real
+trials in separate workspaces), old source hashes and failed CI evidence. The new
+reviewed receipt records the current source; fresh CI is required before handoff.
+
 ## 2026-10-13: goal launch and recovery
 
 The owner requested work on CanliLabs, preservation of earlier goals, thousands

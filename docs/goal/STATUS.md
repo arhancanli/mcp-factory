@@ -44,7 +44,7 @@ also records the successful ten-task step and frozen hashes.
   with no raw rows, split positions or weights returned. Real stdio tests confirm
   the database is unchanged and tampered split/rights metadata is rejected.
 
-Local checks: 39 behavioral lab tests, two real stdio integrations, lint/format,
+Local checks: 42 behavioral lab tests, two real stdio integrations, lint/format,
 290 factory checks and ten frozen task answers through fourteen MCP calls.
 Lab lint/format, behavioral tests and integrations passed in macOS CI, with Node
 20/22/24 gates, all 21 standalone packages and JavaScript/Python CodeQL. The ten
@@ -54,23 +54,25 @@ behavioral/integration tests passed. The helper now uses the exact public CC0
 synthetic fixture and splits from the recorded cohort, checking all hashes.
 The portable step then passed on `cecee19`: CI logs verify all ten answers through
 fourteen MCP calls. The earlier failure is retained. All seven checks passed again.
-These task answers are not an agent/incumbent benchmark. The final validation
-receipt follow-up changes only documentation; verify current PR checks on resume.
+These task answers are not an agent/incumbent benchmark. A final data review added
+three edge-case tests and corrections for numeric target aliases and large time
+ties. Its current-head CI is pending; verify current PR checks on resume.
 
-Two separate twelve-run public cohorts are retained. The final cohort in
-[registered-data-runs.json](evidence/2026-10-14-registered-data-runs.json) uses
+Three separate twelve-run public cohorts are retained. The reviewed cohort in
+[registered-data-reviewed-runs.json](evidence/2026-10-14-registered-data-reviewed-runs.json) uses
 fixed seeds 7/19/43, split seed 2718, default ML parameters and 30 DL epochs.
 Both recipes achieved 30/30 Iris test predictions per seed against a 1/3 majority
 baseline. On 967 held-out Wine Quality examples, ridge RMSE was 0.719 and MLP RMSE
 0.666-0.677, against 0.859 for the training-mean baseline. All checkpoints reloaded.
 These are two small public tasks on fixed splits, not population uncertainty,
 strongest-model evidence or production qualification. Both source pages declare
-CC BY 4.0; receipts retain creator attribution and conversion lineage. No data or
-weights are committed. The initial cohort is kept separately with its earlier
-source hashes; the final receipt ties runs to the finalized package source.
+CC BY 4.0; receipts retain creator attribution and conversion lineage. UCI data and
+weights stay local; the committed frozen fixture is public CC0 synthetic data.
+The two earlier cohorts retain their source hashes; the newest receipt matches
+the reviewed package and keeps all twelve new trials. Parameters were unchanged.
 Its exact package fingerprint is
-`d39c84dae77351b72f5f9011f637d9be4260b8f62f4d72bc1a569cb2c608e7c5`;
-verified against the signed implementation. Iris has one duplicate feature row;
+`17633f3a0172315349a6a595f5c811a514645ebe2d4bc0d331ddb5e39130d24e`.
+Iris has one duplicate feature row;
 Wine Quality has 937. All rows are retained in disjoint components. Wine split
 counts are 2,959 training, 972 validation and 967 test examples.
 

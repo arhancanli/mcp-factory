@@ -64,6 +64,23 @@ def test_numeric_duplicates_with_different_labels_and_ids_never_cross_splits(tmp
     assert prepare_tabular(tmp_path, config(dataset_id))[3] == evidence
 
 
+@pytest.mark.parametrize("duplicate_target, conflicts", [("1.0", 0), ("2.0", 1)])
+def test_regression_conflicts_compare_numeric_targets_not_csv_spelling(
+    tmp_path, duplicate_target, conflicts
+):
+    rows = simple_rows()
+    rows.append({**rows[10], "id": "duplicate", "a": "2e1", "target": duplicate_target})
+    dataset_id = register(tmp_path, rows, ["id", "a", "b", "target"])
+    _x, _y, _splits, evidence = prepare_tabular(tmp_path, config(dataset_id, task="regression"))
+    profile = json.loads(
+        (
+            tmp_path / "datasets" / dataset_id / f"profile-{evidence['profile_sha256']}.json"
+        ).read_text()
+    )
+    assert profile["duplicate_feature_rows"] == 1
+    assert profile["conflicting_target_feature_groups"] == conflicts
+
+
 def test_subject_groups_and_transitive_duplicate_links_stay_disjoint(tmp_path):
     rows = [{**row, "subject": f"s{i // 2}"} for i, row in enumerate(simple_rows())]
     rows[20].update(a=rows[0]["a"], b=rows[0]["b"])
@@ -88,6 +105,19 @@ def test_time_splits_are_strict_and_keep_tied_timestamps_together(tmp_path):
     assert max(times["train"]) < min(times["validation"])
     assert max(times["validation"]) < min(times["test"])
     assert sum(map(len, splits.values())) == len(rows)
+
+
+def test_large_timestamp_ties_still_form_three_nonempty_ordered_splits(tmp_path):
+    rows = simple_rows()
+    for i, row in enumerate(rows):
+        row["time"] = "0" if i < 20 else "1" if i < 85 else "2"
+    dataset_id = register(tmp_path, rows, ["id", "a", "b", "time", "target"])
+    _x, _y, splits, evidence = prepare_tabular(
+        tmp_path, config(dataset_id, split_strategy="time", time_column="time")
+    )
+    assert evidence["split_counts"] == {"train": 20, "validation": 65, "test": 5}
+    times = {name: {rows[i]["time"] for i in indices} for name, indices in splits.items()}
+    assert times == {"train": {"0"}, "validation": {"1"}, "test": {"2"}}
 
 
 def test_time_split_refuses_duplicate_features_at_evaluation_boundary(tmp_path):
