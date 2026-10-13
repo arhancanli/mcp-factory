@@ -9,6 +9,7 @@ import { Client } from "@modelcontextprotocol/sdk/client/index.js";
 import { StdioClientTransport } from "@modelcontextprotocol/sdk/client/stdio.js";
 import { listServerDirs } from "./lib.mjs";
 import { exportServer } from "./export.mjs";
+import { parseSelectedNames } from "./ci-plan.mjs";
 
 export async function checkStandalone(name, { ref = "HEAD" } = {}) {
   const dir = mkdtempSync(path.join(os.tmpdir(), `standalone-${name}-`));
@@ -45,12 +46,18 @@ export async function checkStandalone(name, { ref = "HEAD" } = {}) {
 }
 
 if (process.argv[1] && path.resolve(process.argv[1]) === new URL(import.meta.url).pathname) {
-  const names = process.argv.slice(2).length ? process.argv.slice(2) : listServerDirs().map((d) => path.basename(d));
+  const args = process.argv.slice(2);
+  const available = listServerDirs().map((d) => path.basename(d));
+  if (args[0] === "--names-json" && args.length !== 2) throw new Error("--names-json requires exactly one selection.");
+  const names = args.length ? parseSelectedNames(args[0] === "--names-json" ? args[1] : JSON.stringify(args), available) : available;
   let failed = 0;
   for (const name of names) {
+    const start = performance.now();
     try {
       const record = await checkStandalone(name);
       process.stdout.write(`ok ${name}: ${record.tests} tests pass standalone; packed tarball initializes and lists tools\n`);
+      const { log, ...receipt } = record;
+      process.stdout.write(`standalone_receipt ${JSON.stringify({ ...receipt, duration_ms: Math.round(performance.now() - start) })}\n`);
     } catch (error) {
       failed++;
       process.stdout.write(`FAIL ${name}: ${error.message}\n${String(error.stdout ?? "").slice(-16_000)}\n${String(error.stderr ?? "").slice(-4000)}\n`);

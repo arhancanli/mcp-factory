@@ -1,5 +1,17 @@
 # Decision and execution log
 
+## 2026-10-14: independent factory capacity slice
+
+Re-read all five continuity files and checked actual branches and PR states.
+PR #11's final evidence head 3ef6eca passes all seven checks; #9, #10 and #11
+remain ready, open and unmerged. The previous turn made measurable progress,
+not overall completion. Created a separate signed-review branch/worktree on
+the validated release head. All 25 requirements and the 2,000-release floor stay
+active. The next bounded implementation selects and shards independent package
+checks without reducing their installation, protocol or golden-test station.
+Full root Node gates continue; their own future sharding and real cohort
+throughput/maintenance evidence remain part of M11.
+
 ## 2026-10-14: MCP release qualification slice
 
 Re-read the five continuity records and original specification, fetched origin
@@ -340,3 +352,37 @@ clarified the root README's shipping criteria so package availability is not
 implied. The final documentation follow-up has no runtime changes. Resume by
 checking the actual PR state and first unmet backlog gate, preserving all 25
 requirements and the 2,000 distinct-release planning floor.
+
+## 2026-10-14: capacity slice local verification
+
+All 302 factory checks pass, including six meaningful impact/selection tests.
+Real Git rename/deletion, missing-base fallback, orphaned server failure and
+invalid CLI selections are covered. The exact immutable workflow passes
+actionlint 1.7.12, whose downloaded archive hash matches its official release
+metadata. Three real packages (Regex Check, SQL Check and World Time) passed
+34 standalone tests, packed install and actual MCP initialize/tools-list calls.
+Each retained receipt records tree, packed integrity and measured elapsed time.
+
+Fifteen explicitly synthetic scheduling scenarios cover 21, 100, 500, 2,000
+and 10,000 names. The 2,000-name full case assigns every name once in sixteen
+125-package shards; the single-server case selects one and documentation none.
+This measures planning, not end-to-end fleet capacity or any new release count.
+Saved the source hashes and precise limitations in the local capacity receipt.
+The root Node gate still checks all servers; broader maintenance and laboratory
+objectives remain active. Signed stacked review and fresh remote CI follow.
+
+## 2026-10-14: factory capacity review validated
+
+All eight checks passed on owner-signed implementation 03dd00e: Node 20/22/24,
+planner, standalone shard, stable aggregate and both CodeQL checks. Downloaded
+the completed job logs and confirmed 302 factory tests, 270 tests across all
+21 standalone packages, real packed MCP calls and exact committed tree parity
+for every package. The serial package workload took 101,481 ms in this CI run;
+this is one 21-package cohort, not capacity evidence for two thousand packages.
+Saved exact check URLs, tree/integrity/timing records and raw-log hashes.
+
+PR #12 is stacked on open #11, #10 and #9 and is ready for review. No owner merge,
+publication or launch was performed. The evidence update changes documentation
+only. Preserve every broader requirement: current scout/agent/performance and
+release proof, full factory-gate scalability, maintained discovery/adoption,
+Linux/accelerator/deeper learning, delivery and education. Overall goal active.

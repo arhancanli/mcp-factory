@@ -3,9 +3,9 @@
 Updated: 2026-10-14 (Asia/Dubai). Overall goal: active; incomplete.
 
 Repository: `arhancanli/mcp-factory`. Actual `origin/main`: `e52f29f`.
-Active worktree: `/Users/arhancanli/canlilabs-release-20261014`.
-Branch: `codex/canlilabs-release-readiness-20261014`, based on validated data head
-`4e19133`. The original checkout remains clean on main. Foundation
+Active worktree: `/Users/arhancanli/canlilabs-scale-20261014`.
+Branch: `codex/canlilabs-ci-capacity-20261014`, based on validated release head
+`3ef6eca`. The original checkout remains clean on main. Foundation
 [PR #9](https://github.com/arhancanli/mcp-factory/pull/9) is open, ready for review
 and unmerged; all seven checks passed on its final head. The data/lifecycle slice
 is owner-signed at `9bda49c` and open as stacked
@@ -38,6 +38,30 @@ This proves technical checks, not scout/agent/performance qualification or relea
 [Release CI evidence](evidence/2026-10-14-release-ci-validation.json) records exact
 head and check URLs. The remaining 21 independent packages also pass CI. All wider
 laboratory objectives stay active; this phase changed no training algorithms.
+
+All seven checks also passed on PR #11's documentation/evidence head `3ef6eca`.
+The preceding turn is progress. The next independent capacity slice selects
+packed-install checks from complete Git diffs, widens shared/unknown changes,
+keeps main/weekly/manual full checks, and bounds standalone work to sixteen
+shards with four concurrent workers. Full Node factory gates remain unchanged.
+No scheduling simulation counts as an implemented or maintained server. Current
+implementation passes 302 local factory checks and 34 standalone checks over
+three actually packed packages, plus actionlint workflow validation. The
+[local capacity receipt](evidence/2026-10-14-ci-capacity-local.json) binds source
+hashes, real package trees/integrities/timings and fifteen synthetic scheduling
+scenarios. The 2,000-name full scenario creates sixteen 125-name shards; it proves
+no releases or end-to-end fleet capacity. Fresh remote CI and signed review follow.
+
+The capacity implementation is owner-signed at `03dd00e` and open as
+[PR #12](https://github.com/arhancanli/mcp-factory/pull/12), ready for review,
+stacked on #11. All eight checks passed: Node 20/22/24, planner, standalone shard,
+stable aggregate and both CodeQL checks. Downloaded CI logs confirm 302 factory
+checks and 270 server checks over all 21 exact committed standalone trees, with
+real packed MCP initialization/tool-list calls. The serial package workload was
+101,481 ms for this cohort. This is not measured fleet capacity for thousands.
+[Capacity CI evidence](evidence/2026-10-14-ci-capacity-validation.json) retains
+exact check URLs, every tree/integrity/timing and log hashes. This follow-up is
+documentation only. Verify actual PR/head/check state on continuation.
 
 ## Current executable laboratory
 

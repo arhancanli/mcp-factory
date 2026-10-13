@@ -13,7 +13,7 @@ Change the queue when actual evidence changes its priority.
 | 5 | Complete the model/experiment lifecycle | Atomic receipts, lease-safe interrupted-run recovery, protocol comparisons and cards are locally validated; next add promotion history, rollback, checkpoint resume and serving qualification |
 | 6 | Qualify useful laboratory MCP servers | Scout dataset/split verification, experiment reproducibility audit and metric verification; test maximum metadata/Unicode schemas and output budgets, then measure the strongest incumbents before release |
 | 7 | Support Linux CPU and accelerators | CPU-specific Torch lock path, Linux CI, then hardware-specific GPU profiles, checkpoint resume tests and documented budgets |
-| 8 | Grow the first measured server cohort | New scout records and independently useful task corpora; require original build/gate/benchmark/ship stations; measure maintenance capacity before growing to 100 |
+| 8 | Grow the first measured server cohort | New scout records and independently useful task corpora; require original build/gate/benchmark/ship stations; changed/full packed CI is locally validated, but factory-gate scaling and real maintenance capacity are required before growing to 100 |
 | 9 | Search and route the collection | Ranked tool/server discovery with bounded pagination; test retrieval on held-out tasks; measure token cost and stale-version handling |
 | 10 | Extend research and teaching tracks | Add regression/ensembles, vision/text models, deep RL and foundation-model tuning, then every COVERAGE.md discipline with a recipe and evaluation |
 

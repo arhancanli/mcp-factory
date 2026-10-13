@@ -1,16 +1,42 @@
 # The factory gate on every push and pull request, on every Node line the servers support:
 # kit tests, the per-server gate (real stdio, tool-list budget, drift, credit, registry files),
-# each server's own golden tests, and a packed-tarball install of every server.
+# each server's own golden tests, and changed/full packed standalone checks.
 name: CI
 
 on:
   push:
     branches: [main]
   pull_request:
+  schedule:
+    - cron: "29 5 * * 1"
+  workflow_dispatch:
 
 permissions: read-all
 
 jobs:
+  plan:
+    name: Plan independent package checks
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+    outputs:
+      count: ${{ steps.plan.outputs.count }}
+      mode: ${{ steps.plan.outputs.mode }}
+      matrix: ${{ steps.plan.outputs.matrix }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 24
+      - id: plan
+        env:
+          CANLILABS_CI_BASE: ${{ github.event.pull_request.base.sha }}
+        run: node scripts/ci-plan.mjs
+
   gate:
     name: Gate on Node ${{ matrix.node }}
     runs-on: ubuntu-latest
@@ -32,11 +58,18 @@ jobs:
       - run: npm audit --audit-level=high
       - run: npm test
 
-  standalone:
-    name: Every server works as its own repository
+  standalone-shard:
+    name: Standalone package shard ${{ matrix.id }}
+    needs: plan
+    if: needs.plan.outputs.count != '0'
     runs-on: ubuntu-latest
+    timeout-minutes: 45
     permissions:
       contents: read
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix: ${{ fromJSON(needs.plan.outputs.matrix) }}
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -46,4 +79,29 @@ jobs:
           node-version: 24
           cache: npm
       - run: npm ci --ignore-scripts
-      - run: node scripts/check-standalone.mjs
+      - name: Test and install every package assigned to this shard
+        env:
+          CANLILABS_CI_NAMES: ${{ matrix.names_json }}
+        run: node scripts/check-standalone.mjs --names-json "$CANLILABS_CI_NAMES"
+
+  standalone:
+    name: Every server works as its own repository
+    needs: [plan, standalone-shard]
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+    steps:
+      - name: Require the complete planned package checks
+        env:
+          PLAN_RESULT: ${{ needs.plan.result }}
+          SHARD_RESULT: ${{ needs.standalone-shard.result }}
+          SELECTED_COUNT: ${{ needs.plan.outputs.count }}
+        run: |
+          test "$PLAN_RESULT" = success
+          if [ "$SELECTED_COUNT" = 0 ]; then
+            test "$SHARD_RESULT" = skipped
+          else
+            test "$SHARD_RESULT" = success
+          fi

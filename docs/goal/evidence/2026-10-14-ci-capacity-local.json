@@ -1,0 +1,219 @@
+{
+  "schema": "canlilabs.ci-capacity.v1",
+  "checked_at": "2026-10-13T23:42:11.383Z",
+  "scope": "Synthetic scheduling only; actual package execution is recorded separately. Full factory gate remains unchanged.",
+  "source_hashes": {
+    "scripts/ci-plan.mjs": "c6567a8c72fe8fb8dcba613060db0e860a197fb163f82d9be7a218de66339cd5",
+    "scripts/check-standalone.mjs": "ef86f7b542d7b7d4a07a0298b7127119d0542b51c4b0de565c496894cc6d35b9",
+    "gate/ci-plan.test.mjs": "61dbe28fdc20f63dae023828e81a8c753f96f45aeb54d3e9e79daec66ae3cd43",
+    ".github/workflows/ci.yml": "ee2976f94dc8171b6e9e82791ca8b61b26ba01846a746de64e07aed044ab8dec"
+  },
+  "real_collection": {
+    "schema": "canlilabs.ci-plan.v1",
+    "base": null,
+    "head": "3ef6eca2853ce6437277e10d163d43d79d19826d",
+    "mode": "all",
+    "reasons": [
+      "main, scheduled, manual or explicit full check"
+    ],
+    "all_server_count": 21,
+    "selected_server_count": 21,
+    "servers": [
+      "actions-check",
+      "citation-check",
+      "config-check",
+      "contact-check",
+      "cron-check",
+      "dockerfile-check",
+      "domain-health",
+      "drug-label",
+      "end-of-life",
+      "internet-standards",
+      "kube-check",
+      "license-check",
+      "package-truth",
+      "recall-check",
+      "regex-check",
+      "release-notes",
+      "satellite-imagery",
+      "sql-check",
+      "vuln-priority",
+      "web-reader",
+      "world-time"
+    ],
+    "shards": [
+      {
+        "id": 1,
+        "count": 21,
+        "names_json": "[\"actions-check\",\"citation-check\",\"config-check\",\"contact-check\",\"cron-check\",\"dockerfile-check\",\"domain-health\",\"drug-label\",\"end-of-life\",\"internet-standards\",\"kube-check\",\"license-check\",\"package-truth\",\"recall-check\",\"regex-check\",\"release-notes\",\"satellite-imagery\",\"sql-check\",\"vuln-priority\",\"web-reader\",\"world-time\"]"
+      }
+    ],
+    "max_parallel": 4,
+    "max_shards": 16,
+    "target_shard_size": 64
+  },
+  "max_parallel": 4,
+  "simulations": [
+    {
+      "synthetic_name_count": 21,
+      "scenario": "all",
+      "selected": 21,
+      "shards": 1,
+      "largest_shard": 21,
+      "elapsed_ms": 0.248
+    },
+    {
+      "synthetic_name_count": 21,
+      "scenario": "one-server",
+      "selected": 1,
+      "shards": 1,
+      "largest_shard": 1,
+      "elapsed_ms": 0.066
+    },
+    {
+      "synthetic_name_count": 21,
+      "scenario": "documents",
+      "selected": 0,
+      "shards": 0,
+      "largest_shard": 0,
+      "elapsed_ms": 0.043
+    },
+    {
+      "synthetic_name_count": 100,
+      "scenario": "all",
+      "selected": 100,
+      "shards": 2,
+      "largest_shard": 64,
+      "elapsed_ms": 0.028
+    },
+    {
+      "synthetic_name_count": 100,
+      "scenario": "one-server",
+      "selected": 1,
+      "shards": 1,
+      "largest_shard": 1,
+      "elapsed_ms": 0.022
+    },
+    {
+      "synthetic_name_count": 100,
+      "scenario": "documents",
+      "selected": 0,
+      "shards": 0,
+      "largest_shard": 0,
+      "elapsed_ms": 0.022
+    },
+    {
+      "synthetic_name_count": 500,
+      "scenario": "all",
+      "selected": 500,
+      "shards": 8,
+      "largest_shard": 64,
+      "elapsed_ms": 0.121
+    },
+    {
+      "synthetic_name_count": 500,
+      "scenario": "one-server",
+      "selected": 1,
+      "shards": 1,
+      "largest_shard": 1,
+      "elapsed_ms": 0.062
+    },
+    {
+      "synthetic_name_count": 500,
+      "scenario": "documents",
+      "selected": 0,
+      "shards": 0,
+      "largest_shard": 0,
+      "elapsed_ms": 0.056
+    },
+    {
+      "synthetic_name_count": 2000,
+      "scenario": "all",
+      "selected": 2000,
+      "shards": 16,
+      "largest_shard": 125,
+      "elapsed_ms": 0.234
+    },
+    {
+      "synthetic_name_count": 2000,
+      "scenario": "one-server",
+      "selected": 1,
+      "shards": 1,
+      "largest_shard": 1,
+      "elapsed_ms": 0.151
+    },
+    {
+      "synthetic_name_count": 2000,
+      "scenario": "documents",
+      "selected": 0,
+      "shards": 0,
+      "largest_shard": 0,
+      "elapsed_ms": 0.131
+    },
+    {
+      "synthetic_name_count": 10000,
+      "scenario": "all",
+      "selected": 10000,
+      "shards": 16,
+      "largest_shard": 625,
+      "elapsed_ms": 1.501
+    },
+    {
+      "synthetic_name_count": 10000,
+      "scenario": "one-server",
+      "selected": 1,
+      "shards": 1,
+      "largest_shard": 1,
+      "elapsed_ms": 0.895
+    },
+    {
+      "synthetic_name_count": 10000,
+      "scenario": "documents",
+      "selected": 0,
+      "shards": 0,
+      "largest_shard": 0,
+      "elapsed_ms": 1.051
+    }
+  ],
+  "real_cli_negative_cases": 3,
+  "factory_tests": 302,
+  "actual_standalone_packages": [
+    {
+      "name": "regex-check",
+      "tree": "60558a53502bd8c0f4c30bd1dd597d24e090c446",
+      "tests": 11,
+      "initialize": true,
+      "tools_list": true,
+      "packed_integrity": "sha512-KsMaRnHWMnYUSVPh49l4+vJ//pfwSJaMR4Y9lzm1M9aGDH4ITPYLC4UPtKoyXUd+PTGquVponKdH1LwuPvdKvQ==",
+      "duration_ms": 10180
+    },
+    {
+      "name": "sql-check",
+      "tree": "425285432be4f95715a086aaaebd1fd9adad9a4a",
+      "tests": 11,
+      "initialize": true,
+      "tools_list": true,
+      "packed_integrity": "sha512-VodbC0tHxyTuK8iSsyCDf+jvtncB60gFvbKrP59vqesFwgLvCVPjlQzlz6klhmnQQwaN07imE53L1gg3ABgzYw==",
+      "duration_ms": 9995
+    },
+    {
+      "name": "world-time",
+      "tree": "81f8bf37e7ee29c897aedd52dcda11318b1c2cb0",
+      "tests": 12,
+      "initialize": true,
+      "tools_list": true,
+      "packed_integrity": "sha512-eoQvWPv/dRf9sqzi0HDyGfTLgHb3ElGxNZ9T6Mo4q8lxmJog67p0vF2cJgZBpZ44SqfF/ilqySezDio3+VIz0w==",
+      "duration_ms": 2456
+    }
+  ],
+  "actual_standalone_tests": 34,
+  "actionlint": {
+    "version": "1.7.12",
+    "archive_sha256": "aba9ced2dee8d27fecca3dc7feb1a7f9a52caefa1eb46f3271ea66b6e0e6953f",
+    "workflow_valid": true
+  },
+  "local_logs": {
+    "canlilabs-scale-factory-test.log": "a6f655f24679145ef64c739bd28b92efc4b42d7d9d3d4d49a44d366bb90ef7a6",
+    "canlilabs-scale-standalone-test.log": "34f35ad650206deae17c356f76afbf52e69ff1e9f57757a55636e037fabfbba8"
+  }
+}
