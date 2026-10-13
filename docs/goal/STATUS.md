@@ -16,6 +16,9 @@ It depends on PR #9 and is not merged or published. Exact check URLs and the tes
 source are in [data-ci-validation.json](evidence/2026-10-14-data-ci-validation.json).
 The later [portable-fixture CI receipt](evidence/2026-10-14-portable-fixture-ci-validation.json)
 also records the successful ten-task step and frozen hashes.
+The final data review passed all seven checks at `77b292d`; its
+[reviewed CI receipt](evidence/2026-10-14-reviewed-data-ci-validation.json) binds
+42 lab tests and twelve public runs to the current package fingerprint.
 
 ## Current executable laboratory
 
@@ -56,7 +59,8 @@ The portable step then passed on `cecee19`: CI logs verify all ten answers throu
 fourteen MCP calls. The earlier failure is retained. All seven checks passed again.
 These task answers are not an agent/incumbent benchmark. A final data review added
 three edge-case tests and corrections for numeric target aliases and large time
-ties. Its current-head CI is pending; verify current PR checks on resume.
+ties. All 42 tests, integrations and frozen tasks pass in CI at `77b292d`.
+The final receipt commit changes documentation only; recheck current PR state on resume.
 
 Three separate twelve-run public cohorts are retained. The reviewed cohort in
 [registered-data-reviewed-runs.json](evidence/2026-10-14-registered-data-reviewed-runs.json) uses

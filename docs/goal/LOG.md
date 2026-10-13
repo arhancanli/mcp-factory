@@ -135,6 +135,16 @@ All results match the earlier fixed cohort. Retained all three cohorts (36 real
 trials in separate workspaces), old source hashes and failed CI evidence. The new
 reviewed receipt records the current source; fresh CI is required before handoff.
 
+## 2026-10-14: completed reviewed data slice
+
+All seven checks passed on 77b292d, including the expanded 42-test laboratory,
+both real integrations, portable ten-task/fourteen-call suite, Node 20/22/24,
+all 21 standalone packages and JavaScript/Python CodeQL. Saved the exact source
+fingerprint/check links and verified the newest twelve-run cohort matches the
+current package. Retained all 36 public-data trials and prior failure evidence.
+The subsequent receipt update is documentation only. PR #10 remains reviewable;
+the overall CanliLabs goal is active and no publication/maintenance count changed.
+
 ## 2026-10-13: goal launch and recovery
 
 The owner requested work on CanliLabs, preservation of earlier goals, thousands
