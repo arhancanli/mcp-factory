@@ -1,7 +1,7 @@
 // Golden tests: check_sql over a real MCP client, on the real engines (PGlite, sql.js), in memory.
 import assert from "node:assert/strict";
 import test from "node:test";
-import { stopEngines } from "../src/engines.mjs";
+import { DEFAULT_TIMEOUT_MS, stopEngines } from "../src/engines.mjs";
 import { call, connect } from "./harness.mjs";
 import { PORTABLE, QUERIES, SCHEMA } from "./scenarios.mjs";
 
@@ -83,9 +83,14 @@ test("values as JSON: bigint, dates, bytea, json, long text; rows capped by max_
 });
 
 test("a statement that never ends is stopped at the time limit, and the engine is replaced", async () => {
-  const { client: slow, ctx: slowCtx } = await connect({ timeoutMs: 3000 });
+  // Cold WebAssembly startup uses the normal production deadline. The shorter
+  // deadline below applies to the already initialized runaway-query test.
+  const { client: slow, ctx: slowCtx } = await connect();
   try {
-    await call(slow, "check_sql", { sql: "SELECT 1;" });
+    const warmed = await call(slow, "check_sql", { sql: "SELECT 1;" });
+    assert.ok(!warmed.res.isError, warmed.res.content?.[0]?.text);
+    assert.deepEqual(warmed.data.results[0].statements[0].rows, [[1]]);
+    slowCtx.timeoutMs = 3000;
     const stuck = slowCtx.engines.postgres.worker;
     const exited = new Promise((done) => stuck.once("exit", () => done(true)));
     const t0 = Date.now();
@@ -94,6 +99,7 @@ test("a statement that never ends is stopped at the time limit, and the engine i
     assert.match(res.content[0].text, /Statement 2 of the SQL did not finish within 3 s/);
     assert.ok(Date.now() - t0 < 8000);
     assert.equal(await Promise.race([exited, new Promise((done) => setTimeout(() => done(false), 3000))]), true, "the stuck engine's thread is ended, not left spinning");
+    slowCtx.timeoutMs = DEFAULT_TIMEOUT_MS;
     const after = await call(slow, "check_sql", { sql: "SELECT 42 AS answer;" });
     assert.deepEqual(after.data.results[0].statements[0].rows, [[42]]);
   } finally {

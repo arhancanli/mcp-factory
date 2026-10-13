@@ -92,3 +92,20 @@ Fixed the evaluation verifier's default receipt location so a fresh checkout can
 execute the documented command without attempting to overwrite the committed
 public receipt. A fresh timestamped private receipt passed all ten answers through
 fourteen MCP calls. The original public receipt remains unchanged.
+
+## 2026-10-13: matrix validation and SQL test timing
+
+After the owner-address correction, all three factory CI gates passed on Node 20,
+22 and 24. Laboratory CI and CodeQL also passed. The standalone job on the next
+commit reported an intermittent SQL Check failure but discarded npm test stdout,
+so its test diagnostics were unavailable. Added bounded stdout/stderr excerpts
+to the runner for actionable failure evidence.
+
+The runaway-query test had applied its special three-second limit to cold
+WebAssembly startup and replacement initialization as well as the runaway query.
+Separated those setup/recovery steps onto the normal production deadline and
+added an assertion that initial warm-up really returned SELECT 1. The actual
+runaway-query limit remains three seconds, with the elapsed limit, thread-exit
+and SELECT 42 recovery assertions intact. All 11 SQL Check tests passed locally.
+This is a test/diagnostic repair, with no change to production engine deadlines.
+Fresh standalone CI is required before finalizing the review milestone.

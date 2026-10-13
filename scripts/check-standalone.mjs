@@ -41,7 +41,7 @@ for (const name of names) {
     process.stdout.write(`ok ${name}: ${passed} tests pass standalone; packed tarball answers initialize\n`);
   } catch (err) {
     failed++;
-    process.stdout.write(`FAIL ${name}: ${err.message}\n${err.stderr ?? ""}\n`);
+    process.stdout.write(`FAIL ${name}: ${err.message}\n${String(err.stdout ?? "").slice(-16_000)}\n${String(err.stderr ?? "").slice(-4000)}\n`);
   } finally {
     rmSync(dir, { recursive: true, force: true });
   }

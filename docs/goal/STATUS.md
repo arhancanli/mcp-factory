@@ -9,8 +9,13 @@ Implementation commit `d5f1ae2` is owner-signed (verified locally). Review:
 [PR #9](https://github.com/arhancanli/mcp-factory/pull/9), currently draft.
 Standalone validation passed all 21 servers, 270 server tests, and packed-package
 initialization. Laboratory CI and CodeQL passed on the implementation commit.
-Factory PR CI exposed an existing owner-email allowlist issue on GitHub's verified
-temporary merge commit; the allowlist is being corrected before rerunning CI.
+The corrected owner-email rule now passes factory CI on Node 20, 22 and 24.
+The next standalone job exposed an intermittent SQL Check test failure; its
+failure output had been discarded by the runner. Added bounded diagnostic output
+and separated normal engine startup/recovery deadlines from the test's three-second
+runaway-query deadline. The exact three-second cutoff, worker termination and
+replacement checks remain enforced. All 11 SQL Check tests pass locally; fresh
+CI validation is pending for this test-only repair.
 
 ## Implemented and verified locally
 
