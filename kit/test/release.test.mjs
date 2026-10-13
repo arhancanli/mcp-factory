@@ -89,18 +89,19 @@ test("low accuracy, stale/changed sources, unpinned incumbents and incomplete ar
 });
 
 test("only a definitive 404 is missing; authentication, throttling, malformed bodies and outages remain unknown", async () => {
+  const failure = (code) => () => { const error = new Error("registry failure"); error.stdout = JSON.stringify({ error: { code } }); throw error; };
   for (const status of [401, 403, 429, 500, 503]) {
-    const result = await registryVersion("demo-mcp", "0.1.0", { fetcher: async () => new Response("{}", { status }) });
+    const result = await registryVersion("demo-mcp", "0.1.0", { execute: failure(`E${status}`) });
     assert.equal(result.state, "unknown");
     assert.throws(() => assertRegistryKnown(result), /blocked/);
   }
-  const missing = await registryVersion("demo-mcp", "0.1.0", { fetcher: async () => new Response("{}", { status: 404 }) });
+  const missing = await registryVersion("demo-mcp", "0.1.0", { execute: failure("E404") });
   assert.equal(assertRegistryKnown(missing).state, "missing");
-  const invalid = await registryVersion("demo-mcp", "0.1.0", { fetcher: async () => new Response("invalid") });
+  const invalid = await registryVersion("demo-mcp", "0.1.0", { execute: () => "invalid" });
   assert.equal(invalid.state, "unknown");
-  const lost = await registryVersion("demo-mcp", "0.1.0", { fetcher: async () => { throw new Error("connection reset"); } });
+  const lost = await registryVersion("demo-mcp", "0.1.0", { execute: () => { throw new Error("connection reset"); } });
   assert.equal(lost.state, "unknown");
-  const published = await registryVersion("demo-mcp", "0.1.0", { fetcher: async () => new Response(JSON.stringify({ name: "demo-mcp", version: "0.1.0", dist: { integrity: "sha512-abcd==" } })) });
+  const published = await registryVersion("demo-mcp", "0.1.0", { execute: () => JSON.stringify({ name: "demo-mcp", version: "0.1.0", dist: { integrity: "sha512-abcd==" } }) });
   assert.equal(published.state, "published");
 });
 

@@ -2,7 +2,7 @@
 // README and measured reports are derived outputs, so measuring them does not change its input.
 import { execFileSync } from "node:child_process";
 import { createHash } from "node:crypto";
-import { lstatSync, readFileSync, realpathSync } from "node:fs";
+import { constants, openSync, fstatSync, closeSync, readFileSync, realpathSync } from "node:fs";
 import path from "node:path";
 
 export const RELEASE_SCHEMA = "canlilabs.release.v1";
@@ -50,9 +50,13 @@ export function sourceSnapshot(directory, { ref } = {}) {
       bytes = committedFile(root, commit, prefix ? `${prefix}/${file}` : file);
     } else {
       const location = path.join(directory, file);
-      const stat = lstatSync(location);
-      if (!stat.isFile() || stat.isSymbolicLink() || stat.size > MAX_EVIDENCE_BYTES) throw new Error(`Unsupported source file: ${file}`);
-      bytes = readFileSync(location);
+      // Open once, refuse symlinks and check/read the same descriptor rather than a raced path.
+      const descriptor = openSync(location, constants.O_RDONLY | constants.O_NOFOLLOW);
+      try {
+        const stat = fstatSync(descriptor);
+        if (!stat.isFile() || stat.size > MAX_EVIDENCE_BYTES) throw new Error(`Unsupported source file: ${file}`);
+        bytes = readFileSync(descriptor);
+      } finally { closeSync(descriptor); }
     }
     records.push({ path: file, mode, sha256: hash(bytes) });
   }
@@ -167,28 +171,24 @@ export function performanceIssues(perf, spec, source, now = Date.now()) {
 }
 
 /** No failed HTTP request, invalid body, missing version, or permission error proves absence. */
-export async function registryVersion(name, version, { fetcher = globalThis.fetch, timeoutMs = 10_000 } = {}) {
-  const target = `https://registry.npmjs.org/${encodeURIComponent(name)}/${encodeURIComponent(version)}`;
+export async function registryVersion(name, version, { execute = execFileSync } = {}) {
+  if (typeof name !== "string" || !/^(?:@[a-z0-9][a-z0-9._-]{0,100}\/)?[a-z0-9][a-z0-9._-]{0,100}$/.test(name) ||
+      typeof version !== "string" || !/^\d+\.\d+\.\d+(?:-[a-zA-Z0-9.-]+)?$/.test(version) || version.length > 80) return { state: "unknown", reason: "invalid_public_package_identity" };
   try {
-    const response = await fetcher(target, { redirect: "error", signal: AbortSignal.timeout(timeoutMs) });
-    if (response.status === 404) return { state: "missing", status: 404 };
-    if (response.status !== 200) return { state: "unknown", status: response.status };
-    const reader = response.body.getReader();
-    const chunks = [];
-    let size = 0;
-    try {
-      for (;;) {
-        const { value, done } = await reader.read();
-        if (done) break;
-        size += value.length;
-        if (size > 2 * 1024 * 1024) return { state: "unknown", reason: "metadata_too_large" };
-        chunks.push(value);
-      }
-    } finally { await reader.cancel(); }
-    const record = JSON.parse(Buffer.concat(chunks).toString("utf8"));
+    // npm's public metadata protocol owns the request; no arbitrary file content is an HTTP URL.
+    const stdout = execute("npm", ["view", `${name}@${version}`, "--json", "--registry=https://registry.npmjs.org", "--fetch-retries=0", "--fetch-timeout=10000"], {
+      encoding: "utf8", timeout: 15_000, maxBuffer: 2 * 1024 * 1024, stdio: ["ignore", "pipe", "pipe"],
+    });
+    const record = JSON.parse(stdout);
     if (record.name !== name || record.version !== version || typeof record.dist?.integrity !== "string") return { state: "unknown", reason: "invalid_version_metadata" };
     return { state: "published", integrity: record.dist.integrity, tarball: record.dist.tarball };
-  } catch { return { state: "unknown", reason: "registry_request_failed" }; }
+  } catch (error) {
+    try {
+      const diagnostic = JSON.parse(String(error.stdout ?? ""));
+      if (diagnostic.error?.code === "E404") return { state: "missing", status: 404 };
+    } catch {}
+    return { state: "unknown", reason: "registry_request_failed" };
+  }
 }
 
 export function assertRegistryKnown(result) {

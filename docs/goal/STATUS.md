@@ -23,6 +23,11 @@ Fresh inspection confirms both reviews are still open and unmerged. The previous
 turn is progress. The next independent slice enforces exact-source release evidence,
 adds reproducible benchmark/performance provenance, distinguishes registry failures
 from absence and keeps standalone repository updates under owner review.
+The release implementation is open as draft PR #11 at f4dac7a. Its first real
+qualifier found an incorrect canary path after three technical stations passed;
+the attempt is retained. CodeQL identified a stat/read race and file-derived HTTP
+metadata query. Both are repaired without dismissing findings; current validation
+is being rerun. Readiness reports 0/21 qualified releases, not 21 failed servers.
 
 ## Current executable laboratory
 

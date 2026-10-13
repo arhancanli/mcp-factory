@@ -37,6 +37,24 @@ factory validation passed 295 checks; the new identity canonicalization adds one
 further case. Laboratory 42 tests and two integrations still pass. Readiness and
 standalone execution evidence are required before completing this review slice.
 
+## 2026-10-14: real qualifier and static-analysis findings
+
+Opened signed implementation f4dac7a as draft PR #11, stacked on #10. The committed
+readiness scan reports 0/21 qualifying releases, the same five missing agent
+directories and no current performance provenance. Ran the real World Time
+technical qualifier: factory tests, the independent packed install/SDK calls and
+audit succeeded. It then stopped on an incorrect canary entrypoint chosen here.
+Retained the failed attempt and logs. Corrected it to the existing scheduled
+workflow's node --test test/live.canary.mjs invocation.
+
+CodeQL analyzed successfully but its security gate found two repeated issues in
+the new shared helper: path stat/read could race, and public-registry HTTP requests
+depended on file fields. Reworked snapshot reads to one no-follow descriptor with
+fstat/read/close, and exact npm metadata retrieval to the official CLI with bounded
+public name/version inputs, fixed public registry, timeout and structured E404
+handling. All other lookup failures remain unknown. No alert is suppressed or
+dismissed. Focused release/benchmark checks pass; fresh CI/qualification are needed.
+
 ## 2026-10-14: independent data and lifecycle slice
 
 Re-read all continuity records and verified actual Git/PR state. Foundation PR #9

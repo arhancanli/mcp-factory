@@ -87,8 +87,8 @@ placeholder does not establish demand or superiority.
 ## Registry states
 
 Both paths query the declared exact version from the public HTTPS npm registry.
-Only HTTP 404 means that exact version is missing. Authentication, throttling,
-server errors, redirects, oversized/malformed metadata and transport failures are
+Only npm's structured E404 response means that exact version is missing. Authentication, throttling,
+server errors, oversized/malformed metadata and transport failures are
 unknown states and stop publishing. An existing version must match the qualified
 packed bytes. A successful publish must be observed with matching integrity before
 later release steps can proceed. Lookup failure is never counted as absence or a

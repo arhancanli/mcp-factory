@@ -38,8 +38,8 @@ export async function qualify(name) {
   checks.standalone = { ...details, exit_code: 0, log: save("standalone", log) };
   const audit = run("npm", ["audit", "--audit-level=high", "--json"], directory);
   checks.audit = { exit_code: 0, log: save("audit", audit) };
-  if (!existsSync(path.join(directory, "test/canary.mjs"))) throw new Error("A live canary is required.");
-  const canary = run(process.execPath, ["test/canary.mjs"], directory);
+  if (!existsSync(path.join(directory, "test/live.canary.mjs"))) throw new Error("A live canary is required.");
+  const canary = run(process.execPath, ["--test", "test/live.canary.mjs"], directory);
   checks.canary = { exit_code: 0, log: save("canary", canary) };
   if (sourceSnapshot(directory).sha256 !== source.sha256) throw new Error("Source changed during qualification; retain logs and repeat on a committed snapshot.");
   const result = { schema: "canlilabs.quality.v1", measured_at: now, source_sha256: source.sha256,

@@ -1,0 +1,20 @@
+{
+  "completed_stations": [
+    "factory",
+    "standalone",
+    "audit"
+  ],
+  "diagnostic": "Qualifier selected test/canary.mjs; the committed workflow uses node --test test/live.canary.mjs.",
+  "failed_station": "canary_entrypoint_preflight",
+  "logs": [
+    "2026-10-13T23-00-43-735Z-audit.log",
+    "2026-10-13T23-00-43-735Z-factory.log",
+    "2026-10-13T23-00-43-735Z-standalone.log"
+  ],
+  "passing_release_receipt_created": false,
+  "schema": "canlilabs.quality-attempt.v1",
+  "server": "world-time",
+  "source_commit": "f4dac7a13328c8903f996922b17503a37dcdfbad",
+  "source_sha256": "b7aa513d98b58e52a1b72ce3d3eedb4743f1085ee0ef6a4a6cfb22e8ee02e56e",
+  "state": "failed"
+}
