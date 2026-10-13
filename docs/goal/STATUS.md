@@ -9,8 +9,10 @@ Branch: `codex/canlilabs-data-lifecycle-20261014`, based on foundation head
 [PR #9](https://github.com/arhancanli/mcp-factory/pull/9) is open, ready for review
 and unmerged; all seven checks passed on its final head. The data/lifecycle slice
 is owner-signed at `9bda49c` and open as stacked
-[PR #10](https://github.com/arhancanli/mcp-factory/pull/10), currently draft while
-its checks run. It depends on PR #9 and is not merged or published.
+[PR #10](https://github.com/arhancanli/mcp-factory/pull/10), ready for review.
+All seven checks passed on `4dc15f9`, and GitHub verifies its owner signature.
+It depends on PR #9 and is not merged or published. Exact check URLs and the tested
+source are in [data-ci-validation.json](evidence/2026-10-14-data-ci-validation.json).
 
 ## Current executable laboratory
 
@@ -40,8 +42,11 @@ its checks run. It depends on PR #9 and is not merged or published.
   the database is unchanged and tampered split/rights metadata is rejected.
 
 Local checks: 39 behavioral lab tests, two real stdio integrations, lint/format,
-290 factory checks and ten frozen task answers through fourteen MCP calls. The new review's CI is
-pending. These task answers are not an agent/incumbent benchmark.
+290 factory checks and ten frozen task answers through fourteen MCP calls.
+The same checks passed in macOS laboratory CI, with Node 20/22/24 factory gates,
+all 21 standalone packages, and security-extended JavaScript/Python CodeQL.
+These task answers are not an agent/incumbent benchmark. The final documentation
+receipt changes no runtime files; verify current PR checks when resuming.
 
 Two separate twelve-run public cohorts are retained. The final cohort in
 [registered-data-runs.json](evidence/2026-10-14-registered-data-runs.json) uses

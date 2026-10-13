@@ -67,6 +67,25 @@ and the validation script hash matches the committed script. Wine's 937 duplicat
 feature rows remain in one component per split; all 4,898 rows are retained.
 CI is now running; merge/publication and the broader requirements remain open.
 
+## 2026-10-14: validated data milestone
+
+All seven checks passed on 4dc15f9: Node 20/22/24 gates, all 21 standalone server
+packages, macOS CPU laboratory and both CodeQL checks. The static analysis config
+now includes JavaScript/TypeScript and Python. Saved exact check links, code/MCP
+hashes, local test counts and tested implementation/doc commits in the dated CI
+receipt. GitHub verifies the owner signature. Marked PR #10 ready for review; it
+remains stacked on open PR #9. No merge or publication took place. The subsequent
+documentation receipt changes no runtime behavior. The overall goal remains
+active, with release/current comparison, broader training, compute, delivery,
+discovery, maintenance and adoption requirements preserved.
+
+Read-only inspection of the existing publishing scripts found the next concrete
+factory gap: npm publishing checks a committed subtree but does not require a
+current benchmark/quality receipt, and treats every npm lookup failure as absence.
+Repository mirroring can push directly to a server's main branch. Before using
+these paths for new scale, add source-tied release readiness, distinguish unknown
+registry state from a definitive missing version, and keep owner review explicit.
+
 ## 2026-10-13: goal launch and recovery
 
 The owner requested work on CanliLabs, preservation of earlier goals, thousands

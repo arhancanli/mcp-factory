@@ -1,0 +1,80 @@
+{
+  "checked_at": "2026-10-13T21:01:56.577542+00:00",
+  "checks": [
+    {
+      "conclusion": "success",
+      "details_url": "https://github.com/arhancanli/mcp-factory/runs/115534687677",
+      "name": "CodeQL",
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "details_url": "https://github.com/arhancanli/mcp-factory/actions/runs/38466347730/job/115534030064",
+      "name": "Every server works as its own repository",
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "details_url": "https://github.com/arhancanli/mcp-factory/actions/runs/38466347730/job/115534029919",
+      "name": "Gate on Node 24",
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "details_url": "https://github.com/arhancanli/mcp-factory/actions/runs/38466347730/job/115534029836",
+      "name": "Gate on Node 20",
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "details_url": "https://github.com/arhancanli/mcp-factory/actions/runs/38466347684/job/115534029662",
+      "name": "analyze",
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "details_url": "https://github.com/arhancanli/mcp-factory/actions/runs/38466347730/job/115534029633",
+      "name": "Gate on Node 22",
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "details_url": "https://github.com/arhancanli/mcp-factory/actions/runs/38466347781/job/115534029339",
+      "name": "cpu-laboratory",
+      "status": "completed"
+    }
+  ],
+  "implementation_commit": "9bda49cf99939127cd50f6eb31122bb922a83214",
+  "local_validation": {
+    "factory_tests": 290,
+    "final_public_data_runs": 12,
+    "frozen_mcp_calls": 14,
+    "frozen_task_answers": 10,
+    "laboratory_tests": 39,
+    "mcp_integrations": 2
+  },
+  "mcp_server_sha256": "5331155fa6d97987242199ede42339882097c46723302f0daf9a1208db0e5213",
+  "package_source": {
+    "files": {
+      "__init__.py": "0d9617e8d49b06405371c4f311b8053f94ba8dbb73079afe27d8dd9a483e785b",
+      "cli.py": "1cbff7b538e9240aa646d054d49c60337fa9023b6fa9e7a86728d96f3ec22b62",
+      "data.py": "8b57c116ef3520ac6d80b5782670d8d8a806174fe09595077e05c94e29dd6139",
+      "lifecycle.py": "e5c51bc28b22de9713943535a38bdb2431493a088f882072b9d99b06e6149ffc",
+      "pyproject.toml": "0e129549319ea93a5bc9d7f1353bbdc048fd24cb78aded5edc4f7d16cc87668e",
+      "reader.py": "98dee186df4309e487cd078365ca62b0089640bc4bfed7b34426e0f8ff4a32f5",
+      "recipes.py": "a121fcae293469bdf2b6211d00fc199ea3ebaf88f2b45f4fa8f9807219549521",
+      "records.py": "0026112cdc1a762eb9b7b1fbfa4c0683b1771d6a100880212380165c52e83145",
+      "tabular.py": "f739731f204ed61f215086c7e15f3ca3deeddf7c3fed870b78850f5fc06dbda2",
+      "uv.lock": "ff4d87ad46ffd50dfe81e2cf40351532df7313609239e7032db1962a114f0c69"
+    },
+    "sha256": "d39c84dae77351b72f5f9011f637d9be4260b8f62f4d72bc1a569cb2c608e7c5"
+  },
+  "pull_request": "https://github.com/arhancanli/mcp-factory/pull/10",
+  "schema": "canlilabs.ci-validation.v1",
+  "scope": "CPU laboratory and existing standalone servers; no agent comparison, release, accelerator or production qualification.",
+  "static_analysis_languages": [
+    "javascript-typescript",
+    "python"
+  ],
+  "tested_commit": "4dc15f94e2da7a8e825d540b1897b0f9e9e5bc56"
+}
