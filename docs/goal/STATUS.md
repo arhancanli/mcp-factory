@@ -10,9 +10,12 @@ Branch: `codex/canlilabs-data-lifecycle-20261014`, based on foundation head
 and unmerged; all seven checks passed on its final head. The data/lifecycle slice
 is owner-signed at `9bda49c` and open as stacked
 [PR #10](https://github.com/arhancanli/mcp-factory/pull/10), ready for review.
-All seven checks passed on `4dc15f9`, and GitHub verifies its owner signature.
+All seven checks passed on `4dc15f9` and portable-fixture head `cecee19`.
+GitHub verifies the owner signature.
 It depends on PR #9 and is not merged or published. Exact check URLs and the tested
 source are in [data-ci-validation.json](evidence/2026-10-14-data-ci-validation.json).
+The later [portable-fixture CI receipt](evidence/2026-10-14-portable-fixture-ci-validation.json)
+also records the successful ten-task step and frozen hashes.
 
 ## Current executable laboratory
 
@@ -49,9 +52,10 @@ frozen task answers also passed locally and are now added as a required lab CI s
 Its first run caught a regenerated-fixture hash difference across hosts after all
 behavioral/integration tests passed. The helper now uses the exact public CC0
 synthetic fixture and splits from the recorded cohort, checking all hashes.
-Current-head CI must pass that portable task step; the earlier failure is retained.
+The portable step then passed on `cecee19`: CI logs verify all ten answers through
+fourteen MCP calls. The earlier failure is retained. All seven checks passed again.
 These task answers are not an agent/incumbent benchmark. The final validation
-follow-up changes no training/server runtime files; verify current PR checks on resume.
+receipt follow-up changes only documentation; verify current PR checks on resume.
 
 Two separate twelve-run public cohorts are retained. The final cohort in
 [registered-data-runs.json](evidence/2026-10-14-registered-data-runs.json) uses

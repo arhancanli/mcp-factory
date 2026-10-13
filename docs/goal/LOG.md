@@ -107,6 +107,19 @@ those exact bytes into a metadata-only workspace. No private data or model weigh
 are committed. This fixes frozen-corpus portability while keeping normal smoke
 generation and its per-environment data hashes unchanged.
 
+## 2026-10-14: portable task gate verified
+
+On cecee19, all seven checks passed again. Retrieved actual macOS laboratory logs:
+the copied nine-run metadata cohort and original frozen CSV produced all ten
+answers through fourteen real MCP calls. Saved the successful head/check URLs,
+helper and frozen archive/data/split hashes in a second dated CI receipt; retained
+the original failed run. The package remains at fingerprint d39c84d, matching all
+twelve finalized public-data runs. The final receipt commit is documentation only.
+PR #10 remains ready and stacked on unmerged PR #9. Worktrees are clean, owner
+signatures verify, and the original main checkout remains untouched. Continue with
+source-tied MCP release readiness and current quality comparisons, then the rest
+of the preserved laboratory/scaling requirements. Overall goal remains active.
+
 ## 2026-10-13: goal launch and recovery
 
 The owner requested work on CanliLabs, preservation of earlier goals, thousands
