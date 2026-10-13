@@ -5,7 +5,12 @@ Updated: 2026-10-13. Overall goal: active; incomplete.
 Repository: `arhancanli/mcp-factory`. Recovered base: `e52f29f` on `origin/main`.
 Active branch: `codex/canlilabs-foundation-20261013`. Worktree:
 `/Users/arhancanli/canlilabs-goal-20261013`. The original checkout remains on main.
-Signed commit, standalone-package validation and review/CI are being prepared.
+Implementation commit `d5f1ae2` is owner-signed (verified locally). Review:
+[PR #9](https://github.com/arhancanli/mcp-factory/pull/9), currently draft.
+Standalone validation passed all 21 servers, 270 server tests, and packed-package
+initialization. Laboratory CI and CodeQL passed on the implementation commit.
+Factory PR CI exposed an existing owner-email allowlist issue on GitHub's verified
+temporary merge commit; the allowlist is being corrected before rerunning CI.
 
 ## Implemented and verified locally
 
@@ -63,8 +68,9 @@ its remote failure has not been treated as fixed or hidden. Release Notes return
 the correct version but its canary hard-coded a date removed from Express's
 current History.md. Its stable version/deprecation assertion was repaired, with
 an undated-heading/registry-date regression test (10/10 server tests). A subsequent
-live attempt encountered an upstream timeout; live validation is being retried
-after improving its error diagnosis and cleanup.
+live attempt encountered an upstream timeout. After improving error diagnosis and
+cleanup, its next full live canary passed. Both originally failing remote canaries
+now pass locally; deployment and later remote health remain separate evidence.
 
 Open upstream PRs #3-#8 were dependency updates at recovery and have not been merged
 here. This branch implements the SDK pin proposed in #4 as part of its tested

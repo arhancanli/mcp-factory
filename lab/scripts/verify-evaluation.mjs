@@ -56,7 +56,9 @@ try {
     questions_sha256: createHash("sha256").update(xml).digest("hex"), transport: "stdio",
     agent_benchmark_executed: false, task_answers_verified: answers.length, mcp_calls: calls,
     answers, scope: "frozen cohort task answers and protocol execution; no incumbent or agent token comparison" };
-  const filename = path.join(ROOT, "docs/goal/evidence/2026-10-13-mcp-answer-verification.json");
+  const timestamp = receipt.verified_at.replace(/[:.]/g, "-");
+  const filename = process.argv[3] ? path.resolve(process.argv[3])
+    : path.join(path.resolve(workspace), `answer-verification-${timestamp}.json`);
   writeFileSync(filename, `${JSON.stringify(receipt, null, 2)}\n`, { flag: "wx" });
   process.stdout.write(`${JSON.stringify(receipt, null, 2)}\n`);
 } finally {

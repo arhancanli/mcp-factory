@@ -15,7 +15,8 @@ CANLILABS_WORKSPACE="$(pwd)/.lab/evaluation-v1" node lab/mcp-server.mjs
 
 `node lab/scripts/verify-evaluation.mjs .lab/evaluation-v1` verifies all ten answers
 through real stdio MCP and writes a dated receipt. Existing receipts are protected
-against replacement; use a new receipt path for a later measurement.
+against replacement. The default receipt stays in the isolated workspace; pass
+a third argument to select a new public evidence path.
 
 Point the evaluation client at that server. The replica preserves original run
 IDs, configuration, provenance and results. It does not claim to retrain models

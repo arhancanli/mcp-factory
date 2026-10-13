@@ -23,5 +23,9 @@ the nine runs are explicitly a cohort rather than all experiment activity.
 `2026-10-13-mcp-answer-verification.json` verifies the ten frozen read-only task
 answers through real stdio MCP. It is not a measured agent or incumbent benchmark.
 
+`2026-10-13-standalone-validation.json` records the owner-signed implementation
+commit, all 21 standalone packages, their 270 passing server tests, and packed
+package initialization. It was generated from the completed validation command.
+
 Later receipts should use a distinct dated name rather than silently replacing
 an older measurement. CI and PR references are added to STATUS.md after execution.

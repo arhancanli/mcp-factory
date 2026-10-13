@@ -70,3 +70,25 @@ deprecation statement, added a regression test for the registry-date fallback,
 and preserved old recorded golden fixtures. All ten Release Notes offline tests
 pass. A live retry encountered a transient tool timeout; improved error diagnosis
 and cleanup before another bounded attempt.
+
+## 2026-10-13: signed review and standalone validation
+
+Owner-signed implementation commit d5f1ae2 (local signature status G) was pushed
+and opened as draft PR #9. Validated its committed tree as 21 standalone
+repositories: all 270 server tests passed and every packed npm tarball answered
+initialize. The receipt records the exact commit. Laboratory CI on macOS 15 and
+CodeQL passed. Release Notes' next bounded full live canary passed after the
+date-assumption repair and improved diagnostic/cleanup handling.
+
+Factory CI's only reported Node 24 failure was the existing author-email rule:
+GitHub's temporary PR merge commit used a second account email belonging to Arhan
+Canli. Verified that commit's author login is arhancanli, its author name matches
+the owner, its GitHub signature verification is true, and its parents are the
+recovered base and our signed implementation. Added that exact owner address to
+the allowlist while retaining the owner-name, committer and credit checks. No
+other author was approved. CI is being rerun after the correction.
+
+Fixed the evaluation verifier's default receipt location so a fresh checkout can
+execute the documented command without attempting to overwrite the committed
+public receipt. A fresh timestamped private receipt passed all ten answers through
+fourteen MCP calls. The original public receipt remains unchanged.
