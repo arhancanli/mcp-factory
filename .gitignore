@@ -3,3 +3,11 @@ node_modules/
 *.tgz
 .DS_Store
 .claude/
+.venv/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+.firecrawl/
+.lab/
+lab/.venv/
+lab/*.egg-info/

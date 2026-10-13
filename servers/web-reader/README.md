@@ -70,7 +70,7 @@ claude mcp add web-reader -- npx -y web-reader-mcp
 docker build -t web-reader-mcp https://github.com/arhancanli/web-reader-mcp.git && docker run -i --rm web-reader-mcp
 ```
 
-**Hosted (Streamable HTTP)**: `node src/server.mjs --http` serves stateless MCP at `POST /mcp` (port from `PORT`, default 3000).
+**HTTP (Streamable HTTP)**: `node src/server.mjs --http` serves stateless MCP at `POST /mcp` on localhost (port from `PORT`, default 3000). For remote hosting set `MCP_HTTP_HOST=0.0.0.0` and `MCP_ALLOWED_HOSTS=mcp.example.org`; set `MCP_ALLOWED_ORIGINS=https://app.example.org` for permitted browser clients. Hosts and origins are exact comma-separated lists. Deploy behind HTTPS and access controls appropriate to your service.
 <!-- install:end -->
 
 ## Example

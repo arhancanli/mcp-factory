@@ -1,9 +1,25 @@
-# MCP servers by Arhan Canli
+# CanliLabs: MCP servers and AI laboratory
 
 Model Context Protocol servers, each built to be the best available in its niche, and each proven
 by measurement against the best existing server before it ships.
 
-Every server here:
+The active [CanliLabs goal](docs/goal/README.md) preserves the original factory
+objectives and expands the program to reproducible AI training, data, ML, deep
+learning and reinforcement learning. The [requirements](docs/goal/REQUIREMENTS.md)
+and [verified status](docs/goal/STATUS.md) distinguish implemented capabilities
+from work still needed for thousands of maintained, measured MCP servers.
+
+The [local AI laboratory](lab/README.md) runs real CPU ML, deep learning and RL
+recipes with independent evaluation, checkpoint reloads and immutable experiment
+records. Its MCP pilot reads experiment and dataset metadata.
+
+Public installation is a separate release milestone. The current
+[release audit](docs/goal/evidence/2026-10-13-factory-audit.json) found no published
+exact npm versions among the 21 catalog entries. The commands below describe the
+intended installation after release; use the repository checkout for development
+until a version's publication is verified.
+
+Shipping criteria for every server:
 
 - installs with one command (`npx`), one click (Claude Desktop bundle, signed), or Docker;
 - keeps its tool list small and byte-stable, so it costs few tokens and caches well;

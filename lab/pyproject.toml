@@ -1,0 +1,35 @@
+[build-system]
+requires = ["hatchling==1.32.4"]
+build-backend = "hatchling.build"
+
+[project]
+name = "canlilabs"
+version = "0.1.0"
+description = "Reproducible CanliLabs data, training, evaluation and experiment workflows"
+requires-python = ">=3.12,<3.15"
+license = "MIT"
+authors = [{name = "Arhan Canli"}]
+dependencies = [
+  "numpy==2.5.4",
+  "scikit-learn==1.9.1",
+  "torch==2.14.1",
+  "gymnasium==1.4.0",
+]
+
+[project.scripts]
+canlilabs = "canlilabs.cli:main"
+
+[dependency-groups]
+dev = ["pytest==9.1.1", "ruff==0.17.0"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/canlilabs"]

@@ -13,7 +13,9 @@ import { CONFIG, ROOT } from "../scripts/lib.mjs";
 import { creditViolations, j } from "../scripts/credit.mjs";
 
 const EM_DASH = String.fromCharCode(0x2014);
-const OWNER_EMAILS = new Set(["315329124+arhancanli@users.noreply.github.com"]);
+// Local signed commits use the noreply address. GitHub's verified temporary PR
+// merge commit uses the owner's account email; both identify the same owner.
+const OWNER_EMAILS = new Set(["315329124+arhancanli@users.noreply.github.com", "arhancanli8@gmail.com"]);
 
 const git = (...args) => execFileSync("git", args, { cwd: ROOT, encoding: "utf8" });
 const repoFiles = () =>

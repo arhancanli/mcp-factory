@@ -16,10 +16,12 @@
     "gate": "node --test gate/*.test.mjs",
     "new": "node scripts/new-server.mjs",
     "sync": "node scripts/sync.mjs",
-    "bench": "node bench/run.mjs"
+    "bench": "node bench/run.mjs",
+    "test:lab-mcp": "node --test lab/test/*.test.mjs",
+    "audit:canlilabs": "node scripts/canlilabs-audit.mjs"
   },
   "dependencies": {
-    "@modelcontextprotocol/sdk": "1.30.1",
+    "@modelcontextprotocol/sdk": "1.32.1",
     "zod": "4.6.5"
   },
   "devDependencies": {

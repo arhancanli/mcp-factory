@@ -1,0 +1,116 @@
+{
+  "schema": "canlilabs.standalone-validation.v1",
+  "verified_at": "2026-10-13T19:20:44.751256+00:00",
+  "source_commit": "d5f1ae2c1b748bb770068783c57542c874f73c8f",
+  "command": "node scripts/check-standalone.mjs",
+  "servers_passed": 21,
+  "server_tests_passed": 270,
+  "failures": [],
+  "servers": [
+    {
+      "server": "actions-check",
+      "tests_passed": 8,
+      "packed_initialize": true
+    },
+    {
+      "server": "citation-check",
+      "tests_passed": 24,
+      "packed_initialize": true
+    },
+    {
+      "server": "config-check",
+      "tests_passed": 23,
+      "packed_initialize": true
+    },
+    {
+      "server": "contact-check",
+      "tests_passed": 6,
+      "packed_initialize": true
+    },
+    {
+      "server": "cron-check",
+      "tests_passed": 6,
+      "packed_initialize": true
+    },
+    {
+      "server": "dockerfile-check",
+      "tests_passed": 10,
+      "packed_initialize": true
+    },
+    {
+      "server": "domain-health",
+      "tests_passed": 11,
+      "packed_initialize": true
+    },
+    {
+      "server": "drug-label",
+      "tests_passed": 13,
+      "packed_initialize": true
+    },
+    {
+      "server": "end-of-life",
+      "tests_passed": 9,
+      "packed_initialize": true
+    },
+    {
+      "server": "internet-standards",
+      "tests_passed": 19,
+      "packed_initialize": true
+    },
+    {
+      "server": "kube-check",
+      "tests_passed": 16,
+      "packed_initialize": true
+    },
+    {
+      "server": "license-check",
+      "tests_passed": 7,
+      "packed_initialize": true
+    },
+    {
+      "server": "package-truth",
+      "tests_passed": 25,
+      "packed_initialize": true
+    },
+    {
+      "server": "recall-check",
+      "tests_passed": 16,
+      "packed_initialize": true
+    },
+    {
+      "server": "regex-check",
+      "tests_passed": 11,
+      "packed_initialize": true
+    },
+    {
+      "server": "release-notes",
+      "tests_passed": 10,
+      "packed_initialize": true
+    },
+    {
+      "server": "satellite-imagery",
+      "tests_passed": 11,
+      "packed_initialize": true
+    },
+    {
+      "server": "sql-check",
+      "tests_passed": 11,
+      "packed_initialize": true
+    },
+    {
+      "server": "vuln-priority",
+      "tests_passed": 12,
+      "packed_initialize": true
+    },
+    {
+      "server": "web-reader",
+      "tests_passed": 10,
+      "packed_initialize": true
+    },
+    {
+      "server": "world-time",
+      "tests_passed": 12,
+      "packed_initialize": true
+    }
+  ]
+}
