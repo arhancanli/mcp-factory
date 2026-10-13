@@ -46,6 +46,10 @@ Local checks: 39 behavioral lab tests, two real stdio integrations, lint/format,
 Lab lint/format, behavioral tests and integrations passed in macOS CI, with Node
 20/22/24 gates, all 21 standalone packages and JavaScript/Python CodeQL. The ten
 frozen task answers also passed locally and are now added as a required lab CI step.
+Its first run caught a regenerated-fixture hash difference across hosts after all
+behavioral/integration tests passed. The helper now uses the exact public CC0
+synthetic fixture and splits from the recorded cohort, checking all hashes.
+Current-head CI must pass that portable task step; the earlier failure is retained.
 These task answers are not an agent/incumbent benchmark. The final validation
 follow-up changes no training/server runtime files; verify current PR checks on resume.
 

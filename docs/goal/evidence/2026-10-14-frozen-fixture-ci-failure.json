@@ -1,0 +1,15 @@
+{
+  "checked_at": "2026-10-13T21:15:17.993627+00:00",
+  "ci_step_removed": false,
+  "diagnostic": "The recreated fixture differs; use the receipt's locked environment.",
+  "expected_answers_changed": false,
+  "failed_step": "Verify the ten frozen laboratory MCP tasks",
+  "job": "https://github.com/arhancanli/mcp-factory/actions/runs/38468146924/job/115540066797",
+  "laboratory_tests_passed": 39,
+  "mcp_integrations_passed": 2,
+  "resolution": "Verify and use archived original public CC0 synthetic CSV/split bytes rather than regenerating floating-point features.",
+  "runner_architecture": "arm64",
+  "runner_python": "3.12.10",
+  "schema": "canlilabs.ci-failure.v1",
+  "tested_commit": "124b4c44523bca8c30dce94a47384c08cde82309"
+}

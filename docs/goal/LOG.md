@@ -95,6 +95,18 @@ locally. This changes validation coverage, with no training/server runtime chang
 The earlier CI receipt records the preceding seven successful checks; current
 head checks must additionally pass this new task step before the final handoff.
 
+## 2026-10-14: portable frozen evaluation data
+
+The new CI task step exposed a real portability gap: all 39 behavioral tests and
+both integrations passed, but recreating the seeded smoke fixture produced a
+different CSV hash on the macOS runner. Retained the failed run as evidence rather
+than changing the expected answers or removing the CI step. Archived the exact
+CC0 public synthetic fixture and original split file, verified against the nine
+recorded real runs. The helper now checks archive/data/split hashes and copies
+those exact bytes into a metadata-only workspace. No private data or model weights
+are committed. This fixes frozen-corpus portability while keeping normal smoke
+generation and its per-environment data hashes unchanged.
+
 ## 2026-10-13: goal launch and recovery
 
 The owner requested work on CanliLabs, preservation of earlier goals, thousands
