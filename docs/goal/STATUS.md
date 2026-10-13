@@ -6,7 +6,8 @@ Repository: `arhancanli/mcp-factory`. Recovered base: `e52f29f` on `origin/main`
 Active branch: `codex/canlilabs-foundation-20261013`. Worktree:
 `/Users/arhancanli/canlilabs-goal-20261013`. The original checkout remains on main.
 Implementation commit `d5f1ae2` is owner-signed (verified locally). Review:
-[PR #9](https://github.com/arhancanli/mcp-factory/pull/9), currently draft.
+[PR #9](https://github.com/arhancanli/mcp-factory/pull/9), implementation validated;
+review readiness and the final documentation commit are being finalized.
 Standalone validation passed all 21 servers, 270 server tests, and packed-package
 initialization. Laboratory CI and CodeQL passed on the implementation commit.
 The corrected owner-email rule now passes factory CI on Node 20, 22 and 24.
@@ -14,8 +15,12 @@ The next standalone job exposed an intermittent SQL Check test failure; its
 failure output had been discarded by the runner. Added bounded diagnostic output
 and separated normal engine startup/recovery deadlines from the test's three-second
 runaway-query deadline. The exact three-second cutoff, worker termination and
-replacement checks remain enforced. All 11 SQL Check tests pass locally; fresh
-CI validation is pending for this test-only repair.
+replacement checks remain enforced. All 11 SQL Check tests pass locally. On
+implementation head `f83d50a`, all seven PR checks passed: Node 20/22/24 gates,
+21 standalone packages, laboratory CI, and both CodeQL checks. The laboratory's
+first attempt stalled in checkout before tests; a fresh runner succeeded. Exact
+check URLs and the tested commit are saved in
+[ci-validation.json](evidence/2026-10-13-ci-validation.json).
 
 ## Implemented and verified locally
 
@@ -84,8 +89,9 @@ owner browser-confirmation/Trusted Publisher workflow, after quality evidence.
 
 ## Next work
 
-Finish signed review/CI and standalone package checks, record their exact results,
-then follow [BACKLOG.md](BACKLOG.md): close canary/benchmark/publication deficits;
+The executable foundation is verified and open for review. The documentation
+follow-up changes no runtime behavior; verify its current PR checks when resuming.
+Then follow [BACKLOG.md](BACKLOG.md): close canary/benchmark/publication deficits;
 add trainable registered data and lifecycle/recovery; qualify lab/data MCP niches;
 add Linux/accelerator/deep-RL/foundation-model paths; scale through 100, 500, 2,000
 distinct qualifying releases. The pilot is not counted as a standalone release.

@@ -19,7 +19,7 @@ exact npm versions among the 21 catalog entries. The commands below describe the
 intended installation after release; use the repository checkout for development
 until a version's publication is verified.
 
-Every server here:
+Shipping criteria for every server:
 
 - installs with one command (`npx`), one click (Claude Desktop bundle, signed), or Docker;
 - keeps its tool list small and byte-stable, so it costs few tokens and caches well;

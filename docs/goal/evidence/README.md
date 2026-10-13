@@ -27,5 +27,9 @@ answers through real stdio MCP. It is not a measured agent or incumbent benchmar
 commit, all 21 standalone packages, their 270 passing server tests, and packed
 package initialization. It was generated from the completed validation command.
 
+`2026-10-13-ci-validation.json` records all seven successful PR checks on the
+final implementation commit, including the corrected SQL test and laboratory
+retry, with exact GitHub check URLs.
+
 Later receipts should use a distinct dated name rather than silently replacing
 an older measurement. CI and PR references are added to STATUS.md after execution.

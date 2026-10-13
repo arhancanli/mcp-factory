@@ -8,7 +8,7 @@ parallel after the recovered baseline. No phase waives an original factory gate.
 | --- | --- | --- | --- |
 | P0 | Goal recovery and durable program | Every original and expanded objective mapped; actual repository/PR state inspected; continuation files and registered goal | Complete |
 | P1 | Verified factory baseline and immediate quality repairs | Audit 21 existing servers' benchmarks, release/npm/Registry/provenance, canaries; run existing gate; close critical protocol gaps; record precise deficits | In progress |
-| P2 | Executable CPU laboratory | Locked Python package; real ML, DL and RL training/evaluation; content-addressed datasets; immutable experiment records; reload and leakage tests; saved execution receipts | Locally validated; CI/review pending |
+| P2 | Executable CPU laboratory | Locked Python package; real ML, DL and RL training/evaluation; content-addressed datasets; immutable experiment records; reload and leakage tests; saved execution receipts | Locally and macOS CI validated; review open |
 | P3 | Data and model lifecycle | Repeatable ingest/profile/split/lineage; model registry, inference, comparisons; model/dataset documentation and complete failed-run accounting | Planned |
 | P4 | MCP laboratory pilot and factory release gates | Useful lab/data MCP tools; golden task suite; incumbent comparison; provenance/install/canary gates; first validated pilot releases | Read-only pilot validated; comparisons/releases pending |
 | P5 | 100 maintained servers | 100 independently justified niches pass every station; verified releases, searchable discovery, CI/maintenance capacity measured | Planned |

@@ -109,3 +109,19 @@ runaway-query limit remains three seconds, with the elapsed limit, thread-exit
 and SELECT 42 recovery assertions intact. All 11 SQL Check tests passed locally.
 This is a test/diagnostic repair, with no change to production engine deadlines.
 Fresh standalone CI is required before finalizing the review milestone.
+
+## 2026-10-13: verified initial milestone
+
+All seven checks passed on implementation commit f83d50a: factory gates on Node
+20/22/24, every standalone server, the macOS laboratory and both CodeQL checks.
+The SQL test repair passed packaged Linux validation. The laboratory's initial
+attempt stalled during checkout before any test; cancelled only that run and
+retried it on a fresh runner, which passed. Saved the tested SHA and exact CI URLs
+in the public evidence record. The initial laboratory/protocol foundation is
+reviewable; the overall goal is still active and incomplete.
+
+Updated the coverage matrix to reflect actual CPU/metadata implementations and
+clarified the root README's shipping criteria so package availability is not
+implied. The final documentation follow-up has no runtime changes. Resume by
+checking the actual PR state and first unmet backlog gate, preserving all 25
+requirements and the 2,000 distinct-release planning floor.
