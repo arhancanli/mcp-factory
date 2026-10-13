@@ -55,6 +55,21 @@ public name/version inputs, fixed public registry, timeout and structured E404
 handling. All other lookup failures remain unknown. No alert is suppressed or
 dismissed. Focused release/benchmark checks pass; fresh CI/qualification are needed.
 
+## 2026-10-14: release controls validated
+
+All seven checks passed on a8e45da: Node 20/22/24, all 21 standalone packages,
+laboratory and both CodeQL checks. Queried the review's code-scanning state:
+zero open findings; none was dismissed. Saved CI links and the committed 0/21
+readiness report. Both missing and legacy evidence remain deficits, not successes.
+The corrected World Time qualifier completed all four real technical stations:
+296 factory tests, 12 standalone tests with packed SDK initialization/tools-list,
+audit and the live clock/time-zone canary. Saved raw logs and its source/tree/
+tarball receipt while retaining the failed first attempt. No benchmark/scout
+certificate was fabricated, and no publish, merge or launch was performed.
+Marked PR #11 ready for review. It remains stacked on open #10 and #9. The next
+work is current scout/task/performance/agent evidence on fixed incumbent versions,
+plus the preserved Linux/accelerator/model-lifecycle and research coverage tracks.
+
 ## 2026-10-14: independent data and lifecycle slice
 
 Re-read all continuity records and verified actual Git/PR state. Foundation PR #9

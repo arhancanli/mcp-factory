@@ -23,11 +23,21 @@ Fresh inspection confirms both reviews are still open and unmerged. The previous
 turn is progress. The next independent slice enforces exact-source release evidence,
 adds reproducible benchmark/performance provenance, distinguishes registry failures
 from absence and keeps standalone repository updates under owner review.
-The release implementation is open as draft PR #11 at f4dac7a. Its first real
+The release implementation is open as [PR #11](https://github.com/arhancanli/mcp-factory/pull/11),
+ready for review after all seven checks passed on a8e45da. Its first real
 qualifier found an incorrect canary path after three technical stations passed;
 the attempt is retained. CodeQL identified a stat/read race and file-derived HTTP
-metadata query. Both are repaired without dismissing findings; current validation
-is being rerun. Readiness reports 0/21 qualified releases, not 21 failed servers.
+metadata query. Both are repaired without dismissing findings; the review has zero
+open CodeQL alerts. Readiness reports 0/21 qualified releases, not 21 failed servers.
+The current [readiness report](evidence/2026-10-14-release-readiness.json) retains
+the five missing agent-result directories and zero current performance snapshots.
+The real World Time qualifier subsequently passed 296 factory tests, 12 independent
+server tests, real packed initialize/tools-list requests, audit and the live clock
+canary. Its raw logs and receipt are in docs/quality/world-time/381065b6.../.
+This proves technical checks, not scout/agent/performance qualification or release.
+[Release CI evidence](evidence/2026-10-14-release-ci-validation.json) records exact
+head and check URLs. The remaining 21 independent packages also pass CI. All wider
+laboratory objectives stay active; this phase changed no training algorithms.
 
 ## Current executable laboratory
 

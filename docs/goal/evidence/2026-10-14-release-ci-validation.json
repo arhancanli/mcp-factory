@@ -1,0 +1,55 @@
+{
+  "checked_at": "2026-10-13T23:24:37.925628+00:00",
+  "checks": [
+    {
+      "conclusion": "success",
+      "details_url": "https://github.com/arhancanli/mcp-factory/runs/115590227679",
+      "name": "CodeQL",
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "details_url": "https://github.com/arhancanli/mcp-factory/actions/runs/38482939676/job/115589638366",
+      "name": "Gate on Node 24",
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "details_url": "https://github.com/arhancanli/mcp-factory/actions/runs/38482939676/job/115589638322",
+      "name": "Gate on Node 22",
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "details_url": "https://github.com/arhancanli/mcp-factory/actions/runs/38482939676/job/115589638255",
+      "name": "Gate on Node 20",
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "details_url": "https://github.com/arhancanli/mcp-factory/actions/runs/38482939676/job/115589638046",
+      "name": "Every server works as its own repository",
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "details_url": "https://github.com/arhancanli/mcp-factory/actions/runs/38482939515/job/115589637202",
+      "name": "analyze",
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "details_url": "https://github.com/arhancanli/mcp-factory/actions/runs/38482939448/job/115589636971",
+      "name": "cpu-laboratory",
+      "status": "completed"
+    }
+  ],
+  "factory_tests": 296,
+  "laboratory_tests": 42,
+  "mcp_integrations": 2,
+  "open_codeql_alerts_for_review": 0,
+  "pull_request": "https://github.com/arhancanli/mcp-factory/pull/11",
+  "schema": "canlilabs.ci-validation.v1",
+  "scope": "Release controls and all 21 standalone packages; no qualified publication or paid agent comparison.",
+  "tested_commit": "a8e45da88753d928fa89f3a5150d4a1f61dc7783"
+}
