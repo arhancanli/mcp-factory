@@ -7,8 +7,10 @@ Active worktree: `/Users/arhancanli/canlilabs-data-20261014`.
 Branch: `codex/canlilabs-data-lifecycle-20261014`, based on foundation head
 `cd1dabf`. The original checkout remains clean on main. Foundation
 [PR #9](https://github.com/arhancanli/mcp-factory/pull/9) is open, ready for review
-and unmerged; all seven checks passed on its final head. The new data/lifecycle
-slice is locally validated and being prepared as a separate stacked review.
+and unmerged; all seven checks passed on its final head. The data/lifecycle slice
+is owner-signed at `9bda49c` and open as stacked
+[PR #10](https://github.com/arhancanli/mcp-factory/pull/10), currently draft while
+its checks run. It depends on PR #9 and is not merged or published.
 
 ## Current executable laboratory
 
@@ -38,7 +40,7 @@ slice is locally validated and being prepared as a separate stacked review.
   the database is unchanged and tampered split/rights metadata is rejected.
 
 Local checks: 39 behavioral lab tests, two real stdio integrations, lint/format,
-and ten frozen task answers through fourteen MCP calls. The new review's CI is
+290 factory checks and ten frozen task answers through fourteen MCP calls. The new review's CI is
 pending. These task answers are not an agent/incumbent benchmark.
 
 Two separate twelve-run public cohorts are retained. The final cohort in
@@ -52,6 +54,11 @@ strongest-model evidence or production qualification. Both source pages declare
 CC BY 4.0; receipts retain creator attribution and conversion lineage. No data or
 weights are committed. The initial cohort is kept separately with its earlier
 source hashes; the final receipt ties runs to the finalized package source.
+Its exact package fingerprint is
+`d39c84dae77351b72f5f9011f637d9be4260b8f62f4d72bc1a569cb2c608e7c5`;
+verified against the signed implementation. Iris has one duplicate feature row;
+Wine Quality has 937. All rows are retained in disjoint components. Wine split
+counts are 2,959 training, 972 validation and 967 test examples.
 
 The foundation's nine final synthetic/RL runs and 19 main-workspace attempts at
 recording remain in their dated receipt. Original smoke results and earlier failed

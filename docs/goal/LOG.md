@@ -55,6 +55,18 @@ current MCP comparison/publication, scale and adoption remain active requirement
 Extended the existing pinned CodeQL job to include Python alongside JavaScript;
 the new laboratory now receives the same security-extended static analysis gate.
 
+## 2026-10-14: signed stacked review
+
+Committed and pushed implementation 9bda49c under the owner identity; local SSH
+signature verifies G. Opened draft PR #10 against the foundation branch, preserving
+PR #9 as a separate prerequisite. All 290 factory checks passed on the updated
+tree. The final full lab invocation passed 39/39, both MCP integrations passed,
+and the frozen verifier retained 10/10 answers. Verified all twelve final public
+runs match package fingerprint d39c84dae77351b72f5f9011f637d9be4260b8f62f4d72bc1a569cb2c608e7c5,
+and the validation script hash matches the committed script. Wine's 937 duplicate
+feature rows remain in one component per split; all 4,898 rows are retained.
+CI is now running; merge/publication and the broader requirements remain open.
+
 ## 2026-10-13: goal launch and recovery
 
 The owner requested work on CanliLabs, preservation of earlier goals, thousands
