@@ -17,6 +17,7 @@ import { parseArgs } from "node:util";
 import { Client } from "@modelcontextprotocol/sdk/client/index.js";
 import { StdioClientTransport } from "@modelcontextprotocol/sdk/client/stdio.js";
 import { ROOT, readJson } from "./lib.mjs";
+import { hash, identityHash, sourceSnapshot } from "../kit/release.mjs";
 
 // What a client sends the model for each tool: name, description and input schema (output schemas
 // and annotations are for the client, not the model).
@@ -44,8 +45,10 @@ export function scenarioLabel(s) {
 }
 
 export async function measure(name, { runs = 5, where = "Dubai, home connection" } = {}) {
+  if (!Number.isSafeInteger(runs) || runs < 1 || runs > 20) throw new Error("Choose 1-20 repeat measurements.");
   const dir = path.join(ROOT, "servers", name);
   const entry = path.join(dir, "src/server.mjs");
+  const source = sourceSnapshot(dir);
   const { SCENARIOS } = await import(pathToFileURL(path.join(dir, "test/scenarios.mjs")).href);
   const scenarios = [];
   let example = null;
@@ -80,7 +83,11 @@ export async function measure(name, { runs = 5, where = "Dubai, home connection"
     competitor = { label: spec.label, tool_definition_chars: modelVisibleChars(tools), tools_list_chars: listChars(tools) };
     await c.close();
   }
+  if (sourceSnapshot(dir).sha256 !== source.sha256) throw new Error("Server source changed during performance measurement.");
   return {
+    schema: "canlilabs.performance.v2",
+    measured_at: new Date().toISOString(),
+    provenance: { source_sha256: source.sha256, competitor_sha256: identityHash(spec ?? null), runner_sha256: hash(readFileSync(new URL(import.meta.url))) },
     measured_on: new Date().toISOString().slice(0, 10),
     where,
     node: process.version,

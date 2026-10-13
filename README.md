@@ -20,6 +20,10 @@ exact npm versions among the 21 catalog entries. The commands below describe the
 intended installation after release; use the repository checkout for development
 until a version's publication is verified.
 
+The [release qualification workflow](docs/RELEASE.md) now verifies current source,
+raw benchmark/quality evidence and exact packed bytes before either publishing path.
+Readiness does not count a server as published or maintained.
+
 Shipping criteria for every server:
 
 - installs with one command (`npx`), one click (Claude Desktop bundle, signed), or Docker;

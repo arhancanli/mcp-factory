@@ -1,5 +1,75 @@
 # Decision and execution log
 
+## 2026-10-14: MCP release qualification slice
+
+Re-read the five continuity records and original specification, fetched origin
+and verified open PRs #9/#10 and unchanged main. The prior turn made authoritative
+progress: the laboratory/data implementation, source-matched cohorts and all CI
+checks passed. Created a separate worktree on the validated data head and updated
+the home pointer. The current slice closes publication bypasses with source-bound
+quality/scout/benchmark/performance evidence, explicit unknown registry states and
+reviewable standalone repository updates. No paid agent run, merge or publication
+is implied. All 25 requirements and the 2,000 distinct-release floor remain active.
+
+## 2026-10-14: executable source and publication gates
+
+Implemented a portable verifier binding executable/configuration/task hashes and
+the complete final package tree. Benchmarks now record full graded answers, usage,
+resolved model, source/task/incumbent/runner provenance; performance records bind
+the same source. Historical results are unchanged and cannot be retrofitted into
+current qualification. Added 10-100 paired-task and 90% absolute accuracy criteria,
+while retaining incumbent accuracy/token/additional-coverage requirements. The
+absolute floor rejects meaningless zero-answer token wins; it does not narrow
+the niche or server-count objective.
+
+Added committed scout/quality/benchmark/performance certificates with freshness,
+raw-log/hash checks and exact packed integrity. Local and standalone tag publishing
+both require qualification, distinguish unknown npm state from 404 absence, reject
+existing versions with different bytes and confirm successful publication before
+later stages. Mirroring now prepares signed draft PRs; only empty repos receive a
+nonfunctional signed base. Owner source changes/review branches are not overwritten.
+Collection topics and branding are retained. No publish, merge or launch was run.
+
+The technical qualifier runs actual factory tests, standalone package tests,
+real SDK initialize/tools-list calls, npm audit and the live canary. It produces
+execution logs outside the package and cannot infer agent/scout success. Initial
+factory validation passed 295 checks; the new identity canonicalization adds one
+further case. Laboratory 42 tests and two integrations still pass. Readiness and
+standalone execution evidence are required before completing this review slice.
+
+## 2026-10-14: real qualifier and static-analysis findings
+
+Opened signed implementation f4dac7a as draft PR #11, stacked on #10. The committed
+readiness scan reports 0/21 qualifying releases, the same five missing agent
+directories and no current performance provenance. Ran the real World Time
+technical qualifier: factory tests, the independent packed install/SDK calls and
+audit succeeded. It then stopped on an incorrect canary entrypoint chosen here.
+Retained the failed attempt and logs. Corrected it to the existing scheduled
+workflow's node --test test/live.canary.mjs invocation.
+
+CodeQL analyzed successfully but its security gate found two repeated issues in
+the new shared helper: path stat/read could race, and public-registry HTTP requests
+depended on file fields. Reworked snapshot reads to one no-follow descriptor with
+fstat/read/close, and exact npm metadata retrieval to the official CLI with bounded
+public name/version inputs, fixed public registry, timeout and structured E404
+handling. All other lookup failures remain unknown. No alert is suppressed or
+dismissed. Focused release/benchmark checks pass; fresh CI/qualification are needed.
+
+## 2026-10-14: release controls validated
+
+All seven checks passed on a8e45da: Node 20/22/24, all 21 standalone packages,
+laboratory and both CodeQL checks. Queried the review's code-scanning state:
+zero open findings; none was dismissed. Saved CI links and the committed 0/21
+readiness report. Both missing and legacy evidence remain deficits, not successes.
+The corrected World Time qualifier completed all four real technical stations:
+296 factory tests, 12 standalone tests with packed SDK initialization/tools-list,
+audit and the live clock/time-zone canary. Saved raw logs and its source/tree/
+tarball receipt while retaining the failed first attempt. No benchmark/scout
+certificate was fabricated, and no publish, merge or launch was performed.
+Marked PR #11 ready for review. It remains stacked on open #10 and #9. The next
+work is current scout/task/performance/agent evidence on fixed incumbent versions,
+plus the preserved Linux/accelerator/model-lifecycle and research coverage tracks.
+
 ## 2026-10-14: independent data and lifecycle slice
 
 Re-read all continuity records and verified actual Git/PR state. Foundation PR #9

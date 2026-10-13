@@ -3,9 +3,9 @@
 Updated: 2026-10-14 (Asia/Dubai). Overall goal: active; incomplete.
 
 Repository: `arhancanli/mcp-factory`. Actual `origin/main`: `e52f29f`.
-Active worktree: `/Users/arhancanli/canlilabs-data-20261014`.
-Branch: `codex/canlilabs-data-lifecycle-20261014`, based on foundation head
-`cd1dabf`. The original checkout remains clean on main. Foundation
+Active worktree: `/Users/arhancanli/canlilabs-release-20261014`.
+Branch: `codex/canlilabs-release-readiness-20261014`, based on validated data head
+`4e19133`. The original checkout remains clean on main. Foundation
 [PR #9](https://github.com/arhancanli/mcp-factory/pull/9) is open, ready for review
 and unmerged; all seven checks passed on its final head. The data/lifecycle slice
 is owner-signed at `9bda49c` and open as stacked
@@ -19,6 +19,25 @@ also records the successful ten-task step and frozen hashes.
 The final data review passed all seven checks at `77b292d`; its
 [reviewed CI receipt](evidence/2026-10-14-reviewed-data-ci-validation.json) binds
 42 lab tests and twelve public runs to the current package fingerprint.
+Fresh inspection confirms both reviews are still open and unmerged. The previous
+turn is progress. The next independent slice enforces exact-source release evidence,
+adds reproducible benchmark/performance provenance, distinguishes registry failures
+from absence and keeps standalone repository updates under owner review.
+The release implementation is open as [PR #11](https://github.com/arhancanli/mcp-factory/pull/11),
+ready for review after all seven checks passed on a8e45da. Its first real
+qualifier found an incorrect canary path after three technical stations passed;
+the attempt is retained. CodeQL identified a stat/read race and file-derived HTTP
+metadata query. Both are repaired without dismissing findings; the review has zero
+open CodeQL alerts. Readiness reports 0/21 qualified releases, not 21 failed servers.
+The current [readiness report](evidence/2026-10-14-release-readiness.json) retains
+the five missing agent-result directories and zero current performance snapshots.
+The real World Time qualifier subsequently passed 296 factory tests, 12 independent
+server tests, real packed initialize/tools-list requests, audit and the live clock
+canary. Its raw logs and receipt are in docs/quality/world-time/381065b6.../.
+This proves technical checks, not scout/agent/performance qualification or release.
+[Release CI evidence](evidence/2026-10-14-release-ci-validation.json) records exact
+head and check URLs. The remaining 21 independent packages also pass CI. All wider
+laboratory objectives stay active; this phase changed no training algorithms.
 
 ## Current executable laboratory
 

@@ -46,21 +46,14 @@ jobs:
       - run: npm ci --ignore-scripts
       - run: npm audit --audit-level=high
       - run: npm test
+      - name: Verify the reviewed factory release certificate and exact tree
+        run: node src/kit/release-verify.mjs
       - name: Publish to npm with provenance
         env:
           NAME: ${{ steps.v.outputs.name }}
           VERSION: ${{ steps.v.outputs.version }}
         run: |
-          if npm view "$NAME@$VERSION" version >/dev/null 2>&1; then
-            echo "$NAME@$VERSION is already on npm; not publishing again"
-          else
-            npm publish --provenance --access public
-          fi
-          for attempt in $(seq 1 30); do
-            npm view "$NAME@$VERSION" version >/dev/null 2>&1 && exit 0
-            sleep 10
-          done
-          echo "npm did not serve $VERSION within 5 minutes" >&2; exit 1
+          node src/kit/release-verify.mjs --publish --provenance
       - name: Publish to the MCP Registry
         env:
           PUBLISHER_URL: https://github.com/modelcontextprotocol/registry/releases/download/v1.8.1/mcp-publisher_linux_amd64.tar.gz

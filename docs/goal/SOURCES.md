@@ -36,3 +36,6 @@ Primary references checked on 2026-10-14 (owner timezone):
 - [Python 3.12 file locks](https://docs.python.org/3.12/library/fcntl.html): POSIX exclusive/nonblocking flock and Unix availability for local worker liveness.
 - [Python filesystem operations](https://docs.python.org/3.12/library/os.html): flushed writes, fsync and exclusive link-based publication; validated on local macOS, Linux validation remains a separate gate.
 - [GitHub advanced CodeQL configuration](https://docs.github.com/en/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning): explicit JavaScript/TypeScript and Python analysis for the expanded laboratory.
+- [npm view](https://docs.npmjs.com/cli/v11/commands/npm-view/): exact-version metadata is a read, distinct from publication and package availability.
+- [npm publish](https://docs.npmjs.com/cli/v11/commands/npm-publish/): tarball publication and integrity; existing version identity must be checked before assuming an idempotent release.
+- [GitHub Git trees](https://docs.github.com/en/rest/git/trees): content tree identifiers for standalone/factory parity, independent of commit messages or file-count claims.

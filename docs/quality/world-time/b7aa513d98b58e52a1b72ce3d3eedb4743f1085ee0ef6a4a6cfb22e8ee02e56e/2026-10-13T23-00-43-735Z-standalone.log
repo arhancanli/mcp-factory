@@ -1,0 +1,24 @@
+
+> world-time-mcp@0.1.0 test
+> node --test test/*.test.mjs
+
+✔ DST: gaps and repeats in the southern hemisphere and at Lord Howe Island's half-hour change (3.322ms)
+✔ offsets: quarter-hour zones, DST flags, fixed offsets (1.341625ms)
+✔ clock and duration parsing (0.522791ms)
+✔ places: zones, legacy links, offsets, abbreviations, qualified cities, states (3.041542ms)
+✔ weekends: CLDR per country, overridable (0.18425ms)
+✔ holidays: regions by code and name, partial days noted but not closing, ISO weeks at year ends (9.647667ms)
+✔ world_time now: cities, ambiguous names, countries with several zones, abbreviations, offsets, next change (21.514625ms)
+✔ world_time converting: skipped and repeated times are flagged, day changes shown (4.697791ms)
+✔ holidays: a year's list, one date's status, multi-day and estimated Islamic holidays, regions (26.456333ms)
+✔ business_days: the local weekend and holidays are skipped; counting includes both ends (5.546292ms)
+✔ meeting_slots: overlap windows across zones, holidays skipped; the closest time when none fits (18.853417ms)
+✔ date_info: weekday, ISO week 53, month-end clamping, durations in words or ISO 8601 (2.265125ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 215.902583
