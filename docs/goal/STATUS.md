@@ -3,9 +3,9 @@
 Updated: 2026-10-14 (Asia/Dubai). Overall goal: active; incomplete.
 
 Repository: `arhancanli/mcp-factory`. Actual `origin/main`: `e52f29f`.
-Active worktree: `/Users/arhancanli/canlilabs-data-20261014`.
-Branch: `codex/canlilabs-data-lifecycle-20261014`, based on foundation head
-`cd1dabf`. The original checkout remains clean on main. Foundation
+Active worktree: `/Users/arhancanli/canlilabs-release-20261014`.
+Branch: `codex/canlilabs-release-readiness-20261014`, based on validated data head
+`4e19133`. The original checkout remains clean on main. Foundation
 [PR #9](https://github.com/arhancanli/mcp-factory/pull/9) is open, ready for review
 and unmerged; all seven checks passed on its final head. The data/lifecycle slice
 is owner-signed at `9bda49c` and open as stacked
@@ -19,6 +19,10 @@ also records the successful ten-task step and frozen hashes.
 The final data review passed all seven checks at `77b292d`; its
 [reviewed CI receipt](evidence/2026-10-14-reviewed-data-ci-validation.json) binds
 42 lab tests and twelve public runs to the current package fingerprint.
+Fresh inspection confirms both reviews are still open and unmerged. The previous
+turn is progress. The next independent slice enforces exact-source release evidence,
+adds reproducible benchmark/performance provenance, distinguishes registry failures
+from absence and keeps standalone repository updates under owner review.
 
 ## Current executable laboratory
 

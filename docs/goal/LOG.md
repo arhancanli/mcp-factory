@@ -1,5 +1,42 @@
 # Decision and execution log
 
+## 2026-10-14: MCP release qualification slice
+
+Re-read the five continuity records and original specification, fetched origin
+and verified open PRs #9/#10 and unchanged main. The prior turn made authoritative
+progress: the laboratory/data implementation, source-matched cohorts and all CI
+checks passed. Created a separate worktree on the validated data head and updated
+the home pointer. The current slice closes publication bypasses with source-bound
+quality/scout/benchmark/performance evidence, explicit unknown registry states and
+reviewable standalone repository updates. No paid agent run, merge or publication
+is implied. All 25 requirements and the 2,000 distinct-release floor remain active.
+
+## 2026-10-14: executable source and publication gates
+
+Implemented a portable verifier binding executable/configuration/task hashes and
+the complete final package tree. Benchmarks now record full graded answers, usage,
+resolved model, source/task/incumbent/runner provenance; performance records bind
+the same source. Historical results are unchanged and cannot be retrofitted into
+current qualification. Added 10-100 paired-task and 90% absolute accuracy criteria,
+while retaining incumbent accuracy/token/additional-coverage requirements. The
+absolute floor rejects meaningless zero-answer token wins; it does not narrow
+the niche or server-count objective.
+
+Added committed scout/quality/benchmark/performance certificates with freshness,
+raw-log/hash checks and exact packed integrity. Local and standalone tag publishing
+both require qualification, distinguish unknown npm state from 404 absence, reject
+existing versions with different bytes and confirm successful publication before
+later stages. Mirroring now prepares signed draft PRs; only empty repos receive a
+nonfunctional signed base. Owner source changes/review branches are not overwritten.
+Collection topics and branding are retained. No publish, merge or launch was run.
+
+The technical qualifier runs actual factory tests, standalone package tests,
+real SDK initialize/tools-list calls, npm audit and the live canary. It produces
+execution logs outside the package and cannot infer agent/scout success. Initial
+factory validation passed 295 checks; the new identity canonicalization adds one
+further case. Laboratory 42 tests and two integrations still pass. Readiness and
+standalone execution evidence are required before completing this review slice.
+
 ## 2026-10-14: independent data and lifecycle slice
 
 Re-read all continuity records and verified actual Git/PR state. Foundation PR #9

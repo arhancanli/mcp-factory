@@ -18,7 +18,9 @@
     "sync": "node scripts/sync.mjs",
     "bench": "node bench/run.mjs",
     "test:lab-mcp": "node --test lab/test/*.test.mjs",
-    "audit:canlilabs": "node scripts/canlilabs-audit.mjs"
+    "audit:canlilabs": "node scripts/canlilabs-audit.mjs",
+    "release:check": "node scripts/release-readiness.mjs",
+    "qualify": "node scripts/qualify-server.mjs"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "1.32.1",

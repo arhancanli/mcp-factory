@@ -14,7 +14,10 @@ import { ROOT } from "./lib.mjs";
 const git = (args, opts = {}) => execFileSync("git", args, { cwd: ROOT, encoding: "utf8", ...opts });
 
 /** The git tree id of servers/<name> at a ref; equal tree ids mean byte-identical content. */
-export const serverTree = (name, ref = "HEAD") => git(["rev-parse", `${ref}:servers/${name}`]).trim();
+export const serverTree = (name, ref = "HEAD") => {
+  if (!/^[a-z][a-z0-9-]{1,40}$/.test(name ?? "")) throw new Error("Export requires a bounded server name.");
+  return git(["rev-parse", `${ref}:servers/${name}`]).trim();
+};
 
 /** Fails when servers/<name> has changes that are not committed, so nobody publishes a stale export. */
 export function assertCommitted(name) {
