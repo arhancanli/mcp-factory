@@ -43,10 +43,11 @@ source are in [data-ci-validation.json](evidence/2026-10-14-data-ci-validation.j
 
 Local checks: 39 behavioral lab tests, two real stdio integrations, lint/format,
 290 factory checks and ten frozen task answers through fourteen MCP calls.
-The same checks passed in macOS laboratory CI, with Node 20/22/24 factory gates,
-all 21 standalone packages, and security-extended JavaScript/Python CodeQL.
-These task answers are not an agent/incumbent benchmark. The final documentation
-receipt changes no runtime files; verify current PR checks when resuming.
+Lab lint/format, behavioral tests and integrations passed in macOS CI, with Node
+20/22/24 gates, all 21 standalone packages and JavaScript/Python CodeQL. The ten
+frozen task answers also passed locally and are now added as a required lab CI step.
+These task answers are not an agent/incumbent benchmark. The final validation
+follow-up changes no training/server runtime files; verify current PR checks on resume.
 
 Two separate twelve-run public cohorts are retained. The final cohort in
 [registered-data-runs.json](evidence/2026-10-14-registered-data-runs.json) uses

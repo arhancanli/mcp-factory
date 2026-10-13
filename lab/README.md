@@ -175,6 +175,8 @@ uv run --project lab ruff check lab/src lab/tests lab/scripts
 uv run --project lab ruff format --check lab/src lab/tests lab/scripts
 uv run --project lab pytest -q lab/tests
 npm run test:lab-mcp
+uv run --project lab python lab/scripts/prepare-evaluation.py --workspace .lab/frozen-pilot
+node lab/scripts/verify-evaluation.mjs .lab/frozen-pilot
 ```
 
 Tests train real multiclass/regression/RL models, reproduce seeds, verify held-out

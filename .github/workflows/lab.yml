@@ -39,3 +39,7 @@ jobs:
       - run: uv run --project lab ruff format --check lab/src lab/tests lab/scripts
       - run: uv run --project lab pytest -q lab/tests
       - run: npm run test:lab-mcp
+      - name: Verify the ten frozen laboratory MCP tasks
+        run: |
+          uv run --project lab python lab/scripts/prepare-evaluation.py --workspace .lab/ci-frozen-pilot
+          node lab/scripts/verify-evaluation.mjs .lab/ci-frozen-pilot

@@ -86,6 +86,15 @@ Repository mirroring can push directly to a server's main branch. Before using
 these paths for new scale, add source-tied release readiness, distinguish unknown
 registry state from a definitive missing version, and keep owner review explicit.
 
+## 2026-10-14: continuous frozen task verification
+
+Added the existing ten-task/fourteen-call MCP verifier to laboratory CI after
+the behavioral tests and integrations. It recreates an isolated metadata-only
+cohort, verifies the fixed answers over real stdio, and stores its fresh receipt
+locally. This changes validation coverage, with no training/server runtime changes.
+The earlier CI receipt records the preceding seven successful checks; current
+head checks must additionally pass this new task step before the final handoff.
+
 ## 2026-10-13: goal launch and recovery
 
 The owner requested work on CanliLabs, preservation of earlier goals, thousands
