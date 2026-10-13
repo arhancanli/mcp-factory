@@ -1,6 +1,7 @@
 """Read-only, bounded laboratory metadata interface for MCP clients."""
 
 import argparse
+import hashlib
 import json
 import re
 import sqlite3
@@ -8,7 +9,7 @@ import time
 from contextlib import contextmanager
 from pathlib import Path
 
-from .records import sha256_file
+from .records import canonical, sha256_file
 
 
 @contextmanager
@@ -89,7 +90,7 @@ def get_experiment(workspace, run_id):
     }
 
 
-def inspect_dataset(workspace, dataset_id):
+def inspect_dataset(workspace, dataset_id, split_sha256=None):
     if not re.fullmatch(r"[a-f0-9]{64}", dataset_id):
         raise ValueError("Use the dataset_id hash from a laboratory experiment.")
     directory = Path(workspace).resolve() / "datasets" / dataset_id
@@ -99,10 +100,72 @@ def inspect_dataset(workspace, dataset_id):
     if manifest_path.stat().st_size > 64 * 1024:
         raise ValueError("Dataset metadata exceeds the bounded reader limit.")
     manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    if not isinstance(manifest, dict):
+        raise ValueError("Dataset manifest must be a JSON object.")
+    if manifest.get("dataset_id") != dataset_id or manifest.get("sha256") != dataset_id:
+        raise ValueError("Dataset manifest does not match the requested content hash.")
     content = directory / "data.csv"
     if content.stat().st_size > 16 * 1024 * 1024:
         raise ValueError("Use a streaming dataset reader above 16 MiB.")
-    return {**manifest, "content_hash_verified": sha256_file(content) == manifest["sha256"]}
+    result = {
+        **manifest,
+        "manifest_sha256": sha256_file(manifest_path),
+        "content_hash_verified": sha256_file(content) == dataset_id,
+    }
+    if split_sha256 is not None:
+        if not re.fullmatch(r"[a-f0-9]{64}", split_sha256):
+            raise ValueError("Use the split_sha256 hash from an experiment.")
+        split_path = directory / f"splits-{split_sha256}.json"
+        if split_path.stat().st_size > 2 * 1024 * 1024:
+            raise ValueError("Split evidence exceeds the bounded reader limit.")
+        splits = json.loads(split_path.read_text())
+        if hashlib.sha256(canonical(splits).encode()).hexdigest() != split_sha256:
+            raise ValueError("Split evidence hash mismatch; stored splits were modified.")
+        if splits.get("schema") == "canlilabs.tabular-splits.v1":
+            if splits["dataset_id"] != dataset_id:
+                raise ValueError("Split evidence belongs to a different dataset.")
+            if splits.get("manifest_sha256") != result["manifest_sha256"]:
+                raise ValueError(
+                    "Dataset source/licence metadata differs from the run's split evidence."
+                )
+            result["manifest_hash_verified"] = True
+            result["split"] = {
+                key: splits[key]
+                for key in [
+                    "schema",
+                    "dataset_id",
+                    "manifest_sha256",
+                    "task",
+                    "features",
+                    "strategy",
+                    "seed",
+                    "group_column",
+                    "time_column",
+                    "requested_fractions",
+                    "counts",
+                    "stratified_components",
+                    "profile_sha256",
+                    "classes",
+                    "checks",
+                ]
+            }
+            if not isinstance(splits.get("profile_sha256"), str) or not re.fullmatch(
+                r"[a-f0-9]{64}", splits["profile_sha256"]
+            ):
+                raise ValueError("Split evidence needs a valid content-addressed profile hash.")
+            profile_path = directory / f"profile-{splits['profile_sha256']}.json"
+            if profile_path.stat().st_size > 64 * 1024:
+                raise ValueError("Data profile exceeds the bounded reader limit.")
+            profile = json.loads(profile_path.read_text())
+            if hashlib.sha256(canonical(profile).encode()).hexdigest() != splits["profile_sha256"]:
+                raise ValueError("Profile evidence hash mismatch; stored metadata was modified.")
+            result["profile"] = profile
+        elif set(splits) == {"train", "validation", "test"}:
+            result["split"] = {"counts": {key: len(value) for key, value in splits.items()}}
+        else:
+            raise ValueError("Unsupported split evidence schema.")
+        result["split_hash_verified"] = True
+    return result
 
 
 def main(argv=None):
@@ -117,6 +180,7 @@ def main(argv=None):
     showing.add_argument("run_id")
     dataset = commands.add_parser("dataset")
     dataset.add_argument("dataset_id")
+    dataset.add_argument("--split-sha256")
     args = parser.parse_args(argv)
     try:
         if args.command == "list":
@@ -124,7 +188,7 @@ def main(argv=None):
         elif args.command == "get":
             result = get_experiment(args.workspace, args.run_id)
         else:
-            result = inspect_dataset(args.workspace, args.dataset_id)
+            result = inspect_dataset(args.workspace, args.dataset_id, args.split_sha256)
         print(json.dumps(result, sort_keys=True, separators=(",", ":"), allow_nan=False))
         return 0
     except (ValueError, LookupError, OSError, sqlite3.Error) as error:

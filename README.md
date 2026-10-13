@@ -10,8 +10,9 @@ and [verified status](docs/goal/STATUS.md) distinguish implemented capabilities
 from work still needed for thousands of maintained, measured MCP servers.
 
 The [local AI laboratory](lab/README.md) runs real CPU ML, deep learning and RL
-recipes with independent evaluation, checkpoint reloads and immutable experiment
-records. Its MCP pilot reads experiment and dataset metadata.
+recipes. Registered numeric data supports multiclass classification and regression,
+with independent evaluation, explicit splits, checkpoint reloads, model cards and
+recoverable experiment records. Its MCP pilot verifies experiment/data provenance.
 
 Public installation is a separate release milestone. The current
 [release audit](docs/goal/evidence/2026-10-13-factory-audit.json) found no published

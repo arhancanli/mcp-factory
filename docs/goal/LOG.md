@@ -1,5 +1,60 @@
 # Decision and execution log
 
+## 2026-10-14: independent data and lifecycle slice
+
+Re-read all continuity records and verified actual Git/PR state. Foundation PR #9
+is open and unmerged at cd1dabf; its final checks passed. The prior turn is progress,
+not completion of the overall goal. Created a separate worktree/branch based on
+that reviewed foundation, preserving its complete requirements. Updated the home
+continuity pointer. The next bounded slice makes registered numeric datasets
+trainable with multiclass/regression recipes, explicit random/group/time splits,
+normalized feature-duplicate checks and recoverable append-only trial records.
+
+## 2026-10-14: registered data and recoverable scientific records
+
+Implemented explicit numeric table selection, content/metadata hash checks,
+multiclass logistic regression, ridge regression and variable-shape PyTorch MLP
+classification/regression. Training alone fits feature/target scaling; validation
+loss selects the neural checkpoint. Artifacts reload before success; inference
+uses recorded feature order/count and returns original classification labels.
+
+Implemented immutable profile/split evidence with source/licence hashes, every row
+accounted for, normalized numeric duplicates including conflicting targets, subject
+components including transitive duplicate links, and strict time/tie handling.
+Exact numeric target copies, unknown evaluation classes and non-finite data fail
+explicitly. Added atomic exclusive publication for CSV/JSON. Optional lineage and
+attribution retain original and converted hashes without committing raw corpora.
+
+Added POSIX worker leases acquired before started records become visible, with
+original inode/device identity checks. Recovery refuses active, missing, replaced
+or legacy-unverifiable leases and appends one interrupted failure. A real killed
+process is tested. Python interrupts also remain failed trials. SQLite is
+authoritative; derived receipt I/O errors cannot replace committed successes;
+missing copies can be repaired and altered copies cannot be silently replaced.
+Added hash-verified model cards and same-protocol comparisons retaining trial and
+failure counts without automatic test-based winner selection.
+
+Extended the existing three read-only MCP tools with optional split/profile/rights
+verification. Real stdio calls verify no SQLite changes, no raw rows or positions,
+bounded tool lists and rejection of tampered source/licence or split evidence.
+All 39 lab checks and two MCP integrations pass locally, plus lint/format and the
+ten unchanged frozen task answers through fourteen actual MCP calls. Those answers
+remain protocol/task verification, not an agent or strongest-incumbent benchmark.
+
+Ran an initial and finalized cohort in separate workspaces, retaining all 24 trials
+and both public receipts. Each cohort trains ML/DL on UCI Iris and White Wine
+Quality across seeds 7, 19, 43, fixed split seed 2718 and 30 DL epochs. Source pages
+declare CC BY 4.0; receipts retain original citations, archive/member/converted
+hashes and exact changes. Final runs use the finalized package source hash.
+Both Iris recipes score 30/30 test examples per seed; wine ridge RMSE is 0.719,
+MLP 0.666-0.677, versus 0.859 training-mean baseline. No parameters were changed
+from test feedback. These small fixed-split results do not establish broad quality
+or population sampling uncertainty. Updated the coverage/requirements/backlog and
+working CLI documentation. Promotion/rollback, wider data/model tracks, compute,
+current MCP comparison/publication, scale and adoption remain active requirements.
+Extended the existing pinned CodeQL job to include Python alongside JavaScript;
+the new laboratory now receives the same security-extended static analysis gate.
+
 ## 2026-10-13: goal launch and recovery
 
 The owner requested work on CanliLabs, preservation of earlier goals, thousands
