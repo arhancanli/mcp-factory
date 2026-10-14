@@ -1,0 +1,38 @@
+{
+  "measured_on": "2026-09-27",
+  "where": "Dubai, home connection",
+  "node": "v24.19.0",
+  "runs": 5,
+  "tool_definition_chars": 800,
+  "tools_list_chars": 1357,
+  "competitor": null,
+  "scenarios": [
+    {
+      "call": "check_sql: eight statements against a schema with sample rows, on PostgreSQL",
+      "first_call_ms": 827,
+      "repeat_ms": 7.7,
+      "result_chars": 1855
+    },
+    {
+      "call": "check_sql: the same SQL on PostgreSQL and SQLite, compared",
+      "first_call_ms": 825,
+      "repeat_ms": 4.1,
+      "result_chars": 1918
+    },
+    {
+      "call": "check_sql: a migration step that cannot run inside a transaction",
+      "first_call_ms": 892,
+      "repeat_ms": 2.9,
+      "result_chars": 692
+    }
+  ],
+  "example": {
+    "call": "check_sql: eight statements against a schema with sample rows, on PostgreSQL",
+    "tool": "check_sql",
+    "arguments": {
+      "schema": "CREATE TABLE users (\n  id serial PRIMARY KEY,\n  email text NOT NULL UNIQUE,\n  created_at timestamptz DEFAULT now()\n);\nCREATE TABLE orders (\n  id serial PRIMARY KEY,\n  user_id int NOT NULL REFERENCES users(id),\n  total numeric(10,2) NOT NULL,\n  status text NOT NULL CHECK (status IN ('open', 'paid'))\n);\nINSERT INTO users (email) VALUES ('ana@example.com'), ('ben@example.com');\nINSERT INTO orders (user_id, total, status) VALUES (1, 10.50, 'open'), (1, 3.00, 'paid');\n",
+      "sql": "-- spend per user\nSELECT u.email, sum(o.total) AS spent\nFROM users u LEFT JOIN orders o ON o.user_id = u.id\nGROUP BY u.email\nORDER BY u.email;\nSELECT u.email, o.total FROM users u JOIN orders o ON o.user_id = u.id GROUP BY u.email;\nSELECT emial FROM users;\nSELECT * FROM orders WHERE placed_at > DATE_SUB(NOW(), INTERVAL 7 DAY);\nINSERT INTO orders (user_id, total, status) VALUES (1, 5.00, 'shipped');\nINSERT INTO orders (user_id, total, status) VALUES (9, 5.00, 'open');\nUPDATE orders SET status = 'paid' WHERE status = 'open' RETURNING id, status;\n"
+    },
+    "result": "{\"results\":[{\"dialect\":\"postgres\",\"version\":\"PostgreSQL 18.3\",\"counts\":{\"ok\":2,\"error\":5},\"statements\":[{\"line\":2,\"sql\":\"SELECT u.email, sum(o.total) AS spent FROM users u LEFT JOIN orders o ON o.user_id = u.id GROUP B...\",\"status\":\"ok\",\"command\":\"SELECT\",\"columns\":[\"email text\",\"spent numeric\"],\"row_count\":2,\"rows\":[[\"ana@example.com\",\"13.50\"],[\"ben@example.com\",null]]},{\"line\":6,\"sql\":\"SELECT u.email, o.total FROM users u JOIN orders o ON o.user_id = u.id GROUP BY u.email\",\"status\":\"error\",\"column\":17,\"error\":\"column \\\"o.total\\\" must appear in the GROUP BY clause or be used in an aggregate function\",\"code\":\"42803\"},{\"line\":7,\"sql\":\"SELECT emial FROM users\",\"status\":\"error\",\"column\":8,\"error\":\"column \\\"emial\\\" does not exist\",\"hint\":\"Perhaps you meant to reference the column \\\"users.email\\\".\",\"code\":\"42703\"},{\"line\":8,\"sql\":\"SELECT * FROM orders WHERE placed_at > DATE_SUB(NOW(), INTERVAL 7 DAY)\",\"status\":\"error\",\"column\":65,\"error\":\"syntax error at or near \\\"7\\\"\",\"code\":\"42601\",\"advice\":\"DATE_SUB/DATE_ADD are MySQL; PostgreSQL writes now() - interval '1 day'\"},{\"line\":9,\"sql\":\"INSERT INTO orders (user_id, total, status) VALUES (1, 5.00, 'shipped')\",\"status\":\"error\",\"error\":\"new row for relation \\\"orders\\\" violates check constraint \\\"orders_status_check\\\"\",\"detail\":\"Failing row contains (3, 1, 5.00, shipped).\",\"code\":\"23514\"},{\"line\":10,\"sql\":\"INSERT INTO orders (user_id, total, status) VALUES (9, 5.00, 'open')\",\"status\":\"error\",\"error\":\"insert or update on table \\\"orders\\\" violates foreign key constraint \\\"orders_user_id_fkey\\\"\",\"detail\":\"Key (user_id)=(9) is not present in table \\\"users\\\".\",\"code\":\"23503\"},{\"line\":11,\"sql\":\"UPDATE orders SET status = 'paid' WHERE status = 'open' RETURNING id, status\",\"status\":\"ok\",\"command\":\"UPDATE\",\"affected\":1,\"columns\":[\"id integer\",\"status text\"],\"row_count\":1,\"rows\":[[1,\"paid\"]]}]}]}"
+  }
+}

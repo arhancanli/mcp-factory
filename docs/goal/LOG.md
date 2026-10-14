@@ -1,5 +1,31 @@
 # Decision and execution log
 
+## 2026-10-14: native SQL failure contained during benchmark review
+
+The first remote Node 24 gate at 4d91877 passes 316/317, then SQL Check's existing
+runaway-query cancellation aborts its process in V8 ThreadIsolation/Wasm allocation
+cleanup (SIGTRAP), on actual Node 24.21.0. Node 20, all independent packages and
+CodeQL pass; matrix fail-fast cancels Node 22. Retained the exact failed job,
+fatal check and log hash. No benchmark-budget test or paid API call failed.
+
+Replace the SQL engine thread with a supervised child process. The supervisor
+executes no WebAssembly, enforces deadlines and kills/reaps the busy engine on
+parent disconnect. Preserve the three-second runaway/exit/replacement assertions
+and ten-second production default; bound configured deadlines at 120 seconds.
+Keep dialect queues separate from disposable engines so a queued call uses a
+live replacement. Restrict child environment to system/locale essentials, retain
+the 512 MiB JavaScript heap limit and describe its actual scope (not total RSS).
+
+All fourteen local SQL checks now pass, including actual native-signal containment,
+queued timeout recovery and a killed MCP parent with a running infinite query.
+A misplaced cleanup edit was caught and corrected before validation. Real stdio
+also initializes, lists and executes SELECT 42. Performance remeasurement exposed
+the old unpinned SQLite reference failing on current Python/MCP APIs. Primary
+PyPI identifies the archived 2025.4.25 release; pin it and the compatible existing
+Python/MCP versions, label it as historical and keep current strongest SQL
+comparison explicitly pending. No weak reference substitutes for that requirement.
+Fresh measured performance, packed validation and full CI are still required.
+
 ## 2026-10-14: bounded runner and concrete free preparation validated
 
 Implemented integer-USD request reservations covering the published full-context

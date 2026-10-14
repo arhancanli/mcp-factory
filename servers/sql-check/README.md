@@ -83,7 +83,7 @@ An agent calls `check_sql` with:
 }
 ```
 
-and gets back (recorded from the live server on 2026-09-27):
+and gets back (recorded from the live server on 2026-10-14):
 
 ```json
 {
@@ -160,16 +160,18 @@ and gets back (recorded from the live server on 2026-09-27):
 
 ## How it behaves
 
-- Nothing leaves your machine: the engines run inside this process, in memory, with in-memory file
+- Nothing leaves your machine: the engines run in local child processes, with in-memory file
   systems; there is no network access at all (`factory.allowHosts` is empty).
 - Each call starts from an empty database. PostgreSQL runs every statement in its own savepoint
   inside one transaction that is rolled back, then discards the session; SQLite gets a new
   database per call. Statements that would end that transaction (`BEGIN`, `COMMIT`, `ROLLBACK`)
   are skipped and say so.
-- The engines run in a worker thread with a time limit (10 s per call, `SQL_CHECK_TIMEOUT_MS` to
-  change it): a statement that never ends is stopped, reported with its number, and the engine is
-  replaced. They start in the background when the server starts, so the first call does not wait
-  for PostgreSQL to boot.
+- Each dialect uses a supervised child process with a 512 MiB JavaScript heap
+  limit and a deadline (10 s per call; `SQL_CHECK_TIMEOUT_MS` accepts 1-120000 ms).
+  A runaway statement is stopped and reported with its number. Engine failures
+  are contained, queued calls get a fresh engine, and parent disconnects stop
+  the children. Engines warm in the background; a first call can still wait for
+  initialization. The heap limit does not bound WebAssembly memory or total RSS.
 - Results are compact JSON with a matching output schema: up to `max_rows` rows per statement
   (default 20, with the full count), long values cut at 200 characters, bigints as strings.
 
@@ -182,17 +184,17 @@ Not yet measured.
 ## Performance
 
 <!-- perf:start -->
-Measured 2026-09-27 from Dubai, home connection against the live server, Node 24.19.0 (`bench/perf.json`, `scripts/perf.mjs` in the factory).
+Measured 2026-10-14 from Dubai, local CPU; isolated in-memory SQL engines against the live server, Node 24.19.0 (`bench/perf.json`, `scripts/perf.mjs` in the factory).
 
-| Call | First request after initialization | Repeat | Result size |
+| Call | First call including startup | Repeat | Result size |
 | --- | --- | --- | --- |
-| check_sql: eight statements against a schema with sample rows, on PostgreSQL | 827 ms | 7.7 ms | 1,855 chars |
-| check_sql: the same SQL on PostgreSQL and SQLite, compared | 825 ms | 4.1 ms | 1,918 chars |
-| check_sql: a migration step that cannot run inside a transaction | 892 ms | 2.9 ms | 692 chars |
+| check_sql: seven statements against a schema with sample rows, on PostgreSQL | 788 ms | 6.515 ms | 1,855 chars |
+| check_sql: the same SQL on PostgreSQL and SQLite, compared | 739.023 ms | 4.128 ms | 1,918 chars |
+| check_sql: a migration step that cannot run inside a transaction | 703.187 ms | 1.827 ms | 692 chars |
 
-This legacy record times the first tool request after MCP initialization; it excludes process startup. Repeated requests use the same process and include server work plus any upstream I/O or cache effects. Remeasure before comparing cold-start performance.
+First call includes the stdio process start, MCP initialization and first tool request. Startup and first-request timings are also recorded separately in perf.json. Repeated requests use the same process and include server work plus any upstream I/O or cache effects.
 
-Tool definitions the model reads on every turn (name, description, input schema): 800 characters. The full tool list, with the output schemas and annotations clients use to validate results, is 1,357 characters.
+Tool definitions the model reads on every turn (name, description, input schema): 800 characters, against 1,288 for mcp-server-sqlite 2025.4.25, archived historical SQLite reference; current strongest comparison pending. The full tool list, with the output schemas and annotations clients use to validate results, is 1,357 characters (1,282 for the alternative).
 <!-- perf:end -->
 
 ## More MCP servers by Arhan Canli

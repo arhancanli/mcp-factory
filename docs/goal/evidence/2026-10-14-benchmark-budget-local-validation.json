@@ -23,7 +23,8 @@
   "raw_log_sha256": {
     "factory": "1871d2589247629b876d5a0b4dbaa583177ed9832866b6e4de0a1d8a96a7b90a",
     "benchmark": "11628d01b166679afd78573cf3656f08e013e6da1b7d5f7c8949ce61443a988f",
-    "real_dry_mcp": "a4c7dda3c837afc792cea4ebc47ccb2f344b96a4dd98a2beb7a37792e3b06109"
+    "real_dry_mcp": "a4c7dda3c837afc792cea4ebc47ccb2f344b96a4dd98a2beb7a37792e3b06109",
+    "benchmark_reviewed_current_source": "99b82e4dcdcb8177876333d23fb03e6a5fe9dc6a457a5c6cc7656150d965a074"
   },
   "proposed_paid_attempt": {
     "currency": "USD",
@@ -32,5 +33,7 @@
     "arms": 2,
     "model": "claude-opus-4-8",
     "approved": false
-  }
+  },
+  "tested_implementation": "4d918771ffa28dc86c4564ee05f0a5dd8fb071fb",
+  "focused_log_scope": "The earlier focused log preceded the final journal completion ordering; the reviewed focused run and 317-test factory run use the committed implementation."
 }

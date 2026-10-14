@@ -23,6 +23,17 @@ validated usage refunds, retained unknown charges, exclusive flushed journals,
 no automatic retries and peer cleanup are exercised with the actual SDK using
 synthetic fetch fixtures. No simulator output is a real agent benchmark.
 Signed review/remote CI follow; the paid action remains unapproved.
+The implementation is open as draft [PR #16](https://github.com/arhancanli/mcp-factory/pull/16)
+on signed `4d91877`, stacked on #15. Its first remote run passes Node 20, every
+packed package and CodeQL, but SQL Check's old runaway-query thread cancellation
+triggers a native V8 SIGTRAP on Node 24.21.0; matrix fail-fast cancels Node 22.
+The [failed attempt receipt](evidence/2026-10-14-benchmark-native-ci-attempt.json)
+retains that exact failure. Supervised SQL child processes now pass fourteen
+local tests, including a native engine signal, queued timeout recovery and parent
+SIGKILL cleanup. The original three-second runaway test remains. Current cold
+performance is remeasured against a pinned, explicitly historical SQLite reference;
+old performance/tasks are archived and the strongest-current SQL review remains
+required. Full packed/matrix validation on this repair follows before paid approval.
 
 Fresh inspection confirms every review below is open, ready and unmerged, with
 all required checks passing at the listed head. Commits use the owner's signing

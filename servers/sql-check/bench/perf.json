@@ -1,33 +1,73 @@
 {
-  "measured_on": "2026-09-27",
-  "where": "Dubai, home connection",
+  "schema": "canlilabs.performance.v2",
+  "timing_scope": "startup_initialize_first_call",
+  "measured_at": "2026-10-14T06:22:20.867Z",
+  "provenance": {
+    "source_sha256": "f5a32f6ea4f59ed730ccf1773a0e55e996510e701422cc5b4d0a2feffb819450",
+    "competitor_sha256": "b76d717e269472e4dcd33867ab746846fa203d49ff6304565b8c82bf53833162",
+    "runner_sha256": "715b67d4943a3ac09ac77c642305f88530f95a163c1b5a03283acd60ef6cf22a",
+    "connector_sha256": "13e3bc9ef6b7d9105072ccce9468246e5e474e6a43303f91a9117af55b7b2175"
+  },
+  "measured_on": "2026-10-14",
+  "where": "Dubai, local CPU; isolated in-memory SQL engines",
   "node": "v24.19.0",
   "runs": 5,
   "tool_definition_chars": 800,
   "tools_list_chars": 1357,
-  "competitor": null,
+  "competitor": {
+    "label": "mcp-server-sqlite 2025.4.25, archived historical SQLite reference; current strongest comparison pending",
+    "tool_definition_chars": 1288,
+    "tools_list_chars": 1282
+  },
   "scenarios": [
     {
-      "call": "check_sql: eight statements against a schema with sample rows, on PostgreSQL",
-      "first_call_ms": 827,
-      "repeat_ms": 7.7,
+      "call": "check_sql: seven statements against a schema with sample rows, on PostgreSQL",
+      "first_call_ms": 788,
+      "startup_initialize_ms": 90.4,
+      "first_request_ms": 697.585,
+      "repeat_ms": 6.515,
+      "repeat_samples_ms": [
+        7.193416999999954,
+        6.658790999999951,
+        6.3964169999999285,
+        6.5150409999999965,
+        5.439791000000014
+      ],
       "result_chars": 1855
     },
     {
       "call": "check_sql: the same SQL on PostgreSQL and SQLite, compared",
-      "first_call_ms": 825,
-      "repeat_ms": 4.1,
+      "first_call_ms": 739.023,
+      "startup_initialize_ms": 86.541,
+      "first_request_ms": 652.479,
+      "repeat_ms": 4.128,
+      "repeat_samples_ms": [
+        4.77541599999995,
+        4.1277500000001055,
+        4.239041000000043,
+        3.9167909999998756,
+        3.5422499999999673
+      ],
       "result_chars": 1918
     },
     {
       "call": "check_sql: a migration step that cannot run inside a transaction",
-      "first_call_ms": 892,
-      "repeat_ms": 2.9,
+      "first_call_ms": 703.187,
+      "startup_initialize_ms": 89.281,
+      "first_request_ms": 613.901,
+      "repeat_ms": 1.827,
+      "repeat_samples_ms": [
+        2.6511669999999867,
+        1.7145000000000437,
+        1.5096659999999247,
+        1.9342079999996713,
+        1.8269579999996495
+      ],
       "result_chars": 692
     }
   ],
   "example": {
-    "call": "check_sql: eight statements against a schema with sample rows, on PostgreSQL",
+    "call": "check_sql: seven statements against a schema with sample rows, on PostgreSQL",
     "tool": "check_sql",
     "arguments": {
       "schema": "CREATE TABLE users (\n  id serial PRIMARY KEY,\n  email text NOT NULL UNIQUE,\n  created_at timestamptz DEFAULT now()\n);\nCREATE TABLE orders (\n  id serial PRIMARY KEY,\n  user_id int NOT NULL REFERENCES users(id),\n  total numeric(10,2) NOT NULL,\n  status text NOT NULL CHECK (status IN ('open', 'paid'))\n);\nINSERT INTO users (email) VALUES ('ana@example.com'), ('ben@example.com');\nINSERT INTO orders (user_id, total, status) VALUES (1, 10.50, 'open'), (1, 3.00, 'paid');\n",
