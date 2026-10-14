@@ -44,11 +44,14 @@ def parser():
     root.add_argument("--workspace", type=Path, default=Path(".lab"))
     commands = root.add_subparsers(dest="command", required=True)
     training = commands.add_parser("train", help="Run a bounded real CPU recipe")
-    training.add_argument("recipe", choices=["ml", "dl", "rl"])
+    training.add_argument("recipe", choices=["ml", "dl", "rl", "dqn"])
     training.add_argument("--seed", type=int, default=7)
     training.add_argument("--epochs", type=int, default=30)
     training.add_argument("--episodes", type=int, default=1500)
     training.add_argument("--evaluation-episodes", type=int, default=200)
+    training.add_argument(
+        "--training-steps", type=int, default=20_000, help="DQN environment step budget"
+    )
     data_options(training)
     preparation = commands.add_parser(
         "prepare-data", help="Profile and split registered numeric data"
@@ -100,6 +103,7 @@ def main(argv=None):
                 epochs=args.epochs,
                 episodes=args.episodes,
                 evaluation_episodes=args.evaluation_episodes,
+                training_steps=args.training_steps,
                 **data_config(args),
             )
         elif args.command == "prepare-data":

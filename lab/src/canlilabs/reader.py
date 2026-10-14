@@ -31,8 +31,8 @@ def database(workspace):
 def list_experiments(workspace, limit=20, offset=0, recipe=None):
     if not 1 <= limit <= 100 or offset < 0 or offset > 1_000_000:
         raise ValueError("Use limit 1-100 and offset 0-1000000.")
-    if recipe not in [None, "ml", "dl", "rl"]:
-        raise ValueError("Recipe must be ml, dl or rl.")
+    if recipe not in [None, "ml", "dl", "rl", "dqn"]:
+        raise ValueError("Recipe must be ml, dl, rl or dqn.")
     with database(workspace) as db:
         if db is None:
             return {"total_count": 0, "items": [], "has_more": False, "next_offset": None}
@@ -175,7 +175,7 @@ def main(argv=None):
     listing = commands.add_parser("list")
     listing.add_argument("--limit", type=int, default=20)
     listing.add_argument("--offset", type=int, default=0)
-    listing.add_argument("--recipe", choices=["ml", "dl", "rl"])
+    listing.add_argument("--recipe", choices=["ml", "dl", "rl", "dqn"])
     showing = commands.add_parser("get")
     showing.add_argument("run_id")
     dataset = commands.add_parser("dataset")

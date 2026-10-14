@@ -1,5 +1,17 @@
 # Decision and execution log
 
+## 2026-10-14: independent deep reinforcement learning slice
+
+Re-read the five continuity records and inspected actual Git/main/PR state.
+The previous goal turn made authoritative progress; PR #14 implementation has
+all eight checks passing, and final documentation head 694161f is under CI.
+Created an isolated worktree on that exact committed evidence head. No merges
+or paid APIs were used. Extend the real tabular RL path with CartPole-v1 DQN,
+bounded CPU training, seeded replay, target network and validation selection.
+Independent final evaluation and random policy use matching held-out resets.
+Retain all seeds, failures and raw episode returns; verify checkpoint reload.
+All original MCP and broader lab/coverage requirements stay active.
+
 ## 2026-10-14: current MCP technical evidence and review complete
 
 Re-read continuity and freshly checked PR #14 at signed head 361cdb5. All eight

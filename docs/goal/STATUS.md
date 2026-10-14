@@ -15,9 +15,13 @@ qualified maintained-release count remains zero. This evidence follow-up changes
 no runtime code. The previous goal turn made concrete progress.
 
 Repository: `arhancanli/mcp-factory`. Actual `origin/main`: `e52f29f`.
-Active worktree: `/Users/arhancanli/canlilabs-cohort-20261014`.
-Branch: `codex/canlilabs-current-mcp-cohort-20261014`, based on validated CPU head
-`0dbf8b7`. The original checkout remains clean on main. Foundation
+Active worktree: `/Users/arhancanli/canlilabs-deep-rl-20261014`.
+Branch: `codex/canlilabs-deep-rl-20261014`, based on cohort evidence head
+`694161f`. The next independent slice adds CPU DQN with bounded replay and
+step budget, target network, correct termination/truncation, validation-only
+checkpoint selection, independent evaluation and random baseline, immutable
+receipts and policy reload. New learning evidence is pending execution.
+The original checkout remains clean on main. Foundation
 [PR #9](https://github.com/arhancanli/mcp-factory/pull/9) is open, ready for review
 and unmerged; all seven checks passed on its final head. The data/lifecycle slice
 is owner-signed at `9bda49c` and open as stacked

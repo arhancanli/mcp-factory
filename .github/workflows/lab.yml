@@ -53,6 +53,9 @@ jobs:
       - name: Verify registered multiclass and regression training on public data
         run: |
           uv run --project lab python lab/scripts/validate-public-data.py --workspace .lab/ci-public-cpu-cohort --receipt .lab/ci-public-cpu-validation.json
+      - name: Train and verify all three fixed deep RL trials
+        run: |
+          uv run --project lab python lab/scripts/validate-deep-rl.py --workspace .lab/ci-deep-rl-cohort --receipt .lab/ci-deep-rl-validation.json
       - name: Verify the ten frozen laboratory MCP tasks
         run: |
           uv run --project lab python lab/scripts/prepare-evaluation.py --workspace .lab/ci-frozen-pilot
@@ -66,6 +69,7 @@ jobs:
             .lab/ci-cpu-environment.json
             .lab/ci-cpu-validation.json
             .lab/ci-public-cpu-validation.json
+            .lab/ci-deep-rl-validation.json
             .lab/ci-frozen-evaluation.json
           include-hidden-files: true
           if-no-files-found: warn
