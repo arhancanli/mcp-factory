@@ -1,5 +1,39 @@
 # Decision and execution log
 
+## 2026-10-14: deep RL learned and validated on both CPU platforms
+
+Committed fixed DQN hyperparameters and functional learning criteria in signed
+8347d7c before the first full held-out cohort. All 54 behavioral checks, three
+actual stdio integrations and ten unchanged frozen answers over fourteen calls
+pass locally. The full factory gate passes 307. Local seeds 7/19/43 achieve mean
+returns 178.94/500/242.12, versus random 22.30/21.50/21.28. All three successful
+trials, raw episode returns, validation/training curves and artifact hashes are
+retained. No final-test outcome changed the hyperparameters or criteria.
+
+All ten PR #15 checks pass at the same signed source. Downloaded both actual CPU
+artifacts and raw logs. macOS arm64 and Linux x86_64 each pass 54 tests, three
+real MCP integrations, ten frozen answers and 24 successful training trials:
+nine original ML/DL/RL, twelve UCI and three DQN. All 48 CI runs/reloads match
+source 046f3b49... and the pinned interpreter/CPU dependencies. The six DQN
+CI policies pass all fixed criteria; mean returns are 178.06/500/252.02 on
+macOS and 193.18/500/221.90 on Linux. Small host differences and different
+validation-selected checkpoints remain visible. Retained nine explicit DQN
+trials across local and CI, plus all 48 current-source CI trials; test fixtures
+are separate. No bitwise, solved-task, strongest-algorithm or production claim.
+
+Verified 307 factory checks and 272 independent tests over all 21 exact packed
+trees. Marked #15 ready for review, stacked on #14 through #9. PR #14's final
+evidence head 694161f also passes all eight checks. No owner merge, paid API,
+publication or launch occurred. All 25 objectives and the 2,000 maintained-release
+floor remain active. Next work includes current paid agent qualification with
+an approved bounded budget, other useful MCP cohorts/discovery, lifecycle resume/
+promotion/rollback, wider data/modalities/foundation models/PPO and education.
+
+Fresh committed-tree readiness remains 0/21 certificates, with World Time's
+performance now current. Consolidated STATUS into the actual current workspace,
+review table, scientific/factory evidence and next unmet work. Preserved its prior
+narrative in dated evidence, and all original objectives in requirements/coverage.
+
 ## 2026-10-14: independent deep reinforcement learning slice
 
 Re-read the five continuity records and inspected actual Git/main/PR state.

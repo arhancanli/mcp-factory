@@ -1,0 +1,1128 @@
+{
+  "checked_at": "2026-10-14T04:58:42.353194+00:00",
+  "cpu_profile": {
+    "dependencies": {
+      "canlilabs": "0.1.0",
+      "gymnasium": "1.4.0",
+      "numpy": "2.5.4",
+      "scikit-learn": "1.9.1",
+      "torch": "2.14.1+cpu"
+    },
+    "device": "cpu",
+    "gpu_packages": [],
+    "installed_packages": [
+      "canlilabs",
+      "cloudpickle",
+      "farama-notifications",
+      "filelock",
+      "fsspec",
+      "gymnasium",
+      "iniconfig",
+      "jinja2",
+      "joblib",
+      "markupsafe",
+      "mpmath",
+      "narwhals",
+      "networkx",
+      "numpy",
+      "packaging",
+      "pluggy",
+      "pygments",
+      "pytest",
+      "ruff",
+      "scikit-learn",
+      "scipy",
+      "setuptools",
+      "sympy",
+      "threadpoolctl",
+      "torch",
+      "typing-extensions"
+    ],
+    "lock_sha256": "1f0ee10b2ba7a521b6ca2a37908d2bfc7cd2de35a7659913c0bd43ca8ce511d6",
+    "machine": "x86_64",
+    "platform": "Linux",
+    "python": "3.12.13",
+    "python_pin_sha256": "aa0d6581054e6e4ff3f91839deca7a854ad37221b8784d060b42d0f847ff1a3b",
+    "schema": "canlilabs.cpu-environment.v1",
+    "torch_cuda_built": false,
+    "torch_cuda_version": null
+  },
+  "failed_attempts": [],
+  "issues": [],
+  "qualified": true,
+  "runs": [
+    {
+      "config": {
+        "device": "cpu",
+        "episodes": 1500,
+        "epochs": 30,
+        "evaluation_episodes": 200,
+        "recipe": "rl",
+        "scope": "synthetic CPU smoke recipe",
+        "seed": 43,
+        "training_steps": 20000
+      },
+      "created_at": "2026-10-14T04:58:42.052499+00:00",
+      "provenance": {
+        "code": {
+          "files": {
+            ".python-version": "aa0d6581054e6e4ff3f91839deca7a854ad37221b8784d060b42d0f847ff1a3b",
+            "__init__.py": "0d9617e8d49b06405371c4f311b8053f94ba8dbb73079afe27d8dd9a483e785b",
+            "cli.py": "da135810ed85be334dfac5a863384408e7efbbd1694bb32935c5872bf4dfb520",
+            "compute.py": "74c7a35183fc7bf449d09dbf52f5c4f107ebb6fc39502e8a116c82c8f2449461",
+            "data.py": "8b57c116ef3520ac6d80b5782670d8d8a806174fe09595077e05c94e29dd6139",
+            "deep_rl.py": "175eeca7557d090c60099964d451588377f478d53c4156d803e060e878dd0002",
+            "lifecycle.py": "ca67976804735d1eae55c287160cd962bee613e4d7d5bcdfb56144d79e416c5a",
+            "pyproject.toml": "990c659e9676f6d1bd29205813afa03936b78f85a2c300aa763ad4d96e636a6d",
+            "reader.py": "97386cd236a514a7d2df2d3cdca5f7c28735e8db8cd5882c6e6de89008cc7e1d",
+            "recipes.py": "69a462aab7f2bb817dcac2100a3752dc299cfa7a007e1553ff84158e2dd8e588",
+            "records.py": "77be90f553fea21df7f63fc2f619155bc1498beb656872465f93290c2d9f02fd",
+            "tabular.py": "d5694dd945ac4c880814b4af0f73fa03f13ba724af41cf975ff5cbcb42ea3ba3",
+            "uv.lock": "1f0ee10b2ba7a521b6ca2a37908d2bfc7cd2de35a7659913c0bd43ca8ce511d6"
+          },
+          "sha256": "046f3b49819dbbecfeeef73fcf1c43903a499bbaf15957e2d5557596acc6b403"
+        },
+        "environment": {
+          "dependencies": {
+            "canlilabs": "0.1.0",
+            "gymnasium": "1.4.0",
+            "numpy": "2.5.4",
+            "scikit-learn": "1.9.1",
+            "torch": "2.14.1+cpu"
+          },
+          "machine": "x86_64",
+          "platform": "Linux",
+          "python": "3.12.13"
+        },
+        "worker_lease": {
+          "device": 2049,
+          "file": ".worker.lock",
+          "inode": 9223306,
+          "protocol": "posix-flock.v2"
+        }
+      },
+      "result": {
+        "artifacts": {
+          "learning-curves.json": "e98404cfc36c8693d8f46a089d72fb4a838ac54cd61177e16f2469dae15937ae",
+          "model-card.json": "db44e5041fd4670e4be9b18178e80309ef6fddb98ea0a2fc36973abd44a7dbd9",
+          "q-table.npy": "7a945e2dede844760510802c453d0ff2898c310899d8e1c7f83fe69757df3017"
+        },
+        "duration_seconds": 0.2858589370000004,
+        "environment": {
+          "evaluation_seed_offset": 100000,
+          "id": "FrozenLake-v1",
+          "is_slippery": false,
+          "map": "4x4",
+          "max_episode_steps": 64,
+          "training_seed_count": 1500
+        },
+        "metrics": {
+          "evaluation": {
+            "episodes": 200,
+            "mean_episode_steps": 6.0,
+            "mean_return": 1.0,
+            "success_rate_95_interval": [
+              0.9811546736227335,
+              1.0
+            ],
+            "successes": 200
+          },
+          "random_policy_baseline": {
+            "episodes": 200,
+            "mean_episode_steps": 7.2,
+            "mean_return": 0.015,
+            "success_rate_95_interval": [
+              0.00511423779325831,
+              0.04316572879269026
+            ],
+            "successes": 3
+          },
+          "return_improvement": 0.985
+        },
+        "model": {
+          "actions": 4,
+          "checkpoint": "q-table.npy",
+          "kind": "q_learning",
+          "reload_verified": true,
+          "states": 16
+        }
+      },
+      "run_id": "7c18c7d8bef544a094f788014c1de7f5",
+      "state": "succeeded"
+    },
+    {
+      "config": {
+        "device": "cpu",
+        "episodes": 1500,
+        "epochs": 30,
+        "evaluation_episodes": 200,
+        "recipe": "rl",
+        "scope": "synthetic CPU smoke recipe",
+        "seed": 19,
+        "training_steps": 20000
+      },
+      "created_at": "2026-10-14T04:58:41.750742+00:00",
+      "provenance": {
+        "code": {
+          "files": {
+            ".python-version": "aa0d6581054e6e4ff3f91839deca7a854ad37221b8784d060b42d0f847ff1a3b",
+            "__init__.py": "0d9617e8d49b06405371c4f311b8053f94ba8dbb73079afe27d8dd9a483e785b",
+            "cli.py": "da135810ed85be334dfac5a863384408e7efbbd1694bb32935c5872bf4dfb520",
+            "compute.py": "74c7a35183fc7bf449d09dbf52f5c4f107ebb6fc39502e8a116c82c8f2449461",
+            "data.py": "8b57c116ef3520ac6d80b5782670d8d8a806174fe09595077e05c94e29dd6139",
+            "deep_rl.py": "175eeca7557d090c60099964d451588377f478d53c4156d803e060e878dd0002",
+            "lifecycle.py": "ca67976804735d1eae55c287160cd962bee613e4d7d5bcdfb56144d79e416c5a",
+            "pyproject.toml": "990c659e9676f6d1bd29205813afa03936b78f85a2c300aa763ad4d96e636a6d",
+            "reader.py": "97386cd236a514a7d2df2d3cdca5f7c28735e8db8cd5882c6e6de89008cc7e1d",
+            "recipes.py": "69a462aab7f2bb817dcac2100a3752dc299cfa7a007e1553ff84158e2dd8e588",
+            "records.py": "77be90f553fea21df7f63fc2f619155bc1498beb656872465f93290c2d9f02fd",
+            "tabular.py": "d5694dd945ac4c880814b4af0f73fa03f13ba724af41cf975ff5cbcb42ea3ba3",
+            "uv.lock": "1f0ee10b2ba7a521b6ca2a37908d2bfc7cd2de35a7659913c0bd43ca8ce511d6"
+          },
+          "sha256": "046f3b49819dbbecfeeef73fcf1c43903a499bbaf15957e2d5557596acc6b403"
+        },
+        "environment": {
+          "dependencies": {
+            "canlilabs": "0.1.0",
+            "gymnasium": "1.4.0",
+            "numpy": "2.5.4",
+            "scikit-learn": "1.9.1",
+            "torch": "2.14.1+cpu"
+          },
+          "machine": "x86_64",
+          "platform": "Linux",
+          "python": "3.12.13"
+        },
+        "worker_lease": {
+          "device": 2049,
+          "file": ".worker.lock",
+          "inode": 9223299,
+          "protocol": "posix-flock.v2"
+        }
+      },
+      "result": {
+        "artifacts": {
+          "learning-curves.json": "f808a0817cb63fb09145a9bc3feedd9a81fa1e84c266e4057c7ddd55853e8bd7",
+          "model-card.json": "bd9c2a3ea6037fc6398619a92cd27ffb8d578d76b19bf747626bf585832bdfe0",
+          "q-table.npy": "713a831f6fe27ae48fca04f80599db21960620e11e7251a7308a1725bcb70c40"
+        },
+        "duration_seconds": 0.29327051300001017,
+        "environment": {
+          "evaluation_seed_offset": 100000,
+          "id": "FrozenLake-v1",
+          "is_slippery": false,
+          "map": "4x4",
+          "max_episode_steps": 64,
+          "training_seed_count": 1500
+        },
+        "metrics": {
+          "evaluation": {
+            "episodes": 200,
+            "mean_episode_steps": 6.0,
+            "mean_return": 1.0,
+            "success_rate_95_interval": [
+              0.9811546736227335,
+              1.0
+            ],
+            "successes": 200
+          },
+          "random_policy_baseline": {
+            "episodes": 200,
+            "mean_episode_steps": 7.305,
+            "mean_return": 0.015,
+            "success_rate_95_interval": [
+              0.00511423779325831,
+              0.04316572879269026
+            ],
+            "successes": 3
+          },
+          "return_improvement": 0.985
+        },
+        "model": {
+          "actions": 4,
+          "checkpoint": "q-table.npy",
+          "kind": "q_learning",
+          "reload_verified": true,
+          "states": 16
+        }
+      },
+      "run_id": "c685771215b54493b1a8cdff7473f080",
+      "state": "succeeded"
+    },
+    {
+      "config": {
+        "device": "cpu",
+        "episodes": 1500,
+        "epochs": 30,
+        "evaluation_episodes": 200,
+        "recipe": "rl",
+        "scope": "synthetic CPU smoke recipe",
+        "seed": 7,
+        "training_steps": 20000
+      },
+      "created_at": "2026-10-14T04:58:41.441763+00:00",
+      "provenance": {
+        "code": {
+          "files": {
+            ".python-version": "aa0d6581054e6e4ff3f91839deca7a854ad37221b8784d060b42d0f847ff1a3b",
+            "__init__.py": "0d9617e8d49b06405371c4f311b8053f94ba8dbb73079afe27d8dd9a483e785b",
+            "cli.py": "da135810ed85be334dfac5a863384408e7efbbd1694bb32935c5872bf4dfb520",
+            "compute.py": "74c7a35183fc7bf449d09dbf52f5c4f107ebb6fc39502e8a116c82c8f2449461",
+            "data.py": "8b57c116ef3520ac6d80b5782670d8d8a806174fe09595077e05c94e29dd6139",
+            "deep_rl.py": "175eeca7557d090c60099964d451588377f478d53c4156d803e060e878dd0002",
+            "lifecycle.py": "ca67976804735d1eae55c287160cd962bee613e4d7d5bcdfb56144d79e416c5a",
+            "pyproject.toml": "990c659e9676f6d1bd29205813afa03936b78f85a2c300aa763ad4d96e636a6d",
+            "reader.py": "97386cd236a514a7d2df2d3cdca5f7c28735e8db8cd5882c6e6de89008cc7e1d",
+            "recipes.py": "69a462aab7f2bb817dcac2100a3752dc299cfa7a007e1553ff84158e2dd8e588",
+            "records.py": "77be90f553fea21df7f63fc2f619155bc1498beb656872465f93290c2d9f02fd",
+            "tabular.py": "d5694dd945ac4c880814b4af0f73fa03f13ba724af41cf975ff5cbcb42ea3ba3",
+            "uv.lock": "1f0ee10b2ba7a521b6ca2a37908d2bfc7cd2de35a7659913c0bd43ca8ce511d6"
+          },
+          "sha256": "046f3b49819dbbecfeeef73fcf1c43903a499bbaf15957e2d5557596acc6b403"
+        },
+        "environment": {
+          "dependencies": {
+            "canlilabs": "0.1.0",
+            "gymnasium": "1.4.0",
+            "numpy": "2.5.4",
+            "scikit-learn": "1.9.1",
+            "torch": "2.14.1+cpu"
+          },
+          "machine": "x86_64",
+          "platform": "Linux",
+          "python": "3.12.13"
+        },
+        "worker_lease": {
+          "device": 2049,
+          "file": ".worker.lock",
+          "inode": 9223292,
+          "protocol": "posix-flock.v2"
+        }
+      },
+      "result": {
+        "artifacts": {
+          "learning-curves.json": "b93d4e563f373f3c323e8ebb594141caa1ebcf259e172af7500bda1e84d23383",
+          "model-card.json": "b0d63d001475b9b692bc65d2dc6c11c29875d701a0830d53b697f7ce59aee9eb",
+          "q-table.npy": "16fc0d9b5f1011b492d147cb3b11044617d77a1a13b581dbb2447fc3e7a32a82"
+        },
+        "duration_seconds": 0.3000158110000086,
+        "environment": {
+          "evaluation_seed_offset": 100000,
+          "id": "FrozenLake-v1",
+          "is_slippery": false,
+          "map": "4x4",
+          "max_episode_steps": 64,
+          "training_seed_count": 1500
+        },
+        "metrics": {
+          "evaluation": {
+            "episodes": 200,
+            "mean_episode_steps": 6.0,
+            "mean_return": 1.0,
+            "success_rate_95_interval": [
+              0.9811546736227335,
+              1.0
+            ],
+            "successes": 200
+          },
+          "random_policy_baseline": {
+            "episodes": 200,
+            "mean_episode_steps": 7.32,
+            "mean_return": 0.015,
+            "success_rate_95_interval": [
+              0.00511423779325831,
+              0.04316572879269026
+            ],
+            "successes": 3
+          },
+          "return_improvement": 0.985
+        },
+        "model": {
+          "actions": 4,
+          "checkpoint": "q-table.npy",
+          "kind": "q_learning",
+          "reload_verified": true,
+          "states": 16
+        }
+      },
+      "run_id": "7b45867552404b6c87b36454b9f10209",
+      "state": "succeeded"
+    },
+    {
+      "config": {
+        "device": "cpu",
+        "episodes": 1500,
+        "epochs": 30,
+        "evaluation_episodes": 200,
+        "recipe": "dl",
+        "scope": "synthetic CPU smoke recipe",
+        "seed": 43,
+        "training_steps": 20000
+      },
+      "created_at": "2026-10-14T04:58:41.199734+00:00",
+      "provenance": {
+        "code": {
+          "files": {
+            ".python-version": "aa0d6581054e6e4ff3f91839deca7a854ad37221b8784d060b42d0f847ff1a3b",
+            "__init__.py": "0d9617e8d49b06405371c4f311b8053f94ba8dbb73079afe27d8dd9a483e785b",
+            "cli.py": "da135810ed85be334dfac5a863384408e7efbbd1694bb32935c5872bf4dfb520",
+            "compute.py": "74c7a35183fc7bf449d09dbf52f5c4f107ebb6fc39502e8a116c82c8f2449461",
+            "data.py": "8b57c116ef3520ac6d80b5782670d8d8a806174fe09595077e05c94e29dd6139",
+            "deep_rl.py": "175eeca7557d090c60099964d451588377f478d53c4156d803e060e878dd0002",
+            "lifecycle.py": "ca67976804735d1eae55c287160cd962bee613e4d7d5bcdfb56144d79e416c5a",
+            "pyproject.toml": "990c659e9676f6d1bd29205813afa03936b78f85a2c300aa763ad4d96e636a6d",
+            "reader.py": "97386cd236a514a7d2df2d3cdca5f7c28735e8db8cd5882c6e6de89008cc7e1d",
+            "recipes.py": "69a462aab7f2bb817dcac2100a3752dc299cfa7a007e1553ff84158e2dd8e588",
+            "records.py": "77be90f553fea21df7f63fc2f619155bc1498beb656872465f93290c2d9f02fd",
+            "tabular.py": "d5694dd945ac4c880814b4af0f73fa03f13ba724af41cf975ff5cbcb42ea3ba3",
+            "uv.lock": "1f0ee10b2ba7a521b6ca2a37908d2bfc7cd2de35a7659913c0bd43ca8ce511d6"
+          },
+          "sha256": "046f3b49819dbbecfeeef73fcf1c43903a499bbaf15957e2d5557596acc6b403"
+        },
+        "environment": {
+          "dependencies": {
+            "canlilabs": "0.1.0",
+            "gymnasium": "1.4.0",
+            "numpy": "2.5.4",
+            "scikit-learn": "1.9.1",
+            "torch": "2.14.1+cpu"
+          },
+          "machine": "x86_64",
+          "platform": "Linux",
+          "python": "3.12.13"
+        },
+        "worker_lease": {
+          "device": 2049,
+          "file": ".worker.lock",
+          "inode": 9223285,
+          "protocol": "posix-flock.v2"
+        }
+      },
+      "result": {
+        "artifacts": {
+          "learning-curves.json": "e5c26b69fbd1fd9c7c18dbab8e3ebdfb50d832bc321e4cdb24fee1acede266dd",
+          "model-card.json": "9ee7a115647a2c9fd20fdf354f246155aec7f2be36cb46a5de30701c013d3e6a",
+          "model.pt": "0c91eb9b89a96f6dacde9df5e19e969716a2a378bdff9a43d817060855bbe95b"
+        },
+        "data": {
+          "classes": [
+            0,
+            1
+          ],
+          "dataset_id": "159943265cd1e73edb0ff527134bc89f60161d7bbd31ea1fa685fdde63b04029",
+          "feature_names": [
+            "x0",
+            "x1",
+            "x2",
+            "x3",
+            "x4",
+            "x5",
+            "x6",
+            "x7",
+            "x8",
+            "x9",
+            "x10",
+            "x11"
+          ],
+          "split_counts": {
+            "test": 240,
+            "train": 720,
+            "validation": 240
+          },
+          "split_sha256": "225724997c047a77da1705e986018022ca0c68235b41d64b3908cf76207323cf",
+          "synthetic_smoke_fixture": true,
+          "task": "classification"
+        },
+        "duration_seconds": 0.23294080700000563,
+        "metrics": {
+          "baseline": "majority label selected only from training data",
+          "baseline_test_accuracy": 0.5041666666666667,
+          "test_accuracy": 0.9666666666666667,
+          "test_balanced_accuracy": 0.9667338009583999,
+          "test_examples": 240,
+          "test_macro_f1": 0.9666666666666667,
+          "validation_accuracy": 0.9666666666666667
+        },
+        "model": {
+          "checkpoint": "model.pt",
+          "classes": [
+            0,
+            1
+          ],
+          "deterministic_algorithms": true,
+          "device": "cpu",
+          "feature_names": [
+            "x0",
+            "x1",
+            "x2",
+            "x3",
+            "x4",
+            "x5",
+            "x6",
+            "x7",
+            "x8",
+            "x9",
+            "x10",
+            "x11"
+          ],
+          "features": 12,
+          "kind": "torch_mlp",
+          "reload_verified": true,
+          "selected_epoch": 8,
+          "selection": "validation loss",
+          "task": "classification"
+        }
+      },
+      "run_id": "1edb71873bdb4e0ca1fd7856a60f2db1",
+      "state": "succeeded"
+    },
+    {
+      "config": {
+        "device": "cpu",
+        "episodes": 1500,
+        "epochs": 30,
+        "evaluation_episodes": 200,
+        "recipe": "dl",
+        "scope": "synthetic CPU smoke recipe",
+        "seed": 19,
+        "training_steps": 20000
+      },
+      "created_at": "2026-10-14T04:58:40.953047+00:00",
+      "provenance": {
+        "code": {
+          "files": {
+            ".python-version": "aa0d6581054e6e4ff3f91839deca7a854ad37221b8784d060b42d0f847ff1a3b",
+            "__init__.py": "0d9617e8d49b06405371c4f311b8053f94ba8dbb73079afe27d8dd9a483e785b",
+            "cli.py": "da135810ed85be334dfac5a863384408e7efbbd1694bb32935c5872bf4dfb520",
+            "compute.py": "74c7a35183fc7bf449d09dbf52f5c4f107ebb6fc39502e8a116c82c8f2449461",
+            "data.py": "8b57c116ef3520ac6d80b5782670d8d8a806174fe09595077e05c94e29dd6139",
+            "deep_rl.py": "175eeca7557d090c60099964d451588377f478d53c4156d803e060e878dd0002",
+            "lifecycle.py": "ca67976804735d1eae55c287160cd962bee613e4d7d5bcdfb56144d79e416c5a",
+            "pyproject.toml": "990c659e9676f6d1bd29205813afa03936b78f85a2c300aa763ad4d96e636a6d",
+            "reader.py": "97386cd236a514a7d2df2d3cdca5f7c28735e8db8cd5882c6e6de89008cc7e1d",
+            "recipes.py": "69a462aab7f2bb817dcac2100a3752dc299cfa7a007e1553ff84158e2dd8e588",
+            "records.py": "77be90f553fea21df7f63fc2f619155bc1498beb656872465f93290c2d9f02fd",
+            "tabular.py": "d5694dd945ac4c880814b4af0f73fa03f13ba724af41cf975ff5cbcb42ea3ba3",
+            "uv.lock": "1f0ee10b2ba7a521b6ca2a37908d2bfc7cd2de35a7659913c0bd43ca8ce511d6"
+          },
+          "sha256": "046f3b49819dbbecfeeef73fcf1c43903a499bbaf15957e2d5557596acc6b403"
+        },
+        "environment": {
+          "dependencies": {
+            "canlilabs": "0.1.0",
+            "gymnasium": "1.4.0",
+            "numpy": "2.5.4",
+            "scikit-learn": "1.9.1",
+            "torch": "2.14.1+cpu"
+          },
+          "machine": "x86_64",
+          "platform": "Linux",
+          "python": "3.12.13"
+        },
+        "worker_lease": {
+          "device": 2049,
+          "file": ".worker.lock",
+          "inode": 9223278,
+          "protocol": "posix-flock.v2"
+        }
+      },
+      "result": {
+        "artifacts": {
+          "learning-curves.json": "2cddbf90b44dc722f42b0ec23c31b7ff220cbc6d6a00ac3470c866b9017a4fbd",
+          "model-card.json": "83744712c405c98ad6572d50f5cdff9de545ec407c4b564c817425151a76232a",
+          "model.pt": "6dca18d4ff899eadd6eacfe6997e3f814bbad41dfae4f83930f66856f41e3b6f"
+        },
+        "data": {
+          "classes": [
+            0,
+            1
+          ],
+          "dataset_id": "159943265cd1e73edb0ff527134bc89f60161d7bbd31ea1fa685fdde63b04029",
+          "feature_names": [
+            "x0",
+            "x1",
+            "x2",
+            "x3",
+            "x4",
+            "x5",
+            "x6",
+            "x7",
+            "x8",
+            "x9",
+            "x10",
+            "x11"
+          ],
+          "split_counts": {
+            "test": 240,
+            "train": 720,
+            "validation": 240
+          },
+          "split_sha256": "225724997c047a77da1705e986018022ca0c68235b41d64b3908cf76207323cf",
+          "synthetic_smoke_fixture": true,
+          "task": "classification"
+        },
+        "duration_seconds": 0.23783243299999413,
+        "metrics": {
+          "baseline": "majority label selected only from training data",
+          "baseline_test_accuracy": 0.5041666666666667,
+          "test_accuracy": 0.9625,
+          "test_balanced_accuracy": 0.9626710188207515,
+          "test_examples": 240,
+          "test_macro_f1": 0.9624941397093296,
+          "validation_accuracy": 0.9625
+        },
+        "model": {
+          "checkpoint": "model.pt",
+          "classes": [
+            0,
+            1
+          ],
+          "deterministic_algorithms": true,
+          "device": "cpu",
+          "feature_names": [
+            "x0",
+            "x1",
+            "x2",
+            "x3",
+            "x4",
+            "x5",
+            "x6",
+            "x7",
+            "x8",
+            "x9",
+            "x10",
+            "x11"
+          ],
+          "features": 12,
+          "kind": "torch_mlp",
+          "reload_verified": true,
+          "selected_epoch": 4,
+          "selection": "validation loss",
+          "task": "classification"
+        }
+      },
+      "run_id": "f6400771fdea45b69d11cbe6f3d3e13a",
+      "state": "succeeded"
+    },
+    {
+      "config": {
+        "device": "cpu",
+        "episodes": 1500,
+        "epochs": 30,
+        "evaluation_episodes": 200,
+        "recipe": "dl",
+        "scope": "synthetic CPU smoke recipe",
+        "seed": 7,
+        "training_steps": 20000
+      },
+      "created_at": "2026-10-14T04:58:39.570176+00:00",
+      "provenance": {
+        "code": {
+          "files": {
+            ".python-version": "aa0d6581054e6e4ff3f91839deca7a854ad37221b8784d060b42d0f847ff1a3b",
+            "__init__.py": "0d9617e8d49b06405371c4f311b8053f94ba8dbb73079afe27d8dd9a483e785b",
+            "cli.py": "da135810ed85be334dfac5a863384408e7efbbd1694bb32935c5872bf4dfb520",
+            "compute.py": "74c7a35183fc7bf449d09dbf52f5c4f107ebb6fc39502e8a116c82c8f2449461",
+            "data.py": "8b57c116ef3520ac6d80b5782670d8d8a806174fe09595077e05c94e29dd6139",
+            "deep_rl.py": "175eeca7557d090c60099964d451588377f478d53c4156d803e060e878dd0002",
+            "lifecycle.py": "ca67976804735d1eae55c287160cd962bee613e4d7d5bcdfb56144d79e416c5a",
+            "pyproject.toml": "990c659e9676f6d1bd29205813afa03936b78f85a2c300aa763ad4d96e636a6d",
+            "reader.py": "97386cd236a514a7d2df2d3cdca5f7c28735e8db8cd5882c6e6de89008cc7e1d",
+            "recipes.py": "69a462aab7f2bb817dcac2100a3752dc299cfa7a007e1553ff84158e2dd8e588",
+            "records.py": "77be90f553fea21df7f63fc2f619155bc1498beb656872465f93290c2d9f02fd",
+            "tabular.py": "d5694dd945ac4c880814b4af0f73fa03f13ba724af41cf975ff5cbcb42ea3ba3",
+            "uv.lock": "1f0ee10b2ba7a521b6ca2a37908d2bfc7cd2de35a7659913c0bd43ca8ce511d6"
+          },
+          "sha256": "046f3b49819dbbecfeeef73fcf1c43903a499bbaf15957e2d5557596acc6b403"
+        },
+        "environment": {
+          "dependencies": {
+            "canlilabs": "0.1.0",
+            "gymnasium": "1.4.0",
+            "numpy": "2.5.4",
+            "scikit-learn": "1.9.1",
+            "torch": "2.14.1+cpu"
+          },
+          "machine": "x86_64",
+          "platform": "Linux",
+          "python": "3.12.13"
+        },
+        "worker_lease": {
+          "device": 2049,
+          "file": ".worker.lock",
+          "inode": 9223271,
+          "protocol": "posix-flock.v2"
+        }
+      },
+      "result": {
+        "artifacts": {
+          "learning-curves.json": "d707f0f7716e689f3d1faa5c35c706d456eb415d06b8ad5e312eb065ba148af7",
+          "model-card.json": "74bbd89a2e7e0a18fbd7a0fca3693d5826f2aad0b90f24e5fb104d2e0f138b0e",
+          "model.pt": "a6791fd0246bd221316209719822adb8162b569bb6fa3595f55da089703943e3"
+        },
+        "data": {
+          "classes": [
+            0,
+            1
+          ],
+          "dataset_id": "159943265cd1e73edb0ff527134bc89f60161d7bbd31ea1fa685fdde63b04029",
+          "feature_names": [
+            "x0",
+            "x1",
+            "x2",
+            "x3",
+            "x4",
+            "x5",
+            "x6",
+            "x7",
+            "x8",
+            "x9",
+            "x10",
+            "x11"
+          ],
+          "split_counts": {
+            "test": 240,
+            "train": 720,
+            "validation": 240
+          },
+          "split_sha256": "225724997c047a77da1705e986018022ca0c68235b41d64b3908cf76207323cf",
+          "synthetic_smoke_fixture": true,
+          "task": "classification"
+        },
+        "duration_seconds": 1.3733303569999862,
+        "metrics": {
+          "baseline": "majority label selected only from training data",
+          "baseline_test_accuracy": 0.5041666666666667,
+          "test_accuracy": 0.9708333333333333,
+          "test_balanced_accuracy": 0.9709354816306688,
+          "test_examples": 240,
+          "test_macro_f1": 0.9708328269588014,
+          "validation_accuracy": 0.9666666666666667
+        },
+        "model": {
+          "checkpoint": "model.pt",
+          "classes": [
+            0,
+            1
+          ],
+          "deterministic_algorithms": true,
+          "device": "cpu",
+          "feature_names": [
+            "x0",
+            "x1",
+            "x2",
+            "x3",
+            "x4",
+            "x5",
+            "x6",
+            "x7",
+            "x8",
+            "x9",
+            "x10",
+            "x11"
+          ],
+          "features": 12,
+          "kind": "torch_mlp",
+          "reload_verified": true,
+          "selected_epoch": 8,
+          "selection": "validation loss",
+          "task": "classification"
+        }
+      },
+      "run_id": "fde0ea08a57047c4ba95fdf789ffb104",
+      "state": "succeeded"
+    },
+    {
+      "config": {
+        "device": "cpu",
+        "episodes": 1500,
+        "epochs": 30,
+        "evaluation_episodes": 200,
+        "recipe": "ml",
+        "scope": "synthetic CPU smoke recipe",
+        "seed": 43,
+        "training_steps": 20000
+      },
+      "created_at": "2026-10-14T04:58:39.478922+00:00",
+      "provenance": {
+        "code": {
+          "files": {
+            ".python-version": "aa0d6581054e6e4ff3f91839deca7a854ad37221b8784d060b42d0f847ff1a3b",
+            "__init__.py": "0d9617e8d49b06405371c4f311b8053f94ba8dbb73079afe27d8dd9a483e785b",
+            "cli.py": "da135810ed85be334dfac5a863384408e7efbbd1694bb32935c5872bf4dfb520",
+            "compute.py": "74c7a35183fc7bf449d09dbf52f5c4f107ebb6fc39502e8a116c82c8f2449461",
+            "data.py": "8b57c116ef3520ac6d80b5782670d8d8a806174fe09595077e05c94e29dd6139",
+            "deep_rl.py": "175eeca7557d090c60099964d451588377f478d53c4156d803e060e878dd0002",
+            "lifecycle.py": "ca67976804735d1eae55c287160cd962bee613e4d7d5bcdfb56144d79e416c5a",
+            "pyproject.toml": "990c659e9676f6d1bd29205813afa03936b78f85a2c300aa763ad4d96e636a6d",
+            "reader.py": "97386cd236a514a7d2df2d3cdca5f7c28735e8db8cd5882c6e6de89008cc7e1d",
+            "recipes.py": "69a462aab7f2bb817dcac2100a3752dc299cfa7a007e1553ff84158e2dd8e588",
+            "records.py": "77be90f553fea21df7f63fc2f619155bc1498beb656872465f93290c2d9f02fd",
+            "tabular.py": "d5694dd945ac4c880814b4af0f73fa03f13ba724af41cf975ff5cbcb42ea3ba3",
+            "uv.lock": "1f0ee10b2ba7a521b6ca2a37908d2bfc7cd2de35a7659913c0bd43ca8ce511d6"
+          },
+          "sha256": "046f3b49819dbbecfeeef73fcf1c43903a499bbaf15957e2d5557596acc6b403"
+        },
+        "environment": {
+          "dependencies": {
+            "canlilabs": "0.1.0",
+            "gymnasium": "1.4.0",
+            "numpy": "2.5.4",
+            "scikit-learn": "1.9.1",
+            "torch": "2.14.1+cpu"
+          },
+          "machine": "x86_64",
+          "platform": "Linux",
+          "python": "3.12.13"
+        },
+        "worker_lease": {
+          "device": 2049,
+          "file": ".worker.lock",
+          "inode": 9223265,
+          "protocol": "posix-flock.v2"
+        }
+      },
+      "result": {
+        "artifacts": {
+          "model-card.json": "51859bf389b52dd5802494be2edd8e53dee9145da64b8e85e6f70891befdacd4",
+          "model.npz": "1286c887fd9c5d62036e3710b46cf435aba25c4eb911cf2eeed6ca94f0b7ee58"
+        },
+        "data": {
+          "classes": [
+            0,
+            1
+          ],
+          "dataset_id": "159943265cd1e73edb0ff527134bc89f60161d7bbd31ea1fa685fdde63b04029",
+          "feature_names": [
+            "x0",
+            "x1",
+            "x2",
+            "x3",
+            "x4",
+            "x5",
+            "x6",
+            "x7",
+            "x8",
+            "x9",
+            "x10",
+            "x11"
+          ],
+          "split_counts": {
+            "test": 240,
+            "train": 720,
+            "validation": 240
+          },
+          "split_sha256": "225724997c047a77da1705e986018022ca0c68235b41d64b3908cf76207323cf",
+          "synthetic_smoke_fixture": true,
+          "task": "classification"
+        },
+        "duration_seconds": 0.07644901800000525,
+        "metrics": {
+          "baseline": "majority label selected only from training data",
+          "baseline_test_accuracy": 0.5041666666666667,
+          "test_accuracy": 0.8791666666666667,
+          "test_balanced_accuracy": 0.8795402458504062,
+          "test_examples": 240,
+          "test_macro_f1": 0.8789965055025296,
+          "validation_accuracy": 0.8625
+        },
+        "model": {
+          "checkpoint": "model.npz",
+          "classes": [
+            0,
+            1
+          ],
+          "feature_names": [
+            "x0",
+            "x1",
+            "x2",
+            "x3",
+            "x4",
+            "x5",
+            "x6",
+            "x7",
+            "x8",
+            "x9",
+            "x10",
+            "x11"
+          ],
+          "features": 12,
+          "kind": "scaled_logistic_regression",
+          "reload_verified": true,
+          "task": "classification"
+        }
+      },
+      "run_id": "9cd87f454edd4b459e8e39fa77ef4a09",
+      "state": "succeeded"
+    },
+    {
+      "config": {
+        "device": "cpu",
+        "episodes": 1500,
+        "epochs": 30,
+        "evaluation_episodes": 200,
+        "recipe": "ml",
+        "scope": "synthetic CPU smoke recipe",
+        "seed": 19,
+        "training_steps": 20000
+      },
+      "created_at": "2026-10-14T04:58:39.378333+00:00",
+      "provenance": {
+        "code": {
+          "files": {
+            ".python-version": "aa0d6581054e6e4ff3f91839deca7a854ad37221b8784d060b42d0f847ff1a3b",
+            "__init__.py": "0d9617e8d49b06405371c4f311b8053f94ba8dbb73079afe27d8dd9a483e785b",
+            "cli.py": "da135810ed85be334dfac5a863384408e7efbbd1694bb32935c5872bf4dfb520",
+            "compute.py": "74c7a35183fc7bf449d09dbf52f5c4f107ebb6fc39502e8a116c82c8f2449461",
+            "data.py": "8b57c116ef3520ac6d80b5782670d8d8a806174fe09595077e05c94e29dd6139",
+            "deep_rl.py": "175eeca7557d090c60099964d451588377f478d53c4156d803e060e878dd0002",
+            "lifecycle.py": "ca67976804735d1eae55c287160cd962bee613e4d7d5bcdfb56144d79e416c5a",
+            "pyproject.toml": "990c659e9676f6d1bd29205813afa03936b78f85a2c300aa763ad4d96e636a6d",
+            "reader.py": "97386cd236a514a7d2df2d3cdca5f7c28735e8db8cd5882c6e6de89008cc7e1d",
+            "recipes.py": "69a462aab7f2bb817dcac2100a3752dc299cfa7a007e1553ff84158e2dd8e588",
+            "records.py": "77be90f553fea21df7f63fc2f619155bc1498beb656872465f93290c2d9f02fd",
+            "tabular.py": "d5694dd945ac4c880814b4af0f73fa03f13ba724af41cf975ff5cbcb42ea3ba3",
+            "uv.lock": "1f0ee10b2ba7a521b6ca2a37908d2bfc7cd2de35a7659913c0bd43ca8ce511d6"
+          },
+          "sha256": "046f3b49819dbbecfeeef73fcf1c43903a499bbaf15957e2d5557596acc6b403"
+        },
+        "environment": {
+          "dependencies": {
+            "canlilabs": "0.1.0",
+            "gymnasium": "1.4.0",
+            "numpy": "2.5.4",
+            "scikit-learn": "1.9.1",
+            "torch": "2.14.1+cpu"
+          },
+          "machine": "x86_64",
+          "platform": "Linux",
+          "python": "3.12.13"
+        },
+        "worker_lease": {
+          "device": 2049,
+          "file": ".worker.lock",
+          "inode": 9223259,
+          "protocol": "posix-flock.v2"
+        }
+      },
+      "result": {
+        "artifacts": {
+          "model-card.json": "9dda2465db3c8e0ccdc0c930cd081ea4d4286c74ee6b3734de167cabf0448db3",
+          "model.npz": "1286c887fd9c5d62036e3710b46cf435aba25c4eb911cf2eeed6ca94f0b7ee58"
+        },
+        "data": {
+          "classes": [
+            0,
+            1
+          ],
+          "dataset_id": "159943265cd1e73edb0ff527134bc89f60161d7bbd31ea1fa685fdde63b04029",
+          "feature_names": [
+            "x0",
+            "x1",
+            "x2",
+            "x3",
+            "x4",
+            "x5",
+            "x6",
+            "x7",
+            "x8",
+            "x9",
+            "x10",
+            "x11"
+          ],
+          "split_counts": {
+            "test": 240,
+            "train": 720,
+            "validation": 240
+          },
+          "split_sha256": "225724997c047a77da1705e986018022ca0c68235b41d64b3908cf76207323cf",
+          "synthetic_smoke_fixture": true,
+          "task": "classification"
+        },
+        "duration_seconds": 0.08509684099999504,
+        "metrics": {
+          "baseline": "majority label selected only from training data",
+          "baseline_test_accuracy": 0.5041666666666667,
+          "test_accuracy": 0.8791666666666667,
+          "test_balanced_accuracy": 0.8795402458504062,
+          "test_examples": 240,
+          "test_macro_f1": 0.8789965055025296,
+          "validation_accuracy": 0.8625
+        },
+        "model": {
+          "checkpoint": "model.npz",
+          "classes": [
+            0,
+            1
+          ],
+          "feature_names": [
+            "x0",
+            "x1",
+            "x2",
+            "x3",
+            "x4",
+            "x5",
+            "x6",
+            "x7",
+            "x8",
+            "x9",
+            "x10",
+            "x11"
+          ],
+          "features": 12,
+          "kind": "scaled_logistic_regression",
+          "reload_verified": true,
+          "task": "classification"
+        }
+      },
+      "run_id": "6af82e3aa21a4ee0905453ca7c03e067",
+      "state": "succeeded"
+    },
+    {
+      "config": {
+        "device": "cpu",
+        "episodes": 1500,
+        "epochs": 30,
+        "evaluation_episodes": 200,
+        "recipe": "ml",
+        "scope": "synthetic CPU smoke recipe",
+        "seed": 7,
+        "training_steps": 20000
+      },
+      "created_at": "2026-10-14T04:58:38.471753+00:00",
+      "provenance": {
+        "code": {
+          "files": {
+            ".python-version": "aa0d6581054e6e4ff3f91839deca7a854ad37221b8784d060b42d0f847ff1a3b",
+            "__init__.py": "0d9617e8d49b06405371c4f311b8053f94ba8dbb73079afe27d8dd9a483e785b",
+            "cli.py": "da135810ed85be334dfac5a863384408e7efbbd1694bb32935c5872bf4dfb520",
+            "compute.py": "74c7a35183fc7bf449d09dbf52f5c4f107ebb6fc39502e8a116c82c8f2449461",
+            "data.py": "8b57c116ef3520ac6d80b5782670d8d8a806174fe09595077e05c94e29dd6139",
+            "deep_rl.py": "175eeca7557d090c60099964d451588377f478d53c4156d803e060e878dd0002",
+            "lifecycle.py": "ca67976804735d1eae55c287160cd962bee613e4d7d5bcdfb56144d79e416c5a",
+            "pyproject.toml": "990c659e9676f6d1bd29205813afa03936b78f85a2c300aa763ad4d96e636a6d",
+            "reader.py": "97386cd236a514a7d2df2d3cdca5f7c28735e8db8cd5882c6e6de89008cc7e1d",
+            "recipes.py": "69a462aab7f2bb817dcac2100a3752dc299cfa7a007e1553ff84158e2dd8e588",
+            "records.py": "77be90f553fea21df7f63fc2f619155bc1498beb656872465f93290c2d9f02fd",
+            "tabular.py": "d5694dd945ac4c880814b4af0f73fa03f13ba724af41cf975ff5cbcb42ea3ba3",
+            "uv.lock": "1f0ee10b2ba7a521b6ca2a37908d2bfc7cd2de35a7659913c0bd43ca8ce511d6"
+          },
+          "sha256": "046f3b49819dbbecfeeef73fcf1c43903a499bbaf15957e2d5557596acc6b403"
+        },
+        "environment": {
+          "dependencies": {
+            "canlilabs": "0.1.0",
+            "gymnasium": "1.4.0",
+            "numpy": "2.5.4",
+            "scikit-learn": "1.9.1",
+            "torch": "2.14.1+cpu"
+          },
+          "machine": "x86_64",
+          "platform": "Linux",
+          "python": "3.12.13"
+        },
+        "worker_lease": {
+          "device": 2049,
+          "file": ".worker.lock",
+          "inode": 9223246,
+          "protocol": "posix-flock.v2"
+        }
+      },
+      "result": {
+        "artifacts": {
+          "model-card.json": "34d64a4fc34c873110fc467816dce00f90275986a9c46c35f09dd2a34a9b706d",
+          "model.npz": "1286c887fd9c5d62036e3710b46cf435aba25c4eb911cf2eeed6ca94f0b7ee58"
+        },
+        "data": {
+          "classes": [
+            0,
+            1
+          ],
+          "dataset_id": "159943265cd1e73edb0ff527134bc89f60161d7bbd31ea1fa685fdde63b04029",
+          "feature_names": [
+            "x0",
+            "x1",
+            "x2",
+            "x3",
+            "x4",
+            "x5",
+            "x6",
+            "x7",
+            "x8",
+            "x9",
+            "x10",
+            "x11"
+          ],
+          "split_counts": {
+            "test": 240,
+            "train": 720,
+            "validation": 240
+          },
+          "split_sha256": "225724997c047a77da1705e986018022ca0c68235b41d64b3908cf76207323cf",
+          "synthetic_smoke_fixture": true,
+          "task": "classification"
+        },
+        "duration_seconds": 0.8964802559999896,
+        "metrics": {
+          "baseline": "majority label selected only from training data",
+          "baseline_test_accuracy": 0.5041666666666667,
+          "test_accuracy": 0.8791666666666667,
+          "test_balanced_accuracy": 0.8795402458504062,
+          "test_examples": 240,
+          "test_macro_f1": 0.8789965055025296,
+          "validation_accuracy": 0.8625
+        },
+        "model": {
+          "checkpoint": "model.npz",
+          "classes": [
+            0,
+            1
+          ],
+          "feature_names": [
+            "x0",
+            "x1",
+            "x2",
+            "x3",
+            "x4",
+            "x5",
+            "x6",
+            "x7",
+            "x8",
+            "x9",
+            "x10",
+            "x11"
+          ],
+          "features": 12,
+          "kind": "scaled_logistic_regression",
+          "reload_verified": true,
+          "task": "classification"
+        }
+      },
+      "run_id": "c7a8be93473841be88aa666b6ac19a63",
+      "state": "succeeded"
+    }
+  ],
+  "schema": "canlilabs.cpu-validation.v1",
+  "scope": "Synthetic binary classification and deterministic 4x4 FrozenLake CPU smoke. No cross-platform bitwise, broader research or production qualification.",
+  "selection_policy": "All three recipes and seeds 7/19/43 fixed before testing.",
+  "source": {
+    "files": {
+      ".python-version": "aa0d6581054e6e4ff3f91839deca7a854ad37221b8784d060b42d0f847ff1a3b",
+      "__init__.py": "0d9617e8d49b06405371c4f311b8053f94ba8dbb73079afe27d8dd9a483e785b",
+      "cli.py": "da135810ed85be334dfac5a863384408e7efbbd1694bb32935c5872bf4dfb520",
+      "compute.py": "74c7a35183fc7bf449d09dbf52f5c4f107ebb6fc39502e8a116c82c8f2449461",
+      "data.py": "8b57c116ef3520ac6d80b5782670d8d8a806174fe09595077e05c94e29dd6139",
+      "deep_rl.py": "175eeca7557d090c60099964d451588377f478d53c4156d803e060e878dd0002",
+      "lifecycle.py": "ca67976804735d1eae55c287160cd962bee613e4d7d5bcdfb56144d79e416c5a",
+      "pyproject.toml": "990c659e9676f6d1bd29205813afa03936b78f85a2c300aa763ad4d96e636a6d",
+      "reader.py": "97386cd236a514a7d2df2d3cdca5f7c28735e8db8cd5882c6e6de89008cc7e1d",
+      "recipes.py": "69a462aab7f2bb817dcac2100a3752dc299cfa7a007e1553ff84158e2dd8e588",
+      "records.py": "77be90f553fea21df7f63fc2f619155bc1498beb656872465f93290c2d9f02fd",
+      "tabular.py": "d5694dd945ac4c880814b4af0f73fa03f13ba724af41cf975ff5cbcb42ea3ba3",
+      "uv.lock": "1f0ee10b2ba7a521b6ca2a37908d2bfc7cd2de35a7659913c0bd43ca8ce511d6"
+    },
+    "sha256": "046f3b49819dbbecfeeef73fcf1c43903a499bbaf15957e2d5557596acc6b403"
+  },
+  "validation_script_sha256": "fa61a84262dd88d6b928ffea8cd84d8cfebb808449de84c2f580e1cf19a0283f",
+  "workspace_total_trials": 9
+}

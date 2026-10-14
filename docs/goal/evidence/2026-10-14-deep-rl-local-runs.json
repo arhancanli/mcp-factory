@@ -1,0 +1,7809 @@
+{
+  "checked_at": "2026-10-14T04:56:29.390671+00:00",
+  "cpu_profile": {
+    "dependencies": {
+      "canlilabs": "0.1.0",
+      "gymnasium": "1.4.0",
+      "numpy": "2.5.4",
+      "scikit-learn": "1.9.1",
+      "torch": "2.14.1"
+    },
+    "device": "cpu",
+    "gpu_packages": [],
+    "installed_packages": [
+      "canlilabs",
+      "cloudpickle",
+      "farama-notifications",
+      "filelock",
+      "fsspec",
+      "gymnasium",
+      "iniconfig",
+      "jinja2",
+      "joblib",
+      "markupsafe",
+      "mpmath",
+      "narwhals",
+      "networkx",
+      "numpy",
+      "packaging",
+      "pluggy",
+      "pygments",
+      "pytest",
+      "ruff",
+      "scikit-learn",
+      "scipy",
+      "setuptools",
+      "sympy",
+      "threadpoolctl",
+      "torch",
+      "typing-extensions"
+    ],
+    "lock_sha256": "1f0ee10b2ba7a521b6ca2a37908d2bfc7cd2de35a7659913c0bd43ca8ce511d6",
+    "machine": "arm64",
+    "platform": "Darwin",
+    "python": "3.12.13",
+    "python_pin_sha256": "aa0d6581054e6e4ff3f91839deca7a854ad37221b8784d060b42d0f847ff1a3b",
+    "schema": "canlilabs.cpu-environment.v1",
+    "torch_cuda_built": false,
+    "torch_cuda_version": null
+  },
+  "evaluation_episode_returns": {
+    "6e36592299564186ae6d991959b3b814": {
+      "policy": {
+        "endings": [
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          }
+        ],
+        "reset_seed_start": 2000007,
+        "returns": [
+          209.0,
+          234.0,
+          156.0,
+          198.0,
+          161.0,
+          187.0,
+          144.0,
+          205.0,
+          157.0,
+          137.0,
+          147.0,
+          218.0,
+          170.0,
+          134.0,
+          152.0,
+          185.0,
+          149.0,
+          261.0,
+          159.0,
+          171.0,
+          242.0,
+          171.0,
+          205.0,
+          122.0,
+          174.0,
+          142.0,
+          187.0,
+          153.0,
+          129.0,
+          152.0,
+          182.0,
+          206.0,
+          128.0,
+          121.0,
+          173.0,
+          182.0,
+          181.0,
+          260.0,
+          147.0,
+          206.0,
+          190.0,
+          329.0,
+          204.0,
+          286.0,
+          149.0,
+          191.0,
+          137.0,
+          161.0,
+          173.0,
+          130.0
+        ]
+      },
+      "random": {
+        "endings": [
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          }
+        ],
+        "reset_seed_start": 2000007,
+        "returns": [
+          36.0,
+          24.0,
+          21.0,
+          61.0,
+          28.0,
+          24.0,
+          17.0,
+          15.0,
+          16.0,
+          12.0,
+          12.0,
+          42.0,
+          21.0,
+          20.0,
+          13.0,
+          28.0,
+          12.0,
+          29.0,
+          28.0,
+          25.0,
+          22.0,
+          32.0,
+          17.0,
+          18.0,
+          21.0,
+          21.0,
+          19.0,
+          42.0,
+          32.0,
+          12.0,
+          43.0,
+          17.0,
+          33.0,
+          18.0,
+          12.0,
+          10.0,
+          19.0,
+          14.0,
+          16.0,
+          34.0,
+          17.0,
+          15.0,
+          15.0,
+          15.0,
+          12.0,
+          14.0,
+          27.0,
+          15.0,
+          35.0,
+          14.0
+        ]
+      }
+    },
+    "a43ce3b03d74454d91d5757d8dec7d7f": {
+      "policy": {
+        "endings": [
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          }
+        ],
+        "reset_seed_start": 2000043,
+        "returns": [
+          334.0,
+          242.0,
+          212.0,
+          237.0,
+          241.0,
+          249.0,
+          242.0,
+          267.0,
+          213.0,
+          358.0,
+          187.0,
+          217.0,
+          279.0,
+          194.0,
+          202.0,
+          254.0,
+          196.0,
+          400.0,
+          182.0,
+          197.0,
+          189.0,
+          228.0,
+          189.0,
+          221.0,
+          235.0,
+          263.0,
+          203.0,
+          296.0,
+          222.0,
+          321.0,
+          208.0,
+          229.0,
+          285.0,
+          237.0,
+          309.0,
+          210.0,
+          279.0,
+          205.0,
+          287.0,
+          234.0,
+          239.0,
+          217.0,
+          239.0,
+          204.0,
+          245.0,
+          269.0,
+          225.0,
+          211.0,
+          255.0,
+          249.0
+        ]
+      },
+      "random": {
+        "endings": [
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          }
+        ],
+        "reset_seed_start": 2000043,
+        "returns": [
+          32.0,
+          12.0,
+          11.0,
+          11.0,
+          14.0,
+          54.0,
+          13.0,
+          21.0,
+          9.0,
+          27.0,
+          18.0,
+          17.0,
+          14.0,
+          30.0,
+          14.0,
+          52.0,
+          18.0,
+          10.0,
+          18.0,
+          17.0,
+          19.0,
+          10.0,
+          10.0,
+          26.0,
+          14.0,
+          14.0,
+          65.0,
+          11.0,
+          29.0,
+          22.0,
+          11.0,
+          12.0,
+          21.0,
+          31.0,
+          19.0,
+          10.0,
+          44.0,
+          20.0,
+          21.0,
+          16.0,
+          32.0,
+          11.0,
+          17.0,
+          30.0,
+          15.0,
+          40.0,
+          20.0,
+          24.0,
+          25.0,
+          13.0
+        ]
+      }
+    },
+    "f2393a31a22f4f178ee81487fe9a0ecd": {
+      "policy": {
+        "endings": [
+          {
+            "terminated": false,
+            "truncated": true
+          },
+          {
+            "terminated": false,
+            "truncated": true
+          },
+          {
+            "terminated": false,
+            "truncated": true
+          },
+          {
+            "terminated": false,
+            "truncated": true
+          },
+          {
+            "terminated": false,
+            "truncated": true
+          },
+          {
+            "terminated": false,
+            "truncated": true
+          },
+          {
+            "terminated": false,
+            "truncated": true
+          },
+          {
+            "terminated": false,
+            "truncated": true
+          },
+          {
+            "terminated": false,
+            "truncated": true
+          },
+          {
+            "terminated": false,
+            "truncated": true
+          },
+          {
+            "terminated": false,
+            "truncated": true
+          },
+          {
+            "terminated": false,
+            "truncated": true
+          },
+          {
+            "terminated": false,
+            "truncated": true
+          },
+          {
+            "terminated": false,
+            "truncated": true
+          },
+          {
+            "terminated": false,
+            "truncated": true
+          },
+          {
+            "terminated": false,
+            "truncated": true
+          },
+          {
+            "terminated": false,
+            "truncated": true
+          },
+          {
+            "terminated": false,
+            "truncated": true
+          },
+          {
+            "terminated": false,
+            "truncated": true
+          },
+          {
+            "terminated": false,
+            "truncated": true
+          },
+          {
+            "terminated": false,
+            "truncated": true
+          },
+          {
+            "terminated": false,
+            "truncated": true
+          },
+          {
+            "terminated": false,
+            "truncated": true
+          },
+          {
+            "terminated": false,
+            "truncated": true
+          },
+          {
+            "terminated": false,
+            "truncated": true
+          },
+          {
+            "terminated": false,
+            "truncated": true
+          },
+          {
+            "terminated": false,
+            "truncated": true
+          },
+          {
+            "terminated": false,
+            "truncated": true
+          },
+          {
+            "terminated": false,
+            "truncated": true
+          },
+          {
+            "terminated": false,
+            "truncated": true
+          },
+          {
+            "terminated": false,
+            "truncated": true
+          },
+          {
+            "terminated": false,
+            "truncated": true
+          },
+          {
+            "terminated": false,
+            "truncated": true
+          },
+          {
+            "terminated": false,
+            "truncated": true
+          },
+          {
+            "terminated": false,
+            "truncated": true
+          },
+          {
+            "terminated": false,
+            "truncated": true
+          },
+          {
+            "terminated": false,
+            "truncated": true
+          },
+          {
+            "terminated": false,
+            "truncated": true
+          },
+          {
+            "terminated": false,
+            "truncated": true
+          },
+          {
+            "terminated": false,
+            "truncated": true
+          },
+          {
+            "terminated": false,
+            "truncated": true
+          },
+          {
+            "terminated": false,
+            "truncated": true
+          },
+          {
+            "terminated": false,
+            "truncated": true
+          },
+          {
+            "terminated": false,
+            "truncated": true
+          },
+          {
+            "terminated": false,
+            "truncated": true
+          },
+          {
+            "terminated": false,
+            "truncated": true
+          },
+          {
+            "terminated": false,
+            "truncated": true
+          },
+          {
+            "terminated": false,
+            "truncated": true
+          },
+          {
+            "terminated": false,
+            "truncated": true
+          },
+          {
+            "terminated": false,
+            "truncated": true
+          }
+        ],
+        "reset_seed_start": 2000019,
+        "returns": [
+          500.0,
+          500.0,
+          500.0,
+          500.0,
+          500.0,
+          500.0,
+          500.0,
+          500.0,
+          500.0,
+          500.0,
+          500.0,
+          500.0,
+          500.0,
+          500.0,
+          500.0,
+          500.0,
+          500.0,
+          500.0,
+          500.0,
+          500.0,
+          500.0,
+          500.0,
+          500.0,
+          500.0,
+          500.0,
+          500.0,
+          500.0,
+          500.0,
+          500.0,
+          500.0,
+          500.0,
+          500.0,
+          500.0,
+          500.0,
+          500.0,
+          500.0,
+          500.0,
+          500.0,
+          500.0,
+          500.0,
+          500.0,
+          500.0,
+          500.0,
+          500.0,
+          500.0,
+          500.0,
+          500.0,
+          500.0,
+          500.0,
+          500.0
+        ]
+      },
+      "random": {
+        "endings": [
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          },
+          {
+            "terminated": true,
+            "truncated": false
+          }
+        ],
+        "reset_seed_start": 2000019,
+        "returns": [
+          33.0,
+          11.0,
+          32.0,
+          14.0,
+          12.0,
+          29.0,
+          25.0,
+          38.0,
+          11.0,
+          15.0,
+          12.0,
+          22.0,
+          54.0,
+          35.0,
+          12.0,
+          21.0,
+          18.0,
+          26.0,
+          19.0,
+          11.0,
+          12.0,
+          17.0,
+          19.0,
+          16.0,
+          19.0,
+          48.0,
+          23.0,
+          13.0,
+          11.0,
+          54.0,
+          16.0,
+          14.0,
+          13.0,
+          25.0,
+          17.0,
+          19.0,
+          22.0,
+          18.0,
+          31.0,
+          32.0,
+          19.0,
+          18.0,
+          16.0,
+          29.0,
+          16.0,
+          11.0,
+          19.0,
+          13.0,
+          21.0,
+          24.0
+        ]
+      }
+    }
+  },
+  "failed_attempts": [],
+  "fixed_protocol": {
+    "criteria": {
+      "minimum_improvement_over_random": 50.0,
+      "minimum_mean_return": 100.0
+    },
+    "evaluation_episodes": 50,
+    "training_seeds": [
+      7,
+      19,
+      43
+    ],
+    "training_steps": 20000
+  },
+  "issues": [],
+  "learning_curves": {
+    "6e36592299564186ae6d991959b3b814": {
+      "loss_samples": [
+        {
+          "loss": 0.5455644726753235,
+          "step": 512,
+          "update": 1
+        },
+        {
+          "loss": 0.01168077439069748,
+          "step": 908,
+          "update": 100
+        },
+        {
+          "loss": 0.012308910489082336,
+          "step": 1308,
+          "update": 200
+        },
+        {
+          "loss": 0.06727530062198639,
+          "step": 1708,
+          "update": 300
+        },
+        {
+          "loss": 0.12827017903327942,
+          "step": 2108,
+          "update": 400
+        },
+        {
+          "loss": 0.08817477524280548,
+          "step": 2508,
+          "update": 500
+        },
+        {
+          "loss": 0.20377519726753235,
+          "step": 2908,
+          "update": 600
+        },
+        {
+          "loss": 0.2964475750923157,
+          "step": 3308,
+          "update": 700
+        },
+        {
+          "loss": 0.07214649021625519,
+          "step": 3708,
+          "update": 800
+        },
+        {
+          "loss": 0.018783457577228546,
+          "step": 4108,
+          "update": 900
+        },
+        {
+          "loss": 0.1770499050617218,
+          "step": 4508,
+          "update": 1000
+        },
+        {
+          "loss": 0.40593165159225464,
+          "step": 4908,
+          "update": 1100
+        },
+        {
+          "loss": 0.11782945692539215,
+          "step": 5308,
+          "update": 1200
+        },
+        {
+          "loss": 0.523119330406189,
+          "step": 5708,
+          "update": 1300
+        },
+        {
+          "loss": 0.20206770300865173,
+          "step": 6108,
+          "update": 1400
+        },
+        {
+          "loss": 0.009197541512548923,
+          "step": 6508,
+          "update": 1500
+        },
+        {
+          "loss": 0.011939174495637417,
+          "step": 6908,
+          "update": 1600
+        },
+        {
+          "loss": 0.17586977779865265,
+          "step": 7308,
+          "update": 1700
+        },
+        {
+          "loss": 0.9028472304344177,
+          "step": 7708,
+          "update": 1800
+        },
+        {
+          "loss": 0.3717270791530609,
+          "step": 8108,
+          "update": 1900
+        },
+        {
+          "loss": 0.21145793795585632,
+          "step": 8508,
+          "update": 2000
+        },
+        {
+          "loss": 0.3772214651107788,
+          "step": 8908,
+          "update": 2100
+        },
+        {
+          "loss": 0.4928293228149414,
+          "step": 9308,
+          "update": 2200
+        },
+        {
+          "loss": 0.21002359688282013,
+          "step": 9708,
+          "update": 2300
+        },
+        {
+          "loss": 0.19565385580062866,
+          "step": 10108,
+          "update": 2400
+        },
+        {
+          "loss": 0.6834520101547241,
+          "step": 10508,
+          "update": 2500
+        },
+        {
+          "loss": 0.5540460348129272,
+          "step": 10908,
+          "update": 2600
+        },
+        {
+          "loss": 0.007233615033328533,
+          "step": 11308,
+          "update": 2700
+        },
+        {
+          "loss": 0.39766159653663635,
+          "step": 11708,
+          "update": 2800
+        },
+        {
+          "loss": 0.3261078894138336,
+          "step": 12108,
+          "update": 2900
+        },
+        {
+          "loss": 1.0256012678146362,
+          "step": 12508,
+          "update": 3000
+        },
+        {
+          "loss": 0.443425714969635,
+          "step": 12908,
+          "update": 3100
+        },
+        {
+          "loss": 1.308490514755249,
+          "step": 13308,
+          "update": 3200
+        },
+        {
+          "loss": 0.013865279033780098,
+          "step": 13708,
+          "update": 3300
+        },
+        {
+          "loss": 0.009417724795639515,
+          "step": 14108,
+          "update": 3400
+        },
+        {
+          "loss": 0.007746492512524128,
+          "step": 14508,
+          "update": 3500
+        },
+        {
+          "loss": 0.004433880094438791,
+          "step": 14908,
+          "update": 3600
+        },
+        {
+          "loss": 0.003966381773352623,
+          "step": 15308,
+          "update": 3700
+        },
+        {
+          "loss": 0.004648154601454735,
+          "step": 15708,
+          "update": 3800
+        },
+        {
+          "loss": 0.0049091302789747715,
+          "step": 16108,
+          "update": 3900
+        },
+        {
+          "loss": 0.009083335287868977,
+          "step": 16508,
+          "update": 4000
+        },
+        {
+          "loss": 0.006309064105153084,
+          "step": 16908,
+          "update": 4100
+        },
+        {
+          "loss": 0.002279214793816209,
+          "step": 17308,
+          "update": 4200
+        },
+        {
+          "loss": 0.5076048374176025,
+          "step": 17708,
+          "update": 4300
+        },
+        {
+          "loss": 0.0026971735060214996,
+          "step": 18108,
+          "update": 4400
+        },
+        {
+          "loss": 0.5572707653045654,
+          "step": 18508,
+          "update": 4500
+        },
+        {
+          "loss": 0.0019927890971302986,
+          "step": 18908,
+          "update": 4600
+        },
+        {
+          "loss": 0.0032494477927684784,
+          "step": 19308,
+          "update": 4700
+        },
+        {
+          "loss": 0.003610139712691307,
+          "step": 19708,
+          "update": 4800
+        }
+      ],
+      "partial_episode": {
+        "return": 128.0,
+        "steps": 128
+      },
+      "selected_step": 15000,
+      "steps": 20000,
+      "training_episodes": [
+        {
+          "return": 22.0,
+          "steps": 22
+        },
+        {
+          "return": 29.0,
+          "steps": 29
+        },
+        {
+          "return": 29.0,
+          "steps": 29
+        },
+        {
+          "return": 21.0,
+          "steps": 21
+        },
+        {
+          "return": 32.0,
+          "steps": 32
+        },
+        {
+          "return": 19.0,
+          "steps": 19
+        },
+        {
+          "return": 22.0,
+          "steps": 22
+        },
+        {
+          "return": 24.0,
+          "steps": 24
+        },
+        {
+          "return": 15.0,
+          "steps": 15
+        },
+        {
+          "return": 19.0,
+          "steps": 19
+        },
+        {
+          "return": 24.0,
+          "steps": 24
+        },
+        {
+          "return": 13.0,
+          "steps": 13
+        },
+        {
+          "return": 35.0,
+          "steps": 35
+        },
+        {
+          "return": 17.0,
+          "steps": 17
+        },
+        {
+          "return": 29.0,
+          "steps": 29
+        },
+        {
+          "return": 23.0,
+          "steps": 23
+        },
+        {
+          "return": 18.0,
+          "steps": 18
+        },
+        {
+          "return": 19.0,
+          "steps": 19
+        },
+        {
+          "return": 21.0,
+          "steps": 21
+        },
+        {
+          "return": 17.0,
+          "steps": 17
+        },
+        {
+          "return": 22.0,
+          "steps": 22
+        },
+        {
+          "return": 11.0,
+          "steps": 11
+        },
+        {
+          "return": 14.0,
+          "steps": 14
+        },
+        {
+          "return": 12.0,
+          "steps": 12
+        },
+        {
+          "return": 22.0,
+          "steps": 22
+        },
+        {
+          "return": 37.0,
+          "steps": 37
+        },
+        {
+          "return": 19.0,
+          "steps": 19
+        },
+        {
+          "return": 38.0,
+          "steps": 38
+        },
+        {
+          "return": 15.0,
+          "steps": 15
+        },
+        {
+          "return": 11.0,
+          "steps": 11
+        },
+        {
+          "return": 13.0,
+          "steps": 13
+        },
+        {
+          "return": 36.0,
+          "steps": 36
+        },
+        {
+          "return": 19.0,
+          "steps": 19
+        },
+        {
+          "return": 15.0,
+          "steps": 15
+        },
+        {
+          "return": 26.0,
+          "steps": 26
+        },
+        {
+          "return": 9.0,
+          "steps": 9
+        },
+        {
+          "return": 23.0,
+          "steps": 23
+        },
+        {
+          "return": 26.0,
+          "steps": 26
+        },
+        {
+          "return": 14.0,
+          "steps": 14
+        },
+        {
+          "return": 12.0,
+          "steps": 12
+        },
+        {
+          "return": 14.0,
+          "steps": 14
+        },
+        {
+          "return": 15.0,
+          "steps": 15
+        },
+        {
+          "return": 13.0,
+          "steps": 13
+        },
+        {
+          "return": 32.0,
+          "steps": 32
+        },
+        {
+          "return": 16.0,
+          "steps": 16
+        },
+        {
+          "return": 23.0,
+          "steps": 23
+        },
+        {
+          "return": 17.0,
+          "steps": 17
+        },
+        {
+          "return": 11.0,
+          "steps": 11
+        },
+        {
+          "return": 19.0,
+          "steps": 19
+        },
+        {
+          "return": 14.0,
+          "steps": 14
+        },
+        {
+          "return": 20.0,
+          "steps": 20
+        },
+        {
+          "return": 20.0,
+          "steps": 20
+        },
+        {
+          "return": 9.0,
+          "steps": 9
+        },
+        {
+          "return": 25.0,
+          "steps": 25
+        },
+        {
+          "return": 14.0,
+          "steps": 14
+        },
+        {
+          "return": 26.0,
+          "steps": 26
+        },
+        {
+          "return": 40.0,
+          "steps": 40
+        },
+        {
+          "return": 18.0,
+          "steps": 18
+        },
+        {
+          "return": 28.0,
+          "steps": 28
+        },
+        {
+          "return": 17.0,
+          "steps": 17
+        },
+        {
+          "return": 24.0,
+          "steps": 24
+        },
+        {
+          "return": 24.0,
+          "steps": 24
+        },
+        {
+          "return": 23.0,
+          "steps": 23
+        },
+        {
+          "return": 29.0,
+          "steps": 29
+        },
+        {
+          "return": 15.0,
+          "steps": 15
+        },
+        {
+          "return": 18.0,
+          "steps": 18
+        },
+        {
+          "return": 51.0,
+          "steps": 51
+        },
+        {
+          "return": 11.0,
+          "steps": 11
+        },
+        {
+          "return": 17.0,
+          "steps": 17
+        },
+        {
+          "return": 18.0,
+          "steps": 18
+        },
+        {
+          "return": 13.0,
+          "steps": 13
+        },
+        {
+          "return": 20.0,
+          "steps": 20
+        },
+        {
+          "return": 10.0,
+          "steps": 10
+        },
+        {
+          "return": 15.0,
+          "steps": 15
+        },
+        {
+          "return": 35.0,
+          "steps": 35
+        },
+        {
+          "return": 12.0,
+          "steps": 12
+        },
+        {
+          "return": 17.0,
+          "steps": 17
+        },
+        {
+          "return": 19.0,
+          "steps": 19
+        },
+        {
+          "return": 13.0,
+          "steps": 13
+        },
+        {
+          "return": 14.0,
+          "steps": 14
+        },
+        {
+          "return": 14.0,
+          "steps": 14
+        },
+        {
+          "return": 10.0,
+          "steps": 10
+        },
+        {
+          "return": 18.0,
+          "steps": 18
+        },
+        {
+          "return": 22.0,
+          "steps": 22
+        },
+        {
+          "return": 34.0,
+          "steps": 34
+        },
+        {
+          "return": 11.0,
+          "steps": 11
+        },
+        {
+          "return": 11.0,
+          "steps": 11
+        },
+        {
+          "return": 18.0,
+          "steps": 18
+        },
+        {
+          "return": 11.0,
+          "steps": 11
+        },
+        {
+          "return": 27.0,
+          "steps": 27
+        },
+        {
+          "return": 22.0,
+          "steps": 22
+        },
+        {
+          "return": 13.0,
+          "steps": 13
+        },
+        {
+          "return": 12.0,
+          "steps": 12
+        },
+        {
+          "return": 15.0,
+          "steps": 15
+        },
+        {
+          "return": 17.0,
+          "steps": 17
+        },
+        {
+          "return": 27.0,
+          "steps": 27
+        },
+        {
+          "return": 13.0,
+          "steps": 13
+        },
+        {
+          "return": 21.0,
+          "steps": 21
+        },
+        {
+          "return": 11.0,
+          "steps": 11
+        },
+        {
+          "return": 31.0,
+          "steps": 31
+        },
+        {
+          "return": 15.0,
+          "steps": 15
+        },
+        {
+          "return": 35.0,
+          "steps": 35
+        },
+        {
+          "return": 11.0,
+          "steps": 11
+        },
+        {
+          "return": 12.0,
+          "steps": 12
+        },
+        {
+          "return": 31.0,
+          "steps": 31
+        },
+        {
+          "return": 20.0,
+          "steps": 20
+        },
+        {
+          "return": 17.0,
+          "steps": 17
+        },
+        {
+          "return": 13.0,
+          "steps": 13
+        },
+        {
+          "return": 17.0,
+          "steps": 17
+        },
+        {
+          "return": 18.0,
+          "steps": 18
+        },
+        {
+          "return": 13.0,
+          "steps": 13
+        },
+        {
+          "return": 40.0,
+          "steps": 40
+        },
+        {
+          "return": 28.0,
+          "steps": 28
+        },
+        {
+          "return": 17.0,
+          "steps": 17
+        },
+        {
+          "return": 10.0,
+          "steps": 10
+        },
+        {
+          "return": 10.0,
+          "steps": 10
+        },
+        {
+          "return": 17.0,
+          "steps": 17
+        },
+        {
+          "return": 24.0,
+          "steps": 24
+        },
+        {
+          "return": 11.0,
+          "steps": 11
+        },
+        {
+          "return": 11.0,
+          "steps": 11
+        },
+        {
+          "return": 17.0,
+          "steps": 17
+        },
+        {
+          "return": 19.0,
+          "steps": 19
+        },
+        {
+          "return": 16.0,
+          "steps": 16
+        },
+        {
+          "return": 20.0,
+          "steps": 20
+        },
+        {
+          "return": 23.0,
+          "steps": 23
+        },
+        {
+          "return": 50.0,
+          "steps": 50
+        },
+        {
+          "return": 16.0,
+          "steps": 16
+        },
+        {
+          "return": 14.0,
+          "steps": 14
+        },
+        {
+          "return": 9.0,
+          "steps": 9
+        },
+        {
+          "return": 16.0,
+          "steps": 16
+        },
+        {
+          "return": 12.0,
+          "steps": 12
+        },
+        {
+          "return": 30.0,
+          "steps": 30
+        },
+        {
+          "return": 17.0,
+          "steps": 17
+        },
+        {
+          "return": 16.0,
+          "steps": 16
+        },
+        {
+          "return": 14.0,
+          "steps": 14
+        },
+        {
+          "return": 13.0,
+          "steps": 13
+        },
+        {
+          "return": 13.0,
+          "steps": 13
+        },
+        {
+          "return": 29.0,
+          "steps": 29
+        },
+        {
+          "return": 14.0,
+          "steps": 14
+        },
+        {
+          "return": 29.0,
+          "steps": 29
+        },
+        {
+          "return": 20.0,
+          "steps": 20
+        },
+        {
+          "return": 18.0,
+          "steps": 18
+        },
+        {
+          "return": 15.0,
+          "steps": 15
+        },
+        {
+          "return": 32.0,
+          "steps": 32
+        },
+        {
+          "return": 25.0,
+          "steps": 25
+        },
+        {
+          "return": 13.0,
+          "steps": 13
+        },
+        {
+          "return": 13.0,
+          "steps": 13
+        },
+        {
+          "return": 30.0,
+          "steps": 30
+        },
+        {
+          "return": 65.0,
+          "steps": 65
+        },
+        {
+          "return": 53.0,
+          "steps": 53
+        },
+        {
+          "return": 21.0,
+          "steps": 21
+        },
+        {
+          "return": 54.0,
+          "steps": 54
+        },
+        {
+          "return": 24.0,
+          "steps": 24
+        },
+        {
+          "return": 42.0,
+          "steps": 42
+        },
+        {
+          "return": 21.0,
+          "steps": 21
+        },
+        {
+          "return": 26.0,
+          "steps": 26
+        },
+        {
+          "return": 19.0,
+          "steps": 19
+        },
+        {
+          "return": 13.0,
+          "steps": 13
+        },
+        {
+          "return": 41.0,
+          "steps": 41
+        },
+        {
+          "return": 16.0,
+          "steps": 16
+        },
+        {
+          "return": 21.0,
+          "steps": 21
+        },
+        {
+          "return": 16.0,
+          "steps": 16
+        },
+        {
+          "return": 21.0,
+          "steps": 21
+        },
+        {
+          "return": 21.0,
+          "steps": 21
+        },
+        {
+          "return": 20.0,
+          "steps": 20
+        },
+        {
+          "return": 13.0,
+          "steps": 13
+        },
+        {
+          "return": 16.0,
+          "steps": 16
+        },
+        {
+          "return": 15.0,
+          "steps": 15
+        },
+        {
+          "return": 14.0,
+          "steps": 14
+        },
+        {
+          "return": 23.0,
+          "steps": 23
+        },
+        {
+          "return": 14.0,
+          "steps": 14
+        },
+        {
+          "return": 43.0,
+          "steps": 43
+        },
+        {
+          "return": 22.0,
+          "steps": 22
+        },
+        {
+          "return": 37.0,
+          "steps": 37
+        },
+        {
+          "return": 20.0,
+          "steps": 20
+        },
+        {
+          "return": 10.0,
+          "steps": 10
+        },
+        {
+          "return": 31.0,
+          "steps": 31
+        },
+        {
+          "return": 66.0,
+          "steps": 66
+        },
+        {
+          "return": 28.0,
+          "steps": 28
+        },
+        {
+          "return": 25.0,
+          "steps": 25
+        },
+        {
+          "return": 40.0,
+          "steps": 40
+        },
+        {
+          "return": 31.0,
+          "steps": 31
+        },
+        {
+          "return": 89.0,
+          "steps": 89
+        },
+        {
+          "return": 29.0,
+          "steps": 29
+        },
+        {
+          "return": 61.0,
+          "steps": 61
+        },
+        {
+          "return": 16.0,
+          "steps": 16
+        },
+        {
+          "return": 27.0,
+          "steps": 27
+        },
+        {
+          "return": 64.0,
+          "steps": 64
+        },
+        {
+          "return": 11.0,
+          "steps": 11
+        },
+        {
+          "return": 30.0,
+          "steps": 30
+        },
+        {
+          "return": 34.0,
+          "steps": 34
+        },
+        {
+          "return": 47.0,
+          "steps": 47
+        },
+        {
+          "return": 61.0,
+          "steps": 61
+        },
+        {
+          "return": 54.0,
+          "steps": 54
+        },
+        {
+          "return": 23.0,
+          "steps": 23
+        },
+        {
+          "return": 29.0,
+          "steps": 29
+        },
+        {
+          "return": 57.0,
+          "steps": 57
+        },
+        {
+          "return": 50.0,
+          "steps": 50
+        },
+        {
+          "return": 107.0,
+          "steps": 107
+        },
+        {
+          "return": 115.0,
+          "steps": 115
+        },
+        {
+          "return": 88.0,
+          "steps": 88
+        },
+        {
+          "return": 54.0,
+          "steps": 54
+        },
+        {
+          "return": 42.0,
+          "steps": 42
+        },
+        {
+          "return": 30.0,
+          "steps": 30
+        },
+        {
+          "return": 20.0,
+          "steps": 20
+        },
+        {
+          "return": 51.0,
+          "steps": 51
+        },
+        {
+          "return": 59.0,
+          "steps": 59
+        },
+        {
+          "return": 14.0,
+          "steps": 14
+        },
+        {
+          "return": 100.0,
+          "steps": 100
+        },
+        {
+          "return": 47.0,
+          "steps": 47
+        },
+        {
+          "return": 37.0,
+          "steps": 37
+        },
+        {
+          "return": 38.0,
+          "steps": 38
+        },
+        {
+          "return": 24.0,
+          "steps": 24
+        },
+        {
+          "return": 89.0,
+          "steps": 89
+        },
+        {
+          "return": 134.0,
+          "steps": 134
+        },
+        {
+          "return": 105.0,
+          "steps": 105
+        },
+        {
+          "return": 140.0,
+          "steps": 140
+        },
+        {
+          "return": 119.0,
+          "steps": 119
+        },
+        {
+          "return": 131.0,
+          "steps": 131
+        },
+        {
+          "return": 40.0,
+          "steps": 40
+        },
+        {
+          "return": 100.0,
+          "steps": 100
+        },
+        {
+          "return": 108.0,
+          "steps": 108
+        },
+        {
+          "return": 16.0,
+          "steps": 16
+        },
+        {
+          "return": 171.0,
+          "steps": 171
+        },
+        {
+          "return": 114.0,
+          "steps": 114
+        },
+        {
+          "return": 68.0,
+          "steps": 68
+        },
+        {
+          "return": 98.0,
+          "steps": 98
+        },
+        {
+          "return": 35.0,
+          "steps": 35
+        },
+        {
+          "return": 60.0,
+          "steps": 60
+        },
+        {
+          "return": 141.0,
+          "steps": 141
+        },
+        {
+          "return": 40.0,
+          "steps": 40
+        },
+        {
+          "return": 17.0,
+          "steps": 17
+        },
+        {
+          "return": 96.0,
+          "steps": 96
+        },
+        {
+          "return": 134.0,
+          "steps": 134
+        },
+        {
+          "return": 247.0,
+          "steps": 247
+        },
+        {
+          "return": 162.0,
+          "steps": 162
+        },
+        {
+          "return": 235.0,
+          "steps": 235
+        },
+        {
+          "return": 96.0,
+          "steps": 96
+        },
+        {
+          "return": 63.0,
+          "steps": 63
+        },
+        {
+          "return": 29.0,
+          "steps": 29
+        },
+        {
+          "return": 200.0,
+          "steps": 200
+        },
+        {
+          "return": 122.0,
+          "steps": 122
+        },
+        {
+          "return": 144.0,
+          "steps": 144
+        },
+        {
+          "return": 167.0,
+          "steps": 167
+        },
+        {
+          "return": 83.0,
+          "steps": 83
+        },
+        {
+          "return": 127.0,
+          "steps": 127
+        },
+        {
+          "return": 204.0,
+          "steps": 204
+        },
+        {
+          "return": 182.0,
+          "steps": 182
+        },
+        {
+          "return": 151.0,
+          "steps": 151
+        },
+        {
+          "return": 114.0,
+          "steps": 114
+        },
+        {
+          "return": 133.0,
+          "steps": 133
+        },
+        {
+          "return": 161.0,
+          "steps": 161
+        },
+        {
+          "return": 144.0,
+          "steps": 144
+        },
+        {
+          "return": 115.0,
+          "steps": 115
+        },
+        {
+          "return": 36.0,
+          "steps": 36
+        },
+        {
+          "return": 122.0,
+          "steps": 122
+        },
+        {
+          "return": 201.0,
+          "steps": 201
+        },
+        {
+          "return": 277.0,
+          "steps": 277
+        },
+        {
+          "return": 144.0,
+          "steps": 144
+        },
+        {
+          "return": 140.0,
+          "steps": 140
+        },
+        {
+          "return": 141.0,
+          "steps": 141
+        },
+        {
+          "return": 113.0,
+          "steps": 113
+        },
+        {
+          "return": 194.0,
+          "steps": 194
+        },
+        {
+          "return": 169.0,
+          "steps": 169
+        },
+        {
+          "return": 131.0,
+          "steps": 131
+        },
+        {
+          "return": 129.0,
+          "steps": 129
+        },
+        {
+          "return": 156.0,
+          "steps": 156
+        },
+        {
+          "return": 125.0,
+          "steps": 125
+        },
+        {
+          "return": 150.0,
+          "steps": 150
+        },
+        {
+          "return": 141.0,
+          "steps": 141
+        },
+        {
+          "return": 166.0,
+          "steps": 166
+        },
+        {
+          "return": 162.0,
+          "steps": 162
+        },
+        {
+          "return": 175.0,
+          "steps": 175
+        },
+        {
+          "return": 112.0,
+          "steps": 112
+        },
+        {
+          "return": 167.0,
+          "steps": 167
+        },
+        {
+          "return": 128.0,
+          "steps": 128
+        },
+        {
+          "return": 136.0,
+          "steps": 136
+        },
+        {
+          "return": 131.0,
+          "steps": 131
+        },
+        {
+          "return": 164.0,
+          "steps": 164
+        },
+        {
+          "return": 242.0,
+          "steps": 242
+        },
+        {
+          "return": 164.0,
+          "steps": 164
+        },
+        {
+          "return": 121.0,
+          "steps": 121
+        },
+        {
+          "return": 172.0,
+          "steps": 172
+        },
+        {
+          "return": 204.0,
+          "steps": 204
+        },
+        {
+          "return": 169.0,
+          "steps": 169
+        },
+        {
+          "return": 130.0,
+          "steps": 130
+        },
+        {
+          "return": 171.0,
+          "steps": 171
+        },
+        {
+          "return": 140.0,
+          "steps": 140
+        },
+        {
+          "return": 168.0,
+          "steps": 168
+        },
+        {
+          "return": 172.0,
+          "steps": 172
+        },
+        {
+          "return": 189.0,
+          "steps": 189
+        },
+        {
+          "return": 153.0,
+          "steps": 153
+        },
+        {
+          "return": 304.0,
+          "steps": 304
+        },
+        {
+          "return": 155.0,
+          "steps": 155
+        },
+        {
+          "return": 221.0,
+          "steps": 221
+        },
+        {
+          "return": 128.0,
+          "steps": 128
+        },
+        {
+          "return": 175.0,
+          "steps": 175
+        },
+        {
+          "return": 155.0,
+          "steps": 155
+        },
+        {
+          "return": 138.0,
+          "steps": 138
+        },
+        {
+          "return": 168.0,
+          "steps": 168
+        },
+        {
+          "return": 143.0,
+          "steps": 143
+        },
+        {
+          "return": 125.0,
+          "steps": 125
+        },
+        {
+          "return": 160.0,
+          "steps": 160
+        },
+        {
+          "return": 140.0,
+          "steps": 140
+        },
+        {
+          "return": 280.0,
+          "steps": 280
+        },
+        {
+          "return": 196.0,
+          "steps": 196
+        },
+        {
+          "return": 135.0,
+          "steps": 135
+        },
+        {
+          "return": 125.0,
+          "steps": 125
+        },
+        {
+          "return": 146.0,
+          "steps": 146
+        },
+        {
+          "return": 120.0,
+          "steps": 120
+        },
+        {
+          "return": 118.0,
+          "steps": 118
+        },
+        {
+          "return": 117.0,
+          "steps": 117
+        },
+        {
+          "return": 221.0,
+          "steps": 221
+        },
+        {
+          "return": 156.0,
+          "steps": 156
+        },
+        {
+          "return": 144.0,
+          "steps": 144
+        }
+      ],
+      "validation": [
+        {
+          "endings": [
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            }
+          ],
+          "mean_return": 103.75,
+          "reset_seed_start": 1000007,
+          "returns": [
+            99.0,
+            110.0,
+            113.0,
+            107.0,
+            105.0,
+            100.0,
+            97.0,
+            112.0,
+            124.0,
+            112.0,
+            93.0,
+            98.0,
+            99.0,
+            95.0,
+            111.0,
+            106.0,
+            95.0,
+            98.0,
+            100.0,
+            101.0
+          ],
+          "step": 5000
+        },
+        {
+          "endings": [
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            }
+          ],
+          "mean_return": 188.75,
+          "reset_seed_start": 1000007,
+          "returns": [
+            172.0,
+            142.0,
+            150.0,
+            157.0,
+            196.0,
+            168.0,
+            235.0,
+            153.0,
+            134.0,
+            145.0,
+            274.0,
+            206.0,
+            233.0,
+            280.0,
+            149.0,
+            167.0,
+            253.0,
+            185.0,
+            189.0,
+            187.0
+          ],
+          "step": 10000
+        },
+        {
+          "endings": [
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            }
+          ],
+          "mean_return": 201.2,
+          "reset_seed_start": 1000007,
+          "returns": [
+            192.0,
+            143.0,
+            156.0,
+            157.0,
+            232.0,
+            182.0,
+            206.0,
+            164.0,
+            128.0,
+            143.0,
+            209.0,
+            275.0,
+            193.0,
+            179.0,
+            153.0,
+            188.0,
+            204.0,
+            327.0,
+            304.0,
+            289.0
+          ],
+          "step": 15000
+        },
+        {
+          "endings": [
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            }
+          ],
+          "mean_return": 196.7,
+          "reset_seed_start": 1000007,
+          "returns": [
+            171.0,
+            138.0,
+            144.0,
+            151.0,
+            184.0,
+            168.0,
+            258.0,
+            150.0,
+            126.0,
+            140.0,
+            328.0,
+            212.0,
+            314.0,
+            258.0,
+            144.0,
+            164.0,
+            314.0,
+            186.0,
+            188.0,
+            196.0
+          ],
+          "step": 20000
+        }
+      ]
+    },
+    "a43ce3b03d74454d91d5757d8dec7d7f": {
+      "loss_samples": [
+        {
+          "loss": 0.5311097502708435,
+          "step": 512,
+          "update": 1
+        },
+        {
+          "loss": 0.026558272540569305,
+          "step": 908,
+          "update": 100
+        },
+        {
+          "loss": 0.06294728070497513,
+          "step": 1308,
+          "update": 200
+        },
+        {
+          "loss": 0.026899170130491257,
+          "step": 1708,
+          "update": 300
+        },
+        {
+          "loss": 0.14071577787399292,
+          "step": 2108,
+          "update": 400
+        },
+        {
+          "loss": 0.09039483219385147,
+          "step": 2508,
+          "update": 500
+        },
+        {
+          "loss": 0.21506080031394958,
+          "step": 2908,
+          "update": 600
+        },
+        {
+          "loss": 0.08153527975082397,
+          "step": 3308,
+          "update": 700
+        },
+        {
+          "loss": 0.15161466598510742,
+          "step": 3708,
+          "update": 800
+        },
+        {
+          "loss": 0.33946195244789124,
+          "step": 4108,
+          "update": 900
+        },
+        {
+          "loss": 0.09309779107570648,
+          "step": 4508,
+          "update": 1000
+        },
+        {
+          "loss": 0.3224490284919739,
+          "step": 4908,
+          "update": 1100
+        },
+        {
+          "loss": 0.20673996210098267,
+          "step": 5308,
+          "update": 1200
+        },
+        {
+          "loss": 0.42484062910079956,
+          "step": 5708,
+          "update": 1300
+        },
+        {
+          "loss": 0.2492610514163971,
+          "step": 6108,
+          "update": 1400
+        },
+        {
+          "loss": 0.8211138844490051,
+          "step": 6508,
+          "update": 1500
+        },
+        {
+          "loss": 0.5042902231216431,
+          "step": 6908,
+          "update": 1600
+        },
+        {
+          "loss": 0.5419085025787354,
+          "step": 7308,
+          "update": 1700
+        },
+        {
+          "loss": 0.19296228885650635,
+          "step": 7708,
+          "update": 1800
+        },
+        {
+          "loss": 0.1553633064031601,
+          "step": 8108,
+          "update": 1900
+        },
+        {
+          "loss": 0.011994189582765102,
+          "step": 8508,
+          "update": 2000
+        },
+        {
+          "loss": 0.191876620054245,
+          "step": 8908,
+          "update": 2100
+        },
+        {
+          "loss": 0.26465874910354614,
+          "step": 9308,
+          "update": 2200
+        },
+        {
+          "loss": 0.6850076913833618,
+          "step": 9708,
+          "update": 2300
+        },
+        {
+          "loss": 0.2635765075683594,
+          "step": 10108,
+          "update": 2400
+        },
+        {
+          "loss": 0.3042072057723999,
+          "step": 10508,
+          "update": 2500
+        },
+        {
+          "loss": 0.3244033753871918,
+          "step": 10908,
+          "update": 2600
+        },
+        {
+          "loss": 0.30916598439216614,
+          "step": 11308,
+          "update": 2700
+        },
+        {
+          "loss": 0.6556189060211182,
+          "step": 11708,
+          "update": 2800
+        },
+        {
+          "loss": 1.009751319885254,
+          "step": 12108,
+          "update": 2900
+        },
+        {
+          "loss": 0.018372636288404465,
+          "step": 12508,
+          "update": 3000
+        },
+        {
+          "loss": 0.00952942855656147,
+          "step": 12908,
+          "update": 3100
+        },
+        {
+          "loss": 0.007646686863154173,
+          "step": 13308,
+          "update": 3200
+        },
+        {
+          "loss": 0.013253078795969486,
+          "step": 13708,
+          "update": 3300
+        },
+        {
+          "loss": 0.005024484824389219,
+          "step": 14108,
+          "update": 3400
+        },
+        {
+          "loss": 0.4800269305706024,
+          "step": 14508,
+          "update": 3500
+        },
+        {
+          "loss": 0.48457878828048706,
+          "step": 14908,
+          "update": 3600
+        },
+        {
+          "loss": 0.9736686944961548,
+          "step": 15308,
+          "update": 3700
+        },
+        {
+          "loss": 0.6399158239364624,
+          "step": 15708,
+          "update": 3800
+        },
+        {
+          "loss": 0.0033754201140254736,
+          "step": 16108,
+          "update": 3900
+        },
+        {
+          "loss": 0.004240088630467653,
+          "step": 16508,
+          "update": 4000
+        },
+        {
+          "loss": 0.6769496202468872,
+          "step": 16908,
+          "update": 4100
+        },
+        {
+          "loss": 0.004892424680292606,
+          "step": 17308,
+          "update": 4200
+        },
+        {
+          "loss": 0.0036081902217119932,
+          "step": 17708,
+          "update": 4300
+        },
+        {
+          "loss": 0.001751290401443839,
+          "step": 18108,
+          "update": 4400
+        },
+        {
+          "loss": 0.72287917137146,
+          "step": 18508,
+          "update": 4500
+        },
+        {
+          "loss": 0.7487805485725403,
+          "step": 18908,
+          "update": 4600
+        },
+        {
+          "loss": 0.002301553962752223,
+          "step": 19308,
+          "update": 4700
+        },
+        {
+          "loss": 0.0012395214289426804,
+          "step": 19708,
+          "update": 4800
+        }
+      ],
+      "partial_episode": {
+        "return": 313.0,
+        "steps": 313
+      },
+      "selected_step": 20000,
+      "steps": 20000,
+      "training_episodes": [
+        {
+          "return": 14.0,
+          "steps": 14
+        },
+        {
+          "return": 60.0,
+          "steps": 60
+        },
+        {
+          "return": 28.0,
+          "steps": 28
+        },
+        {
+          "return": 10.0,
+          "steps": 10
+        },
+        {
+          "return": 11.0,
+          "steps": 11
+        },
+        {
+          "return": 20.0,
+          "steps": 20
+        },
+        {
+          "return": 19.0,
+          "steps": 19
+        },
+        {
+          "return": 13.0,
+          "steps": 13
+        },
+        {
+          "return": 27.0,
+          "steps": 27
+        },
+        {
+          "return": 41.0,
+          "steps": 41
+        },
+        {
+          "return": 11.0,
+          "steps": 11
+        },
+        {
+          "return": 25.0,
+          "steps": 25
+        },
+        {
+          "return": 33.0,
+          "steps": 33
+        },
+        {
+          "return": 15.0,
+          "steps": 15
+        },
+        {
+          "return": 15.0,
+          "steps": 15
+        },
+        {
+          "return": 46.0,
+          "steps": 46
+        },
+        {
+          "return": 28.0,
+          "steps": 28
+        },
+        {
+          "return": 14.0,
+          "steps": 14
+        },
+        {
+          "return": 23.0,
+          "steps": 23
+        },
+        {
+          "return": 18.0,
+          "steps": 18
+        },
+        {
+          "return": 17.0,
+          "steps": 17
+        },
+        {
+          "return": 12.0,
+          "steps": 12
+        },
+        {
+          "return": 36.0,
+          "steps": 36
+        },
+        {
+          "return": 16.0,
+          "steps": 16
+        },
+        {
+          "return": 20.0,
+          "steps": 20
+        },
+        {
+          "return": 16.0,
+          "steps": 16
+        },
+        {
+          "return": 82.0,
+          "steps": 82
+        },
+        {
+          "return": 12.0,
+          "steps": 12
+        },
+        {
+          "return": 23.0,
+          "steps": 23
+        },
+        {
+          "return": 24.0,
+          "steps": 24
+        },
+        {
+          "return": 34.0,
+          "steps": 34
+        },
+        {
+          "return": 14.0,
+          "steps": 14
+        },
+        {
+          "return": 14.0,
+          "steps": 14
+        },
+        {
+          "return": 27.0,
+          "steps": 27
+        },
+        {
+          "return": 14.0,
+          "steps": 14
+        },
+        {
+          "return": 13.0,
+          "steps": 13
+        },
+        {
+          "return": 59.0,
+          "steps": 59
+        },
+        {
+          "return": 38.0,
+          "steps": 38
+        },
+        {
+          "return": 13.0,
+          "steps": 13
+        },
+        {
+          "return": 27.0,
+          "steps": 27
+        },
+        {
+          "return": 42.0,
+          "steps": 42
+        },
+        {
+          "return": 20.0,
+          "steps": 20
+        },
+        {
+          "return": 20.0,
+          "steps": 20
+        },
+        {
+          "return": 21.0,
+          "steps": 21
+        },
+        {
+          "return": 15.0,
+          "steps": 15
+        },
+        {
+          "return": 22.0,
+          "steps": 22
+        },
+        {
+          "return": 41.0,
+          "steps": 41
+        },
+        {
+          "return": 16.0,
+          "steps": 16
+        },
+        {
+          "return": 17.0,
+          "steps": 17
+        },
+        {
+          "return": 25.0,
+          "steps": 25
+        },
+        {
+          "return": 20.0,
+          "steps": 20
+        },
+        {
+          "return": 19.0,
+          "steps": 19
+        },
+        {
+          "return": 27.0,
+          "steps": 27
+        },
+        {
+          "return": 29.0,
+          "steps": 29
+        },
+        {
+          "return": 21.0,
+          "steps": 21
+        },
+        {
+          "return": 26.0,
+          "steps": 26
+        },
+        {
+          "return": 12.0,
+          "steps": 12
+        },
+        {
+          "return": 10.0,
+          "steps": 10
+        },
+        {
+          "return": 20.0,
+          "steps": 20
+        },
+        {
+          "return": 14.0,
+          "steps": 14
+        },
+        {
+          "return": 15.0,
+          "steps": 15
+        },
+        {
+          "return": 12.0,
+          "steps": 12
+        },
+        {
+          "return": 17.0,
+          "steps": 17
+        },
+        {
+          "return": 24.0,
+          "steps": 24
+        },
+        {
+          "return": 10.0,
+          "steps": 10
+        },
+        {
+          "return": 12.0,
+          "steps": 12
+        },
+        {
+          "return": 28.0,
+          "steps": 28
+        },
+        {
+          "return": 10.0,
+          "steps": 10
+        },
+        {
+          "return": 10.0,
+          "steps": 10
+        },
+        {
+          "return": 9.0,
+          "steps": 9
+        },
+        {
+          "return": 12.0,
+          "steps": 12
+        },
+        {
+          "return": 16.0,
+          "steps": 16
+        },
+        {
+          "return": 9.0,
+          "steps": 9
+        },
+        {
+          "return": 18.0,
+          "steps": 18
+        },
+        {
+          "return": 17.0,
+          "steps": 17
+        },
+        {
+          "return": 56.0,
+          "steps": 56
+        },
+        {
+          "return": 14.0,
+          "steps": 14
+        },
+        {
+          "return": 26.0,
+          "steps": 26
+        },
+        {
+          "return": 11.0,
+          "steps": 11
+        },
+        {
+          "return": 17.0,
+          "steps": 17
+        },
+        {
+          "return": 55.0,
+          "steps": 55
+        },
+        {
+          "return": 15.0,
+          "steps": 15
+        },
+        {
+          "return": 13.0,
+          "steps": 13
+        },
+        {
+          "return": 9.0,
+          "steps": 9
+        },
+        {
+          "return": 21.0,
+          "steps": 21
+        },
+        {
+          "return": 21.0,
+          "steps": 21
+        },
+        {
+          "return": 10.0,
+          "steps": 10
+        },
+        {
+          "return": 29.0,
+          "steps": 29
+        },
+        {
+          "return": 13.0,
+          "steps": 13
+        },
+        {
+          "return": 15.0,
+          "steps": 15
+        },
+        {
+          "return": 32.0,
+          "steps": 32
+        },
+        {
+          "return": 9.0,
+          "steps": 9
+        },
+        {
+          "return": 14.0,
+          "steps": 14
+        },
+        {
+          "return": 14.0,
+          "steps": 14
+        },
+        {
+          "return": 23.0,
+          "steps": 23
+        },
+        {
+          "return": 19.0,
+          "steps": 19
+        },
+        {
+          "return": 20.0,
+          "steps": 20
+        },
+        {
+          "return": 13.0,
+          "steps": 13
+        },
+        {
+          "return": 38.0,
+          "steps": 38
+        },
+        {
+          "return": 18.0,
+          "steps": 18
+        },
+        {
+          "return": 14.0,
+          "steps": 14
+        },
+        {
+          "return": 18.0,
+          "steps": 18
+        },
+        {
+          "return": 20.0,
+          "steps": 20
+        },
+        {
+          "return": 15.0,
+          "steps": 15
+        },
+        {
+          "return": 13.0,
+          "steps": 13
+        },
+        {
+          "return": 14.0,
+          "steps": 14
+        },
+        {
+          "return": 14.0,
+          "steps": 14
+        },
+        {
+          "return": 21.0,
+          "steps": 21
+        },
+        {
+          "return": 14.0,
+          "steps": 14
+        },
+        {
+          "return": 12.0,
+          "steps": 12
+        },
+        {
+          "return": 13.0,
+          "steps": 13
+        },
+        {
+          "return": 14.0,
+          "steps": 14
+        },
+        {
+          "return": 38.0,
+          "steps": 38
+        },
+        {
+          "return": 13.0,
+          "steps": 13
+        },
+        {
+          "return": 16.0,
+          "steps": 16
+        },
+        {
+          "return": 32.0,
+          "steps": 32
+        },
+        {
+          "return": 13.0,
+          "steps": 13
+        },
+        {
+          "return": 12.0,
+          "steps": 12
+        },
+        {
+          "return": 17.0,
+          "steps": 17
+        },
+        {
+          "return": 12.0,
+          "steps": 12
+        },
+        {
+          "return": 14.0,
+          "steps": 14
+        },
+        {
+          "return": 12.0,
+          "steps": 12
+        },
+        {
+          "return": 18.0,
+          "steps": 18
+        },
+        {
+          "return": 11.0,
+          "steps": 11
+        },
+        {
+          "return": 26.0,
+          "steps": 26
+        },
+        {
+          "return": 24.0,
+          "steps": 24
+        },
+        {
+          "return": 13.0,
+          "steps": 13
+        },
+        {
+          "return": 14.0,
+          "steps": 14
+        },
+        {
+          "return": 13.0,
+          "steps": 13
+        },
+        {
+          "return": 15.0,
+          "steps": 15
+        },
+        {
+          "return": 36.0,
+          "steps": 36
+        },
+        {
+          "return": 10.0,
+          "steps": 10
+        },
+        {
+          "return": 10.0,
+          "steps": 10
+        },
+        {
+          "return": 12.0,
+          "steps": 12
+        },
+        {
+          "return": 11.0,
+          "steps": 11
+        },
+        {
+          "return": 8.0,
+          "steps": 8
+        },
+        {
+          "return": 13.0,
+          "steps": 13
+        },
+        {
+          "return": 30.0,
+          "steps": 30
+        },
+        {
+          "return": 9.0,
+          "steps": 9
+        },
+        {
+          "return": 9.0,
+          "steps": 9
+        },
+        {
+          "return": 10.0,
+          "steps": 10
+        },
+        {
+          "return": 17.0,
+          "steps": 17
+        },
+        {
+          "return": 15.0,
+          "steps": 15
+        },
+        {
+          "return": 16.0,
+          "steps": 16
+        },
+        {
+          "return": 11.0,
+          "steps": 11
+        },
+        {
+          "return": 14.0,
+          "steps": 14
+        },
+        {
+          "return": 9.0,
+          "steps": 9
+        },
+        {
+          "return": 12.0,
+          "steps": 12
+        },
+        {
+          "return": 13.0,
+          "steps": 13
+        },
+        {
+          "return": 18.0,
+          "steps": 18
+        },
+        {
+          "return": 29.0,
+          "steps": 29
+        },
+        {
+          "return": 14.0,
+          "steps": 14
+        },
+        {
+          "return": 14.0,
+          "steps": 14
+        },
+        {
+          "return": 27.0,
+          "steps": 27
+        },
+        {
+          "return": 19.0,
+          "steps": 19
+        },
+        {
+          "return": 12.0,
+          "steps": 12
+        },
+        {
+          "return": 20.0,
+          "steps": 20
+        },
+        {
+          "return": 19.0,
+          "steps": 19
+        },
+        {
+          "return": 15.0,
+          "steps": 15
+        },
+        {
+          "return": 12.0,
+          "steps": 12
+        },
+        {
+          "return": 13.0,
+          "steps": 13
+        },
+        {
+          "return": 33.0,
+          "steps": 33
+        },
+        {
+          "return": 18.0,
+          "steps": 18
+        },
+        {
+          "return": 25.0,
+          "steps": 25
+        },
+        {
+          "return": 13.0,
+          "steps": 13
+        },
+        {
+          "return": 22.0,
+          "steps": 22
+        },
+        {
+          "return": 18.0,
+          "steps": 18
+        },
+        {
+          "return": 35.0,
+          "steps": 35
+        },
+        {
+          "return": 10.0,
+          "steps": 10
+        },
+        {
+          "return": 11.0,
+          "steps": 11
+        },
+        {
+          "return": 14.0,
+          "steps": 14
+        },
+        {
+          "return": 31.0,
+          "steps": 31
+        },
+        {
+          "return": 18.0,
+          "steps": 18
+        },
+        {
+          "return": 20.0,
+          "steps": 20
+        },
+        {
+          "return": 39.0,
+          "steps": 39
+        },
+        {
+          "return": 54.0,
+          "steps": 54
+        },
+        {
+          "return": 28.0,
+          "steps": 28
+        },
+        {
+          "return": 11.0,
+          "steps": 11
+        },
+        {
+          "return": 18.0,
+          "steps": 18
+        },
+        {
+          "return": 13.0,
+          "steps": 13
+        },
+        {
+          "return": 31.0,
+          "steps": 31
+        },
+        {
+          "return": 12.0,
+          "steps": 12
+        },
+        {
+          "return": 19.0,
+          "steps": 19
+        },
+        {
+          "return": 10.0,
+          "steps": 10
+        },
+        {
+          "return": 27.0,
+          "steps": 27
+        },
+        {
+          "return": 10.0,
+          "steps": 10
+        },
+        {
+          "return": 47.0,
+          "steps": 47
+        },
+        {
+          "return": 15.0,
+          "steps": 15
+        },
+        {
+          "return": 17.0,
+          "steps": 17
+        },
+        {
+          "return": 21.0,
+          "steps": 21
+        },
+        {
+          "return": 16.0,
+          "steps": 16
+        },
+        {
+          "return": 27.0,
+          "steps": 27
+        },
+        {
+          "return": 73.0,
+          "steps": 73
+        },
+        {
+          "return": 39.0,
+          "steps": 39
+        },
+        {
+          "return": 27.0,
+          "steps": 27
+        },
+        {
+          "return": 15.0,
+          "steps": 15
+        },
+        {
+          "return": 25.0,
+          "steps": 25
+        },
+        {
+          "return": 21.0,
+          "steps": 21
+        },
+        {
+          "return": 29.0,
+          "steps": 29
+        },
+        {
+          "return": 22.0,
+          "steps": 22
+        },
+        {
+          "return": 28.0,
+          "steps": 28
+        },
+        {
+          "return": 23.0,
+          "steps": 23
+        },
+        {
+          "return": 29.0,
+          "steps": 29
+        },
+        {
+          "return": 26.0,
+          "steps": 26
+        },
+        {
+          "return": 22.0,
+          "steps": 22
+        },
+        {
+          "return": 45.0,
+          "steps": 45
+        },
+        {
+          "return": 33.0,
+          "steps": 33
+        },
+        {
+          "return": 43.0,
+          "steps": 43
+        },
+        {
+          "return": 34.0,
+          "steps": 34
+        },
+        {
+          "return": 34.0,
+          "steps": 34
+        },
+        {
+          "return": 102.0,
+          "steps": 102
+        },
+        {
+          "return": 16.0,
+          "steps": 16
+        },
+        {
+          "return": 17.0,
+          "steps": 17
+        },
+        {
+          "return": 44.0,
+          "steps": 44
+        },
+        {
+          "return": 44.0,
+          "steps": 44
+        },
+        {
+          "return": 19.0,
+          "steps": 19
+        },
+        {
+          "return": 46.0,
+          "steps": 46
+        },
+        {
+          "return": 24.0,
+          "steps": 24
+        },
+        {
+          "return": 41.0,
+          "steps": 41
+        },
+        {
+          "return": 75.0,
+          "steps": 75
+        },
+        {
+          "return": 31.0,
+          "steps": 31
+        },
+        {
+          "return": 22.0,
+          "steps": 22
+        },
+        {
+          "return": 50.0,
+          "steps": 50
+        },
+        {
+          "return": 16.0,
+          "steps": 16
+        },
+        {
+          "return": 49.0,
+          "steps": 49
+        },
+        {
+          "return": 41.0,
+          "steps": 41
+        },
+        {
+          "return": 19.0,
+          "steps": 19
+        },
+        {
+          "return": 47.0,
+          "steps": 47
+        },
+        {
+          "return": 42.0,
+          "steps": 42
+        },
+        {
+          "return": 259.0,
+          "steps": 259
+        },
+        {
+          "return": 36.0,
+          "steps": 36
+        },
+        {
+          "return": 33.0,
+          "steps": 33
+        },
+        {
+          "return": 117.0,
+          "steps": 117
+        },
+        {
+          "return": 68.0,
+          "steps": 68
+        },
+        {
+          "return": 43.0,
+          "steps": 43
+        },
+        {
+          "return": 71.0,
+          "steps": 71
+        },
+        {
+          "return": 120.0,
+          "steps": 120
+        },
+        {
+          "return": 94.0,
+          "steps": 94
+        },
+        {
+          "return": 82.0,
+          "steps": 82
+        },
+        {
+          "return": 64.0,
+          "steps": 64
+        },
+        {
+          "return": 27.0,
+          "steps": 27
+        },
+        {
+          "return": 35.0,
+          "steps": 35
+        },
+        {
+          "return": 131.0,
+          "steps": 131
+        },
+        {
+          "return": 90.0,
+          "steps": 90
+        },
+        {
+          "return": 114.0,
+          "steps": 114
+        },
+        {
+          "return": 109.0,
+          "steps": 109
+        },
+        {
+          "return": 35.0,
+          "steps": 35
+        },
+        {
+          "return": 91.0,
+          "steps": 91
+        },
+        {
+          "return": 113.0,
+          "steps": 113
+        },
+        {
+          "return": 149.0,
+          "steps": 149
+        },
+        {
+          "return": 144.0,
+          "steps": 144
+        },
+        {
+          "return": 144.0,
+          "steps": 144
+        },
+        {
+          "return": 34.0,
+          "steps": 34
+        },
+        {
+          "return": 42.0,
+          "steps": 42
+        },
+        {
+          "return": 174.0,
+          "steps": 174
+        },
+        {
+          "return": 146.0,
+          "steps": 146
+        },
+        {
+          "return": 199.0,
+          "steps": 199
+        },
+        {
+          "return": 168.0,
+          "steps": 168
+        },
+        {
+          "return": 167.0,
+          "steps": 167
+        },
+        {
+          "return": 100.0,
+          "steps": 100
+        },
+        {
+          "return": 101.0,
+          "steps": 101
+        },
+        {
+          "return": 210.0,
+          "steps": 210
+        },
+        {
+          "return": 140.0,
+          "steps": 140
+        },
+        {
+          "return": 161.0,
+          "steps": 161
+        },
+        {
+          "return": 141.0,
+          "steps": 141
+        },
+        {
+          "return": 140.0,
+          "steps": 140
+        },
+        {
+          "return": 136.0,
+          "steps": 136
+        },
+        {
+          "return": 147.0,
+          "steps": 147
+        },
+        {
+          "return": 48.0,
+          "steps": 48
+        },
+        {
+          "return": 207.0,
+          "steps": 207
+        },
+        {
+          "return": 150.0,
+          "steps": 150
+        },
+        {
+          "return": 145.0,
+          "steps": 145
+        },
+        {
+          "return": 191.0,
+          "steps": 191
+        },
+        {
+          "return": 143.0,
+          "steps": 143
+        },
+        {
+          "return": 58.0,
+          "steps": 58
+        },
+        {
+          "return": 116.0,
+          "steps": 116
+        },
+        {
+          "return": 188.0,
+          "steps": 188
+        },
+        {
+          "return": 200.0,
+          "steps": 200
+        },
+        {
+          "return": 207.0,
+          "steps": 207
+        },
+        {
+          "return": 265.0,
+          "steps": 265
+        },
+        {
+          "return": 206.0,
+          "steps": 206
+        },
+        {
+          "return": 337.0,
+          "steps": 337
+        },
+        {
+          "return": 248.0,
+          "steps": 248
+        },
+        {
+          "return": 237.0,
+          "steps": 237
+        },
+        {
+          "return": 231.0,
+          "steps": 231
+        },
+        {
+          "return": 165.0,
+          "steps": 165
+        },
+        {
+          "return": 328.0,
+          "steps": 328
+        },
+        {
+          "return": 166.0,
+          "steps": 166
+        },
+        {
+          "return": 344.0,
+          "steps": 344
+        },
+        {
+          "return": 277.0,
+          "steps": 277
+        },
+        {
+          "return": 195.0,
+          "steps": 195
+        },
+        {
+          "return": 241.0,
+          "steps": 241
+        },
+        {
+          "return": 276.0,
+          "steps": 276
+        },
+        {
+          "return": 185.0,
+          "steps": 185
+        },
+        {
+          "return": 256.0,
+          "steps": 256
+        },
+        {
+          "return": 203.0,
+          "steps": 203
+        },
+        {
+          "return": 211.0,
+          "steps": 211
+        },
+        {
+          "return": 193.0,
+          "steps": 193
+        },
+        {
+          "return": 212.0,
+          "steps": 212
+        },
+        {
+          "return": 386.0,
+          "steps": 386
+        },
+        {
+          "return": 296.0,
+          "steps": 296
+        },
+        {
+          "return": 188.0,
+          "steps": 188
+        },
+        {
+          "return": 222.0,
+          "steps": 222
+        },
+        {
+          "return": 209.0,
+          "steps": 209
+        },
+        {
+          "return": 241.0,
+          "steps": 241
+        },
+        {
+          "return": 330.0,
+          "steps": 330
+        },
+        {
+          "return": 295.0,
+          "steps": 295
+        },
+        {
+          "return": 201.0,
+          "steps": 201
+        },
+        {
+          "return": 282.0,
+          "steps": 282
+        },
+        {
+          "return": 269.0,
+          "steps": 269
+        },
+        {
+          "return": 223.0,
+          "steps": 223
+        },
+        {
+          "return": 337.0,
+          "steps": 337
+        },
+        {
+          "return": 273.0,
+          "steps": 273
+        }
+      ],
+      "validation": [
+        {
+          "endings": [
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            }
+          ],
+          "mean_return": 108.75,
+          "reset_seed_start": 1000043,
+          "returns": [
+            117.0,
+            93.0,
+            119.0,
+            101.0,
+            162.0,
+            92.0,
+            97.0,
+            98.0,
+            81.0,
+            184.0,
+            117.0,
+            101.0,
+            147.0,
+            107.0,
+            89.0,
+            80.0,
+            87.0,
+            87.0,
+            106.0,
+            110.0
+          ],
+          "step": 5000
+        },
+        {
+          "endings": [
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            }
+          ],
+          "mean_return": 194.8,
+          "reset_seed_start": 1000043,
+          "returns": [
+            192.0,
+            296.0,
+            176.0,
+            212.0,
+            137.0,
+            184.0,
+            170.0,
+            174.0,
+            197.0,
+            144.0,
+            153.0,
+            246.0,
+            140.0,
+            202.0,
+            241.0,
+            187.0,
+            216.0,
+            251.0,
+            212.0,
+            166.0
+          ],
+          "step": 10000
+        },
+        {
+          "endings": [
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            }
+          ],
+          "mean_return": 219.4,
+          "reset_seed_start": 1000043,
+          "returns": [
+            212.0,
+            193.0,
+            229.0,
+            203.0,
+            237.0,
+            211.0,
+            223.0,
+            218.0,
+            169.0,
+            347.0,
+            260.0,
+            191.0,
+            314.0,
+            212.0,
+            190.0,
+            166.0,
+            196.0,
+            181.0,
+            201.0,
+            235.0
+          ],
+          "step": 15000
+        },
+        {
+          "endings": [
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            }
+          ],
+          "mean_return": 240.95,
+          "reset_seed_start": 1000043,
+          "returns": [
+            250.0,
+            216.0,
+            280.0,
+            242.0,
+            189.0,
+            259.0,
+            301.0,
+            283.0,
+            182.0,
+            213.0,
+            295.0,
+            222.0,
+            217.0,
+            256.0,
+            214.0,
+            180.0,
+            229.0,
+            210.0,
+            242.0,
+            339.0
+          ],
+          "step": 20000
+        }
+      ]
+    },
+    "f2393a31a22f4f178ee81487fe9a0ecd": {
+      "loss_samples": [
+        {
+          "loss": 0.5269087553024292,
+          "step": 512,
+          "update": 1
+        },
+        {
+          "loss": 0.029351238161325455,
+          "step": 908,
+          "update": 100
+        },
+        {
+          "loss": 0.009162753820419312,
+          "step": 1308,
+          "update": 200
+        },
+        {
+          "loss": 0.088374063372612,
+          "step": 1708,
+          "update": 300
+        },
+        {
+          "loss": 0.15981902182102203,
+          "step": 2108,
+          "update": 400
+        },
+        {
+          "loss": 0.1831449270248413,
+          "step": 2508,
+          "update": 500
+        },
+        {
+          "loss": 0.17367543280124664,
+          "step": 2908,
+          "update": 600
+        },
+        {
+          "loss": 0.3972848057746887,
+          "step": 3308,
+          "update": 700
+        },
+        {
+          "loss": 0.07309436053037643,
+          "step": 3708,
+          "update": 800
+        },
+        {
+          "loss": 0.38173767924308777,
+          "step": 4108,
+          "update": 900
+        },
+        {
+          "loss": 0.3600584864616394,
+          "step": 4508,
+          "update": 1000
+        },
+        {
+          "loss": 0.23412099480628967,
+          "step": 4908,
+          "update": 1100
+        },
+        {
+          "loss": 0.013073567301034927,
+          "step": 5308,
+          "update": 1200
+        },
+        {
+          "loss": 0.23274600505828857,
+          "step": 5708,
+          "update": 1300
+        },
+        {
+          "loss": 0.2616996169090271,
+          "step": 6108,
+          "update": 1400
+        },
+        {
+          "loss": 0.17587317526340485,
+          "step": 6508,
+          "update": 1500
+        },
+        {
+          "loss": 0.21365059912204742,
+          "step": 6908,
+          "update": 1600
+        },
+        {
+          "loss": 0.013020592741668224,
+          "step": 7308,
+          "update": 1700
+        },
+        {
+          "loss": 0.5805733799934387,
+          "step": 7708,
+          "update": 1800
+        },
+        {
+          "loss": 0.5919114351272583,
+          "step": 8108,
+          "update": 1900
+        },
+        {
+          "loss": 0.18977104127407074,
+          "step": 8508,
+          "update": 2000
+        },
+        {
+          "loss": 0.4191514849662781,
+          "step": 8908,
+          "update": 2100
+        },
+        {
+          "loss": 0.2282136082649231,
+          "step": 9308,
+          "update": 2200
+        },
+        {
+          "loss": 0.25560224056243896,
+          "step": 9708,
+          "update": 2300
+        },
+        {
+          "loss": 0.5299775004386902,
+          "step": 10108,
+          "update": 2400
+        },
+        {
+          "loss": 0.2808952033519745,
+          "step": 10508,
+          "update": 2500
+        },
+        {
+          "loss": 0.871643602848053,
+          "step": 10908,
+          "update": 2600
+        },
+        {
+          "loss": 0.1881563812494278,
+          "step": 11308,
+          "update": 2700
+        },
+        {
+          "loss": 0.8018426895141602,
+          "step": 11708,
+          "update": 2800
+        },
+        {
+          "loss": 0.007735255640000105,
+          "step": 12108,
+          "update": 2900
+        },
+        {
+          "loss": 0.6766099333763123,
+          "step": 12508,
+          "update": 3000
+        },
+        {
+          "loss": 0.01115722581744194,
+          "step": 12908,
+          "update": 3100
+        },
+        {
+          "loss": 0.4241364300251007,
+          "step": 13308,
+          "update": 3200
+        },
+        {
+          "loss": 0.3410035967826843,
+          "step": 13708,
+          "update": 3300
+        },
+        {
+          "loss": 0.005245677661150694,
+          "step": 14108,
+          "update": 3400
+        },
+        {
+          "loss": 0.4317435026168823,
+          "step": 14508,
+          "update": 3500
+        },
+        {
+          "loss": 0.43041977286338806,
+          "step": 14908,
+          "update": 3600
+        },
+        {
+          "loss": 0.007332448847591877,
+          "step": 15308,
+          "update": 3700
+        },
+        {
+          "loss": 0.0055740936659276485,
+          "step": 15708,
+          "update": 3800
+        },
+        {
+          "loss": 0.005262609105557203,
+          "step": 16108,
+          "update": 3900
+        },
+        {
+          "loss": 0.002418312942609191,
+          "step": 16508,
+          "update": 4000
+        },
+        {
+          "loss": 0.469928115606308,
+          "step": 16908,
+          "update": 4100
+        },
+        {
+          "loss": 0.0033605850767344236,
+          "step": 17308,
+          "update": 4200
+        },
+        {
+          "loss": 0.49836236238479614,
+          "step": 17708,
+          "update": 4300
+        },
+        {
+          "loss": 0.002565371571108699,
+          "step": 18108,
+          "update": 4400
+        },
+        {
+          "loss": 0.003027142956852913,
+          "step": 18508,
+          "update": 4500
+        },
+        {
+          "loss": 0.002178619150072336,
+          "step": 18908,
+          "update": 4600
+        },
+        {
+          "loss": 0.0028296508826315403,
+          "step": 19308,
+          "update": 4700
+        },
+        {
+          "loss": 0.002373826690018177,
+          "step": 19708,
+          "update": 4800
+        }
+      ],
+      "partial_episode": {
+        "return": 111.0,
+        "steps": 111
+      },
+      "selected_step": 5000,
+      "steps": 20000,
+      "training_episodes": [
+        {
+          "return": 49.0,
+          "steps": 49
+        },
+        {
+          "return": 62.0,
+          "steps": 62
+        },
+        {
+          "return": 33.0,
+          "steps": 33
+        },
+        {
+          "return": 53.0,
+          "steps": 53
+        },
+        {
+          "return": 28.0,
+          "steps": 28
+        },
+        {
+          "return": 29.0,
+          "steps": 29
+        },
+        {
+          "return": 14.0,
+          "steps": 14
+        },
+        {
+          "return": 17.0,
+          "steps": 17
+        },
+        {
+          "return": 10.0,
+          "steps": 10
+        },
+        {
+          "return": 19.0,
+          "steps": 19
+        },
+        {
+          "return": 13.0,
+          "steps": 13
+        },
+        {
+          "return": 16.0,
+          "steps": 16
+        },
+        {
+          "return": 18.0,
+          "steps": 18
+        },
+        {
+          "return": 12.0,
+          "steps": 12
+        },
+        {
+          "return": 12.0,
+          "steps": 12
+        },
+        {
+          "return": 19.0,
+          "steps": 19
+        },
+        {
+          "return": 14.0,
+          "steps": 14
+        },
+        {
+          "return": 20.0,
+          "steps": 20
+        },
+        {
+          "return": 12.0,
+          "steps": 12
+        },
+        {
+          "return": 49.0,
+          "steps": 49
+        },
+        {
+          "return": 18.0,
+          "steps": 18
+        },
+        {
+          "return": 17.0,
+          "steps": 17
+        },
+        {
+          "return": 50.0,
+          "steps": 50
+        },
+        {
+          "return": 43.0,
+          "steps": 43
+        },
+        {
+          "return": 33.0,
+          "steps": 33
+        },
+        {
+          "return": 53.0,
+          "steps": 53
+        },
+        {
+          "return": 15.0,
+          "steps": 15
+        },
+        {
+          "return": 20.0,
+          "steps": 20
+        },
+        {
+          "return": 20.0,
+          "steps": 20
+        },
+        {
+          "return": 21.0,
+          "steps": 21
+        },
+        {
+          "return": 20.0,
+          "steps": 20
+        },
+        {
+          "return": 14.0,
+          "steps": 14
+        },
+        {
+          "return": 16.0,
+          "steps": 16
+        },
+        {
+          "return": 16.0,
+          "steps": 16
+        },
+        {
+          "return": 17.0,
+          "steps": 17
+        },
+        {
+          "return": 14.0,
+          "steps": 14
+        },
+        {
+          "return": 15.0,
+          "steps": 15
+        },
+        {
+          "return": 14.0,
+          "steps": 14
+        },
+        {
+          "return": 48.0,
+          "steps": 48
+        },
+        {
+          "return": 28.0,
+          "steps": 28
+        },
+        {
+          "return": 37.0,
+          "steps": 37
+        },
+        {
+          "return": 27.0,
+          "steps": 27
+        },
+        {
+          "return": 11.0,
+          "steps": 11
+        },
+        {
+          "return": 49.0,
+          "steps": 49
+        },
+        {
+          "return": 22.0,
+          "steps": 22
+        },
+        {
+          "return": 40.0,
+          "steps": 40
+        },
+        {
+          "return": 28.0,
+          "steps": 28
+        },
+        {
+          "return": 16.0,
+          "steps": 16
+        },
+        {
+          "return": 16.0,
+          "steps": 16
+        },
+        {
+          "return": 17.0,
+          "steps": 17
+        },
+        {
+          "return": 14.0,
+          "steps": 14
+        },
+        {
+          "return": 11.0,
+          "steps": 11
+        },
+        {
+          "return": 11.0,
+          "steps": 11
+        },
+        {
+          "return": 37.0,
+          "steps": 37
+        },
+        {
+          "return": 16.0,
+          "steps": 16
+        },
+        {
+          "return": 32.0,
+          "steps": 32
+        },
+        {
+          "return": 15.0,
+          "steps": 15
+        },
+        {
+          "return": 18.0,
+          "steps": 18
+        },
+        {
+          "return": 21.0,
+          "steps": 21
+        },
+        {
+          "return": 15.0,
+          "steps": 15
+        },
+        {
+          "return": 16.0,
+          "steps": 16
+        },
+        {
+          "return": 21.0,
+          "steps": 21
+        },
+        {
+          "return": 12.0,
+          "steps": 12
+        },
+        {
+          "return": 15.0,
+          "steps": 15
+        },
+        {
+          "return": 11.0,
+          "steps": 11
+        },
+        {
+          "return": 22.0,
+          "steps": 22
+        },
+        {
+          "return": 13.0,
+          "steps": 13
+        },
+        {
+          "return": 30.0,
+          "steps": 30
+        },
+        {
+          "return": 33.0,
+          "steps": 33
+        },
+        {
+          "return": 21.0,
+          "steps": 21
+        },
+        {
+          "return": 18.0,
+          "steps": 18
+        },
+        {
+          "return": 19.0,
+          "steps": 19
+        },
+        {
+          "return": 11.0,
+          "steps": 11
+        },
+        {
+          "return": 26.0,
+          "steps": 26
+        },
+        {
+          "return": 17.0,
+          "steps": 17
+        },
+        {
+          "return": 30.0,
+          "steps": 30
+        },
+        {
+          "return": 19.0,
+          "steps": 19
+        },
+        {
+          "return": 14.0,
+          "steps": 14
+        },
+        {
+          "return": 10.0,
+          "steps": 10
+        },
+        {
+          "return": 10.0,
+          "steps": 10
+        },
+        {
+          "return": 45.0,
+          "steps": 45
+        },
+        {
+          "return": 23.0,
+          "steps": 23
+        },
+        {
+          "return": 21.0,
+          "steps": 21
+        },
+        {
+          "return": 23.0,
+          "steps": 23
+        },
+        {
+          "return": 25.0,
+          "steps": 25
+        },
+        {
+          "return": 22.0,
+          "steps": 22
+        },
+        {
+          "return": 18.0,
+          "steps": 18
+        },
+        {
+          "return": 9.0,
+          "steps": 9
+        },
+        {
+          "return": 24.0,
+          "steps": 24
+        },
+        {
+          "return": 10.0,
+          "steps": 10
+        },
+        {
+          "return": 11.0,
+          "steps": 11
+        },
+        {
+          "return": 11.0,
+          "steps": 11
+        },
+        {
+          "return": 23.0,
+          "steps": 23
+        },
+        {
+          "return": 11.0,
+          "steps": 11
+        },
+        {
+          "return": 25.0,
+          "steps": 25
+        },
+        {
+          "return": 15.0,
+          "steps": 15
+        },
+        {
+          "return": 18.0,
+          "steps": 18
+        },
+        {
+          "return": 12.0,
+          "steps": 12
+        },
+        {
+          "return": 39.0,
+          "steps": 39
+        },
+        {
+          "return": 14.0,
+          "steps": 14
+        },
+        {
+          "return": 15.0,
+          "steps": 15
+        },
+        {
+          "return": 21.0,
+          "steps": 21
+        },
+        {
+          "return": 11.0,
+          "steps": 11
+        },
+        {
+          "return": 22.0,
+          "steps": 22
+        },
+        {
+          "return": 12.0,
+          "steps": 12
+        },
+        {
+          "return": 16.0,
+          "steps": 16
+        },
+        {
+          "return": 36.0,
+          "steps": 36
+        },
+        {
+          "return": 35.0,
+          "steps": 35
+        },
+        {
+          "return": 10.0,
+          "steps": 10
+        },
+        {
+          "return": 16.0,
+          "steps": 16
+        },
+        {
+          "return": 25.0,
+          "steps": 25
+        },
+        {
+          "return": 17.0,
+          "steps": 17
+        },
+        {
+          "return": 26.0,
+          "steps": 26
+        },
+        {
+          "return": 15.0,
+          "steps": 15
+        },
+        {
+          "return": 16.0,
+          "steps": 16
+        },
+        {
+          "return": 10.0,
+          "steps": 10
+        },
+        {
+          "return": 25.0,
+          "steps": 25
+        },
+        {
+          "return": 17.0,
+          "steps": 17
+        },
+        {
+          "return": 21.0,
+          "steps": 21
+        },
+        {
+          "return": 11.0,
+          "steps": 11
+        },
+        {
+          "return": 13.0,
+          "steps": 13
+        },
+        {
+          "return": 16.0,
+          "steps": 16
+        },
+        {
+          "return": 8.0,
+          "steps": 8
+        },
+        {
+          "return": 27.0,
+          "steps": 27
+        },
+        {
+          "return": 10.0,
+          "steps": 10
+        },
+        {
+          "return": 11.0,
+          "steps": 11
+        },
+        {
+          "return": 11.0,
+          "steps": 11
+        },
+        {
+          "return": 24.0,
+          "steps": 24
+        },
+        {
+          "return": 20.0,
+          "steps": 20
+        },
+        {
+          "return": 33.0,
+          "steps": 33
+        },
+        {
+          "return": 11.0,
+          "steps": 11
+        },
+        {
+          "return": 19.0,
+          "steps": 19
+        },
+        {
+          "return": 19.0,
+          "steps": 19
+        },
+        {
+          "return": 12.0,
+          "steps": 12
+        },
+        {
+          "return": 15.0,
+          "steps": 15
+        },
+        {
+          "return": 14.0,
+          "steps": 14
+        },
+        {
+          "return": 16.0,
+          "steps": 16
+        },
+        {
+          "return": 18.0,
+          "steps": 18
+        },
+        {
+          "return": 11.0,
+          "steps": 11
+        },
+        {
+          "return": 12.0,
+          "steps": 12
+        },
+        {
+          "return": 11.0,
+          "steps": 11
+        },
+        {
+          "return": 10.0,
+          "steps": 10
+        },
+        {
+          "return": 10.0,
+          "steps": 10
+        },
+        {
+          "return": 9.0,
+          "steps": 9
+        },
+        {
+          "return": 13.0,
+          "steps": 13
+        },
+        {
+          "return": 12.0,
+          "steps": 12
+        },
+        {
+          "return": 9.0,
+          "steps": 9
+        },
+        {
+          "return": 26.0,
+          "steps": 26
+        },
+        {
+          "return": 14.0,
+          "steps": 14
+        },
+        {
+          "return": 9.0,
+          "steps": 9
+        },
+        {
+          "return": 19.0,
+          "steps": 19
+        },
+        {
+          "return": 11.0,
+          "steps": 11
+        },
+        {
+          "return": 70.0,
+          "steps": 70
+        },
+        {
+          "return": 12.0,
+          "steps": 12
+        },
+        {
+          "return": 16.0,
+          "steps": 16
+        },
+        {
+          "return": 10.0,
+          "steps": 10
+        },
+        {
+          "return": 33.0,
+          "steps": 33
+        },
+        {
+          "return": 14.0,
+          "steps": 14
+        },
+        {
+          "return": 13.0,
+          "steps": 13
+        },
+        {
+          "return": 10.0,
+          "steps": 10
+        },
+        {
+          "return": 12.0,
+          "steps": 12
+        },
+        {
+          "return": 23.0,
+          "steps": 23
+        },
+        {
+          "return": 16.0,
+          "steps": 16
+        },
+        {
+          "return": 39.0,
+          "steps": 39
+        },
+        {
+          "return": 19.0,
+          "steps": 19
+        },
+        {
+          "return": 8.0,
+          "steps": 8
+        },
+        {
+          "return": 16.0,
+          "steps": 16
+        },
+        {
+          "return": 23.0,
+          "steps": 23
+        },
+        {
+          "return": 12.0,
+          "steps": 12
+        },
+        {
+          "return": 13.0,
+          "steps": 13
+        },
+        {
+          "return": 25.0,
+          "steps": 25
+        },
+        {
+          "return": 9.0,
+          "steps": 9
+        },
+        {
+          "return": 79.0,
+          "steps": 79
+        },
+        {
+          "return": 48.0,
+          "steps": 48
+        },
+        {
+          "return": 31.0,
+          "steps": 31
+        },
+        {
+          "return": 13.0,
+          "steps": 13
+        },
+        {
+          "return": 33.0,
+          "steps": 33
+        },
+        {
+          "return": 19.0,
+          "steps": 19
+        },
+        {
+          "return": 16.0,
+          "steps": 16
+        },
+        {
+          "return": 37.0,
+          "steps": 37
+        },
+        {
+          "return": 47.0,
+          "steps": 47
+        },
+        {
+          "return": 45.0,
+          "steps": 45
+        },
+        {
+          "return": 14.0,
+          "steps": 14
+        },
+        {
+          "return": 24.0,
+          "steps": 24
+        },
+        {
+          "return": 51.0,
+          "steps": 51
+        },
+        {
+          "return": 28.0,
+          "steps": 28
+        },
+        {
+          "return": 14.0,
+          "steps": 14
+        },
+        {
+          "return": 34.0,
+          "steps": 34
+        },
+        {
+          "return": 37.0,
+          "steps": 37
+        },
+        {
+          "return": 40.0,
+          "steps": 40
+        },
+        {
+          "return": 39.0,
+          "steps": 39
+        },
+        {
+          "return": 54.0,
+          "steps": 54
+        },
+        {
+          "return": 45.0,
+          "steps": 45
+        },
+        {
+          "return": 15.0,
+          "steps": 15
+        },
+        {
+          "return": 21.0,
+          "steps": 21
+        },
+        {
+          "return": 48.0,
+          "steps": 48
+        },
+        {
+          "return": 22.0,
+          "steps": 22
+        },
+        {
+          "return": 47.0,
+          "steps": 47
+        },
+        {
+          "return": 33.0,
+          "steps": 33
+        },
+        {
+          "return": 20.0,
+          "steps": 20
+        },
+        {
+          "return": 70.0,
+          "steps": 70
+        },
+        {
+          "return": 39.0,
+          "steps": 39
+        },
+        {
+          "return": 48.0,
+          "steps": 48
+        },
+        {
+          "return": 38.0,
+          "steps": 38
+        },
+        {
+          "return": 50.0,
+          "steps": 50
+        },
+        {
+          "return": 63.0,
+          "steps": 63
+        },
+        {
+          "return": 64.0,
+          "steps": 64
+        },
+        {
+          "return": 90.0,
+          "steps": 90
+        },
+        {
+          "return": 11.0,
+          "steps": 11
+        },
+        {
+          "return": 33.0,
+          "steps": 33
+        },
+        {
+          "return": 60.0,
+          "steps": 60
+        },
+        {
+          "return": 136.0,
+          "steps": 136
+        },
+        {
+          "return": 13.0,
+          "steps": 13
+        },
+        {
+          "return": 17.0,
+          "steps": 17
+        },
+        {
+          "return": 49.0,
+          "steps": 49
+        },
+        {
+          "return": 51.0,
+          "steps": 51
+        },
+        {
+          "return": 64.0,
+          "steps": 64
+        },
+        {
+          "return": 86.0,
+          "steps": 86
+        },
+        {
+          "return": 9.0,
+          "steps": 9
+        },
+        {
+          "return": 123.0,
+          "steps": 123
+        },
+        {
+          "return": 40.0,
+          "steps": 40
+        },
+        {
+          "return": 155.0,
+          "steps": 155
+        },
+        {
+          "return": 55.0,
+          "steps": 55
+        },
+        {
+          "return": 100.0,
+          "steps": 100
+        },
+        {
+          "return": 93.0,
+          "steps": 93
+        },
+        {
+          "return": 99.0,
+          "steps": 99
+        },
+        {
+          "return": 55.0,
+          "steps": 55
+        },
+        {
+          "return": 129.0,
+          "steps": 129
+        },
+        {
+          "return": 43.0,
+          "steps": 43
+        },
+        {
+          "return": 267.0,
+          "steps": 267
+        },
+        {
+          "return": 58.0,
+          "steps": 58
+        },
+        {
+          "return": 118.0,
+          "steps": 118
+        },
+        {
+          "return": 156.0,
+          "steps": 156
+        },
+        {
+          "return": 125.0,
+          "steps": 125
+        },
+        {
+          "return": 206.0,
+          "steps": 206
+        },
+        {
+          "return": 160.0,
+          "steps": 160
+        },
+        {
+          "return": 313.0,
+          "steps": 313
+        },
+        {
+          "return": 65.0,
+          "steps": 65
+        },
+        {
+          "return": 282.0,
+          "steps": 282
+        },
+        {
+          "return": 289.0,
+          "steps": 289
+        },
+        {
+          "return": 259.0,
+          "steps": 259
+        },
+        {
+          "return": 273.0,
+          "steps": 273
+        },
+        {
+          "return": 293.0,
+          "steps": 293
+        },
+        {
+          "return": 164.0,
+          "steps": 164
+        },
+        {
+          "return": 173.0,
+          "steps": 173
+        },
+        {
+          "return": 260.0,
+          "steps": 260
+        },
+        {
+          "return": 251.0,
+          "steps": 251
+        },
+        {
+          "return": 250.0,
+          "steps": 250
+        },
+        {
+          "return": 304.0,
+          "steps": 304
+        },
+        {
+          "return": 169.0,
+          "steps": 169
+        },
+        {
+          "return": 288.0,
+          "steps": 288
+        },
+        {
+          "return": 238.0,
+          "steps": 238
+        },
+        {
+          "return": 181.0,
+          "steps": 181
+        },
+        {
+          "return": 321.0,
+          "steps": 321
+        },
+        {
+          "return": 249.0,
+          "steps": 249
+        },
+        {
+          "return": 167.0,
+          "steps": 167
+        },
+        {
+          "return": 304.0,
+          "steps": 304
+        },
+        {
+          "return": 255.0,
+          "steps": 255
+        },
+        {
+          "return": 312.0,
+          "steps": 312
+        },
+        {
+          "return": 252.0,
+          "steps": 252
+        },
+        {
+          "return": 195.0,
+          "steps": 195
+        },
+        {
+          "return": 160.0,
+          "steps": 160
+        },
+        {
+          "return": 256.0,
+          "steps": 256
+        },
+        {
+          "return": 152.0,
+          "steps": 152
+        },
+        {
+          "return": 292.0,
+          "steps": 292
+        },
+        {
+          "return": 327.0,
+          "steps": 327
+        },
+        {
+          "return": 242.0,
+          "steps": 242
+        },
+        {
+          "return": 240.0,
+          "steps": 240
+        },
+        {
+          "return": 243.0,
+          "steps": 243
+        },
+        {
+          "return": 172.0,
+          "steps": 172
+        },
+        {
+          "return": 215.0,
+          "steps": 215
+        },
+        {
+          "return": 242.0,
+          "steps": 242
+        },
+        {
+          "return": 285.0,
+          "steps": 285
+        },
+        {
+          "return": 178.0,
+          "steps": 178
+        },
+        {
+          "return": 223.0,
+          "steps": 223
+        },
+        {
+          "return": 215.0,
+          "steps": 215
+        },
+        {
+          "return": 255.0,
+          "steps": 255
+        },
+        {
+          "return": 263.0,
+          "steps": 263
+        },
+        {
+          "return": 202.0,
+          "steps": 202
+        },
+        {
+          "return": 335.0,
+          "steps": 335
+        },
+        {
+          "return": 235.0,
+          "steps": 235
+        },
+        {
+          "return": 258.0,
+          "steps": 258
+        },
+        {
+          "return": 209.0,
+          "steps": 209
+        },
+        {
+          "return": 189.0,
+          "steps": 189
+        },
+        {
+          "return": 254.0,
+          "steps": 254
+        },
+        {
+          "return": 303.0,
+          "steps": 303
+        },
+        {
+          "return": 279.0,
+          "steps": 279
+        },
+        {
+          "return": 177.0,
+          "steps": 177
+        }
+      ],
+      "validation": [
+        {
+          "endings": [
+            {
+              "terminated": false,
+              "truncated": true
+            },
+            {
+              "terminated": false,
+              "truncated": true
+            },
+            {
+              "terminated": false,
+              "truncated": true
+            },
+            {
+              "terminated": false,
+              "truncated": true
+            },
+            {
+              "terminated": false,
+              "truncated": true
+            },
+            {
+              "terminated": false,
+              "truncated": true
+            },
+            {
+              "terminated": false,
+              "truncated": true
+            },
+            {
+              "terminated": false,
+              "truncated": true
+            },
+            {
+              "terminated": false,
+              "truncated": true
+            },
+            {
+              "terminated": false,
+              "truncated": true
+            },
+            {
+              "terminated": false,
+              "truncated": true
+            },
+            {
+              "terminated": false,
+              "truncated": true
+            },
+            {
+              "terminated": false,
+              "truncated": true
+            },
+            {
+              "terminated": false,
+              "truncated": true
+            },
+            {
+              "terminated": false,
+              "truncated": true
+            },
+            {
+              "terminated": false,
+              "truncated": true
+            },
+            {
+              "terminated": false,
+              "truncated": true
+            },
+            {
+              "terminated": false,
+              "truncated": true
+            },
+            {
+              "terminated": false,
+              "truncated": true
+            },
+            {
+              "terminated": false,
+              "truncated": true
+            }
+          ],
+          "mean_return": 500.0,
+          "reset_seed_start": 1000019,
+          "returns": [
+            500.0,
+            500.0,
+            500.0,
+            500.0,
+            500.0,
+            500.0,
+            500.0,
+            500.0,
+            500.0,
+            500.0,
+            500.0,
+            500.0,
+            500.0,
+            500.0,
+            500.0,
+            500.0,
+            500.0,
+            500.0,
+            500.0,
+            500.0
+          ],
+          "step": 5000
+        },
+        {
+          "endings": [
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            }
+          ],
+          "mean_return": 209.95,
+          "reset_seed_start": 1000019,
+          "returns": [
+            186.0,
+            180.0,
+            218.0,
+            206.0,
+            183.0,
+            193.0,
+            201.0,
+            191.0,
+            227.0,
+            205.0,
+            285.0,
+            176.0,
+            229.0,
+            202.0,
+            220.0,
+            227.0,
+            224.0,
+            200.0,
+            217.0,
+            229.0
+          ],
+          "step": 10000
+        },
+        {
+          "endings": [
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            }
+          ],
+          "mean_return": 228.8,
+          "reset_seed_start": 1000019,
+          "returns": [
+            193.0,
+            189.0,
+            247.0,
+            219.0,
+            191.0,
+            213.0,
+            216.0,
+            207.0,
+            255.0,
+            223.0,
+            240.0,
+            186.0,
+            278.0,
+            223.0,
+            259.0,
+            261.0,
+            250.0,
+            219.0,
+            246.0,
+            261.0
+          ],
+          "step": 15000
+        },
+        {
+          "endings": [
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            },
+            {
+              "terminated": true,
+              "truncated": false
+            }
+          ],
+          "mean_return": 218.95,
+          "reset_seed_start": 1000019,
+          "returns": [
+            182.0,
+            183.0,
+            236.0,
+            207.0,
+            186.0,
+            197.0,
+            205.0,
+            195.0,
+            263.0,
+            212.0,
+            235.0,
+            174.0,
+            255.0,
+            207.0,
+            242.0,
+            254.0,
+            245.0,
+            208.0,
+            238.0,
+            255.0
+          ],
+          "step": 20000
+        }
+      ]
+    }
+  },
+  "qualified": true,
+  "runs": [
+    {
+      "config": {
+        "device": "cpu",
+        "episodes": 1500,
+        "epochs": 30,
+        "evaluation_episodes": 50,
+        "recipe": "dqn",
+        "scope": "CartPole-v1 CPU deep reinforcement learning",
+        "seed": 43,
+        "training_steps": 20000
+      },
+      "created_at": "2026-10-14T04:56:27.735642+00:00",
+      "provenance": {
+        "code": {
+          "files": {
+            ".python-version": "aa0d6581054e6e4ff3f91839deca7a854ad37221b8784d060b42d0f847ff1a3b",
+            "__init__.py": "0d9617e8d49b06405371c4f311b8053f94ba8dbb73079afe27d8dd9a483e785b",
+            "cli.py": "da135810ed85be334dfac5a863384408e7efbbd1694bb32935c5872bf4dfb520",
+            "compute.py": "74c7a35183fc7bf449d09dbf52f5c4f107ebb6fc39502e8a116c82c8f2449461",
+            "data.py": "8b57c116ef3520ac6d80b5782670d8d8a806174fe09595077e05c94e29dd6139",
+            "deep_rl.py": "175eeca7557d090c60099964d451588377f478d53c4156d803e060e878dd0002",
+            "lifecycle.py": "ca67976804735d1eae55c287160cd962bee613e4d7d5bcdfb56144d79e416c5a",
+            "pyproject.toml": "990c659e9676f6d1bd29205813afa03936b78f85a2c300aa763ad4d96e636a6d",
+            "reader.py": "97386cd236a514a7d2df2d3cdca5f7c28735e8db8cd5882c6e6de89008cc7e1d",
+            "recipes.py": "69a462aab7f2bb817dcac2100a3752dc299cfa7a007e1553ff84158e2dd8e588",
+            "records.py": "77be90f553fea21df7f63fc2f619155bc1498beb656872465f93290c2d9f02fd",
+            "tabular.py": "d5694dd945ac4c880814b4af0f73fa03f13ba724af41cf975ff5cbcb42ea3ba3",
+            "uv.lock": "1f0ee10b2ba7a521b6ca2a37908d2bfc7cd2de35a7659913c0bd43ca8ce511d6"
+          },
+          "sha256": "046f3b49819dbbecfeeef73fcf1c43903a499bbaf15957e2d5557596acc6b403"
+        },
+        "environment": {
+          "dependencies": {
+            "canlilabs": "0.1.0",
+            "gymnasium": "1.4.0",
+            "numpy": "2.5.4",
+            "scikit-learn": "1.9.1",
+            "torch": "2.14.1"
+          },
+          "machine": "arm64",
+          "platform": "Darwin",
+          "python": "3.12.13"
+        },
+        "worker_lease": {
+          "device": 16777234,
+          "file": ".worker.lock",
+          "inode": 241712162,
+          "protocol": "posix-flock.v2"
+        }
+      },
+      "result": {
+        "artifacts": {
+          "evaluation-returns.json": "ffce208f92d9e93180eb9fb2d7f48c736609b7f188db09ed48ea988c3ace0cdf",
+          "learning-curves.json": "f013b4fcae22cb2a88bb70c1483f873063849e6b5d1bb7242ddca4a332fbe03d",
+          "model-card.json": "8bd5e081a256ef93ec51ee9a81466a1902d7a280b246e5d9023ddbfb737d924e",
+          "q-network.pt": "37ef1be0423b76291420f5ec275d3eb4a99a5a31dac8e15d540e8a2d302ed5b0"
+        },
+        "duration_seconds": 1.6433005830040202,
+        "environment": {
+          "environment_licence": "MIT",
+          "environment_source_sha256": "8c034275500ff9c60b8653273905cda0ba45aff1ee8142465516659a06ed67e0",
+          "evaluation_episodes": 50,
+          "evaluation_seed_start": 2000043,
+          "gymnasium": "1.4.0",
+          "id": "CartPole-v1",
+          "max_episode_steps": 500,
+          "random_policy_action_seed": 3000043,
+          "sutton_barto_reward": false,
+          "training_reset_count": 314,
+          "training_seed_start": 43,
+          "transition_source": "generated by the pinned Gymnasium CartPole simulator",
+          "validation_episodes": 20,
+          "validation_seed_start": 1000043
+        },
+        "evaluation_protocol_sha256": "47eb891fc68bc691ac7527b7613d41ceaefb182dbdee3af126396247a833b006",
+        "metrics": {
+          "evaluation": {
+            "episodes": 50,
+            "maximum_return": 400.0,
+            "mean_return": 242.12,
+            "minimum_return": 182.0,
+            "std_return": 45.577312651926164
+          },
+          "paired_return_improvement_95_bootstrap_interval": [
+            208.579,
+            234.08100000000002
+          ],
+          "random_policy_baseline": {
+            "episodes": 50,
+            "maximum_return": 65.0,
+            "mean_return": 21.28,
+            "minimum_return": 9.0,
+            "std_return": 12.235845633520674
+          },
+          "return_improvement": 220.84,
+          "uncertainty_scope": "Held-out reset episodes for one fixed trained policy; not training-seed uncertainty."
+        },
+        "model": {
+          "actions": 2,
+          "architecture": [
+            4,
+            64,
+            64,
+            2
+          ],
+          "checkpoint": "q-network.pt",
+          "kind": "dqn",
+          "observations": 4,
+          "reload_verified": true,
+          "selection": "Highest mean return on 20 fixed validation resets, earliest tie; final test untouched.",
+          "task": "reinforcement_learning"
+        },
+        "training": {
+          "batch_size": 64,
+          "completed_episodes": 313,
+          "cpu_threads": 1,
+          "epsilon_decay_steps": 12000,
+          "epsilon_end": 0.05,
+          "epsilon_start": 1.0,
+          "gamma": 0.99,
+          "gradient_updates": 4873,
+          "learning_rate": 0.0005,
+          "learning_starts": 512,
+          "max_trial_seconds": 300,
+          "replay_capacity": 10000,
+          "replay_size": 10000,
+          "selected_step": 20000,
+          "steps": 20000,
+          "target_tau": 0.01,
+          "terminated_episodes": 313,
+          "train_every": 4,
+          "truncated_episodes": 0,
+          "validation_episodes": 20,
+          "validation_mean_return": 240.95
+        }
+      },
+      "run_id": "a43ce3b03d74454d91d5757d8dec7d7f",
+      "state": "succeeded"
+    },
+    {
+      "config": {
+        "device": "cpu",
+        "episodes": 1500,
+        "epochs": 30,
+        "evaluation_episodes": 50,
+        "recipe": "dqn",
+        "scope": "CartPole-v1 CPU deep reinforcement learning",
+        "seed": 19,
+        "training_steps": 20000
+      },
+      "created_at": "2026-10-14T04:56:25.741637+00:00",
+      "provenance": {
+        "code": {
+          "files": {
+            ".python-version": "aa0d6581054e6e4ff3f91839deca7a854ad37221b8784d060b42d0f847ff1a3b",
+            "__init__.py": "0d9617e8d49b06405371c4f311b8053f94ba8dbb73079afe27d8dd9a483e785b",
+            "cli.py": "da135810ed85be334dfac5a863384408e7efbbd1694bb32935c5872bf4dfb520",
+            "compute.py": "74c7a35183fc7bf449d09dbf52f5c4f107ebb6fc39502e8a116c82c8f2449461",
+            "data.py": "8b57c116ef3520ac6d80b5782670d8d8a806174fe09595077e05c94e29dd6139",
+            "deep_rl.py": "175eeca7557d090c60099964d451588377f478d53c4156d803e060e878dd0002",
+            "lifecycle.py": "ca67976804735d1eae55c287160cd962bee613e4d7d5bcdfb56144d79e416c5a",
+            "pyproject.toml": "990c659e9676f6d1bd29205813afa03936b78f85a2c300aa763ad4d96e636a6d",
+            "reader.py": "97386cd236a514a7d2df2d3cdca5f7c28735e8db8cd5882c6e6de89008cc7e1d",
+            "recipes.py": "69a462aab7f2bb817dcac2100a3752dc299cfa7a007e1553ff84158e2dd8e588",
+            "records.py": "77be90f553fea21df7f63fc2f619155bc1498beb656872465f93290c2d9f02fd",
+            "tabular.py": "d5694dd945ac4c880814b4af0f73fa03f13ba724af41cf975ff5cbcb42ea3ba3",
+            "uv.lock": "1f0ee10b2ba7a521b6ca2a37908d2bfc7cd2de35a7659913c0bd43ca8ce511d6"
+          },
+          "sha256": "046f3b49819dbbecfeeef73fcf1c43903a499bbaf15957e2d5557596acc6b403"
+        },
+        "environment": {
+          "dependencies": {
+            "canlilabs": "0.1.0",
+            "gymnasium": "1.4.0",
+            "numpy": "2.5.4",
+            "scikit-learn": "1.9.1",
+            "torch": "2.14.1"
+          },
+          "machine": "arm64",
+          "platform": "Darwin",
+          "python": "3.12.13"
+        },
+        "worker_lease": {
+          "device": 16777234,
+          "file": ".worker.lock",
+          "inode": 241712129,
+          "protocol": "posix-flock.v2"
+        }
+      },
+      "result": {
+        "artifacts": {
+          "evaluation-returns.json": "3255028928fc417218b3f7bfe4721f2eb65775d36aa9a6514ae7ec6f4815897c",
+          "learning-curves.json": "7f927b9cec81191b5079726860bc57fccdc9cce2d56b3e4a1f57e4b632e45a61",
+          "model-card.json": "227cc650707882709966145256b56922d9316f7b9591743c976d2fbc549be8c4",
+          "q-network.pt": "68c6d5ff28a010726480b42d551ac4c37bb3b5e78293ee6c0dd5956396c6c754"
+        },
+        "duration_seconds": 1.9896850830409676,
+        "environment": {
+          "environment_licence": "MIT",
+          "environment_source_sha256": "8c034275500ff9c60b8653273905cda0ba45aff1ee8142465516659a06ed67e0",
+          "evaluation_episodes": 50,
+          "evaluation_seed_start": 2000019,
+          "gymnasium": "1.4.0",
+          "id": "CartPole-v1",
+          "max_episode_steps": 500,
+          "random_policy_action_seed": 3000019,
+          "sutton_barto_reward": false,
+          "training_reset_count": 289,
+          "training_seed_start": 19,
+          "transition_source": "generated by the pinned Gymnasium CartPole simulator",
+          "validation_episodes": 20,
+          "validation_seed_start": 1000019
+        },
+        "evaluation_protocol_sha256": "6db622026728fabf48082875592d9fb685b5e29f32b7c2325e89b6301684ecdc",
+        "metrics": {
+          "evaluation": {
+            "episodes": 50,
+            "maximum_return": 500.0,
+            "mean_return": 500.0,
+            "minimum_return": 500.0,
+            "std_return": 0.0
+          },
+          "paired_return_improvement_95_bootstrap_interval": [
+            475.46,
+            481.1605
+          ],
+          "random_policy_baseline": {
+            "episodes": 50,
+            "maximum_return": 54.0,
+            "mean_return": 21.5,
+            "minimum_return": 11.0,
+            "std_return": 10.496355052481556
+          },
+          "return_improvement": 478.5,
+          "uncertainty_scope": "Held-out reset episodes for one fixed trained policy; not training-seed uncertainty."
+        },
+        "model": {
+          "actions": 2,
+          "architecture": [
+            4,
+            64,
+            64,
+            2
+          ],
+          "checkpoint": "q-network.pt",
+          "kind": "dqn",
+          "observations": 4,
+          "reload_verified": true,
+          "selection": "Highest mean return on 20 fixed validation resets, earliest tie; final test untouched.",
+          "task": "reinforcement_learning"
+        },
+        "training": {
+          "batch_size": 64,
+          "completed_episodes": 288,
+          "cpu_threads": 1,
+          "epsilon_decay_steps": 12000,
+          "epsilon_end": 0.05,
+          "epsilon_start": 1.0,
+          "gamma": 0.99,
+          "gradient_updates": 4873,
+          "learning_rate": 0.0005,
+          "learning_starts": 512,
+          "max_trial_seconds": 300,
+          "replay_capacity": 10000,
+          "replay_size": 10000,
+          "selected_step": 5000,
+          "steps": 20000,
+          "target_tau": 0.01,
+          "terminated_episodes": 288,
+          "train_every": 4,
+          "truncated_episodes": 0,
+          "validation_episodes": 20,
+          "validation_mean_return": 500.0
+        }
+      },
+      "run_id": "f2393a31a22f4f178ee81487fe9a0ecd",
+      "state": "succeeded"
+    },
+    {
+      "config": {
+        "device": "cpu",
+        "episodes": 1500,
+        "epochs": 30,
+        "evaluation_episodes": 50,
+        "recipe": "dqn",
+        "scope": "CartPole-v1 CPU deep reinforcement learning",
+        "seed": 7,
+        "training_steps": 20000
+      },
+      "created_at": "2026-10-14T04:56:23.551651+00:00",
+      "provenance": {
+        "code": {
+          "files": {
+            ".python-version": "aa0d6581054e6e4ff3f91839deca7a854ad37221b8784d060b42d0f847ff1a3b",
+            "__init__.py": "0d9617e8d49b06405371c4f311b8053f94ba8dbb73079afe27d8dd9a483e785b",
+            "cli.py": "da135810ed85be334dfac5a863384408e7efbbd1694bb32935c5872bf4dfb520",
+            "compute.py": "74c7a35183fc7bf449d09dbf52f5c4f107ebb6fc39502e8a116c82c8f2449461",
+            "data.py": "8b57c116ef3520ac6d80b5782670d8d8a806174fe09595077e05c94e29dd6139",
+            "deep_rl.py": "175eeca7557d090c60099964d451588377f478d53c4156d803e060e878dd0002",
+            "lifecycle.py": "ca67976804735d1eae55c287160cd962bee613e4d7d5bcdfb56144d79e416c5a",
+            "pyproject.toml": "990c659e9676f6d1bd29205813afa03936b78f85a2c300aa763ad4d96e636a6d",
+            "reader.py": "97386cd236a514a7d2df2d3cdca5f7c28735e8db8cd5882c6e6de89008cc7e1d",
+            "recipes.py": "69a462aab7f2bb817dcac2100a3752dc299cfa7a007e1553ff84158e2dd8e588",
+            "records.py": "77be90f553fea21df7f63fc2f619155bc1498beb656872465f93290c2d9f02fd",
+            "tabular.py": "d5694dd945ac4c880814b4af0f73fa03f13ba724af41cf975ff5cbcb42ea3ba3",
+            "uv.lock": "1f0ee10b2ba7a521b6ca2a37908d2bfc7cd2de35a7659913c0bd43ca8ce511d6"
+          },
+          "sha256": "046f3b49819dbbecfeeef73fcf1c43903a499bbaf15957e2d5557596acc6b403"
+        },
+        "environment": {
+          "dependencies": {
+            "canlilabs": "0.1.0",
+            "gymnasium": "1.4.0",
+            "numpy": "2.5.4",
+            "scikit-learn": "1.9.1",
+            "torch": "2.14.1"
+          },
+          "machine": "arm64",
+          "platform": "Darwin",
+          "python": "3.12.13"
+        },
+        "worker_lease": {
+          "device": 16777234,
+          "file": ".worker.lock",
+          "inode": 241712001,
+          "protocol": "posix-flock.v2"
+        }
+      },
+      "result": {
+        "artifacts": {
+          "evaluation-returns.json": "a35b18c9e3064568f2944534cce174cd51e4e55e1faff0e50078ae93d9fb5f58",
+          "learning-curves.json": "bd8b1a7fa65c98eed61c993830c7540e987ff87db1a7c845cf2d0700858543ea",
+          "model-card.json": "11c4c42e1d4bb96d6e78ff5b01ee92e32613f7346578ab43e4c9289b2396dfeb",
+          "q-network.pt": "d6487dd07db8aeb8f67eddf0b3f2bcf3df593dc4dfd95efdb9a574cdeeb585a4"
+        },
+        "duration_seconds": 2.1854262499837205,
+        "environment": {
+          "environment_licence": "MIT",
+          "environment_source_sha256": "8c034275500ff9c60b8653273905cda0ba45aff1ee8142465516659a06ed67e0",
+          "evaluation_episodes": 50,
+          "evaluation_seed_start": 2000007,
+          "gymnasium": "1.4.0",
+          "id": "CartPole-v1",
+          "max_episode_steps": 500,
+          "random_policy_action_seed": 3000007,
+          "sutton_barto_reward": false,
+          "training_reset_count": 316,
+          "training_seed_start": 7,
+          "transition_source": "generated by the pinned Gymnasium CartPole simulator",
+          "validation_episodes": 20,
+          "validation_seed_start": 1000007
+        },
+        "evaluation_protocol_sha256": "f08a2d2c6294645e2c97a4c8c8810a13ff40b35e4fa3b7b50ca172d4c5712e06",
+        "metrics": {
+          "evaluation": {
+            "episodes": 50,
+            "maximum_return": 329.0,
+            "mean_return": 178.94,
+            "minimum_return": 121.0,
+            "std_return": 43.21442030675616
+          },
+          "paired_return_improvement_95_bootstrap_interval": [
+            145.4395,
+            169.10049999999998
+          ],
+          "random_policy_baseline": {
+            "episodes": 50,
+            "maximum_return": 61.0,
+            "mean_return": 22.3,
+            "minimum_return": 10.0,
+            "std_return": 10.379040889982
+          },
+          "return_improvement": 156.64,
+          "uncertainty_scope": "Held-out reset episodes for one fixed trained policy; not training-seed uncertainty."
+        },
+        "model": {
+          "actions": 2,
+          "architecture": [
+            4,
+            64,
+            64,
+            2
+          ],
+          "checkpoint": "q-network.pt",
+          "kind": "dqn",
+          "observations": 4,
+          "reload_verified": true,
+          "selection": "Highest mean return on 20 fixed validation resets, earliest tie; final test untouched.",
+          "task": "reinforcement_learning"
+        },
+        "training": {
+          "batch_size": 64,
+          "completed_episodes": 315,
+          "cpu_threads": 1,
+          "epsilon_decay_steps": 12000,
+          "epsilon_end": 0.05,
+          "epsilon_start": 1.0,
+          "gamma": 0.99,
+          "gradient_updates": 4873,
+          "learning_rate": 0.0005,
+          "learning_starts": 512,
+          "max_trial_seconds": 300,
+          "replay_capacity": 10000,
+          "replay_size": 10000,
+          "selected_step": 15000,
+          "steps": 20000,
+          "target_tau": 0.01,
+          "terminated_episodes": 315,
+          "train_every": 4,
+          "truncated_episodes": 0,
+          "validation_episodes": 20,
+          "validation_mean_return": 201.2
+        }
+      },
+      "run_id": "6e36592299564186ae6d991959b3b814",
+      "state": "succeeded"
+    }
+  ],
+  "schema": "canlilabs.deep-rl-validation.v1",
+  "scope": "CartPole functional CPU DQN learning, per-policy held-out reset uncertainty. No strongest-algorithm, solved-task, accelerator or production claim.",
+  "selection_policy": "All seeds and hyperparameters fixed; checkpoints selected only on validation resets.",
+  "source": {
+    "files": {
+      ".python-version": "aa0d6581054e6e4ff3f91839deca7a854ad37221b8784d060b42d0f847ff1a3b",
+      "__init__.py": "0d9617e8d49b06405371c4f311b8053f94ba8dbb73079afe27d8dd9a483e785b",
+      "cli.py": "da135810ed85be334dfac5a863384408e7efbbd1694bb32935c5872bf4dfb520",
+      "compute.py": "74c7a35183fc7bf449d09dbf52f5c4f107ebb6fc39502e8a116c82c8f2449461",
+      "data.py": "8b57c116ef3520ac6d80b5782670d8d8a806174fe09595077e05c94e29dd6139",
+      "deep_rl.py": "175eeca7557d090c60099964d451588377f478d53c4156d803e060e878dd0002",
+      "lifecycle.py": "ca67976804735d1eae55c287160cd962bee613e4d7d5bcdfb56144d79e416c5a",
+      "pyproject.toml": "990c659e9676f6d1bd29205813afa03936b78f85a2c300aa763ad4d96e636a6d",
+      "reader.py": "97386cd236a514a7d2df2d3cdca5f7c28735e8db8cd5882c6e6de89008cc7e1d",
+      "recipes.py": "69a462aab7f2bb817dcac2100a3752dc299cfa7a007e1553ff84158e2dd8e588",
+      "records.py": "77be90f553fea21df7f63fc2f619155bc1498beb656872465f93290c2d9f02fd",
+      "tabular.py": "d5694dd945ac4c880814b4af0f73fa03f13ba724af41cf975ff5cbcb42ea3ba3",
+      "uv.lock": "1f0ee10b2ba7a521b6ca2a37908d2bfc7cd2de35a7659913c0bd43ca8ce511d6"
+    },
+    "sha256": "046f3b49819dbbecfeeef73fcf1c43903a499bbaf15957e2d5557596acc6b403"
+  },
+  "validation_script_sha256": "0a0c02186f329d8e2ae573ea7241b88cfa3f6a60aafbd464e9a28bb26f96d558",
+  "workspace_total_trials": 3
+}

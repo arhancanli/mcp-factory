@@ -1,0 +1,531 @@
+{
+  "schema": "canlilabs.deep-rl-ci-validation.v1",
+  "checked_at": "2026-10-14T05:03:12.927727+00:00",
+  "tested_commit": "8347d7c80f551f4aa6d55b68e3b0a8c73f3d4db7",
+  "pull_request": "https://github.com/arhancanli/mcp-factory/pull/15",
+  "source": {
+    "sha256": "046f3b49819dbbecfeeef73fcf1c43903a499bbaf15957e2d5557596acc6b403",
+    "files": {
+      "__init__.py": "0d9617e8d49b06405371c4f311b8053f94ba8dbb73079afe27d8dd9a483e785b",
+      "cli.py": "da135810ed85be334dfac5a863384408e7efbbd1694bb32935c5872bf4dfb520",
+      "compute.py": "74c7a35183fc7bf449d09dbf52f5c4f107ebb6fc39502e8a116c82c8f2449461",
+      "data.py": "8b57c116ef3520ac6d80b5782670d8d8a806174fe09595077e05c94e29dd6139",
+      "deep_rl.py": "175eeca7557d090c60099964d451588377f478d53c4156d803e060e878dd0002",
+      "lifecycle.py": "ca67976804735d1eae55c287160cd962bee613e4d7d5bcdfb56144d79e416c5a",
+      "reader.py": "97386cd236a514a7d2df2d3cdca5f7c28735e8db8cd5882c6e6de89008cc7e1d",
+      "recipes.py": "69a462aab7f2bb817dcac2100a3752dc299cfa7a007e1553ff84158e2dd8e588",
+      "records.py": "77be90f553fea21df7f63fc2f619155bc1498beb656872465f93290c2d9f02fd",
+      "tabular.py": "d5694dd945ac4c880814b4af0f73fa03f13ba724af41cf975ff5cbcb42ea3ba3",
+      "pyproject.toml": "990c659e9676f6d1bd29205813afa03936b78f85a2c300aa763ad4d96e636a6d",
+      "uv.lock": "1f0ee10b2ba7a521b6ca2a37908d2bfc7cd2de35a7659913c0bd43ca8ce511d6",
+      ".python-version": "aa0d6581054e6e4ff3f91839deca7a854ad37221b8784d060b42d0f847ff1a3b"
+    }
+  },
+  "checks": [
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-10-14T04:57:31Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/arhancanli/mcp-factory/actions/runs/38514075576/job/115688815511",
+      "name": "Plan independent package checks",
+      "startedAt": "2026-10-14T04:57:24Z",
+      "status": "COMPLETED",
+      "workflowName": "CI"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-10-14T04:58:38Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/arhancanli/mcp-factory/actions/runs/38514075562/job/115688815512",
+      "name": "analyze",
+      "startedAt": "2026-10-14T04:57:24Z",
+      "status": "COMPLETED",
+      "workflowName": "CodeQL"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-10-14T04:59:28Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/arhancanli/mcp-factory/actions/runs/38514075653/job/115688815943",
+      "name": "CPU laboratory on macos-15",
+      "startedAt": "2026-10-14T04:57:31Z",
+      "status": "COMPLETED",
+      "workflowName": "Laboratory"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-10-14T04:59:27Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/arhancanli/mcp-factory/actions/runs/38514075653/job/115688815756",
+      "name": "CPU laboratory on ubuntu-24.04",
+      "startedAt": "2026-10-14T04:57:24Z",
+      "status": "COMPLETED",
+      "workflowName": "Laboratory"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-10-14T05:00:22Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/arhancanli/mcp-factory/actions/runs/38514075576/job/115688815751",
+      "name": "Gate on Node 20",
+      "startedAt": "2026-10-14T04:57:24Z",
+      "status": "COMPLETED",
+      "workflowName": "CI"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-10-14T04:59:48Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/arhancanli/mcp-factory/actions/runs/38514075576/job/115688815783",
+      "name": "Gate on Node 22",
+      "startedAt": "2026-10-14T04:57:24Z",
+      "status": "COMPLETED",
+      "workflowName": "CI"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-10-14T05:00:02Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/arhancanli/mcp-factory/actions/runs/38514075576/job/115688815687",
+      "name": "Gate on Node 24",
+      "startedAt": "2026-10-14T04:57:24Z",
+      "status": "COMPLETED",
+      "workflowName": "CI"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-10-14T05:00:22Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/arhancanli/mcp-factory/actions/runs/38514075576/job/115688856524",
+      "name": "Standalone package shard 1",
+      "startedAt": "2026-10-14T04:57:33Z",
+      "status": "COMPLETED",
+      "workflowName": "CI"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-10-14T05:00:28Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/arhancanli/mcp-factory/actions/runs/38514075576/job/115689605581",
+      "name": "Every server works as its own repository",
+      "startedAt": "2026-10-14T05:00:24Z",
+      "status": "COMPLETED",
+      "workflowName": "CI"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-10-14T04:58:30Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/arhancanli/mcp-factory/runs/115689104233",
+      "name": "CodeQL",
+      "startedAt": "2026-10-14T04:58:28Z",
+      "status": "COMPLETED",
+      "workflowName": ""
+    }
+  ],
+  "platforms": [
+    {
+      "platform": "macos-15",
+      "profile": {
+        "dependencies": {
+          "canlilabs": "0.1.0",
+          "gymnasium": "1.4.0",
+          "numpy": "2.5.4",
+          "scikit-learn": "1.9.1",
+          "torch": "2.14.1"
+        },
+        "device": "cpu",
+        "gpu_packages": [],
+        "installed_packages": [
+          "canlilabs",
+          "cloudpickle",
+          "farama-notifications",
+          "filelock",
+          "fsspec",
+          "gymnasium",
+          "iniconfig",
+          "jinja2",
+          "joblib",
+          "markupsafe",
+          "mpmath",
+          "narwhals",
+          "networkx",
+          "numpy",
+          "packaging",
+          "pluggy",
+          "pygments",
+          "pytest",
+          "ruff",
+          "scikit-learn",
+          "scipy",
+          "setuptools",
+          "sympy",
+          "threadpoolctl",
+          "torch",
+          "typing-extensions"
+        ],
+        "lock_sha256": "1f0ee10b2ba7a521b6ca2a37908d2bfc7cd2de35a7659913c0bd43ca8ce511d6",
+        "machine": "arm64",
+        "platform": "Darwin",
+        "python": "3.12.13",
+        "python_pin_sha256": "aa0d6581054e6e4ff3f91839deca7a854ad37221b8784d060b42d0f847ff1a3b",
+        "schema": "canlilabs.cpu-environment.v1",
+        "torch_cuda_built": false,
+        "torch_cuda_version": null
+      },
+      "behavioral_tests": 54,
+      "real_mcp_integrations": 3,
+      "frozen_tasks": 10,
+      "frozen_mcp_calls": 14,
+      "successful_actual_trials": 24,
+      "deep_rl_trials": [
+        {
+          "seed": 7,
+          "mean_return": 178.06,
+          "random_mean_return": 22.3,
+          "selected_step": 15000,
+          "seconds": 7.974473458000034
+        },
+        {
+          "seed": 19,
+          "mean_return": 500.0,
+          "random_mean_return": 21.5,
+          "selected_step": 5000,
+          "seconds": 10.129204458000004
+        },
+        {
+          "seed": 43,
+          "mean_return": 252.02,
+          "random_mean_return": 21.28,
+          "selected_step": 20000,
+          "seconds": 8.082631375000005
+        }
+      ],
+      "evidence": [
+        {
+          "path": "docs/goal/evidence/2026-10-14-deep-rl-ci/macos-15/ci-cpu-environment.json",
+          "sha256": "13c1a40382e0728e163f58af2b694bc73409c959cb501f95779bed57b145a740"
+        },
+        {
+          "path": "docs/goal/evidence/2026-10-14-deep-rl-ci/macos-15/ci-cpu-validation.json",
+          "sha256": "d40ae700ffa8b6db1b1ec18ac4fcb865ed0b72ca5fba80753acccb995c1aec55"
+        },
+        {
+          "path": "docs/goal/evidence/2026-10-14-deep-rl-ci/macos-15/ci-deep-rl-validation.json",
+          "sha256": "77ab43dbee3f06a82b27d2de7b98f4ae1a9a8ec2393471c579d11def76dd9532"
+        },
+        {
+          "path": "docs/goal/evidence/2026-10-14-deep-rl-ci/macos-15/ci-frozen-evaluation.json",
+          "sha256": "d059f5be37c434a0cef36b224d32181879592f6892deeb21d6f52f9eeec8c86c"
+        },
+        {
+          "path": "docs/goal/evidence/2026-10-14-deep-rl-ci/macos-15/ci-public-cpu-validation.json",
+          "sha256": "65707c89729da824b26259048a26fbcc7f87cf420f9787eed3a9b379cb3087b1"
+        }
+      ],
+      "raw_log_sha256": "1042fe909963a6ba189c0459db8217e39b0d5e80029827f2044db511189a3e20"
+    },
+    {
+      "platform": "ubuntu-24.04",
+      "profile": {
+        "dependencies": {
+          "canlilabs": "0.1.0",
+          "gymnasium": "1.4.0",
+          "numpy": "2.5.4",
+          "scikit-learn": "1.9.1",
+          "torch": "2.14.1+cpu"
+        },
+        "device": "cpu",
+        "gpu_packages": [],
+        "installed_packages": [
+          "canlilabs",
+          "cloudpickle",
+          "farama-notifications",
+          "filelock",
+          "fsspec",
+          "gymnasium",
+          "iniconfig",
+          "jinja2",
+          "joblib",
+          "markupsafe",
+          "mpmath",
+          "narwhals",
+          "networkx",
+          "numpy",
+          "packaging",
+          "pluggy",
+          "pygments",
+          "pytest",
+          "ruff",
+          "scikit-learn",
+          "scipy",
+          "setuptools",
+          "sympy",
+          "threadpoolctl",
+          "torch",
+          "typing-extensions"
+        ],
+        "lock_sha256": "1f0ee10b2ba7a521b6ca2a37908d2bfc7cd2de35a7659913c0bd43ca8ce511d6",
+        "machine": "x86_64",
+        "platform": "Linux",
+        "python": "3.12.13",
+        "python_pin_sha256": "aa0d6581054e6e4ff3f91839deca7a854ad37221b8784d060b42d0f847ff1a3b",
+        "schema": "canlilabs.cpu-environment.v1",
+        "torch_cuda_built": false,
+        "torch_cuda_version": null
+      },
+      "behavioral_tests": 54,
+      "real_mcp_integrations": 3,
+      "frozen_tasks": 10,
+      "frozen_mcp_calls": 14,
+      "successful_actual_trials": 24,
+      "deep_rl_trials": [
+        {
+          "seed": 7,
+          "mean_return": 193.18,
+          "random_mean_return": 22.3,
+          "selected_step": 10000,
+          "seconds": 8.375516551000004
+        },
+        {
+          "seed": 19,
+          "mean_return": 500.0,
+          "random_mean_return": 21.5,
+          "selected_step": 5000,
+          "seconds": 8.716916776999994
+        },
+        {
+          "seed": 43,
+          "mean_return": 221.9,
+          "random_mean_return": 21.28,
+          "selected_step": 15000,
+          "seconds": 7.59617487700001
+        }
+      ],
+      "evidence": [
+        {
+          "path": "docs/goal/evidence/2026-10-14-deep-rl-ci/ubuntu-24.04/ci-cpu-environment.json",
+          "sha256": "6727b61f72aab49ce932230c1856157c4eae5743ecc07d8bec7ebd4df715cbd7"
+        },
+        {
+          "path": "docs/goal/evidence/2026-10-14-deep-rl-ci/ubuntu-24.04/ci-cpu-validation.json",
+          "sha256": "6ef899019c8b2618c9050600aa335c3ce6d5822f03abf587e14932781332d31d"
+        },
+        {
+          "path": "docs/goal/evidence/2026-10-14-deep-rl-ci/ubuntu-24.04/ci-deep-rl-validation.json",
+          "sha256": "0d350c964156741997e73aa3e46d5c90a728e8b46e5f47679cafa33b04495495"
+        },
+        {
+          "path": "docs/goal/evidence/2026-10-14-deep-rl-ci/ubuntu-24.04/ci-frozen-evaluation.json",
+          "sha256": "d6bd858c771b61f5cd6f3eeb58899c9b626187d528c83c12ec10246b3f2ca2cf"
+        },
+        {
+          "path": "docs/goal/evidence/2026-10-14-deep-rl-ci/ubuntu-24.04/ci-public-cpu-validation.json",
+          "sha256": "66857cef0f7cde5907e0d0b990a6cd53170c8d55ab9dafc29a96f005db2cfd36"
+        }
+      ],
+      "raw_log_sha256": "d01e408968c100cb36b1becaccff34bf18555da85ea3c0b4a7834f09af7182bd"
+    }
+  ],
+  "factory_tests": 307,
+  "standalone_packages": [
+    {
+      "name": "actions-check",
+      "tree": "ba9ecd7e06df5ff3c33c8e920f5493f5e07d1c52",
+      "tests": 8,
+      "initialize": true,
+      "tools_list": true,
+      "packed_integrity": "sha512-qjDNxjb75Wu2bB4puKAboMadvFkyO5BDrGpRBmoc2fd3Xj4vaorUdcONxmke3AWFmCPlP9+7rNv0zAi/S7VEyw==",
+      "duration_ms": 5874
+    },
+    {
+      "name": "citation-check",
+      "tree": "79d21887fa4bd7eba43648106a8a44895bb3b05d",
+      "tests": 24,
+      "initialize": true,
+      "tools_list": true,
+      "packed_integrity": "sha512-+gT13tNOZNPclfTkjrTPf0Qhs0OuQa4qMqyrFjRnbc/Qw7z3uzxOARS0diRCxzoWXIPRMSHQHUu0gtf62YY+ZQ==",
+      "duration_ms": 15909
+    },
+    {
+      "name": "config-check",
+      "tree": "80416339796c9b61810649badfa6665da192d8e6",
+      "tests": 23,
+      "initialize": true,
+      "tools_list": true,
+      "packed_integrity": "sha512-k8Rx6ke93tRSkVefYN8Fb95HmzwfyFySBtVauKYCg4YxDPIZit1rL8nsdg3kI/qfoPDqZ5jLTvxGV2jZ59w+UA==",
+      "duration_ms": 7105
+    },
+    {
+      "name": "contact-check",
+      "tree": "63f2d42f2841343a2ea0d09c633fdedd20d91104",
+      "tests": 6,
+      "initialize": true,
+      "tools_list": true,
+      "packed_integrity": "sha512-6nvJLj9PCVu/vZUuwrin/0mzHz6lp0dgGSuTF+alorQOB2dxu1VgvK4T16BWlvQw9YWTDLyajUlDs8r3eYGc4A==",
+      "duration_ms": 5207
+    },
+    {
+      "name": "cron-check",
+      "tree": "fa6849ebed5df7a4478eed4c20bbd3957fb1de5f",
+      "tests": 6,
+      "initialize": true,
+      "tools_list": true,
+      "packed_integrity": "sha512-kwGt12if68t1jPdcsC1F42VKHFs8QONj4DVWE9nLgEduk6r2gM1uCtEX7L2Qc2QX4MTHLXfhCylVw8JeTstxVQ==",
+      "duration_ms": 4417
+    },
+    {
+      "name": "dockerfile-check",
+      "tree": "20ca7215b7b03e77c668e3935d2baba60e50bdc6",
+      "tests": 10,
+      "initialize": true,
+      "tools_list": true,
+      "packed_integrity": "sha512-sr2O/FZFUmjJsL6nEomtMu4wD063zgOazvlBrD3YsxWVF2P1Jmpllm5+Cc00YC5olAldp5GHwWKkP+enC55aMg==",
+      "duration_ms": 4548
+    },
+    {
+      "name": "domain-health",
+      "tree": "d0c78553de227d17c052f62fc3286bdb78159f51",
+      "tests": 11,
+      "initialize": true,
+      "tools_list": true,
+      "packed_integrity": "sha512-60lt5oCiB6UePJTp34zhxmYe6dIUiLHk9WI+zzU4lrSVJVV02vo0y2ksoqNx4pH/Vc+PZhQRzcIy1LjYz/fVMA==",
+      "duration_ms": 7831
+    },
+    {
+      "name": "drug-label",
+      "tree": "dbef05abcc3dda4326279cd302023ca13e4ee8cc",
+      "tests": 13,
+      "initialize": true,
+      "tools_list": true,
+      "packed_integrity": "sha512-Bd/uMvb4ihOzq0DDdgZm05FGL93HW07Ajea/d+hBIq6bBdhBOfpgoabD2nm+tgt9Tsbh/QKbd5M1N/H/VNrv1Q==",
+      "duration_ms": 5798
+    },
+    {
+      "name": "end-of-life",
+      "tree": "f6037f979fd675d6dd134de6e00e7714c574b5c3",
+      "tests": 9,
+      "initialize": true,
+      "tools_list": true,
+      "packed_integrity": "sha512-+vrn7Gh5q/YAKVRAhKOGaUt3Rbb39LsNwYQ7IGK+vBGCiTWo1lIIhPeZUZcvv3wOCjCBML1Tfe1CRrVs7bfehw==",
+      "duration_ms": 5753
+    },
+    {
+      "name": "internet-standards",
+      "tree": "a1f1dd9583c568be62ced2873aae4b66098be53b",
+      "tests": 19,
+      "initialize": true,
+      "tools_list": true,
+      "packed_integrity": "sha512-caZa69mzkhvmRkBv3L4lujdUkROwvkLgjTgTwugnLRToQY7jcNGlU3TCf8/xkHRDZdZ2p8kJ0NUHZ9iMQiyJVg==",
+      "duration_ms": 4549
+    },
+    {
+      "name": "kube-check",
+      "tree": "11baa60876d55b04d872e356c7db7f26c30f5903",
+      "tests": 16,
+      "initialize": true,
+      "tools_list": true,
+      "packed_integrity": "sha512-1vE0gtSQpSxdD02j+MMKw6PTdIgz19opQU3Ue6V9DRY1wEDF3YqELzoFqKu+kuerfPfVTt8CxO0lg25LqrH94A==",
+      "duration_ms": 5802
+    },
+    {
+      "name": "license-check",
+      "tree": "8223156129e9f314395961a7260cce0d3d01fe66",
+      "tests": 7,
+      "initialize": true,
+      "tools_list": true,
+      "packed_integrity": "sha512-Mw5J0s7l2KwD0djjld4b3J+/35u6R5NUYb1StCh9ZeU+8r/0DgJ1aejm+rgE++eODXUGMX9VusGsIAk0JkgnEg==",
+      "duration_ms": 4387
+    },
+    {
+      "name": "package-truth",
+      "tree": "31a77a6a99beb7b7048d9b727fbe5cfec4fcf431",
+      "tests": 25,
+      "initialize": true,
+      "tools_list": true,
+      "packed_integrity": "sha512-VthbusqHAeDpXV2TVeLb4r3jhGGHknscTBeDIXPNKo0NpQDG6NthLvVb0UBeSA3CoKjX4A55jlMePGK5M+RRpQ==",
+      "duration_ms": 4608
+    },
+    {
+      "name": "recall-check",
+      "tree": "501661b3d66edaf1be97b5bb445c016b841fbb0a",
+      "tests": 16,
+      "initialize": true,
+      "tools_list": true,
+      "packed_integrity": "sha512-8ja/M0m8NmMVyO4k0ecPR8NiRrs5bO29U2kZq4E6I0Q4dR6BEXKI9oDyljb0m5+jswWTbmvadvWedm1DuplQoQ==",
+      "duration_ms": 8616
+    },
+    {
+      "name": "regex-check",
+      "tree": "218d1e71ba498bbed2edc3b4543fb8f1830a89e4",
+      "tests": 11,
+      "initialize": true,
+      "tools_list": true,
+      "packed_integrity": "sha512-/LJLmU72lnoyiGKVf6T3DfhTlQ7QxqVLWNYURzT1R2lQxgKdm4Bl60nanOr1tAzYrMBD6BCdnRzjNKdRArz8Tw==",
+      "duration_ms": 14919
+    },
+    {
+      "name": "release-notes",
+      "tree": "ed4199e378eb19a89d58f97a842e5638da0bd834",
+      "tests": 10,
+      "initialize": true,
+      "tools_list": true,
+      "packed_integrity": "sha512-76TSlStpaU/arrFCFOO0C4t4mDRDvfcYEdPvmSeF2gIfL5VOnYFEd2aM3jIs6cnxgcBlQhkI7lq/y7GNIgbkHQ==",
+      "duration_ms": 8473
+    },
+    {
+      "name": "satellite-imagery",
+      "tree": "7b40c454978afe3f0b936cfeaca3a4b14bb2c18e",
+      "tests": 11,
+      "initialize": true,
+      "tools_list": true,
+      "packed_integrity": "sha512-G5sj/Nll75mya/c9clN7fO13BbhBOgezPiCpcip3MkuN7ccY/Qj0ffOW2m+YBXxZQUAE1tKnNS2GUDfJfXmWgw==",
+      "duration_ms": 4681
+    },
+    {
+      "name": "sql-check",
+      "tree": "7f0ee5bd9354cbdd04951113808af13ad695aae7",
+      "tests": 11,
+      "initialize": true,
+      "tools_list": true,
+      "packed_integrity": "sha512-xM3J1NAgmbBxveUTTpzgMCMqQYm11P3ZPmjbXJlLij/8oSzsZXCIoRtxR3UCh4c5WnjCxZYJ+sdfZqM4Xop4Fw==",
+      "duration_ms": 16647
+    },
+    {
+      "name": "vuln-priority",
+      "tree": "d490915bf03d75ed2eab42e8266c220cfad96b3f",
+      "tests": 12,
+      "initialize": true,
+      "tools_list": true,
+      "packed_integrity": "sha512-Rsk623+RJtTd/jtcrhFbakrOXJogKZPBishGLArP/+L97v1FFuRY+y3lUmoOWok4y6JNdMVEmMfAvY6OgewWTQ==",
+      "duration_ms": 5366
+    },
+    {
+      "name": "web-reader",
+      "tree": "7e2cbebb9db5155890b8093db4b836432fdcf591",
+      "tests": 10,
+      "initialize": true,
+      "tools_list": true,
+      "packed_integrity": "sha512-r+HWNWuknsB52C/8iEJiImcV3QzJsOO+pBWL10/fReoGZ7O+FUEbhXXw9W2s92uvv+2yIZmZy4F5hbfhE/yTww==",
+      "duration_ms": 9530
+    },
+    {
+      "name": "world-time",
+      "tree": "2c7b0e7107ede5b773a048f5f2fa73d76c3734c0",
+      "tests": 14,
+      "initialize": true,
+      "tools_list": true,
+      "packed_integrity": "sha512-x6KoekDnyawlzfaCBAnpv0yTGYmhaAUCEwbJFra/8CambEvgfTu0HwxehZ7aAnxStvAEwdIT+qTDflT9RTEPSQ==",
+      "duration_ms": 6550
+    }
+  ],
+  "standalone_tests": 272,
+  "source_matched_ci_trials": 48,
+  "source_matched_deep_rl_ci_trials": 6,
+  "local_deep_rl_trials": 3,
+  "raw_log_sha256": {
+    "standalone": "9c86b8c32a53a48668c0e5ab9b38e23502d3a5f781d42ca187aa45b46ad4de7a",
+    "node24": "3400271650817035011fa0b8a84a1182f6e0028b48603d5a766bc33c8e2516a1"
+  },
+  "scope": "Two actual CPU platform cohorts; 54 tests, three integrations, ten frozen tasks and 24 successful ML/DL/RL/DQN/public-data trials per platform. CartPole functional learning, not broad/solved/strongest RL or production. All server release and broader laboratory requirements remain active."
+}

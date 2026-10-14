@@ -1,250 +1,176 @@
 # Current status
 
-Updated: 2026-10-14 (Asia/Dubai). Overall goal: active; incomplete.
+Updated: 2026-10-14 (Asia/Dubai). Overall goal: **active; incomplete**.
+The previous goal turn made concrete progress. No owner objective has been removed.
+All 25 requirements and at least 2,000 distinct maintained qualifying releases
+remain in [REQUIREMENTS.md](REQUIREMENTS.md).
 
-Current review: [PR #14](https://github.com/arhancanli/mcp-factory/pull/14),
-open, ready and unmerged, stacked on #13 through #9. All eight checks pass on
-owner-signed implementation `361cdb5`. The [cohort CI receipt](evidence/2026-10-14-current-mcp-cohort-ci-validation.json)
-verifies 307 factory checks and 272 independent server tests across all 21 exact
-committed package trees, with real packed initialize/tools-list calls.
-World Time's local/CI tarballs have identical integrity; its four-station technical
-receipt binds source `39323473...` and full tree `2c7b0e7...`, including 14 server
-tests, audit and both live canaries. Direct corpus and performance use that same
-source. Current paired paid agent evidence and publication remain pending; the
-qualified maintained-release count remains zero. This evidence follow-up changes
-no runtime code. The previous goal turn made concrete progress.
+## Authoritative workspace and reviews
 
 Repository: `arhancanli/mcp-factory`. Actual `origin/main`: `e52f29f`.
+The original `/Users/arhancanli/mcp-factory` checkout remains clean on main.
 Active worktree: `/Users/arhancanli/canlilabs-deep-rl-20261014`.
-Branch: `codex/canlilabs-deep-rl-20261014`, based on cohort evidence head
-`694161f`. The next independent slice adds CPU DQN with bounded replay and
-step budget, target network, correct termination/truncation, validation-only
-checkpoint selection, independent evaluation and random baseline, immutable
-receipts and policy reload. New learning evidence is pending execution.
-The original checkout remains clean on main. Foundation
-[PR #9](https://github.com/arhancanli/mcp-factory/pull/9) is open, ready for review
-and unmerged; all seven checks passed on its final head. The data/lifecycle slice
-is owner-signed at `9bda49c` and open as stacked
-[PR #10](https://github.com/arhancanli/mcp-factory/pull/10), ready for review.
-All seven checks passed on `4dc15f9` and portable-fixture head `cecee19`.
-GitHub verifies the owner signature.
-It depends on PR #9 and is not merged or published. Exact check URLs and the tested
-source are in [data-ci-validation.json](evidence/2026-10-14-data-ci-validation.json).
-The later [portable-fixture CI receipt](evidence/2026-10-14-portable-fixture-ci-validation.json)
-also records the successful ten-task step and frozen hashes.
-The final data review passed all seven checks at `77b292d`; its
-[reviewed CI receipt](evidence/2026-10-14-reviewed-data-ci-validation.json) binds
-42 lab tests and twelve public runs to the current package fingerprint.
-Fresh inspection confirms both reviews are still open and unmerged. The previous
-turn is progress. The next independent slice enforces exact-source release evidence,
-adds reproducible benchmark/performance provenance, distinguishes registry failures
-from absence and keeps standalone repository updates under owner review.
-The release implementation is open as [PR #11](https://github.com/arhancanli/mcp-factory/pull/11),
-ready for review after all seven checks passed on a8e45da. Its first real
-qualifier found an incorrect canary path after three technical stations passed;
-the attempt is retained. CodeQL identified a stat/read race and file-derived HTTP
-metadata query. Both are repaired without dismissing findings; the review has zero
-open CodeQL alerts. Readiness reports 0/21 qualified releases, not 21 failed servers.
-The current [readiness report](evidence/2026-10-14-release-readiness.json) retains
-the five missing agent-result directories and zero current performance snapshots.
-The real World Time qualifier subsequently passed 296 factory tests, 12 independent
-server tests, real packed initialize/tools-list requests, audit and the live clock
-canary. Its raw logs and receipt are in docs/quality/world-time/381065b6.../.
-This proves technical checks, not scout/agent/performance qualification or release.
-[Release CI evidence](evidence/2026-10-14-release-ci-validation.json) records exact
-head and check URLs. The remaining 21 independent packages also pass CI. All wider
-laboratory objectives stay active; this phase changed no training algorithms.
+Branch: `codex/canlilabs-deep-rl-20261014`, based on cohort evidence `694161f`.
 
-All seven checks also passed on PR #11's documentation/evidence head `3ef6eca`.
-The preceding turn is progress. The next independent capacity slice selects
-packed-install checks from complete Git diffs, widens shared/unknown changes,
-keeps main/weekly/manual full checks, and bounds standalone work to sixteen
-shards with four concurrent workers. Full Node factory gates remain unchanged.
-No scheduling simulation counts as an implemented or maintained server. Current
-implementation passes 302 local factory checks and 34 standalone checks over
-three actually packed packages, plus actionlint workflow validation. The
-[local capacity receipt](evidence/2026-10-14-ci-capacity-local.json) binds source
-hashes, real package trees/integrities/timings and fifteen synthetic scheduling
-scenarios. The 2,000-name full scenario creates sixteen 125-name shards; it proves
-no releases or end-to-end fleet capacity. Fresh remote CI and signed review follow.
+Fresh inspection confirms every review below is open, ready and unmerged, with
+all required checks passing at the listed head. Commits use the owner's signing
+identity; GitHub verifies the DQN implementation signature. The next follow-up
+records evidence and changes documentation only; verify its eventual head/checks
+on continuation. Owner merges, paid API approvals, directory logins and launch
+posts retain the original [SPEC.md](../SPEC.md) policy.
 
-The capacity implementation is owner-signed at `03dd00e` and open as
-[PR #12](https://github.com/arhancanli/mcp-factory/pull/12), ready for review,
-stacked on #11. All eight checks passed: Node 20/22/24, planner, standalone shard,
-stable aggregate and both CodeQL checks. Downloaded CI logs confirm 302 factory
-checks and 270 server checks over all 21 exact committed standalone trees, with
-real packed MCP initialization/tool-list calls. The serial package workload was
-101,481 ms for this cohort. This is not measured fleet capacity for thousands.
-[Capacity CI evidence](evidence/2026-10-14-ci-capacity-validation.json) retains
-exact check URLs, every tree/integrity/timing and log hashes. This follow-up is
-documentation only. Verify actual PR/head/check state on continuation.
+| PR | Slice | Verified head | Checks |
+| --- | --- | --- | --- |
+| [#9](https://github.com/arhancanli/mcp-factory/pull/9) | Foundation, SDK and HTTP safety | `cd1dabf` | 7/7 |
+| [#10](https://github.com/arhancanli/mcp-factory/pull/10) | Registered data and scientific lifecycle | `4e19133` | 7/7 |
+| [#11](https://github.com/arhancanli/mcp-factory/pull/11) | Source-bound release and review controls | `3ef6eca` | 7/7 |
+| [#12](https://github.com/arhancanli/mcp-factory/pull/12) | Changed/full package CI and bounded sharding | `6d6a655` | 8/8 |
+| [#13](https://github.com/arhancanli/mcp-factory/pull/13) | Actual Linux/macOS locked CPU execution | `0dbf8b7` | 10/10 |
+| [#14](https://github.com/arhancanli/mcp-factory/pull/14) | Current calendar/scout/corpus/performance | `694161f` | 8/8 |
+| [#15](https://github.com/arhancanli/mcp-factory/pull/15) | Bounded CPU DQN and held-out policy evidence | `8347d7c` | 10/10 |
 
-Fresh inspection confirms PR #12 is open, ready and unmerged at `6d6a655`, with
-all eight checks passing again. The previous turn is progress. This independent
-laboratory slice selects the official Linux CPU Torch index, keeps all existing
-version pins, and adds Linux alongside macOS to the behavioral/MCP/frozen-task
-checks. Actual Linux execution, dependency inspection and CPU training receipts
-are required before calling this platform validated. GPU/distributed compute,
-new learning methods and all MCP release/adoption requirements remain separate.
-
-Local profile implementation now passes 47 behavioral tests, lint/format and
-302 factory checks. Two real stdio integrations and ten frozen answers through
-fourteen calls also pass. The reviewed source fingerprint is
-`ac0a7bf6fefb9b56a023ad3982f7d1b79658695d4f9e1273dc0e40cfe85f7de5`.
-The [local validation receipt](evidence/2026-10-14-linux-cpu-local-validation.json)
-binds 21 reviewed actual training trials (nine ML/DL/RL plus twelve UCI) and keeps
-the initial nine-run source separate. All reloads pass, with fixed parameters.
-The new CI matrix requires both cohorts and all checks on each platform. Linux
-proof remains pending until those jobs finish; every larger requirement stays active.
-
-The implementation is signed at `75dd090` and open as stacked
-[PR #13](https://github.com/arhancanli/mcp-factory/pull/13). Its first Ubuntu job
-passed 47 tests, both real integrations, all 21 actual trials and the ten frozen
-task answers. Downloaded receipts verify Linux x86_64, Torch 2.14.1+cpu and no
-GPU packages. macOS failed at interpreter setup before application execution;
-the [failed bootstrap receipt](evidence/2026-10-14-cpu-bootstrap-ci-attempt.json)
-retains that result. CI now installs the same exact managed interpreter used
-locally. Versions, recipes and acceptance gates are unchanged; fresh CI follows.
-
-The managed-interpreter repair passed all ten checks at `3557672`. Downloaded
-artifacts and logs confirm both macOS arm64 and Ubuntu x86_64 execute 47 behavioral
-tests, two real MCP integrations, ten frozen answers through fourteen calls and
-all 21 fixed training trials per platform. All 42 reviewed CI trials reload and
-match source `ac0a7bf6...`; exact profiles, evidence files and check URLs are in
-the [CPU CI receipt](evidence/2026-10-14-linux-cpu-ci-validation.json).
-Both hosts reach 30/30 Iris test predictions per seed/recipe, with wine ridge
-RMSE 0.719 and MLP 0.666-0.677 versus 0.859 baseline. Small host differences are
-retained, with no bitwise/population or production claim. All 93 explicit cohorts'
-local/CI trials are retained with their source hashes; pytest fixtures are separate.
-PR #13 is ready for review, stacked on #12/#11/#10/#9. Full factory and standalone
-checks also pass. This evidence follow-up changes documentation only.
-
-Fresh inspection confirms PR #13 is open, ready and unmerged, with all ten checks
-passing on final evidence head `0dbf8b7`. The prior turn is progress. The next
-independent MCP cohort slice refreshes real incumbent coverage/demand, pins
-executable comparison identities, verifies fixed task answers and records current
-live performance. Research has found broader date/calendar competitors than the
-historical unpinned official time baseline. The performance timer also excludes
-startup/initialize despite its description; this measurement is being corrected.
-Paired paid agent runs and publication still require their existing gates. All
-laboratory and maintained-release objectives remain intact.
-
-This cohort now uses pinned broader `mcp-datetime` 0.2.0, with its 17 native
-tools successfully initialized/listed. The [current scout](../scout/2026-10-14-world-time.json)
-records candidate coverage, dated reported demand and source/rights/cost facts.
-The [fixed direct verification](evidence/2026-10-14-world-time-direct-verification.json)
-passes 24/24 answers through 37 real stdio calls, including ten complex independent
-questions. Current performance includes actual startup and initialization,
-separate request time and raw repeat samples. All 307 factory checks pass.
-
-Source review corrected a real Scottish one-off holiday omission and UK city
-home-nation mapping. Attributed government snapshots, substitution notes and
-two live calendar/clock canaries pass, as do all fourteen server tests. Shared
-peer launch now isolates parent credentials and closes under timeouts/errors.
-Legacy reports retain their original data and corrected request-only timing
-description. Current paired-agent evidence and final packed/review/publication
-gates still remain; no best or maintained release count is asserted.
+Each PR after #9 is stacked on its predecessor. No review, npm/Registry release,
+directory submission, paid agent call or launch has been merged/published here.
 
 ## Current executable laboratory
 
-- Locked Python 3.12 CPU environment; real ML, PyTorch MLP and tabular RL recipes.
-  Registered tables now support binary/multiclass classification and regression,
-  explicit feature order, original-label inference and checkpoint reload checks.
-- Atomic, content-addressed CSV registration with declared source/licence,
-  attribution and optional lineage. Public ingestion records original archive,
-  member and converted hashes plus transformations. Dataset metadata stays bounded.
-- Explicit random/group/time split evidence with every row accounted for, numeric
-  feature duplicates held together, transitive subject links, strict chronology and
-  timestamp ties. Exact target copies and non-finite inputs are rejected.
-  Profiles use training rows for feature statistics. Semantic/approximate leakage
-  and task-specific time windows remain separate qualification work.
-- Append-only trial ledger, configs/seeds/source/environment/data/split/artifact
-  hashes and failed attempts. Workers hold a POSIX lease before a run becomes
-  visible. Recovery refuses live, missing, replaced or unverifiable legacy leases.
-  Interrupted workers can be recorded as failed without replacing final states.
-- SQLite is authoritative; complete derived JSON receipts are published atomically.
-  Receipt I/O errors cannot turn committed successes into failures. Missing copies
-  can be rebuilt; altered copies are reported. Hash-verified model cards and
-  comparisons on identical held-out protocols retain failure/trial counts and
-  perform no automatic test-based promotion.
-- Three read-only MCP tools remain within the compact tool-list budget. Dataset
-  inspection can verify a run's split, training profile and source/licence hashes,
-  with no raw rows, split positions or weights returned. Real stdio tests confirm
-  the database is unchanged and tampered split/rights metadata is rejected.
+The exact scientific package fingerprint is
+`046f3b49819dbbecfeeef73fcf1c43903a499bbaf15957e2d5557596acc6b403`.
+The [DQN CI receipt](evidence/2026-10-14-deep-rl-ci-validation.json) retains actual
+macOS arm64 and Ubuntu x86_64 artifacts, job links, source/script/log hashes and
+all **48 successful CI training trials**, 24 per platform. Each platform passes
+54 behavioral tests, three real stdio integrations and ten frozen task answers
+through fourteen calls. The three-seed local DQN cohort and local checks are in
+[local runs](evidence/2026-10-14-deep-rl-local-runs.json) and
+[local validation](evidence/2026-10-14-deep-rl-local-validation.json).
 
-Local checks: 42 behavioral lab tests, two real stdio integrations, lint/format,
-290 factory checks and ten frozen task answers through fourteen MCP calls.
-Lab lint/format, behavioral tests and integrations passed in macOS CI, with Node
-20/22/24 gates, all 21 standalone packages and JavaScript/Python CodeQL. The ten
-frozen task answers also passed locally and are now added as a required lab CI step.
-Its first run caught a regenerated-fixture hash difference across hosts after all
-behavioral/integration tests passed. The helper now uses the exact public CC0
-synthetic fixture and splits from the recorded cohort, checking all hashes.
-The portable step then passed on `cecee19`: CI logs verify all ten answers through
-fourteen MCP calls. The earlier failure is retained. All seven checks passed again.
-These task answers are not an agent/incumbent benchmark. A final data review added
-three edge-case tests and corrections for numeric target aliases and large time
-ties. All 42 tests, integrations and frozen tasks pass in CI at `77b292d`.
-The final receipt commit changes documentation only; recheck current PR state on resume.
+- CPython 3.12.13, uv 0.11.20 and exact locked NumPy/scikit-learn/Torch/Gymnasium
+  dependencies. Actual Linux Torch is 2.14.1+cpu; macOS is 2.14.1. The runtime guard
+  checks installed versions, interpreter, CPU tensor defaults and absent CUDA/GPU
+  packages. Accelerator/distributed compute remains unqualified.
+- Registered numeric classification and regression: logistic/ridge ML, PyTorch MLP
+  and original-label/ordered-feature inference, train-only preprocessing and
+  validation-selected neural checkpoints. Every checkpoint reloads before success.
+- Content-addressed CSV registration, declared rights/attribution/lineage,
+  train-only profiles, random/group/time splits, exact target/duplicate checks,
+  disjoint transitive subject components and chronological/tie guards. Wider
+  modalities, semantic leakage, streaming, annotation and production corpora remain.
+- Tabular Q-learning on deterministic FrozenLake plus neural DQN on versioned and
+  implementation-hashed CartPole-v1. DQN uses a bounded 10,000-transition replay
+  ring, target network, Huber loss, clipped gradients, one CPU thread, an explicit
+  step budget and 300-second deadline. Termination stops bootstrap; external time
+  limits retain the actual final observation and bootstrap value.
+- Append-only trials/events with seeds, source/environment/data/split/artifact
+  hashes and all failed attempts. POSIX worker leases prevent recovering live,
+  replaced or unverifiable runs. Interrupted recovery appends a failure and does
+  not resume training. SQLite remains authoritative; atomic derived receipts can
+  be verified/rebuilt without replacing successful final states.
+- Hash-verified model cards and same-protocol tabular comparisons retain failures
+  and workspace counts. Cards include environment/training/evaluation identity
+  for RL. DQN inference loads registered weights-only artifacts; no test-based
+  automatic promotion is performed. Resume, promotion/rollback and serving remain.
+- Three bounded read-only MCP tools inspect experiments and dataset/split/rights
+  evidence, including DQN filtering. Real stdio tests verify unchanged SQLite and
+  rejection of tampered metadata. Tools return no rows, positions or weights and
+  cannot launch training or inference. Frozen task answers are direct protocol
+  verification; agent/incumbent qualification is still pending.
 
-Three separate twelve-run public cohorts are retained. The reviewed cohort in
-[registered-data-reviewed-runs.json](evidence/2026-10-14-registered-data-reviewed-runs.json) uses
-fixed seeds 7/19/43, split seed 2718, default ML parameters and 30 DL epochs.
-Both recipes achieved 30/30 Iris test predictions per seed against a 1/3 majority
-baseline. On 967 held-out Wine Quality examples, ridge RMSE was 0.719 and MLP RMSE
-0.666-0.677, against 0.859 for the training-mean baseline. All checkpoints reloaded.
-These are two small public tasks on fixed splits, not population uncertainty,
-strongest-model evidence or production qualification. Both source pages declare
-CC BY 4.0; receipts retain creator attribution and conversion lineage. UCI data and
-weights stay local; the committed frozen fixture is public CC0 synthetic data.
-The two earlier cohorts retain their source hashes; the newest receipt matches
-the reviewed package and keeps all twelve new trials. Parameters were unchanged.
-Its exact package fingerprint is
-`17633f3a0172315349a6a595f5c811a514645ebe2d4bc0d331ddb5e39130d24e`.
-Iris has one duplicate feature row;
-Wine Quality has 937. All rows are retained in disjoint components. Wine split
-counts are 2,959 training, 972 validation and 967 test examples.
+The two-platform cohort preserves nine original ML/DL/tabular-RL trials, twelve
+UCI trials and three DQN trials per host. Iris scores 30/30 held-out predictions
+per seed/recipe; Wine ridge RMSE is 0.719 and MLP 0.666–0.677 versus 0.859 baseline.
+UCI source/licence/creator and original/converted hashes are retained; raw data and
+weights stay local. These two small tasks do not establish population or strongest-
+model performance. The frozen public MCP fixture is CC0 synthetic metadata/data
+from earlier real runs and contains no model weights.
 
-The foundation's nine final synthetic/RL runs and 19 main-workspace attempts at
-recording remain in their dated receipt. Original smoke results and earlier failed
-canary evidence are retained; newer work does not overwrite historical records.
+DQN parameters and criteria were committed before its first full held-out cohort:
+seeds 7/19/43, 20,000 steps, 50 final episodes, mean return at least 100 and
+improvement over random greater than 50. Four checkpoint evaluations use 20 fixed
+validation resets and retain the earliest highest mean. Final reset seeds are
+disjoint from training/validation; random baseline uses matching final resets
+with a separate action stream. Receipts retain every episode return and curve.
 
-## Verified factory foundation and remaining release gaps
+| Host | Seed 7 mean | Seed 19 mean | Seed 43 mean |
+| --- | --- | --- | --- |
+| Local macOS arm64 | 178.94 | 500.00 | 242.12 |
+| CI macOS arm64 | 178.06 | 500.00 | 252.02 |
+| CI Linux x86_64 | 193.18 | 500.00 | 221.90 |
+| Random, same resets | 22.30 | 21.50 | 21.28 |
 
-The foundation upgraded SDK 1.30.1 to 1.32.1 across the kit/template/21 packages,
-regenerated locks/vendor copies/docs and passed npm audit with zero vulnerabilities.
-It added loopback defaults, exact Host/Origin validation, declared remote hosts,
-bounded HTTP bodies/connections and safe unexpected-error logs. Factory checks:
-290/290. Standalone validation: 21 packages, 270 server tests and every packed
-initialize. Node 20/22/24, macOS lab and both CodeQL checks passed on PR #9.
-Its SQL timing repair preserves the exact runaway-query deadline and recovery
-assertions. The owner identity/signing/credit gates remain enforced.
+All nine explicit DQN trials pass the fixed functional criteria and reload.
+Parameters were not tuned from final test outcomes. Host variation and selected
+checkpoints remain visible. Paired bootstrap intervals describe reset variation
+for each fixed policy, not training-seed/population uncertainty. This does not
+claim cross-host bitwise identity, a solved task, the best RL method or production
+qualification. Pytest fixture trials are separate from the explicit cohorts.
 
-The [second release audit](evidence/2026-10-13-factory-audit-second.json) contains
-21 source/catalog entries, 21 saved performance files and 16 agent benchmark
-directories. Config Check, Dockerfile Check, Kube Check, Regex Check and SQL Check
-lack agent comparisons. Twelve servers meet a simple historical accuracy/token
-calculation in at least one saved result; this is less than current best-in-niche
-qualification. All 21 declared exact npm versions returned missing. Matching
-Registry versions were not verified; timed-out queries remain unknown. Repository
-parity, public release assets/provenance and maintained release counts remain
-unverified. The laboratory pilot is not counted as a standalone release.
+## Current factory evidence and release deficit
 
-The audit recorded 18 successful latest canaries, Recall Check and Release Notes
-failures, and SQL Check unknown. Both failing canaries passed later local triage.
-Release Notes' stable assertion and undated-history fallback were repaired;
-remote deployment and subsequent health remain separate work. Dependency PRs
-#3-#8 were open at recovery and were not merged. Existing initial npm publishing
-uses owner browser confirmation/Trusted Publisher after qualification.
+There are **21 source/catalog servers and zero verified qualifying maintained
+releases**, not thousands of released servers. Sixteen have historical agent
+result directories; Config Check, Dockerfile Check, Kube Check, Regex Check and
+SQL Check still lack them. Twelve had simple historical accuracy/token wins;
+those are not current source-bound best-in-niche proof. The earlier exact-version
+npm audit found no declared 0.1.0 version; Registry lookup timeouts remain unknown,
+not evidence of absence or release. Per-server repository/npm/assets/provenance/
+Registry/directory parity and adoption still need proof.
+The [fresh committed-tree readiness scan](evidence/2026-10-14-mcp-readiness-after-deep-rl.json)
+reports 0/21 eligible certificates; World Time alone now has current performance
+provenance. This scan records release eligibility, not failure of implemented tools.
 
-## Next unmet gates
+Current factory gate: **307** checks. CI tests **272** independent server tests
+across all 21 exact committed packed trees; every tarball answers initialize and
+tools/list. SDK 1.32.1 and regenerated locks/vendor copies address the prior audit
+finding. Shared HTTP loopback, Host/Origin, trusted remote hosts and bounded body/
+connection behavior remain tested. Owner identity, brand and credit gates remain.
 
-Integrate the reviewed foundation and data slice under the existing owner review
-policy. Independently advance release-readiness evidence and missing MCP comparisons,
-remote canary rollout, promotion/rollback and checkpoint resume,
-accelerator/distributed/deep-RL/foundation-model recipes, and practical education.
-[BACKLOG.md](BACKLOG.md), [REQUIREMENTS.md](REQUIREMENTS.md) and
-[COVERAGE.md](COVERAGE.md) preserve every original and expanded objective.
-Scale through 100, 500 and at least 2,000 distinct maintained qualifying releases;
-publication, demand, current competitor evidence, discovery and adoption still
-require proof. No broad objective is closed by this local milestone.
+World Time's [current scout](../scout/2026-10-14-world-time.json) reviews five real
+incumbents and selects immutable broader mcp-datetime 0.2.0 at Git 7068460..., with
+pinned Python/direct dependencies/time-zone data. Real dry initialization lists
+its 17 native tools, 11,215 model-visible characters, versus five/2,924 locally.
+Those are schema sizes, not agent tokens or an accuracy comparison. Reported
+incumbent downloads/stars are dated demand evidence, not CanliLabs adoption.
+
+The [direct corpus receipt](evidence/2026-10-14-world-time-direct-verification.json)
+verifies 24/24 answers through 37 real stdio calls, including ten independent
+multi-operation questions. Scotland's missing 15 June 2026 holiday, substitution
+notes and UK council-to-home-nation mapping are repaired using attributed OGL
+snapshots and actual live comparison. Fourteen standalone tests and both calendar/
+clock canaries pass. Current performance measures startup/initialize/first request,
+separate request time, proper repeat median and raw samples. Legacy reports retain
+original data with honest request-only timing labels. Peer launch forwards only
+system essentials and declared values, and closes under deadlines/failures.
+
+World Time direct/performance/technical evidence matches source
+`39323473ee73d632fd7aac1bc922eebdaa206674918d48cbf18ac367406117e6`, full package
+tree `2c7b0e7107ede5b773a048f5f2fa73d76c3734c0`, with equal local/CI tarball integrity. The
+[cohort CI receipt](evidence/2026-10-14-current-mcp-cohort-ci-validation.json)
+records every tree and the real four-station technical receipt. Current paid paired
+agent evidence and the release certificate remain missing. Technical/direct
+checks do not close those stations.
+
+Source/full-tree/artifact qualification and npm unknown-vs-404 handling prevent
+publishing bypasses. Mirroring prepares signed draft reviews and verifies parity.
+Independent CI selection uses complete Git diffs, widens shared/unknown changes,
+keeps full main/weekly/manual checks and bounds work to sixteen shards/four workers.
+[Capacity evidence](evidence/2026-10-14-ci-capacity-validation.json) measures the
+real 21-package cohort. Synthetic 2,000/10,000-name scheduling proves planning
+only; full factory scaling, end-to-end fleet and maintenance budgets still remain.
+Previous Recall Check/Release Notes canary failures and the undated-history repair
+are retained; passing local triage does not prove remote rollout or ongoing health.
+
+## Next unmet work
+
+Continue current MCP agent qualification with a concrete approved bounded paid
+budget, missing/wider scout/task/quality cohorts and reviewed release/discovery/
+adoption. Independently advance checkpoint resume, promotion/rollback/serving,
+other data modalities/corpora, PPO/offline/model-based RL, foundation models,
+accelerator/distributed profiles and practical education. The
+[backlog](BACKLOG.md), [coverage matrix](COVERAGE.md), [phases](PHASES.md) and
+[requirements](REQUIREMENTS.md) preserve every owner objective. Progress through
+100, 500 and at least 2,000 distinct maintained qualifying releases remains required.
+
+Historical execution details, earlier fingerprints, failed attempts and prior
+cohorts remain in [LOG.md](LOG.md) and the existing dated evidence. The
+[pre-consolidation status](evidence/2026-10-14-status-before-consolidation.md)
+preserves the prior narrative. Use actual Git/PR/artifact state when resuming.
