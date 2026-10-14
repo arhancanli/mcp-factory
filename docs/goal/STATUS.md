@@ -3,9 +3,9 @@
 Updated: 2026-10-14 (Asia/Dubai). Overall goal: active; incomplete.
 
 Repository: `arhancanli/mcp-factory`. Actual `origin/main`: `e52f29f`.
-Active worktree: `/Users/arhancanli/canlilabs-scale-20261014`.
-Branch: `codex/canlilabs-ci-capacity-20261014`, based on validated release head
-`3ef6eca`. The original checkout remains clean on main. Foundation
+Active worktree: `/Users/arhancanli/canlilabs-linux-20261014`.
+Branch: `codex/canlilabs-linux-cpu-20261014`, based on validated capacity head
+`6d6a655`. The original checkout remains clean on main. Foundation
 [PR #9](https://github.com/arhancanli/mcp-factory/pull/9) is open, ready for review
 and unmerged; all seven checks passed on its final head. The data/lifecycle slice
 is owner-signed at `9bda49c` and open as stacked
@@ -62,6 +62,46 @@ real packed MCP initialization/tool-list calls. The serial package workload was
 [Capacity CI evidence](evidence/2026-10-14-ci-capacity-validation.json) retains
 exact check URLs, every tree/integrity/timing and log hashes. This follow-up is
 documentation only. Verify actual PR/head/check state on continuation.
+
+Fresh inspection confirms PR #12 is open, ready and unmerged at `6d6a655`, with
+all eight checks passing again. The previous turn is progress. This independent
+laboratory slice selects the official Linux CPU Torch index, keeps all existing
+version pins, and adds Linux alongside macOS to the behavioral/MCP/frozen-task
+checks. Actual Linux execution, dependency inspection and CPU training receipts
+are required before calling this platform validated. GPU/distributed compute,
+new learning methods and all MCP release/adoption requirements remain separate.
+
+Local profile implementation now passes 47 behavioral tests, lint/format and
+302 factory checks. Two real stdio integrations and ten frozen answers through
+fourteen calls also pass. The reviewed source fingerprint is
+`ac0a7bf6fefb9b56a023ad3982f7d1b79658695d4f9e1273dc0e40cfe85f7de5`.
+The [local validation receipt](evidence/2026-10-14-linux-cpu-local-validation.json)
+binds 21 reviewed actual training trials (nine ML/DL/RL plus twelve UCI) and keeps
+the initial nine-run source separate. All reloads pass, with fixed parameters.
+The new CI matrix requires both cohorts and all checks on each platform. Linux
+proof remains pending until those jobs finish; every larger requirement stays active.
+
+The implementation is signed at `75dd090` and open as stacked
+[PR #13](https://github.com/arhancanli/mcp-factory/pull/13). Its first Ubuntu job
+passed 47 tests, both real integrations, all 21 actual trials and the ten frozen
+task answers. Downloaded receipts verify Linux x86_64, Torch 2.14.1+cpu and no
+GPU packages. macOS failed at interpreter setup before application execution;
+the [failed bootstrap receipt](evidence/2026-10-14-cpu-bootstrap-ci-attempt.json)
+retains that result. CI now installs the same exact managed interpreter used
+locally. Versions, recipes and acceptance gates are unchanged; fresh CI follows.
+
+The managed-interpreter repair passed all ten checks at `3557672`. Downloaded
+artifacts and logs confirm both macOS arm64 and Ubuntu x86_64 execute 47 behavioral
+tests, two real MCP integrations, ten frozen answers through fourteen calls and
+all 21 fixed training trials per platform. All 42 reviewed CI trials reload and
+match source `ac0a7bf6...`; exact profiles, evidence files and check URLs are in
+the [CPU CI receipt](evidence/2026-10-14-linux-cpu-ci-validation.json).
+Both hosts reach 30/30 Iris test predictions per seed/recipe, with wine ridge
+RMSE 0.719 and MLP 0.666-0.677 versus 0.859 baseline. Small host differences are
+retained, with no bitwise/population or production claim. All 93 explicit cohorts'
+local/CI trials are retained with their source hashes; pytest fixtures are separate.
+PR #13 is ready for review, stacked on #12/#11/#10/#9. Full factory and standalone
+checks also pass. This evidence follow-up changes documentation only.
 
 ## Current executable laboratory
 
@@ -159,8 +199,8 @@ uses owner browser confirmation/Trusted Publisher after qualification.
 
 Integrate the reviewed foundation and data slice under the existing owner review
 policy. Independently advance release-readiness evidence and missing MCP comparisons,
-remote canary rollout, Linux CPU validation, promotion/rollback and checkpoint
-resume, accelerator/deep-RL/foundation-model recipes, and practical education.
+remote canary rollout, promotion/rollback and checkpoint resume,
+accelerator/distributed/deep-RL/foundation-model recipes, and practical education.
 [BACKLOG.md](BACKLOG.md), [REQUIREMENTS.md](REQUIREMENTS.md) and
 [COVERAGE.md](COVERAGE.md) preserve every original and expanded objective.
 Scale through 100, 500 and at least 2,000 distinct maintained qualifying releases;

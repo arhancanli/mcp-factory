@@ -57,7 +57,7 @@ def source_fingerprint():
     source_dir = Path(__file__).parent
     files = {path.name: sha256_file(path) for path in sorted(source_dir.glob("*.py"))}
     lab_root = source_dir.parents[1]
-    for name in ["pyproject.toml", "uv.lock"]:
+    for name in ["pyproject.toml", "uv.lock", ".python-version"]:
         path = lab_root / name
         if path.exists():
             files[name] = sha256_file(path)

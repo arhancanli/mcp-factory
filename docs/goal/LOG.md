@@ -1,5 +1,17 @@
 # Decision and execution log
 
+## 2026-10-14: independent Linux CPU laboratory slice
+
+Re-read the five continuity records and checked the actual clean capacity branch
+and open ready PR #12. All eight checks also pass on final evidence head 6d6a655;
+the prior turn is progress. Created an isolated branch/worktree on that head.
+The existing Linux PyPI Torch lock includes CUDA dependencies although recipes
+use CPU. The next implementation selects the official CPU index with a Linux
+marker, retains all version pins and adds actual Linux behavioral/MCP/task and
+training validation. This local machine is macOS and its container daemon is off;
+Linux proof will come from the new CI job, not a cross-platform lock inspection.
+All 25 requirements and the distinct maintained release floor remain intact.
+
 ## 2026-10-14: independent factory capacity slice
 
 Re-read all five continuity files and checked actual branches and PR states.
@@ -386,3 +398,69 @@ publication or launch was performed. The evidence update changes documentation
 only. Preserve every broader requirement: current scout/agent/performance and
 release proof, full factory-gate scalability, maintained discovery/adoption,
 Linux/accelerator/deeper learning, delivery and education. Overall goal active.
+
+## 2026-10-14: locked CPU profile and local training proof
+
+Resolved the explicit Linux CPU index with all previous declared version pins.
+The lock now selects Torch 2.14.1+cpu on Linux and 2.14.1 from PyPI elsewhere,
+removing the CUDA/Triton dependency branch. Pinned the already executed CPython
+3.12.13 interpreter and added it to scientific source fingerprints. The runtime
+guard checks exact installed versions, the platform-specific locked Torch build,
+CPU tensors and absent CUDA/GPU libraries, including negative cases.
+
+All 47 behavioral tests, lint/format and 302 factory checks pass locally. Two
+real stdio integrations and ten frozen answers through fourteen calls pass.
+Executed a reviewed nine-run ML/DL/RL cohort and twelve-run UCI cohort at source
+ac0a7bf6fefb9b56a023ad3982f7d1b79658695d4f9e1273dc0e40cfe85f7de5.
+All 21 trials succeed and reload; the initial nine trials retain their earlier
+source separately. All 30 local trials and small public receipts are retained.
+The recipes and model hyperparameters were not tuned from test outcomes.
+
+The new bounded CI matrix runs macOS 15 and Ubuntu 24.04. Each platform must
+pass the profile guard, all tests/integrations/frozen tasks, nine fixed default
+trials and twelve public-data trials. The immutable upload action preserves only
+public environment/trial/task JSON. No weights, rows or SQLite are uploaded.
+The workflow passes actionlint. Actual Linux execution is still pending, so no
+Linux, accelerator, production or new MCP release outcome is claimed yet.
+
+## 2026-10-14: real Linux success and macOS bootstrap repair
+
+Signed implementation 75dd090 is open as draft stacked PR #13. The first actual
+Ubuntu job passed all 47 behavioral tests, two real MCP integrations, nine
+ML/DL/RL trials, twelve registered UCI trials and ten frozen task answers through
+fourteen calls. Downloaded its actual artifact and checked Linux x86_64, Torch
+2.14.1+cpu, no CUDA packages, every successful trial and checkpoint reload.
+Retained all public receipts and exact job/log evidence.
+
+The macOS job failed before application checks: setup-python cannot provide
+CPython 3.12.13 ARM64 for this macOS runner. Retained that failed attempt.
+Changed the bootstrap to uv python install from the existing pin, followed by
+managed-only sync, matching local setup. The exact interpreter version, all
+application gates and model parameters remain unchanged. Actionlint and local
+managed installation pass. Fresh two-platform CI is required after this repair.
+
+## 2026-10-14: two-platform CPU laboratory verified
+
+All ten checks pass on signed bootstrap repair 3557672: both CPU platforms,
+Node 20/22/24, planner, all standalone packages, aggregate and both CodeQL checks.
+Downloaded and inspected both platform artifacts and raw job logs. Each platform
+passes 47 behavioral tests, two real stdio integrations and ten frozen answers
+through fourteen calls, plus nine fixed ML/DL/RL and twelve registered-data trials.
+All 42 new CI trials succeed and reload at exact source ac0a7bf6..., matching the
+reviewed local source. Actual profiles are macOS arm64 Torch 2.14.1 and Ubuntu
+x86_64 Torch 2.14.1+cpu, CPython 3.12.13, without CUDA/GPU runtime packages.
+
+Both hosts score 30/30 Iris test examples per seed/recipe. Wine ridge RMSE is
+0.719 and MLP 0.666-0.677 against the 0.859 training-mean baseline. Small floating
+and seed-dependent host differences are retained; no bitwise or population
+uncertainty claim is made. No model parameters changed from test feedback.
+Verified 302 factory checks and 270 checks over all 21 exact standalone trees.
+The public receipts retain all 93 explicit local/CI cohort trials so far, with
+source boundaries and the failed macOS bootstrap; pytest fixture runs are separate.
+
+PR #13 is ready for owner review and remains stacked on open #12/#11/#10/#9.
+This final evidence/documentation update changes no executable lab source.
+Linux CPU is now validated; accelerators/distributed training, checkpoint resume,
+model promotion/rollback, deeper RL/foundation models, education, current MCP
+qualification/publication/discovery/adoption and the maintained release floor
+remain required. Overall goal stays active.

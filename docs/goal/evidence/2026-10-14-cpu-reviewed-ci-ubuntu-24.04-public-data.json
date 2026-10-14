@@ -1,0 +1,1933 @@
+{
+  "checked_at": "2026-10-14T00:13:47.227448+00:00",
+  "comparisons": [
+    {
+      "dataset_id": "b7cfc2368743568911a3c3b9954baac03b2bea8a971e7e2b4c84524ddf72dd63",
+      "evaluation_policy": "Hold the final test protocol fixed; new tuning requires fresh evaluation.",
+      "items": [
+        {
+          "failure": null,
+          "metrics": {
+            "baseline": "majority label selected only from training data",
+            "baseline_test_accuracy": 0.3333333333333333,
+            "test_accuracy": 1.0,
+            "test_balanced_accuracy": 1.0,
+            "test_examples": 30,
+            "test_macro_f1": 1.0,
+            "validation_accuracy": 1.0
+          },
+          "recipe": "ml",
+          "run_id": "2081492a03094c16a282b2e67ee9a23a",
+          "seed": 7,
+          "state": "succeeded"
+        },
+        {
+          "failure": null,
+          "metrics": {
+            "baseline": "majority label selected only from training data",
+            "baseline_test_accuracy": 0.3333333333333333,
+            "test_accuracy": 1.0,
+            "test_balanced_accuracy": 1.0,
+            "test_examples": 30,
+            "test_macro_f1": 1.0,
+            "validation_accuracy": 1.0
+          },
+          "recipe": "ml",
+          "run_id": "88db1e02366e406da192c8292ad18fb1",
+          "seed": 19,
+          "state": "succeeded"
+        },
+        {
+          "failure": null,
+          "metrics": {
+            "baseline": "majority label selected only from training data",
+            "baseline_test_accuracy": 0.3333333333333333,
+            "test_accuracy": 1.0,
+            "test_balanced_accuracy": 1.0,
+            "test_examples": 30,
+            "test_macro_f1": 1.0,
+            "validation_accuracy": 1.0
+          },
+          "recipe": "ml",
+          "run_id": "3f16fa6346ef43b092a54de37f378a6e",
+          "seed": 43,
+          "state": "succeeded"
+        },
+        {
+          "failure": null,
+          "metrics": {
+            "baseline": "majority label selected only from training data",
+            "baseline_test_accuracy": 0.3333333333333333,
+            "test_accuracy": 1.0,
+            "test_balanced_accuracy": 1.0,
+            "test_examples": 30,
+            "test_macro_f1": 1.0,
+            "validation_accuracy": 0.9666666666666667
+          },
+          "recipe": "dl",
+          "run_id": "fe09af2d635543ddbe5021154177cbb0",
+          "seed": 7,
+          "state": "succeeded"
+        },
+        {
+          "failure": null,
+          "metrics": {
+            "baseline": "majority label selected only from training data",
+            "baseline_test_accuracy": 0.3333333333333333,
+            "test_accuracy": 1.0,
+            "test_balanced_accuracy": 1.0,
+            "test_examples": 30,
+            "test_macro_f1": 1.0,
+            "validation_accuracy": 1.0
+          },
+          "recipe": "dl",
+          "run_id": "edb895f9d5ee496eba12f10c13b27b56",
+          "seed": 19,
+          "state": "succeeded"
+        },
+        {
+          "failure": null,
+          "metrics": {
+            "baseline": "majority label selected only from training data",
+            "baseline_test_accuracy": 0.3333333333333333,
+            "test_accuracy": 1.0,
+            "test_balanced_accuracy": 1.0,
+            "test_examples": 30,
+            "test_macro_f1": 1.0,
+            "validation_accuracy": 1.0
+          },
+          "recipe": "dl",
+          "run_id": "f35eecde6cac47b7858daae4a194a907",
+          "seed": 43,
+          "state": "succeeded"
+        }
+      ],
+      "schema": "canlilabs.comparison.v1",
+      "selected_trials": 6,
+      "selection_policy": "No automatic winner or promotion; validation selects candidates.",
+      "split_sha256": "a2263f1830298273c1ba1f2503617d83f62f00cc79dd5cc4a875f8fd50fef5f8",
+      "task": "classification",
+      "workspace_trial_counts": {
+        "succeeded": 6
+      }
+    },
+    {
+      "dataset_id": "0c138caff435ceaa247854cdd9d1b35ce2f4fbc8acd2e775e9fbdb79923e3390",
+      "evaluation_policy": "Hold the final test protocol fixed; new tuning requires fresh evaluation.",
+      "items": [
+        {
+          "failure": null,
+          "metrics": {
+            "baseline": "mean target selected only from training data",
+            "baseline_test_rmse": 0.859300097308653,
+            "test_examples": 967,
+            "test_mae": 0.5656420569002729,
+            "test_r2": 0.29979590609327367,
+            "test_rmse": 0.7189611354633625,
+            "validation_rmse": 0.7639114248980821
+          },
+          "recipe": "ml",
+          "run_id": "71a696e7735b4dabb901b541d581b534",
+          "seed": 7,
+          "state": "succeeded"
+        },
+        {
+          "failure": null,
+          "metrics": {
+            "baseline": "mean target selected only from training data",
+            "baseline_test_rmse": 0.859300097308653,
+            "test_examples": 967,
+            "test_mae": 0.5656420569002729,
+            "test_r2": 0.29979590609327367,
+            "test_rmse": 0.7189611354633625,
+            "validation_rmse": 0.7639114248980821
+          },
+          "recipe": "ml",
+          "run_id": "8d8834978234498c9eb6e2e3dba54b48",
+          "seed": 19,
+          "state": "succeeded"
+        },
+        {
+          "failure": null,
+          "metrics": {
+            "baseline": "mean target selected only from training data",
+            "baseline_test_rmse": 0.859300097308653,
+            "test_examples": 967,
+            "test_mae": 0.5656420569002729,
+            "test_r2": 0.29979590609327367,
+            "test_rmse": 0.7189611354633625,
+            "validation_rmse": 0.7639114248980821
+          },
+          "recipe": "ml",
+          "run_id": "cd936536f92a418bb615d7ab80641b4b",
+          "seed": 43,
+          "state": "succeeded"
+        },
+        {
+          "failure": null,
+          "metrics": {
+            "baseline": "mean target selected only from training data",
+            "baseline_test_rmse": 0.859300097308653,
+            "test_examples": 967,
+            "test_mae": 0.5366988972476014,
+            "test_r2": 0.3795560960096862,
+            "test_rmse": 0.6767750703618629,
+            "validation_rmse": 0.7128310403112437
+          },
+          "recipe": "dl",
+          "run_id": "f2f83f8fc812439390717e77add7136f",
+          "seed": 7,
+          "state": "succeeded"
+        },
+        {
+          "failure": null,
+          "metrics": {
+            "baseline": "mean target selected only from training data",
+            "baseline_test_rmse": 0.859300097308653,
+            "test_examples": 967,
+            "test_mae": 0.5341153920390183,
+            "test_r2": 0.3921639920065614,
+            "test_rmse": 0.6698634837128653,
+            "validation_rmse": 0.7205204998958628
+          },
+          "recipe": "dl",
+          "run_id": "183a690f60374c98ba14d230f9aa593f",
+          "seed": 19,
+          "state": "succeeded"
+        },
+        {
+          "failure": null,
+          "metrics": {
+            "baseline": "mean target selected only from training data",
+            "baseline_test_rmse": 0.859300097308653,
+            "test_examples": 967,
+            "test_mae": 0.528571502803226,
+            "test_r2": 0.3988287927959058,
+            "test_rmse": 0.6661809013383807,
+            "validation_rmse": 0.7116240051006162
+          },
+          "recipe": "dl",
+          "run_id": "aae84d3e678344f0bf95517d896a3c80",
+          "seed": 43,
+          "state": "succeeded"
+        }
+      ],
+      "schema": "canlilabs.comparison.v1",
+      "selected_trials": 6,
+      "selection_policy": "No automatic winner or promotion; validation selects candidates.",
+      "split_sha256": "9751763ef3f398fa212de09f6eb3b97af9b048f17a603238dc5a8ac69cd3e1e3",
+      "task": "regression",
+      "workspace_trial_counts": {
+        "succeeded": 12
+      }
+    }
+  ],
+  "datasets": [
+    {
+      "attribution": "Fisher, R. (1936). Iris. UCI Machine Learning Repository. https://doi.org/10.24432/C56C76. CC BY 4.0; https://creativecommons.org/licenses/by/4.0/.",
+      "bytes": 7511,
+      "columns": [
+        "id",
+        "sepal_length_cm",
+        "sepal_width_cm",
+        "petal_length_cm",
+        "petal_width_cm",
+        "class"
+      ],
+      "dataset_id": "b7cfc2368743568911a3c3b9954baac03b2bea8a971e7e2b4c84524ddf72dd63",
+      "file": "data.csv",
+      "license": "CC-BY-4.0",
+      "lineage": {
+        "archive_sha256": "d11fe30213d36434a0879aab7cb00ce3c812eb7ba2495874438abff7b7b762e9",
+        "converted_sha256": "b7cfc2368743568911a3c3b9954baac03b2bea8a971e7e2b4c84524ddf72dd63",
+        "download_url": "https://archive.ics.uci.edu/static/public/53/iris.zip",
+        "licence_id": "CC-BY-4.0",
+        "licence_reference": "https://archive.ics.uci.edu/dataset/53/iris",
+        "member": "bezdekIris.data",
+        "member_sha256": "0fed2a99db77ec533a62dc66894d3ec6df3b58b6a8f3cf4a6b47e4086b7f97dc",
+        "schema": "canlilabs.source-lineage.v1",
+        "transformations": [
+          "Use the archive's bezdekIris.data member; skip its blank trailing line.",
+          "Add deterministic row IDs; serialize comma-separated UTF-8 with LF."
+        ]
+      },
+      "purpose": "training and independent evaluation",
+      "rights_status": "declared_by_registrant",
+      "rows": 150,
+      "schema": "canlilabs.dataset.v1",
+      "sha256": "b7cfc2368743568911a3c3b9954baac03b2bea8a971e7e2b4c84524ddf72dd63",
+      "source": "https://archive.ics.uci.edu/dataset/53/iris",
+      "target": "class"
+    },
+    {
+      "attribution": "Cortez, P., Cerdeira, A., Almeida, F., Matos, T., & Reis, J. (2009). Wine Quality. UCI Machine Learning Repository. https://doi.org/10.24432/C56S3T. CC BY 4.0; https://creativecommons.org/licenses/by/4.0/.",
+      "bytes": 400439,
+      "columns": [
+        "id",
+        "fixed_acidity",
+        "volatile_acidity",
+        "citric_acid",
+        "residual_sugar",
+        "chlorides",
+        "free_sulfur_dioxide",
+        "total_sulfur_dioxide",
+        "density",
+        "pH",
+        "sulphates",
+        "alcohol",
+        "quality"
+      ],
+      "dataset_id": "0c138caff435ceaa247854cdd9d1b35ce2f4fbc8acd2e775e9fbdb79923e3390",
+      "file": "data.csv",
+      "license": "CC-BY-4.0",
+      "lineage": {
+        "archive_sha256": "3ed56667f4b828242bd732d7d1dd7f2861e54432239d7fa63877014cbb0304d4",
+        "converted_sha256": "0c138caff435ceaa247854cdd9d1b35ce2f4fbc8acd2e775e9fbdb79923e3390",
+        "download_url": "https://archive.ics.uci.edu/static/public/186/wine+quality.zip",
+        "licence_id": "CC-BY-4.0",
+        "licence_reference": "https://archive.ics.uci.edu/dataset/186/wine+quality",
+        "member": "winequality-white.csv",
+        "member_sha256": "76c3f809815c17c07212622f776311faeb31e87610d52c26d87d6e361b169836",
+        "schema": "canlilabs.source-lineage.v1",
+        "transformations": [
+          "Parse the semicolon CSV and replace header spaces with underscores.",
+          "Add deterministic row IDs; serialize comma-separated UTF-8 with LF."
+        ]
+      },
+      "purpose": "training and independent evaluation",
+      "rights_status": "declared_by_registrant",
+      "rows": 4898,
+      "schema": "canlilabs.dataset.v1",
+      "sha256": "0c138caff435ceaa247854cdd9d1b35ce2f4fbc8acd2e775e9fbdb79923e3390",
+      "source": "https://archive.ics.uci.edu/dataset/186/wine+quality",
+      "target": "quality"
+    }
+  ],
+  "runs": [
+    {
+      "config": {
+        "dataset_id": "b7cfc2368743568911a3c3b9954baac03b2bea8a971e7e2b4c84524ddf72dd63",
+        "device": "cpu",
+        "episodes": 1500,
+        "epochs": 30,
+        "evaluation_episodes": 200,
+        "features": [
+          "sepal_length_cm",
+          "sepal_width_cm",
+          "petal_length_cm",
+          "petal_width_cm"
+        ],
+        "group_column": null,
+        "recipe": "ml",
+        "scope": "registered numeric CPU recipe",
+        "seed": 7,
+        "split_seed": 2718,
+        "split_strategy": "random",
+        "task": "classification",
+        "time_column": null
+      },
+      "created_at": "2026-10-14T00:13:40.831311+00:00",
+      "provenance": {
+        "code": {
+          "files": {
+            ".python-version": "aa0d6581054e6e4ff3f91839deca7a854ad37221b8784d060b42d0f847ff1a3b",
+            "__init__.py": "0d9617e8d49b06405371c4f311b8053f94ba8dbb73079afe27d8dd9a483e785b",
+            "cli.py": "1cbff7b538e9240aa646d054d49c60337fa9023b6fa9e7a86728d96f3ec22b62",
+            "compute.py": "74c7a35183fc7bf449d09dbf52f5c4f107ebb6fc39502e8a116c82c8f2449461",
+            "data.py": "8b57c116ef3520ac6d80b5782670d8d8a806174fe09595077e05c94e29dd6139",
+            "lifecycle.py": "e5c51bc28b22de9713943535a38bdb2431493a088f882072b9d99b06e6149ffc",
+            "pyproject.toml": "990c659e9676f6d1bd29205813afa03936b78f85a2c300aa763ad4d96e636a6d",
+            "reader.py": "98dee186df4309e487cd078365ca62b0089640bc4bfed7b34426e0f8ff4a32f5",
+            "recipes.py": "a121fcae293469bdf2b6211d00fc199ea3ebaf88f2b45f4fa8f9807219549521",
+            "records.py": "77be90f553fea21df7f63fc2f619155bc1498beb656872465f93290c2d9f02fd",
+            "tabular.py": "d5694dd945ac4c880814b4af0f73fa03f13ba724af41cf975ff5cbcb42ea3ba3",
+            "uv.lock": "1f0ee10b2ba7a521b6ca2a37908d2bfc7cd2de35a7659913c0bd43ca8ce511d6"
+          },
+          "sha256": "ac0a7bf6fefb9b56a023ad3982f7d1b79658695d4f9e1273dc0e40cfe85f7de5"
+        },
+        "environment": {
+          "dependencies": {
+            "canlilabs": "0.1.0",
+            "gymnasium": "1.4.0",
+            "numpy": "2.5.4",
+            "scikit-learn": "1.9.1",
+            "torch": "2.14.1+cpu"
+          },
+          "machine": "x86_64",
+          "platform": "Linux",
+          "python": "3.12.13"
+        },
+        "worker_lease": {
+          "device": 2049,
+          "file": ".worker.lock",
+          "inode": 9223288,
+          "protocol": "posix-flock.v2"
+        }
+      },
+      "result": {
+        "artifacts": {
+          "model-card.json": "4822efda53325d7ab5bf8ebf58aba67ec6dc4e0c4df4b7d26f07abd88eff34ac",
+          "model.npz": "9c343d5941eb3987384e83ed17f51a51b4a5a3de34caf17475e254f50f8c3b6b"
+        },
+        "data": {
+          "classes": [
+            "Iris-setosa",
+            "Iris-versicolor",
+            "Iris-virginica"
+          ],
+          "dataset_id": "b7cfc2368743568911a3c3b9954baac03b2bea8a971e7e2b4c84524ddf72dd63",
+          "duplicate_feature_rows": 1,
+          "feature_names": [
+            "sepal_length_cm",
+            "sepal_width_cm",
+            "petal_length_cm",
+            "petal_width_cm"
+          ],
+          "license": "CC-BY-4.0",
+          "manifest_sha256": "e51e140a475d3723bad16fb14e6ffeb6d48b16df3fb31550ab0de2c8bcaf2b5e",
+          "profile_sha256": "68e0193f513d40fce74dce667a7254458625159b0e080058026c623db0e2a9c7",
+          "rights_status": "declared_by_registrant",
+          "source": "https://archive.ics.uci.edu/dataset/53/iris",
+          "split_counts": {
+            "test": 30,
+            "train": 90,
+            "validation": 30
+          },
+          "split_sha256": "a2263f1830298273c1ba1f2503617d83f62f00cc79dd5cc4a875f8fd50fef5f8",
+          "split_strategy": "random",
+          "synthetic_smoke_fixture": false,
+          "task": "classification"
+        },
+        "duration_seconds": 0.8118533260000049,
+        "metrics": {
+          "baseline": "majority label selected only from training data",
+          "baseline_test_accuracy": 0.3333333333333333,
+          "test_accuracy": 1.0,
+          "test_balanced_accuracy": 1.0,
+          "test_examples": 30,
+          "test_macro_f1": 1.0,
+          "validation_accuracy": 1.0
+        },
+        "model": {
+          "checkpoint": "model.npz",
+          "classes": [
+            "Iris-setosa",
+            "Iris-versicolor",
+            "Iris-virginica"
+          ],
+          "feature_names": [
+            "sepal_length_cm",
+            "sepal_width_cm",
+            "petal_length_cm",
+            "petal_width_cm"
+          ],
+          "features": 4,
+          "kind": "scaled_logistic_regression",
+          "reload_verified": true,
+          "task": "classification"
+        }
+      },
+      "run_id": "2081492a03094c16a282b2e67ee9a23a",
+      "state": "succeeded"
+    },
+    {
+      "config": {
+        "dataset_id": "b7cfc2368743568911a3c3b9954baac03b2bea8a971e7e2b4c84524ddf72dd63",
+        "device": "cpu",
+        "episodes": 1500,
+        "epochs": 30,
+        "evaluation_episodes": 200,
+        "features": [
+          "sepal_length_cm",
+          "sepal_width_cm",
+          "petal_length_cm",
+          "petal_width_cm"
+        ],
+        "group_column": null,
+        "recipe": "ml",
+        "scope": "registered numeric CPU recipe",
+        "seed": 19,
+        "split_seed": 2718,
+        "split_strategy": "random",
+        "task": "classification",
+        "time_column": null
+      },
+      "created_at": "2026-10-14T00:13:41.652988+00:00",
+      "provenance": {
+        "code": {
+          "files": {
+            ".python-version": "aa0d6581054e6e4ff3f91839deca7a854ad37221b8784d060b42d0f847ff1a3b",
+            "__init__.py": "0d9617e8d49b06405371c4f311b8053f94ba8dbb73079afe27d8dd9a483e785b",
+            "cli.py": "1cbff7b538e9240aa646d054d49c60337fa9023b6fa9e7a86728d96f3ec22b62",
+            "compute.py": "74c7a35183fc7bf449d09dbf52f5c4f107ebb6fc39502e8a116c82c8f2449461",
+            "data.py": "8b57c116ef3520ac6d80b5782670d8d8a806174fe09595077e05c94e29dd6139",
+            "lifecycle.py": "e5c51bc28b22de9713943535a38bdb2431493a088f882072b9d99b06e6149ffc",
+            "pyproject.toml": "990c659e9676f6d1bd29205813afa03936b78f85a2c300aa763ad4d96e636a6d",
+            "reader.py": "98dee186df4309e487cd078365ca62b0089640bc4bfed7b34426e0f8ff4a32f5",
+            "recipes.py": "a121fcae293469bdf2b6211d00fc199ea3ebaf88f2b45f4fa8f9807219549521",
+            "records.py": "77be90f553fea21df7f63fc2f619155bc1498beb656872465f93290c2d9f02fd",
+            "tabular.py": "d5694dd945ac4c880814b4af0f73fa03f13ba724af41cf975ff5cbcb42ea3ba3",
+            "uv.lock": "1f0ee10b2ba7a521b6ca2a37908d2bfc7cd2de35a7659913c0bd43ca8ce511d6"
+          },
+          "sha256": "ac0a7bf6fefb9b56a023ad3982f7d1b79658695d4f9e1273dc0e40cfe85f7de5"
+        },
+        "environment": {
+          "dependencies": {
+            "canlilabs": "0.1.0",
+            "gymnasium": "1.4.0",
+            "numpy": "2.5.4",
+            "scikit-learn": "1.9.1",
+            "torch": "2.14.1+cpu"
+          },
+          "machine": "x86_64",
+          "platform": "Linux",
+          "python": "3.12.13"
+        },
+        "worker_lease": {
+          "device": 2049,
+          "file": ".worker.lock",
+          "inode": 9223296,
+          "protocol": "posix-flock.v2"
+        }
+      },
+      "result": {
+        "artifacts": {
+          "model-card.json": "ce41cd821e0e7e723f2b22412eeb3332d57767b4f53a7cbbb6b7011eb729e5ff",
+          "model.npz": "9c343d5941eb3987384e83ed17f51a51b4a5a3de34caf17475e254f50f8c3b6b"
+        },
+        "data": {
+          "classes": [
+            "Iris-setosa",
+            "Iris-versicolor",
+            "Iris-virginica"
+          ],
+          "dataset_id": "b7cfc2368743568911a3c3b9954baac03b2bea8a971e7e2b4c84524ddf72dd63",
+          "duplicate_feature_rows": 1,
+          "feature_names": [
+            "sepal_length_cm",
+            "sepal_width_cm",
+            "petal_length_cm",
+            "petal_width_cm"
+          ],
+          "license": "CC-BY-4.0",
+          "manifest_sha256": "e51e140a475d3723bad16fb14e6ffeb6d48b16df3fb31550ab0de2c8bcaf2b5e",
+          "profile_sha256": "68e0193f513d40fce74dce667a7254458625159b0e080058026c623db0e2a9c7",
+          "rights_status": "declared_by_registrant",
+          "source": "https://archive.ics.uci.edu/dataset/53/iris",
+          "split_counts": {
+            "test": 30,
+            "train": 90,
+            "validation": 30
+          },
+          "split_sha256": "a2263f1830298273c1ba1f2503617d83f62f00cc79dd5cc4a875f8fd50fef5f8",
+          "split_strategy": "random",
+          "synthetic_smoke_fixture": false,
+          "task": "classification"
+        },
+        "duration_seconds": 0.019322542999987036,
+        "metrics": {
+          "baseline": "majority label selected only from training data",
+          "baseline_test_accuracy": 0.3333333333333333,
+          "test_accuracy": 1.0,
+          "test_balanced_accuracy": 1.0,
+          "test_examples": 30,
+          "test_macro_f1": 1.0,
+          "validation_accuracy": 1.0
+        },
+        "model": {
+          "checkpoint": "model.npz",
+          "classes": [
+            "Iris-setosa",
+            "Iris-versicolor",
+            "Iris-virginica"
+          ],
+          "feature_names": [
+            "sepal_length_cm",
+            "sepal_width_cm",
+            "petal_length_cm",
+            "petal_width_cm"
+          ],
+          "features": 4,
+          "kind": "scaled_logistic_regression",
+          "reload_verified": true,
+          "task": "classification"
+        }
+      },
+      "run_id": "88db1e02366e406da192c8292ad18fb1",
+      "state": "succeeded"
+    },
+    {
+      "config": {
+        "dataset_id": "b7cfc2368743568911a3c3b9954baac03b2bea8a971e7e2b4c84524ddf72dd63",
+        "device": "cpu",
+        "episodes": 1500,
+        "epochs": 30,
+        "evaluation_episodes": 200,
+        "features": [
+          "sepal_length_cm",
+          "sepal_width_cm",
+          "petal_length_cm",
+          "petal_width_cm"
+        ],
+        "group_column": null,
+        "recipe": "ml",
+        "scope": "registered numeric CPU recipe",
+        "seed": 43,
+        "split_seed": 2718,
+        "split_strategy": "random",
+        "task": "classification",
+        "time_column": null
+      },
+      "created_at": "2026-10-14T00:13:41.685443+00:00",
+      "provenance": {
+        "code": {
+          "files": {
+            ".python-version": "aa0d6581054e6e4ff3f91839deca7a854ad37221b8784d060b42d0f847ff1a3b",
+            "__init__.py": "0d9617e8d49b06405371c4f311b8053f94ba8dbb73079afe27d8dd9a483e785b",
+            "cli.py": "1cbff7b538e9240aa646d054d49c60337fa9023b6fa9e7a86728d96f3ec22b62",
+            "compute.py": "74c7a35183fc7bf449d09dbf52f5c4f107ebb6fc39502e8a116c82c8f2449461",
+            "data.py": "8b57c116ef3520ac6d80b5782670d8d8a806174fe09595077e05c94e29dd6139",
+            "lifecycle.py": "e5c51bc28b22de9713943535a38bdb2431493a088f882072b9d99b06e6149ffc",
+            "pyproject.toml": "990c659e9676f6d1bd29205813afa03936b78f85a2c300aa763ad4d96e636a6d",
+            "reader.py": "98dee186df4309e487cd078365ca62b0089640bc4bfed7b34426e0f8ff4a32f5",
+            "recipes.py": "a121fcae293469bdf2b6211d00fc199ea3ebaf88f2b45f4fa8f9807219549521",
+            "records.py": "77be90f553fea21df7f63fc2f619155bc1498beb656872465f93290c2d9f02fd",
+            "tabular.py": "d5694dd945ac4c880814b4af0f73fa03f13ba724af41cf975ff5cbcb42ea3ba3",
+            "uv.lock": "1f0ee10b2ba7a521b6ca2a37908d2bfc7cd2de35a7659913c0bd43ca8ce511d6"
+          },
+          "sha256": "ac0a7bf6fefb9b56a023ad3982f7d1b79658695d4f9e1273dc0e40cfe85f7de5"
+        },
+        "environment": {
+          "dependencies": {
+            "canlilabs": "0.1.0",
+            "gymnasium": "1.4.0",
+            "numpy": "2.5.4",
+            "scikit-learn": "1.9.1",
+            "torch": "2.14.1+cpu"
+          },
+          "machine": "x86_64",
+          "platform": "Linux",
+          "python": "3.12.13"
+        },
+        "worker_lease": {
+          "device": 2049,
+          "file": ".worker.lock",
+          "inode": 9223302,
+          "protocol": "posix-flock.v2"
+        }
+      },
+      "result": {
+        "artifacts": {
+          "model-card.json": "62829d979dbfb6f39f9466d574116f0a53fd09cfff828d536cc57bf88c11f3b6",
+          "model.npz": "9c343d5941eb3987384e83ed17f51a51b4a5a3de34caf17475e254f50f8c3b6b"
+        },
+        "data": {
+          "classes": [
+            "Iris-setosa",
+            "Iris-versicolor",
+            "Iris-virginica"
+          ],
+          "dataset_id": "b7cfc2368743568911a3c3b9954baac03b2bea8a971e7e2b4c84524ddf72dd63",
+          "duplicate_feature_rows": 1,
+          "feature_names": [
+            "sepal_length_cm",
+            "sepal_width_cm",
+            "petal_length_cm",
+            "petal_width_cm"
+          ],
+          "license": "CC-BY-4.0",
+          "manifest_sha256": "e51e140a475d3723bad16fb14e6ffeb6d48b16df3fb31550ab0de2c8bcaf2b5e",
+          "profile_sha256": "68e0193f513d40fce74dce667a7254458625159b0e080058026c623db0e2a9c7",
+          "rights_status": "declared_by_registrant",
+          "source": "https://archive.ics.uci.edu/dataset/53/iris",
+          "split_counts": {
+            "test": 30,
+            "train": 90,
+            "validation": 30
+          },
+          "split_sha256": "a2263f1830298273c1ba1f2503617d83f62f00cc79dd5cc4a875f8fd50fef5f8",
+          "split_strategy": "random",
+          "synthetic_smoke_fixture": false,
+          "task": "classification"
+        },
+        "duration_seconds": 0.018718629999995073,
+        "metrics": {
+          "baseline": "majority label selected only from training data",
+          "baseline_test_accuracy": 0.3333333333333333,
+          "test_accuracy": 1.0,
+          "test_balanced_accuracy": 1.0,
+          "test_examples": 30,
+          "test_macro_f1": 1.0,
+          "validation_accuracy": 1.0
+        },
+        "model": {
+          "checkpoint": "model.npz",
+          "classes": [
+            "Iris-setosa",
+            "Iris-versicolor",
+            "Iris-virginica"
+          ],
+          "feature_names": [
+            "sepal_length_cm",
+            "sepal_width_cm",
+            "petal_length_cm",
+            "petal_width_cm"
+          ],
+          "features": 4,
+          "kind": "scaled_logistic_regression",
+          "reload_verified": true,
+          "task": "classification"
+        }
+      },
+      "run_id": "3f16fa6346ef43b092a54de37f378a6e",
+      "state": "succeeded"
+    },
+    {
+      "config": {
+        "dataset_id": "b7cfc2368743568911a3c3b9954baac03b2bea8a971e7e2b4c84524ddf72dd63",
+        "device": "cpu",
+        "episodes": 1500,
+        "epochs": 30,
+        "evaluation_episodes": 200,
+        "features": [
+          "sepal_length_cm",
+          "sepal_width_cm",
+          "petal_length_cm",
+          "petal_width_cm"
+        ],
+        "group_column": null,
+        "recipe": "dl",
+        "scope": "registered numeric CPU recipe",
+        "seed": 7,
+        "split_seed": 2718,
+        "split_strategy": "random",
+        "task": "classification",
+        "time_column": null
+      },
+      "created_at": "2026-10-14T00:13:41.715368+00:00",
+      "provenance": {
+        "code": {
+          "files": {
+            ".python-version": "aa0d6581054e6e4ff3f91839deca7a854ad37221b8784d060b42d0f847ff1a3b",
+            "__init__.py": "0d9617e8d49b06405371c4f311b8053f94ba8dbb73079afe27d8dd9a483e785b",
+            "cli.py": "1cbff7b538e9240aa646d054d49c60337fa9023b6fa9e7a86728d96f3ec22b62",
+            "compute.py": "74c7a35183fc7bf449d09dbf52f5c4f107ebb6fc39502e8a116c82c8f2449461",
+            "data.py": "8b57c116ef3520ac6d80b5782670d8d8a806174fe09595077e05c94e29dd6139",
+            "lifecycle.py": "e5c51bc28b22de9713943535a38bdb2431493a088f882072b9d99b06e6149ffc",
+            "pyproject.toml": "990c659e9676f6d1bd29205813afa03936b78f85a2c300aa763ad4d96e636a6d",
+            "reader.py": "98dee186df4309e487cd078365ca62b0089640bc4bfed7b34426e0f8ff4a32f5",
+            "recipes.py": "a121fcae293469bdf2b6211d00fc199ea3ebaf88f2b45f4fa8f9807219549521",
+            "records.py": "77be90f553fea21df7f63fc2f619155bc1498beb656872465f93290c2d9f02fd",
+            "tabular.py": "d5694dd945ac4c880814b4af0f73fa03f13ba724af41cf975ff5cbcb42ea3ba3",
+            "uv.lock": "1f0ee10b2ba7a521b6ca2a37908d2bfc7cd2de35a7659913c0bd43ca8ce511d6"
+          },
+          "sha256": "ac0a7bf6fefb9b56a023ad3982f7d1b79658695d4f9e1273dc0e40cfe85f7de5"
+        },
+        "environment": {
+          "dependencies": {
+            "canlilabs": "0.1.0",
+            "gymnasium": "1.4.0",
+            "numpy": "2.5.4",
+            "scikit-learn": "1.9.1",
+            "torch": "2.14.1+cpu"
+          },
+          "machine": "x86_64",
+          "platform": "Linux",
+          "python": "3.12.13"
+        },
+        "worker_lease": {
+          "device": 2049,
+          "file": ".worker.lock",
+          "inode": 9223308,
+          "protocol": "posix-flock.v2"
+        }
+      },
+      "result": {
+        "artifacts": {
+          "learning-curves.json": "350081d4758b199fac90333c592f7433f2503d03a52f5b17d4e0ae1652bc52cb",
+          "model-card.json": "394bb82aaf6e24f1a6fd271e19e64ee252ab183de6de97ebb23be7a5b6a81ea0",
+          "model.pt": "62ff1f1114a7d99d0fe2b6449ab78bff19f40e56d3a77c02027ce4ada7001f12"
+        },
+        "data": {
+          "classes": [
+            "Iris-setosa",
+            "Iris-versicolor",
+            "Iris-virginica"
+          ],
+          "dataset_id": "b7cfc2368743568911a3c3b9954baac03b2bea8a971e7e2b4c84524ddf72dd63",
+          "duplicate_feature_rows": 1,
+          "feature_names": [
+            "sepal_length_cm",
+            "sepal_width_cm",
+            "petal_length_cm",
+            "petal_width_cm"
+          ],
+          "license": "CC-BY-4.0",
+          "manifest_sha256": "e51e140a475d3723bad16fb14e6ffeb6d48b16df3fb31550ab0de2c8bcaf2b5e",
+          "profile_sha256": "68e0193f513d40fce74dce667a7254458625159b0e080058026c623db0e2a9c7",
+          "rights_status": "declared_by_registrant",
+          "source": "https://archive.ics.uci.edu/dataset/53/iris",
+          "split_counts": {
+            "test": 30,
+            "train": 90,
+            "validation": 30
+          },
+          "split_sha256": "a2263f1830298273c1ba1f2503617d83f62f00cc79dd5cc4a875f8fd50fef5f8",
+          "split_strategy": "random",
+          "synthetic_smoke_fixture": false,
+          "task": "classification"
+        },
+        "duration_seconds": 2.1293587840000043,
+        "metrics": {
+          "baseline": "majority label selected only from training data",
+          "baseline_test_accuracy": 0.3333333333333333,
+          "test_accuracy": 1.0,
+          "test_balanced_accuracy": 1.0,
+          "test_examples": 30,
+          "test_macro_f1": 1.0,
+          "validation_accuracy": 0.9666666666666667
+        },
+        "model": {
+          "checkpoint": "model.pt",
+          "classes": [
+            "Iris-setosa",
+            "Iris-versicolor",
+            "Iris-virginica"
+          ],
+          "deterministic_algorithms": true,
+          "device": "cpu",
+          "feature_names": [
+            "sepal_length_cm",
+            "sepal_width_cm",
+            "petal_length_cm",
+            "petal_width_cm"
+          ],
+          "features": 4,
+          "kind": "torch_mlp",
+          "reload_verified": true,
+          "selected_epoch": 30,
+          "selection": "validation loss",
+          "task": "classification"
+        }
+      },
+      "run_id": "fe09af2d635543ddbe5021154177cbb0",
+      "state": "succeeded"
+    },
+    {
+      "config": {
+        "dataset_id": "b7cfc2368743568911a3c3b9954baac03b2bea8a971e7e2b4c84524ddf72dd63",
+        "device": "cpu",
+        "episodes": 1500,
+        "epochs": 30,
+        "evaluation_episodes": 200,
+        "features": [
+          "sepal_length_cm",
+          "sepal_width_cm",
+          "petal_length_cm",
+          "petal_width_cm"
+        ],
+        "group_column": null,
+        "recipe": "dl",
+        "scope": "registered numeric CPU recipe",
+        "seed": 19,
+        "split_seed": 2718,
+        "split_strategy": "random",
+        "task": "classification",
+        "time_column": null
+      },
+      "created_at": "2026-10-14T00:13:43.854036+00:00",
+      "provenance": {
+        "code": {
+          "files": {
+            ".python-version": "aa0d6581054e6e4ff3f91839deca7a854ad37221b8784d060b42d0f847ff1a3b",
+            "__init__.py": "0d9617e8d49b06405371c4f311b8053f94ba8dbb73079afe27d8dd9a483e785b",
+            "cli.py": "1cbff7b538e9240aa646d054d49c60337fa9023b6fa9e7a86728d96f3ec22b62",
+            "compute.py": "74c7a35183fc7bf449d09dbf52f5c4f107ebb6fc39502e8a116c82c8f2449461",
+            "data.py": "8b57c116ef3520ac6d80b5782670d8d8a806174fe09595077e05c94e29dd6139",
+            "lifecycle.py": "e5c51bc28b22de9713943535a38bdb2431493a088f882072b9d99b06e6149ffc",
+            "pyproject.toml": "990c659e9676f6d1bd29205813afa03936b78f85a2c300aa763ad4d96e636a6d",
+            "reader.py": "98dee186df4309e487cd078365ca62b0089640bc4bfed7b34426e0f8ff4a32f5",
+            "recipes.py": "a121fcae293469bdf2b6211d00fc199ea3ebaf88f2b45f4fa8f9807219549521",
+            "records.py": "77be90f553fea21df7f63fc2f619155bc1498beb656872465f93290c2d9f02fd",
+            "tabular.py": "d5694dd945ac4c880814b4af0f73fa03f13ba724af41cf975ff5cbcb42ea3ba3",
+            "uv.lock": "1f0ee10b2ba7a521b6ca2a37908d2bfc7cd2de35a7659913c0bd43ca8ce511d6"
+          },
+          "sha256": "ac0a7bf6fefb9b56a023ad3982f7d1b79658695d4f9e1273dc0e40cfe85f7de5"
+        },
+        "environment": {
+          "dependencies": {
+            "canlilabs": "0.1.0",
+            "gymnasium": "1.4.0",
+            "numpy": "2.5.4",
+            "scikit-learn": "1.9.1",
+            "torch": "2.14.1+cpu"
+          },
+          "machine": "x86_64",
+          "platform": "Linux",
+          "python": "3.12.13"
+        },
+        "worker_lease": {
+          "device": 2049,
+          "file": ".worker.lock",
+          "inode": 9223315,
+          "protocol": "posix-flock.v2"
+        }
+      },
+      "result": {
+        "artifacts": {
+          "learning-curves.json": "f8a79fc13e91589e740eb003f7436e680abe5dada79556a5bc53e4f75d7b0465",
+          "model-card.json": "dfe15dfa705da498b602ebd70b2fec7dd3c9dc213e06976d0edc0b54a1fa7834",
+          "model.pt": "835422b991226f984e82cc8d90c5921351e89a300762859bd1c492ca20e49183"
+        },
+        "data": {
+          "classes": [
+            "Iris-setosa",
+            "Iris-versicolor",
+            "Iris-virginica"
+          ],
+          "dataset_id": "b7cfc2368743568911a3c3b9954baac03b2bea8a971e7e2b4c84524ddf72dd63",
+          "duplicate_feature_rows": 1,
+          "feature_names": [
+            "sepal_length_cm",
+            "sepal_width_cm",
+            "petal_length_cm",
+            "petal_width_cm"
+          ],
+          "license": "CC-BY-4.0",
+          "manifest_sha256": "e51e140a475d3723bad16fb14e6ffeb6d48b16df3fb31550ab0de2c8bcaf2b5e",
+          "profile_sha256": "68e0193f513d40fce74dce667a7254458625159b0e080058026c623db0e2a9c7",
+          "rights_status": "declared_by_registrant",
+          "source": "https://archive.ics.uci.edu/dataset/53/iris",
+          "split_counts": {
+            "test": 30,
+            "train": 90,
+            "validation": 30
+          },
+          "split_sha256": "a2263f1830298273c1ba1f2503617d83f62f00cc79dd5cc4a875f8fd50fef5f8",
+          "split_strategy": "random",
+          "synthetic_smoke_fixture": false,
+          "task": "classification"
+        },
+        "duration_seconds": 0.06352878499998837,
+        "metrics": {
+          "baseline": "majority label selected only from training data",
+          "baseline_test_accuracy": 0.3333333333333333,
+          "test_accuracy": 1.0,
+          "test_balanced_accuracy": 1.0,
+          "test_examples": 30,
+          "test_macro_f1": 1.0,
+          "validation_accuracy": 1.0
+        },
+        "model": {
+          "checkpoint": "model.pt",
+          "classes": [
+            "Iris-setosa",
+            "Iris-versicolor",
+            "Iris-virginica"
+          ],
+          "deterministic_algorithms": true,
+          "device": "cpu",
+          "feature_names": [
+            "sepal_length_cm",
+            "sepal_width_cm",
+            "petal_length_cm",
+            "petal_width_cm"
+          ],
+          "features": 4,
+          "kind": "torch_mlp",
+          "reload_verified": true,
+          "selected_epoch": 30,
+          "selection": "validation loss",
+          "task": "classification"
+        }
+      },
+      "run_id": "edb895f9d5ee496eba12f10c13b27b56",
+      "state": "succeeded"
+    },
+    {
+      "config": {
+        "dataset_id": "b7cfc2368743568911a3c3b9954baac03b2bea8a971e7e2b4c84524ddf72dd63",
+        "device": "cpu",
+        "episodes": 1500,
+        "epochs": 30,
+        "evaluation_episodes": 200,
+        "features": [
+          "sepal_length_cm",
+          "sepal_width_cm",
+          "petal_length_cm",
+          "petal_width_cm"
+        ],
+        "group_column": null,
+        "recipe": "dl",
+        "scope": "registered numeric CPU recipe",
+        "seed": 43,
+        "split_seed": 2718,
+        "split_strategy": "random",
+        "task": "classification",
+        "time_column": null
+      },
+      "created_at": "2026-10-14T00:13:43.926338+00:00",
+      "provenance": {
+        "code": {
+          "files": {
+            ".python-version": "aa0d6581054e6e4ff3f91839deca7a854ad37221b8784d060b42d0f847ff1a3b",
+            "__init__.py": "0d9617e8d49b06405371c4f311b8053f94ba8dbb73079afe27d8dd9a483e785b",
+            "cli.py": "1cbff7b538e9240aa646d054d49c60337fa9023b6fa9e7a86728d96f3ec22b62",
+            "compute.py": "74c7a35183fc7bf449d09dbf52f5c4f107ebb6fc39502e8a116c82c8f2449461",
+            "data.py": "8b57c116ef3520ac6d80b5782670d8d8a806174fe09595077e05c94e29dd6139",
+            "lifecycle.py": "e5c51bc28b22de9713943535a38bdb2431493a088f882072b9d99b06e6149ffc",
+            "pyproject.toml": "990c659e9676f6d1bd29205813afa03936b78f85a2c300aa763ad4d96e636a6d",
+            "reader.py": "98dee186df4309e487cd078365ca62b0089640bc4bfed7b34426e0f8ff4a32f5",
+            "recipes.py": "a121fcae293469bdf2b6211d00fc199ea3ebaf88f2b45f4fa8f9807219549521",
+            "records.py": "77be90f553fea21df7f63fc2f619155bc1498beb656872465f93290c2d9f02fd",
+            "tabular.py": "d5694dd945ac4c880814b4af0f73fa03f13ba724af41cf975ff5cbcb42ea3ba3",
+            "uv.lock": "1f0ee10b2ba7a521b6ca2a37908d2bfc7cd2de35a7659913c0bd43ca8ce511d6"
+          },
+          "sha256": "ac0a7bf6fefb9b56a023ad3982f7d1b79658695d4f9e1273dc0e40cfe85f7de5"
+        },
+        "environment": {
+          "dependencies": {
+            "canlilabs": "0.1.0",
+            "gymnasium": "1.4.0",
+            "numpy": "2.5.4",
+            "scikit-learn": "1.9.1",
+            "torch": "2.14.1+cpu"
+          },
+          "machine": "x86_64",
+          "platform": "Linux",
+          "python": "3.12.13"
+        },
+        "worker_lease": {
+          "device": 2049,
+          "file": ".worker.lock",
+          "inode": 9223322,
+          "protocol": "posix-flock.v2"
+        }
+      },
+      "result": {
+        "artifacts": {
+          "learning-curves.json": "79076c91d0bcec0dc325065179b9cd35124ea795cae965c5f4b1def2d4d766be",
+          "model-card.json": "ff1b9bde58c63239d0f478d725c442aad49465ce2ed9a8b7e69f08e68a370ae9",
+          "model.pt": "a27af031afd6e2d9f61e07464e73d2313c0881f6186c9ba7c0e11d94fe914f6f"
+        },
+        "data": {
+          "classes": [
+            "Iris-setosa",
+            "Iris-versicolor",
+            "Iris-virginica"
+          ],
+          "dataset_id": "b7cfc2368743568911a3c3b9954baac03b2bea8a971e7e2b4c84524ddf72dd63",
+          "duplicate_feature_rows": 1,
+          "feature_names": [
+            "sepal_length_cm",
+            "sepal_width_cm",
+            "petal_length_cm",
+            "petal_width_cm"
+          ],
+          "license": "CC-BY-4.0",
+          "manifest_sha256": "e51e140a475d3723bad16fb14e6ffeb6d48b16df3fb31550ab0de2c8bcaf2b5e",
+          "profile_sha256": "68e0193f513d40fce74dce667a7254458625159b0e080058026c623db0e2a9c7",
+          "rights_status": "declared_by_registrant",
+          "source": "https://archive.ics.uci.edu/dataset/53/iris",
+          "split_counts": {
+            "test": 30,
+            "train": 90,
+            "validation": 30
+          },
+          "split_sha256": "a2263f1830298273c1ba1f2503617d83f62f00cc79dd5cc4a875f8fd50fef5f8",
+          "split_strategy": "random",
+          "synthetic_smoke_fixture": false,
+          "task": "classification"
+        },
+        "duration_seconds": 0.06269025700001407,
+        "metrics": {
+          "baseline": "majority label selected only from training data",
+          "baseline_test_accuracy": 0.3333333333333333,
+          "test_accuracy": 1.0,
+          "test_balanced_accuracy": 1.0,
+          "test_examples": 30,
+          "test_macro_f1": 1.0,
+          "validation_accuracy": 1.0
+        },
+        "model": {
+          "checkpoint": "model.pt",
+          "classes": [
+            "Iris-setosa",
+            "Iris-versicolor",
+            "Iris-virginica"
+          ],
+          "deterministic_algorithms": true,
+          "device": "cpu",
+          "feature_names": [
+            "sepal_length_cm",
+            "sepal_width_cm",
+            "petal_length_cm",
+            "petal_width_cm"
+          ],
+          "features": 4,
+          "kind": "torch_mlp",
+          "reload_verified": true,
+          "selected_epoch": 30,
+          "selection": "validation loss",
+          "task": "classification"
+        }
+      },
+      "run_id": "f35eecde6cac47b7858daae4a194a907",
+      "state": "succeeded"
+    },
+    {
+      "config": {
+        "dataset_id": "0c138caff435ceaa247854cdd9d1b35ce2f4fbc8acd2e775e9fbdb79923e3390",
+        "device": "cpu",
+        "episodes": 1500,
+        "epochs": 30,
+        "evaluation_episodes": 200,
+        "features": [
+          "fixed_acidity",
+          "volatile_acidity",
+          "citric_acid",
+          "residual_sugar",
+          "chlorides",
+          "free_sulfur_dioxide",
+          "total_sulfur_dioxide",
+          "density",
+          "pH",
+          "sulphates",
+          "alcohol"
+        ],
+        "group_column": null,
+        "recipe": "ml",
+        "scope": "registered numeric CPU recipe",
+        "seed": 7,
+        "split_seed": 2718,
+        "split_strategy": "random",
+        "task": "regression",
+        "time_column": null
+      },
+      "created_at": "2026-10-14T00:13:44.513766+00:00",
+      "provenance": {
+        "code": {
+          "files": {
+            ".python-version": "aa0d6581054e6e4ff3f91839deca7a854ad37221b8784d060b42d0f847ff1a3b",
+            "__init__.py": "0d9617e8d49b06405371c4f311b8053f94ba8dbb73079afe27d8dd9a483e785b",
+            "cli.py": "1cbff7b538e9240aa646d054d49c60337fa9023b6fa9e7a86728d96f3ec22b62",
+            "compute.py": "74c7a35183fc7bf449d09dbf52f5c4f107ebb6fc39502e8a116c82c8f2449461",
+            "data.py": "8b57c116ef3520ac6d80b5782670d8d8a806174fe09595077e05c94e29dd6139",
+            "lifecycle.py": "e5c51bc28b22de9713943535a38bdb2431493a088f882072b9d99b06e6149ffc",
+            "pyproject.toml": "990c659e9676f6d1bd29205813afa03936b78f85a2c300aa763ad4d96e636a6d",
+            "reader.py": "98dee186df4309e487cd078365ca62b0089640bc4bfed7b34426e0f8ff4a32f5",
+            "recipes.py": "a121fcae293469bdf2b6211d00fc199ea3ebaf88f2b45f4fa8f9807219549521",
+            "records.py": "77be90f553fea21df7f63fc2f619155bc1498beb656872465f93290c2d9f02fd",
+            "tabular.py": "d5694dd945ac4c880814b4af0f73fa03f13ba724af41cf975ff5cbcb42ea3ba3",
+            "uv.lock": "1f0ee10b2ba7a521b6ca2a37908d2bfc7cd2de35a7659913c0bd43ca8ce511d6"
+          },
+          "sha256": "ac0a7bf6fefb9b56a023ad3982f7d1b79658695d4f9e1273dc0e40cfe85f7de5"
+        },
+        "environment": {
+          "dependencies": {
+            "canlilabs": "0.1.0",
+            "gymnasium": "1.4.0",
+            "numpy": "2.5.4",
+            "scikit-learn": "1.9.1",
+            "torch": "2.14.1+cpu"
+          },
+          "machine": "x86_64",
+          "platform": "Linux",
+          "python": "3.12.13"
+        },
+        "worker_lease": {
+          "device": 2049,
+          "file": ".worker.lock",
+          "inode": 9223334,
+          "protocol": "posix-flock.v2"
+        }
+      },
+      "result": {
+        "artifacts": {
+          "model-card.json": "8f546e29d54217d264951779951d0af71c6a4c0810c250ffb9d2b8f451aa4e41",
+          "model.npz": "508973063b1d71e73cd968e991ae80394dc906aa915cb40c374f52eaf44d24ae"
+        },
+        "data": {
+          "classes": null,
+          "dataset_id": "0c138caff435ceaa247854cdd9d1b35ce2f4fbc8acd2e775e9fbdb79923e3390",
+          "duplicate_feature_rows": 937,
+          "feature_names": [
+            "fixed_acidity",
+            "volatile_acidity",
+            "citric_acid",
+            "residual_sugar",
+            "chlorides",
+            "free_sulfur_dioxide",
+            "total_sulfur_dioxide",
+            "density",
+            "pH",
+            "sulphates",
+            "alcohol"
+          ],
+          "license": "CC-BY-4.0",
+          "manifest_sha256": "3a8c687d50047a82bef36bfd7ec7ff73f698f2bf97153441713953b8ffb35f01",
+          "profile_sha256": "12b8370c77c66ea69e4d7c9d2afcf5328f53b5e6df1c7c191bdbd13aa3125ce4",
+          "rights_status": "declared_by_registrant",
+          "source": "https://archive.ics.uci.edu/dataset/186/wine+quality",
+          "split_counts": {
+            "test": 967,
+            "train": 2959,
+            "validation": 972
+          },
+          "split_sha256": "9751763ef3f398fa212de09f6eb3b97af9b048f17a603238dc5a8ac69cd3e1e3",
+          "split_strategy": "random",
+          "synthetic_smoke_fixture": false,
+          "task": "regression"
+        },
+        "duration_seconds": 0.11239413399999876,
+        "metrics": {
+          "baseline": "mean target selected only from training data",
+          "baseline_test_rmse": 0.859300097308653,
+          "test_examples": 967,
+          "test_mae": 0.5656420569002729,
+          "test_r2": 0.29979590609327367,
+          "test_rmse": 0.7189611354633625,
+          "validation_rmse": 0.7639114248980821
+        },
+        "model": {
+          "checkpoint": "model.npz",
+          "classes": null,
+          "feature_names": [
+            "fixed_acidity",
+            "volatile_acidity",
+            "citric_acid",
+            "residual_sugar",
+            "chlorides",
+            "free_sulfur_dioxide",
+            "total_sulfur_dioxide",
+            "density",
+            "pH",
+            "sulphates",
+            "alcohol"
+          ],
+          "features": 11,
+          "kind": "scaled_ridge_regression",
+          "reload_verified": true,
+          "task": "regression"
+        }
+      },
+      "run_id": "71a696e7735b4dabb901b541d581b534",
+      "state": "succeeded"
+    },
+    {
+      "config": {
+        "dataset_id": "0c138caff435ceaa247854cdd9d1b35ce2f4fbc8acd2e775e9fbdb79923e3390",
+        "device": "cpu",
+        "episodes": 1500,
+        "epochs": 30,
+        "evaluation_episodes": 200,
+        "features": [
+          "fixed_acidity",
+          "volatile_acidity",
+          "citric_acid",
+          "residual_sugar",
+          "chlorides",
+          "free_sulfur_dioxide",
+          "total_sulfur_dioxide",
+          "density",
+          "pH",
+          "sulphates",
+          "alcohol"
+        ],
+        "group_column": null,
+        "recipe": "ml",
+        "scope": "registered numeric CPU recipe",
+        "seed": 19,
+        "split_seed": 2718,
+        "split_strategy": "random",
+        "task": "regression",
+        "time_column": null
+      },
+      "created_at": "2026-10-14T00:13:44.635030+00:00",
+      "provenance": {
+        "code": {
+          "files": {
+            ".python-version": "aa0d6581054e6e4ff3f91839deca7a854ad37221b8784d060b42d0f847ff1a3b",
+            "__init__.py": "0d9617e8d49b06405371c4f311b8053f94ba8dbb73079afe27d8dd9a483e785b",
+            "cli.py": "1cbff7b538e9240aa646d054d49c60337fa9023b6fa9e7a86728d96f3ec22b62",
+            "compute.py": "74c7a35183fc7bf449d09dbf52f5c4f107ebb6fc39502e8a116c82c8f2449461",
+            "data.py": "8b57c116ef3520ac6d80b5782670d8d8a806174fe09595077e05c94e29dd6139",
+            "lifecycle.py": "e5c51bc28b22de9713943535a38bdb2431493a088f882072b9d99b06e6149ffc",
+            "pyproject.toml": "990c659e9676f6d1bd29205813afa03936b78f85a2c300aa763ad4d96e636a6d",
+            "reader.py": "98dee186df4309e487cd078365ca62b0089640bc4bfed7b34426e0f8ff4a32f5",
+            "recipes.py": "a121fcae293469bdf2b6211d00fc199ea3ebaf88f2b45f4fa8f9807219549521",
+            "records.py": "77be90f553fea21df7f63fc2f619155bc1498beb656872465f93290c2d9f02fd",
+            "tabular.py": "d5694dd945ac4c880814b4af0f73fa03f13ba724af41cf975ff5cbcb42ea3ba3",
+            "uv.lock": "1f0ee10b2ba7a521b6ca2a37908d2bfc7cd2de35a7659913c0bd43ca8ce511d6"
+          },
+          "sha256": "ac0a7bf6fefb9b56a023ad3982f7d1b79658695d4f9e1273dc0e40cfe85f7de5"
+        },
+        "environment": {
+          "dependencies": {
+            "canlilabs": "0.1.0",
+            "gymnasium": "1.4.0",
+            "numpy": "2.5.4",
+            "scikit-learn": "1.9.1",
+            "torch": "2.14.1+cpu"
+          },
+          "machine": "x86_64",
+          "platform": "Linux",
+          "python": "3.12.13"
+        },
+        "worker_lease": {
+          "device": 2049,
+          "file": ".worker.lock",
+          "inode": 9223342,
+          "protocol": "posix-flock.v2"
+        }
+      },
+      "result": {
+        "artifacts": {
+          "model-card.json": "de24e16d0ef1d28ec2636327d389e7edf3f0302717bd1623d881e6b526cded8e",
+          "model.npz": "508973063b1d71e73cd968e991ae80394dc906aa915cb40c374f52eaf44d24ae"
+        },
+        "data": {
+          "classes": null,
+          "dataset_id": "0c138caff435ceaa247854cdd9d1b35ce2f4fbc8acd2e775e9fbdb79923e3390",
+          "duplicate_feature_rows": 937,
+          "feature_names": [
+            "fixed_acidity",
+            "volatile_acidity",
+            "citric_acid",
+            "residual_sugar",
+            "chlorides",
+            "free_sulfur_dioxide",
+            "total_sulfur_dioxide",
+            "density",
+            "pH",
+            "sulphates",
+            "alcohol"
+          ],
+          "license": "CC-BY-4.0",
+          "manifest_sha256": "3a8c687d50047a82bef36bfd7ec7ff73f698f2bf97153441713953b8ffb35f01",
+          "profile_sha256": "12b8370c77c66ea69e4d7c9d2afcf5328f53b5e6df1c7c191bdbd13aa3125ce4",
+          "rights_status": "declared_by_registrant",
+          "source": "https://archive.ics.uci.edu/dataset/186/wine+quality",
+          "split_counts": {
+            "test": 967,
+            "train": 2959,
+            "validation": 972
+          },
+          "split_sha256": "9751763ef3f398fa212de09f6eb3b97af9b048f17a603238dc5a8ac69cd3e1e3",
+          "split_strategy": "random",
+          "synthetic_smoke_fixture": false,
+          "task": "regression"
+        },
+        "duration_seconds": 0.10833388700001478,
+        "metrics": {
+          "baseline": "mean target selected only from training data",
+          "baseline_test_rmse": 0.859300097308653,
+          "test_examples": 967,
+          "test_mae": 0.5656420569002729,
+          "test_r2": 0.29979590609327367,
+          "test_rmse": 0.7189611354633625,
+          "validation_rmse": 0.7639114248980821
+        },
+        "model": {
+          "checkpoint": "model.npz",
+          "classes": null,
+          "feature_names": [
+            "fixed_acidity",
+            "volatile_acidity",
+            "citric_acid",
+            "residual_sugar",
+            "chlorides",
+            "free_sulfur_dioxide",
+            "total_sulfur_dioxide",
+            "density",
+            "pH",
+            "sulphates",
+            "alcohol"
+          ],
+          "features": 11,
+          "kind": "scaled_ridge_regression",
+          "reload_verified": true,
+          "task": "regression"
+        }
+      },
+      "run_id": "8d8834978234498c9eb6e2e3dba54b48",
+      "state": "succeeded"
+    },
+    {
+      "config": {
+        "dataset_id": "0c138caff435ceaa247854cdd9d1b35ce2f4fbc8acd2e775e9fbdb79923e3390",
+        "device": "cpu",
+        "episodes": 1500,
+        "epochs": 30,
+        "evaluation_episodes": 200,
+        "features": [
+          "fixed_acidity",
+          "volatile_acidity",
+          "citric_acid",
+          "residual_sugar",
+          "chlorides",
+          "free_sulfur_dioxide",
+          "total_sulfur_dioxide",
+          "density",
+          "pH",
+          "sulphates",
+          "alcohol"
+        ],
+        "group_column": null,
+        "recipe": "ml",
+        "scope": "registered numeric CPU recipe",
+        "seed": 43,
+        "split_seed": 2718,
+        "split_strategy": "random",
+        "task": "regression",
+        "time_column": null
+      },
+      "created_at": "2026-10-14T00:13:44.755574+00:00",
+      "provenance": {
+        "code": {
+          "files": {
+            ".python-version": "aa0d6581054e6e4ff3f91839deca7a854ad37221b8784d060b42d0f847ff1a3b",
+            "__init__.py": "0d9617e8d49b06405371c4f311b8053f94ba8dbb73079afe27d8dd9a483e785b",
+            "cli.py": "1cbff7b538e9240aa646d054d49c60337fa9023b6fa9e7a86728d96f3ec22b62",
+            "compute.py": "74c7a35183fc7bf449d09dbf52f5c4f107ebb6fc39502e8a116c82c8f2449461",
+            "data.py": "8b57c116ef3520ac6d80b5782670d8d8a806174fe09595077e05c94e29dd6139",
+            "lifecycle.py": "e5c51bc28b22de9713943535a38bdb2431493a088f882072b9d99b06e6149ffc",
+            "pyproject.toml": "990c659e9676f6d1bd29205813afa03936b78f85a2c300aa763ad4d96e636a6d",
+            "reader.py": "98dee186df4309e487cd078365ca62b0089640bc4bfed7b34426e0f8ff4a32f5",
+            "recipes.py": "a121fcae293469bdf2b6211d00fc199ea3ebaf88f2b45f4fa8f9807219549521",
+            "records.py": "77be90f553fea21df7f63fc2f619155bc1498beb656872465f93290c2d9f02fd",
+            "tabular.py": "d5694dd945ac4c880814b4af0f73fa03f13ba724af41cf975ff5cbcb42ea3ba3",
+            "uv.lock": "1f0ee10b2ba7a521b6ca2a37908d2bfc7cd2de35a7659913c0bd43ca8ce511d6"
+          },
+          "sha256": "ac0a7bf6fefb9b56a023ad3982f7d1b79658695d4f9e1273dc0e40cfe85f7de5"
+        },
+        "environment": {
+          "dependencies": {
+            "canlilabs": "0.1.0",
+            "gymnasium": "1.4.0",
+            "numpy": "2.5.4",
+            "scikit-learn": "1.9.1",
+            "torch": "2.14.1+cpu"
+          },
+          "machine": "x86_64",
+          "platform": "Linux",
+          "python": "3.12.13"
+        },
+        "worker_lease": {
+          "device": 2049,
+          "file": ".worker.lock",
+          "inode": 9223348,
+          "protocol": "posix-flock.v2"
+        }
+      },
+      "result": {
+        "artifacts": {
+          "model-card.json": "db3937a991efd6308543d339a8c1d164598a95180b278ffa571174bab311b4c4",
+          "model.npz": "508973063b1d71e73cd968e991ae80394dc906aa915cb40c374f52eaf44d24ae"
+        },
+        "data": {
+          "classes": null,
+          "dataset_id": "0c138caff435ceaa247854cdd9d1b35ce2f4fbc8acd2e775e9fbdb79923e3390",
+          "duplicate_feature_rows": 937,
+          "feature_names": [
+            "fixed_acidity",
+            "volatile_acidity",
+            "citric_acid",
+            "residual_sugar",
+            "chlorides",
+            "free_sulfur_dioxide",
+            "total_sulfur_dioxide",
+            "density",
+            "pH",
+            "sulphates",
+            "alcohol"
+          ],
+          "license": "CC-BY-4.0",
+          "manifest_sha256": "3a8c687d50047a82bef36bfd7ec7ff73f698f2bf97153441713953b8ffb35f01",
+          "profile_sha256": "12b8370c77c66ea69e4d7c9d2afcf5328f53b5e6df1c7c191bdbd13aa3125ce4",
+          "rights_status": "declared_by_registrant",
+          "source": "https://archive.ics.uci.edu/dataset/186/wine+quality",
+          "split_counts": {
+            "test": 967,
+            "train": 2959,
+            "validation": 972
+          },
+          "split_sha256": "9751763ef3f398fa212de09f6eb3b97af9b048f17a603238dc5a8ac69cd3e1e3",
+          "split_strategy": "random",
+          "synthetic_smoke_fixture": false,
+          "task": "regression"
+        },
+        "duration_seconds": 0.10828477599997655,
+        "metrics": {
+          "baseline": "mean target selected only from training data",
+          "baseline_test_rmse": 0.859300097308653,
+          "test_examples": 967,
+          "test_mae": 0.5656420569002729,
+          "test_r2": 0.29979590609327367,
+          "test_rmse": 0.7189611354633625,
+          "validation_rmse": 0.7639114248980821
+        },
+        "model": {
+          "checkpoint": "model.npz",
+          "classes": null,
+          "feature_names": [
+            "fixed_acidity",
+            "volatile_acidity",
+            "citric_acid",
+            "residual_sugar",
+            "chlorides",
+            "free_sulfur_dioxide",
+            "total_sulfur_dioxide",
+            "density",
+            "pH",
+            "sulphates",
+            "alcohol"
+          ],
+          "features": 11,
+          "kind": "scaled_ridge_regression",
+          "reload_verified": true,
+          "task": "regression"
+        }
+      },
+      "run_id": "cd936536f92a418bb615d7ab80641b4b",
+      "state": "succeeded"
+    },
+    {
+      "config": {
+        "dataset_id": "0c138caff435ceaa247854cdd9d1b35ce2f4fbc8acd2e775e9fbdb79923e3390",
+        "device": "cpu",
+        "episodes": 1500,
+        "epochs": 30,
+        "evaluation_episodes": 200,
+        "features": [
+          "fixed_acidity",
+          "volatile_acidity",
+          "citric_acid",
+          "residual_sugar",
+          "chlorides",
+          "free_sulfur_dioxide",
+          "total_sulfur_dioxide",
+          "density",
+          "pH",
+          "sulphates",
+          "alcohol"
+        ],
+        "group_column": null,
+        "recipe": "dl",
+        "scope": "registered numeric CPU recipe",
+        "seed": 7,
+        "split_seed": 2718,
+        "split_strategy": "random",
+        "task": "regression",
+        "time_column": null
+      },
+      "created_at": "2026-10-14T00:13:44.873334+00:00",
+      "provenance": {
+        "code": {
+          "files": {
+            ".python-version": "aa0d6581054e6e4ff3f91839deca7a854ad37221b8784d060b42d0f847ff1a3b",
+            "__init__.py": "0d9617e8d49b06405371c4f311b8053f94ba8dbb73079afe27d8dd9a483e785b",
+            "cli.py": "1cbff7b538e9240aa646d054d49c60337fa9023b6fa9e7a86728d96f3ec22b62",
+            "compute.py": "74c7a35183fc7bf449d09dbf52f5c4f107ebb6fc39502e8a116c82c8f2449461",
+            "data.py": "8b57c116ef3520ac6d80b5782670d8d8a806174fe09595077e05c94e29dd6139",
+            "lifecycle.py": "e5c51bc28b22de9713943535a38bdb2431493a088f882072b9d99b06e6149ffc",
+            "pyproject.toml": "990c659e9676f6d1bd29205813afa03936b78f85a2c300aa763ad4d96e636a6d",
+            "reader.py": "98dee186df4309e487cd078365ca62b0089640bc4bfed7b34426e0f8ff4a32f5",
+            "recipes.py": "a121fcae293469bdf2b6211d00fc199ea3ebaf88f2b45f4fa8f9807219549521",
+            "records.py": "77be90f553fea21df7f63fc2f619155bc1498beb656872465f93290c2d9f02fd",
+            "tabular.py": "d5694dd945ac4c880814b4af0f73fa03f13ba724af41cf975ff5cbcb42ea3ba3",
+            "uv.lock": "1f0ee10b2ba7a521b6ca2a37908d2bfc7cd2de35a7659913c0bd43ca8ce511d6"
+          },
+          "sha256": "ac0a7bf6fefb9b56a023ad3982f7d1b79658695d4f9e1273dc0e40cfe85f7de5"
+        },
+        "environment": {
+          "dependencies": {
+            "canlilabs": "0.1.0",
+            "gymnasium": "1.4.0",
+            "numpy": "2.5.4",
+            "scikit-learn": "1.9.1",
+            "torch": "2.14.1+cpu"
+          },
+          "machine": "x86_64",
+          "platform": "Linux",
+          "python": "3.12.13"
+        },
+        "worker_lease": {
+          "device": 2049,
+          "file": ".worker.lock",
+          "inode": 9223354,
+          "protocol": "posix-flock.v2"
+        }
+      },
+      "result": {
+        "artifacts": {
+          "learning-curves.json": "645d00bc42a9ed5be3ba3fe70f0956951d5999f1d0ea00fcff96a1f338811020",
+          "model-card.json": "6497f3df5c29c53850dfff0e71ebf510f180b60088a270925b656f221e95eb28",
+          "model.pt": "dfa3760d75c3aeb118ab28d685ddca04b0f37a1de5012ffff38705c064716bad"
+        },
+        "data": {
+          "classes": null,
+          "dataset_id": "0c138caff435ceaa247854cdd9d1b35ce2f4fbc8acd2e775e9fbdb79923e3390",
+          "duplicate_feature_rows": 937,
+          "feature_names": [
+            "fixed_acidity",
+            "volatile_acidity",
+            "citric_acid",
+            "residual_sugar",
+            "chlorides",
+            "free_sulfur_dioxide",
+            "total_sulfur_dioxide",
+            "density",
+            "pH",
+            "sulphates",
+            "alcohol"
+          ],
+          "license": "CC-BY-4.0",
+          "manifest_sha256": "3a8c687d50047a82bef36bfd7ec7ff73f698f2bf97153441713953b8ffb35f01",
+          "profile_sha256": "12b8370c77c66ea69e4d7c9d2afcf5328f53b5e6df1c7c191bdbd13aa3125ce4",
+          "rights_status": "declared_by_registrant",
+          "source": "https://archive.ics.uci.edu/dataset/186/wine+quality",
+          "split_counts": {
+            "test": 967,
+            "train": 2959,
+            "validation": 972
+          },
+          "split_sha256": "9751763ef3f398fa212de09f6eb3b97af9b048f17a603238dc5a8ac69cd3e1e3",
+          "split_strategy": "random",
+          "synthetic_smoke_fixture": false,
+          "task": "regression"
+        },
+        "duration_seconds": 0.7691265619999967,
+        "metrics": {
+          "baseline": "mean target selected only from training data",
+          "baseline_test_rmse": 0.859300097308653,
+          "test_examples": 967,
+          "test_mae": 0.5366988972476014,
+          "test_r2": 0.3795560960096862,
+          "test_rmse": 0.6767750703618629,
+          "validation_rmse": 0.7128310403112437
+        },
+        "model": {
+          "checkpoint": "model.pt",
+          "classes": null,
+          "deterministic_algorithms": true,
+          "device": "cpu",
+          "feature_names": [
+            "fixed_acidity",
+            "volatile_acidity",
+            "citric_acid",
+            "residual_sugar",
+            "chlorides",
+            "free_sulfur_dioxide",
+            "total_sulfur_dioxide",
+            "density",
+            "pH",
+            "sulphates",
+            "alcohol"
+          ],
+          "features": 11,
+          "kind": "torch_mlp",
+          "reload_verified": true,
+          "selected_epoch": 28,
+          "selection": "validation loss",
+          "task": "regression"
+        }
+      },
+      "run_id": "f2f83f8fc812439390717e77add7136f",
+      "state": "succeeded"
+    },
+    {
+      "config": {
+        "dataset_id": "0c138caff435ceaa247854cdd9d1b35ce2f4fbc8acd2e775e9fbdb79923e3390",
+        "device": "cpu",
+        "episodes": 1500,
+        "epochs": 30,
+        "evaluation_episodes": 200,
+        "features": [
+          "fixed_acidity",
+          "volatile_acidity",
+          "citric_acid",
+          "residual_sugar",
+          "chlorides",
+          "free_sulfur_dioxide",
+          "total_sulfur_dioxide",
+          "density",
+          "pH",
+          "sulphates",
+          "alcohol"
+        ],
+        "group_column": null,
+        "recipe": "dl",
+        "scope": "registered numeric CPU recipe",
+        "seed": 19,
+        "split_seed": 2718,
+        "split_strategy": "random",
+        "task": "regression",
+        "time_column": null
+      },
+      "created_at": "2026-10-14T00:13:45.651289+00:00",
+      "provenance": {
+        "code": {
+          "files": {
+            ".python-version": "aa0d6581054e6e4ff3f91839deca7a854ad37221b8784d060b42d0f847ff1a3b",
+            "__init__.py": "0d9617e8d49b06405371c4f311b8053f94ba8dbb73079afe27d8dd9a483e785b",
+            "cli.py": "1cbff7b538e9240aa646d054d49c60337fa9023b6fa9e7a86728d96f3ec22b62",
+            "compute.py": "74c7a35183fc7bf449d09dbf52f5c4f107ebb6fc39502e8a116c82c8f2449461",
+            "data.py": "8b57c116ef3520ac6d80b5782670d8d8a806174fe09595077e05c94e29dd6139",
+            "lifecycle.py": "e5c51bc28b22de9713943535a38bdb2431493a088f882072b9d99b06e6149ffc",
+            "pyproject.toml": "990c659e9676f6d1bd29205813afa03936b78f85a2c300aa763ad4d96e636a6d",
+            "reader.py": "98dee186df4309e487cd078365ca62b0089640bc4bfed7b34426e0f8ff4a32f5",
+            "recipes.py": "a121fcae293469bdf2b6211d00fc199ea3ebaf88f2b45f4fa8f9807219549521",
+            "records.py": "77be90f553fea21df7f63fc2f619155bc1498beb656872465f93290c2d9f02fd",
+            "tabular.py": "d5694dd945ac4c880814b4af0f73fa03f13ba724af41cf975ff5cbcb42ea3ba3",
+            "uv.lock": "1f0ee10b2ba7a521b6ca2a37908d2bfc7cd2de35a7659913c0bd43ca8ce511d6"
+          },
+          "sha256": "ac0a7bf6fefb9b56a023ad3982f7d1b79658695d4f9e1273dc0e40cfe85f7de5"
+        },
+        "environment": {
+          "dependencies": {
+            "canlilabs": "0.1.0",
+            "gymnasium": "1.4.0",
+            "numpy": "2.5.4",
+            "scikit-learn": "1.9.1",
+            "torch": "2.14.1+cpu"
+          },
+          "machine": "x86_64",
+          "platform": "Linux",
+          "python": "3.12.13"
+        },
+        "worker_lease": {
+          "device": 2049,
+          "file": ".worker.lock",
+          "inode": 9223361,
+          "protocol": "posix-flock.v2"
+        }
+      },
+      "result": {
+        "artifacts": {
+          "learning-curves.json": "0458d33c5d9e3ee4edbe44fedfc5ed24fa9d85f5070895db1559f7f85c545162",
+          "model-card.json": "15310f3c7282bb58cdf8a97fc3bb4658fb849e6b9881e24ec325093b7cdb1df7",
+          "model.pt": "53018da9fe9755963762261962ab2c37510708cbeffaff1ad596e1274f1871c5"
+        },
+        "data": {
+          "classes": null,
+          "dataset_id": "0c138caff435ceaa247854cdd9d1b35ce2f4fbc8acd2e775e9fbdb79923e3390",
+          "duplicate_feature_rows": 937,
+          "feature_names": [
+            "fixed_acidity",
+            "volatile_acidity",
+            "citric_acid",
+            "residual_sugar",
+            "chlorides",
+            "free_sulfur_dioxide",
+            "total_sulfur_dioxide",
+            "density",
+            "pH",
+            "sulphates",
+            "alcohol"
+          ],
+          "license": "CC-BY-4.0",
+          "manifest_sha256": "3a8c687d50047a82bef36bfd7ec7ff73f698f2bf97153441713953b8ffb35f01",
+          "profile_sha256": "12b8370c77c66ea69e4d7c9d2afcf5328f53b5e6df1c7c191bdbd13aa3125ce4",
+          "rights_status": "declared_by_registrant",
+          "source": "https://archive.ics.uci.edu/dataset/186/wine+quality",
+          "split_counts": {
+            "test": 967,
+            "train": 2959,
+            "validation": 972
+          },
+          "split_sha256": "9751763ef3f398fa212de09f6eb3b97af9b048f17a603238dc5a8ac69cd3e1e3",
+          "split_strategy": "random",
+          "synthetic_smoke_fixture": false,
+          "task": "regression"
+        },
+        "duration_seconds": 0.7874352740000177,
+        "metrics": {
+          "baseline": "mean target selected only from training data",
+          "baseline_test_rmse": 0.859300097308653,
+          "test_examples": 967,
+          "test_mae": 0.5341153920390183,
+          "test_r2": 0.3921639920065614,
+          "test_rmse": 0.6698634837128653,
+          "validation_rmse": 0.7205204998958628
+        },
+        "model": {
+          "checkpoint": "model.pt",
+          "classes": null,
+          "deterministic_algorithms": true,
+          "device": "cpu",
+          "feature_names": [
+            "fixed_acidity",
+            "volatile_acidity",
+            "citric_acid",
+            "residual_sugar",
+            "chlorides",
+            "free_sulfur_dioxide",
+            "total_sulfur_dioxide",
+            "density",
+            "pH",
+            "sulphates",
+            "alcohol"
+          ],
+          "features": 11,
+          "kind": "torch_mlp",
+          "reload_verified": true,
+          "selected_epoch": 23,
+          "selection": "validation loss",
+          "task": "regression"
+        }
+      },
+      "run_id": "183a690f60374c98ba14d230f9aa593f",
+      "state": "succeeded"
+    },
+    {
+      "config": {
+        "dataset_id": "0c138caff435ceaa247854cdd9d1b35ce2f4fbc8acd2e775e9fbdb79923e3390",
+        "device": "cpu",
+        "episodes": 1500,
+        "epochs": 30,
+        "evaluation_episodes": 200,
+        "features": [
+          "fixed_acidity",
+          "volatile_acidity",
+          "citric_acid",
+          "residual_sugar",
+          "chlorides",
+          "free_sulfur_dioxide",
+          "total_sulfur_dioxide",
+          "density",
+          "pH",
+          "sulphates",
+          "alcohol"
+        ],
+        "group_column": null,
+        "recipe": "dl",
+        "scope": "registered numeric CPU recipe",
+        "seed": 43,
+        "split_seed": 2718,
+        "split_strategy": "random",
+        "task": "regression",
+        "time_column": null
+      },
+      "created_at": "2026-10-14T00:13:46.452259+00:00",
+      "provenance": {
+        "code": {
+          "files": {
+            ".python-version": "aa0d6581054e6e4ff3f91839deca7a854ad37221b8784d060b42d0f847ff1a3b",
+            "__init__.py": "0d9617e8d49b06405371c4f311b8053f94ba8dbb73079afe27d8dd9a483e785b",
+            "cli.py": "1cbff7b538e9240aa646d054d49c60337fa9023b6fa9e7a86728d96f3ec22b62",
+            "compute.py": "74c7a35183fc7bf449d09dbf52f5c4f107ebb6fc39502e8a116c82c8f2449461",
+            "data.py": "8b57c116ef3520ac6d80b5782670d8d8a806174fe09595077e05c94e29dd6139",
+            "lifecycle.py": "e5c51bc28b22de9713943535a38bdb2431493a088f882072b9d99b06e6149ffc",
+            "pyproject.toml": "990c659e9676f6d1bd29205813afa03936b78f85a2c300aa763ad4d96e636a6d",
+            "reader.py": "98dee186df4309e487cd078365ca62b0089640bc4bfed7b34426e0f8ff4a32f5",
+            "recipes.py": "a121fcae293469bdf2b6211d00fc199ea3ebaf88f2b45f4fa8f9807219549521",
+            "records.py": "77be90f553fea21df7f63fc2f619155bc1498beb656872465f93290c2d9f02fd",
+            "tabular.py": "d5694dd945ac4c880814b4af0f73fa03f13ba724af41cf975ff5cbcb42ea3ba3",
+            "uv.lock": "1f0ee10b2ba7a521b6ca2a37908d2bfc7cd2de35a7659913c0bd43ca8ce511d6"
+          },
+          "sha256": "ac0a7bf6fefb9b56a023ad3982f7d1b79658695d4f9e1273dc0e40cfe85f7de5"
+        },
+        "environment": {
+          "dependencies": {
+            "canlilabs": "0.1.0",
+            "gymnasium": "1.4.0",
+            "numpy": "2.5.4",
+            "scikit-learn": "1.9.1",
+            "torch": "2.14.1+cpu"
+          },
+          "machine": "x86_64",
+          "platform": "Linux",
+          "python": "3.12.13"
+        },
+        "worker_lease": {
+          "device": 2049,
+          "file": ".worker.lock",
+          "inode": 9223368,
+          "protocol": "posix-flock.v2"
+        }
+      },
+      "result": {
+        "artifacts": {
+          "learning-curves.json": "96047ae74b690cde18b1e69c238036225f6b6d5127824f4830b8d4fa9b1765e6",
+          "model-card.json": "67e337a6f12dcaf97bc8b88f2373364f0af2e84b209c5606d8e3423e087b2e15",
+          "model.pt": "6117235b2ebe95d4bd77f196f682e9d4fb3b05d75ee61bf1c32ba158e15cd673"
+        },
+        "data": {
+          "classes": null,
+          "dataset_id": "0c138caff435ceaa247854cdd9d1b35ce2f4fbc8acd2e775e9fbdb79923e3390",
+          "duplicate_feature_rows": 937,
+          "feature_names": [
+            "fixed_acidity",
+            "volatile_acidity",
+            "citric_acid",
+            "residual_sugar",
+            "chlorides",
+            "free_sulfur_dioxide",
+            "total_sulfur_dioxide",
+            "density",
+            "pH",
+            "sulphates",
+            "alcohol"
+          ],
+          "license": "CC-BY-4.0",
+          "manifest_sha256": "3a8c687d50047a82bef36bfd7ec7ff73f698f2bf97153441713953b8ffb35f01",
+          "profile_sha256": "12b8370c77c66ea69e4d7c9d2afcf5328f53b5e6df1c7c191bdbd13aa3125ce4",
+          "rights_status": "declared_by_registrant",
+          "source": "https://archive.ics.uci.edu/dataset/186/wine+quality",
+          "split_counts": {
+            "test": 967,
+            "train": 2959,
+            "validation": 972
+          },
+          "split_sha256": "9751763ef3f398fa212de09f6eb3b97af9b048f17a603238dc5a8ac69cd3e1e3",
+          "split_strategy": "random",
+          "synthetic_smoke_fixture": false,
+          "task": "regression"
+        },
+        "duration_seconds": 0.7676406489999863,
+        "metrics": {
+          "baseline": "mean target selected only from training data",
+          "baseline_test_rmse": 0.859300097308653,
+          "test_examples": 967,
+          "test_mae": 0.528571502803226,
+          "test_r2": 0.3988287927959058,
+          "test_rmse": 0.6661809013383807,
+          "validation_rmse": 0.7116240051006162
+        },
+        "model": {
+          "checkpoint": "model.pt",
+          "classes": null,
+          "deterministic_algorithms": true,
+          "device": "cpu",
+          "feature_names": [
+            "fixed_acidity",
+            "volatile_acidity",
+            "citric_acid",
+            "residual_sugar",
+            "chlorides",
+            "free_sulfur_dioxide",
+            "total_sulfur_dioxide",
+            "density",
+            "pH",
+            "sulphates",
+            "alcohol"
+          ],
+          "features": 11,
+          "kind": "torch_mlp",
+          "reload_verified": true,
+          "selected_epoch": 19,
+          "selection": "validation loss",
+          "task": "regression"
+        }
+      },
+      "run_id": "aae84d3e678344f0bf95517d896a3c80",
+      "state": "succeeded"
+    }
+  ],
+  "schema": "canlilabs.public-data-validation.v1",
+  "scope": "Two public tabular tasks; no strongest-model, population or production claim.",
+  "selection_policy": "Parameters, split seed and all three training seeds fixed before testing.",
+  "validation_script_sha256": "d40dc62536b61dcb742502dc83021e086665ceea5adab20409f5bbda683c9258",
+  "workspace_total_trials": 12
+}

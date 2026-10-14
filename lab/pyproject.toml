@@ -33,3 +33,13 @@ select = ["E", "F", "I", "B", "UP"]
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/canlilabs"]
+
+# Use the declared CPU build on Linux; macOS retains its CPU-only PyPI wheel.
+# This index is explicit so unrelated packages continue to use PyPI.
+[tool.uv.sources]
+torch = [{ index = "pytorch-cpu", marker = "sys_platform == 'linux'" }]
+
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true

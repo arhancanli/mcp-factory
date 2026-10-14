@@ -1,0 +1,225 @@
+{
+  "schema": "canlilabs.ci-validation.v1",
+  "checked_at": "2026-10-14T00:23:21.658125+00:00",
+  "tested_commit": "355767271a9c3fe0365b0221a64302e50d63d45d",
+  "pull_request": "https://github.com/arhancanli/mcp-factory/pull/13",
+  "scope": "macOS arm64 and Ubuntu x86_64 CPython 3.12.13 CPU profile. Forty-two actual current CI training trials, with no broader research, GPU, production or MCP release claim.",
+  "source": {
+    "sha256": "ac0a7bf6fefb9b56a023ad3982f7d1b79658695d4f9e1273dc0e40cfe85f7de5",
+    "files": {
+      "__init__.py": "0d9617e8d49b06405371c4f311b8053f94ba8dbb73079afe27d8dd9a483e785b",
+      "cli.py": "1cbff7b538e9240aa646d054d49c60337fa9023b6fa9e7a86728d96f3ec22b62",
+      "compute.py": "74c7a35183fc7bf449d09dbf52f5c4f107ebb6fc39502e8a116c82c8f2449461",
+      "data.py": "8b57c116ef3520ac6d80b5782670d8d8a806174fe09595077e05c94e29dd6139",
+      "lifecycle.py": "e5c51bc28b22de9713943535a38bdb2431493a088f882072b9d99b06e6149ffc",
+      "reader.py": "98dee186df4309e487cd078365ca62b0089640bc4bfed7b34426e0f8ff4a32f5",
+      "recipes.py": "a121fcae293469bdf2b6211d00fc199ea3ebaf88f2b45f4fa8f9807219549521",
+      "records.py": "77be90f553fea21df7f63fc2f619155bc1498beb656872465f93290c2d9f02fd",
+      "tabular.py": "d5694dd945ac4c880814b4af0f73fa03f13ba724af41cf975ff5cbcb42ea3ba3",
+      "pyproject.toml": "990c659e9676f6d1bd29205813afa03936b78f85a2c300aa763ad4d96e636a6d",
+      "uv.lock": "1f0ee10b2ba7a521b6ca2a37908d2bfc7cd2de35a7659913c0bd43ca8ce511d6",
+      ".python-version": "aa0d6581054e6e4ff3f91839deca7a854ad37221b8784d060b42d0f847ff1a3b"
+    }
+  },
+  "checks": [
+    {
+      "name": "Every server works as its own repository",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/arhancanli/mcp-factory/actions/runs/38488855023/job/115609985318"
+    },
+    {
+      "name": "CodeQL",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/arhancanli/mcp-factory/runs/115609473293"
+    },
+    {
+      "name": "Standalone package shard 1",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/arhancanli/mcp-factory/actions/runs/38488855023/job/115609068347"
+    },
+    {
+      "name": "CPU laboratory on macos-15",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/arhancanli/mcp-factory/actions/runs/38488855126/job/115609001996"
+    },
+    {
+      "name": "Gate on Node 24",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/arhancanli/mcp-factory/actions/runs/38488855023/job/115609001747"
+    },
+    {
+      "name": "Gate on Node 20",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/arhancanli/mcp-factory/actions/runs/38488855023/job/115609001745"
+    },
+    {
+      "name": "CPU laboratory on ubuntu-24.04",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/arhancanli/mcp-factory/actions/runs/38488855126/job/115609001736"
+    },
+    {
+      "name": "Gate on Node 22",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/arhancanli/mcp-factory/actions/runs/38488855023/job/115609001672"
+    },
+    {
+      "name": "Plan independent package checks",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/arhancanli/mcp-factory/actions/runs/38488855023/job/115609001506"
+    },
+    {
+      "name": "analyze",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/arhancanli/mcp-factory/actions/runs/38488854949/job/115609001325"
+    }
+  ],
+  "factory_tests": 302,
+  "standalone_packages": 21,
+  "standalone_tests": 270,
+  "platforms": [
+    {
+      "os": "macos-15",
+      "profile": {
+        "dependencies": {
+          "canlilabs": "0.1.0",
+          "gymnasium": "1.4.0",
+          "numpy": "2.5.4",
+          "scikit-learn": "1.9.1",
+          "torch": "2.14.1"
+        },
+        "device": "cpu",
+        "gpu_packages": [],
+        "installed_packages": [
+          "canlilabs",
+          "cloudpickle",
+          "farama-notifications",
+          "filelock",
+          "fsspec",
+          "gymnasium",
+          "iniconfig",
+          "jinja2",
+          "joblib",
+          "markupsafe",
+          "mpmath",
+          "narwhals",
+          "networkx",
+          "numpy",
+          "packaging",
+          "pluggy",
+          "pygments",
+          "pytest",
+          "ruff",
+          "scikit-learn",
+          "scipy",
+          "setuptools",
+          "sympy",
+          "threadpoolctl",
+          "torch",
+          "typing-extensions"
+        ],
+        "lock_sha256": "1f0ee10b2ba7a521b6ca2a37908d2bfc7cd2de35a7659913c0bd43ca8ce511d6",
+        "machine": "arm64",
+        "platform": "Darwin",
+        "python": "3.12.13",
+        "python_pin_sha256": "aa0d6581054e6e4ff3f91839deca7a854ad37221b8784d060b42d0f847ff1a3b",
+        "schema": "canlilabs.cpu-environment.v1",
+        "torch_cuda_built": false,
+        "torch_cuda_version": null
+      },
+      "behavioral_tests": 47,
+      "mcp_integrations": 2,
+      "frozen_task_answers": 10,
+      "frozen_mcp_calls": 14,
+      "training_trials": 21,
+      "evidence_files": [
+        "docs/goal/evidence/2026-10-14-cpu-reviewed-ci-macos-15-environment.json",
+        "docs/goal/evidence/2026-10-14-cpu-reviewed-ci-macos-15-smoke.json",
+        "docs/goal/evidence/2026-10-14-cpu-reviewed-ci-macos-15-public-data.json",
+        "docs/goal/evidence/2026-10-14-cpu-reviewed-ci-macos-15-frozen-tasks.json"
+      ]
+    },
+    {
+      "os": "ubuntu-24.04",
+      "profile": {
+        "dependencies": {
+          "canlilabs": "0.1.0",
+          "gymnasium": "1.4.0",
+          "numpy": "2.5.4",
+          "scikit-learn": "1.9.1",
+          "torch": "2.14.1+cpu"
+        },
+        "device": "cpu",
+        "gpu_packages": [],
+        "installed_packages": [
+          "canlilabs",
+          "cloudpickle",
+          "farama-notifications",
+          "filelock",
+          "fsspec",
+          "gymnasium",
+          "iniconfig",
+          "jinja2",
+          "joblib",
+          "markupsafe",
+          "mpmath",
+          "narwhals",
+          "networkx",
+          "numpy",
+          "packaging",
+          "pluggy",
+          "pygments",
+          "pytest",
+          "ruff",
+          "scikit-learn",
+          "scipy",
+          "setuptools",
+          "sympy",
+          "threadpoolctl",
+          "torch",
+          "typing-extensions"
+        ],
+        "lock_sha256": "1f0ee10b2ba7a521b6ca2a37908d2bfc7cd2de35a7659913c0bd43ca8ce511d6",
+        "machine": "x86_64",
+        "platform": "Linux",
+        "python": "3.12.13",
+        "python_pin_sha256": "aa0d6581054e6e4ff3f91839deca7a854ad37221b8784d060b42d0f847ff1a3b",
+        "schema": "canlilabs.cpu-environment.v1",
+        "torch_cuda_built": false,
+        "torch_cuda_version": null
+      },
+      "behavioral_tests": 47,
+      "mcp_integrations": 2,
+      "frozen_task_answers": 10,
+      "frozen_mcp_calls": 14,
+      "training_trials": 21,
+      "evidence_files": [
+        "docs/goal/evidence/2026-10-14-cpu-reviewed-ci-ubuntu-24.04-environment.json",
+        "docs/goal/evidence/2026-10-14-cpu-reviewed-ci-ubuntu-24.04-smoke.json",
+        "docs/goal/evidence/2026-10-14-cpu-reviewed-ci-ubuntu-24.04-public-data.json",
+        "docs/goal/evidence/2026-10-14-cpu-reviewed-ci-ubuntu-24.04-frozen-tasks.json"
+      ]
+    }
+  ],
+  "retained_cohort_trials_before_documentation_followup": {
+    "initial_local": 9,
+    "reviewed_local": 21,
+    "initial_linux_ci": 21,
+    "reviewed_two_platform_ci": 42
+  },
+  "raw_log_sha256": {
+    "canlilabs-linux-reviewed-macos-ci.log": "39569885049ad4e8ce89359983ab229aa73d3f6c2ec0781a4b59a9eda19b5b5a",
+    "canlilabs-linux-reviewed-ubuntu-ci.log": "a7f8c7db974359e50b5803e72d105181844c2c73e040eefe16978783c1512500",
+    "canlilabs-linux-reviewed-node24-ci.log": "2d2a89422aea0cc8ccf0a4987be72b15ea63af66553e7f6ce4218908a275a4c3",
+    "canlilabs-linux-reviewed-standalone-ci.log": "c7823eaf7b379591032b306e3bdcfb4d1f9c0b5e883e367f958f95dab20372e8"
+  }
+}
