@@ -1,5 +1,17 @@
 # Decision and execution log
 
+## 2026-10-14: independent Linux CPU laboratory slice
+
+Re-read the five continuity records and checked the actual clean capacity branch
+and open ready PR #12. All eight checks also pass on final evidence head 6d6a655;
+the prior turn is progress. Created an isolated branch/worktree on that head.
+The existing Linux PyPI Torch lock includes CUDA dependencies although recipes
+use CPU. The next implementation selects the official CPU index with a Linux
+marker, retains all version pins and adds actual Linux behavioral/MCP/task and
+training validation. This local machine is macOS and its container daemon is off;
+Linux proof will come from the new CI job, not a cross-platform lock inspection.
+All 25 requirements and the distinct maintained release floor remain intact.
+
 ## 2026-10-14: independent factory capacity slice
 
 Re-read all five continuity files and checked actual branches and PR states.
@@ -386,3 +398,27 @@ publication or launch was performed. The evidence update changes documentation
 only. Preserve every broader requirement: current scout/agent/performance and
 release proof, full factory-gate scalability, maintained discovery/adoption,
 Linux/accelerator/deeper learning, delivery and education. Overall goal active.
+
+## 2026-10-14: locked CPU profile and local training proof
+
+Resolved the explicit Linux CPU index with all previous declared version pins.
+The lock now selects Torch 2.14.1+cpu on Linux and 2.14.1 from PyPI elsewhere,
+removing the CUDA/Triton dependency branch. Pinned the already executed CPython
+3.12.13 interpreter and added it to scientific source fingerprints. The runtime
+guard checks exact installed versions, the platform-specific locked Torch build,
+CPU tensors and absent CUDA/GPU libraries, including negative cases.
+
+All 47 behavioral tests, lint/format and 302 factory checks pass locally. Two
+real stdio integrations and ten frozen answers through fourteen calls pass.
+Executed a reviewed nine-run ML/DL/RL cohort and twelve-run UCI cohort at source
+ac0a7bf6fefb9b56a023ad3982f7d1b79658695d4f9e1273dc0e40cfe85f7de5.
+All 21 trials succeed and reload; the initial nine trials retain their earlier
+source separately. All 30 local trials and small public receipts are retained.
+The recipes and model hyperparameters were not tuned from test outcomes.
+
+The new bounded CI matrix runs macOS 15 and Ubuntu 24.04. Each platform must
+pass the profile guard, all tests/integrations/frozen tasks, nine fixed default
+trials and twelve public-data trials. The immutable upload action preserves only
+public environment/trial/task JSON. No weights, rows or SQLite are uploaded.
+The workflow passes actionlint. Actual Linux execution is still pending, so no
+Linux, accelerator, production or new MCP release outcome is claimed yet.

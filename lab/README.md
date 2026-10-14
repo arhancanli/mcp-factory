@@ -18,11 +18,33 @@ uv run --project lab canlilabs --workspace .lab runs
 uv run --project lab canlilabs --workspace .lab show <run-id>
 ```
 
-Python 3.12 is the validated interpreter. Dependencies and artifact hashes are
-locked in `uv.lock`; each run also records exact installed versions and source
-hashes. The first CI job validates macOS CPU execution. Linux CPU wheels and
-accelerator/distributed environments are separate upcoming validation work; the
-current PyPI Linux Torch distribution includes CUDA dependencies.
+The CPU qualification profile pins CPython 3.12.13 in `.python-version`.
+Dependencies and artifact hashes are locked in `uv.lock`; each run also records
+exact installed versions and source hashes. Linux selects the official Torch
+CPU index, while macOS uses its CPU PyPI build. Unrelated packages continue to
+use PyPI. CI now checks macOS 15 and Ubuntu 24.04, with actual installed-build
+inspection, all behavioral tests, real MCP integration and frozen task answers.
+The Linux job is newly added and must pass before this platform is qualified.
+Accelerator/distributed environments remain separate tracked work.
+
+Inspect and reproduce the CPU qualification in a new empty workspace:
+
+```sh
+uv run --project lab python lab/scripts/verify-cpu-environment.py
+uv run --project lab python lab/scripts/validate-cpu.py \
+  --workspace .lab/cpu-example --receipt .lab/cpu-example.json
+```
+
+The environment guard rejects a different interpreter, declared dependency
+version, CUDA build, GPU runtime package or non-CPU default tensor device. The
+cohort retains all nine ML/DL/RL attempts at seeds 7, 19 and 43, checks artifact
+hashes and reload verification, and applies the existing fixed smoke criteria.
+Its receipt records exact source, lock, interpreter, actual dependency versions,
+metrics and failures. This is small synthetic classification and deterministic
+FrozenLake; cross-platform bitwise identity and broader model performance are
+not claimed. The separate public-data cohort below checks registered multiclass
+classification and regression on each CI platform. CI uploads only these public
+JSON receipts; model weights, rows and SQLite databases remain on the runner.
 
 The ML recipe fits a StandardScaler and logistic regression for classification,
 or ridge regression for numeric targets. The DL recipe trains an MLP and selects
