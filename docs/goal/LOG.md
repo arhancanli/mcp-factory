@@ -438,3 +438,29 @@ Changed the bootstrap to uv python install from the existing pin, followed by
 managed-only sync, matching local setup. The exact interpreter version, all
 application gates and model parameters remain unchanged. Actionlint and local
 managed installation pass. Fresh two-platform CI is required after this repair.
+
+## 2026-10-14: two-platform CPU laboratory verified
+
+All ten checks pass on signed bootstrap repair 3557672: both CPU platforms,
+Node 20/22/24, planner, all standalone packages, aggregate and both CodeQL checks.
+Downloaded and inspected both platform artifacts and raw job logs. Each platform
+passes 47 behavioral tests, two real stdio integrations and ten frozen answers
+through fourteen calls, plus nine fixed ML/DL/RL and twelve registered-data trials.
+All 42 new CI trials succeed and reload at exact source ac0a7bf6..., matching the
+reviewed local source. Actual profiles are macOS arm64 Torch 2.14.1 and Ubuntu
+x86_64 Torch 2.14.1+cpu, CPython 3.12.13, without CUDA/GPU runtime packages.
+
+Both hosts score 30/30 Iris test examples per seed/recipe. Wine ridge RMSE is
+0.719 and MLP 0.666-0.677 against the 0.859 training-mean baseline. Small floating
+and seed-dependent host differences are retained; no bitwise or population
+uncertainty claim is made. No model parameters changed from test feedback.
+Verified 302 factory checks and 270 checks over all 21 exact standalone trees.
+The public receipts retain all 93 explicit local/CI cohort trials so far, with
+source boundaries and the failed macOS bootstrap; pytest fixture runs are separate.
+
+PR #13 is ready for owner review and remains stacked on open #12/#11/#10/#9.
+This final evidence/documentation update changes no executable lab source.
+Linux CPU is now validated; accelerators/distributed training, checkpoint resume,
+model promotion/rollback, deeper RL/foundation models, education, current MCP
+qualification/publication/discovery/adoption and the maintained release floor
+remain required. Overall goal stays active.

@@ -24,8 +24,12 @@ exact installed versions and source hashes. Linux selects the official Torch
 CPU index, while macOS uses its CPU PyPI build. Unrelated packages continue to
 use PyPI. CI now checks macOS 15 and Ubuntu 24.04, with actual installed-build
 inspection, all behavioral tests, real MCP integration and frozen task answers.
-The Linux job is newly added and must pass before this platform is qualified.
-Accelerator/distributed environments remain separate tracked work.
+Both platform jobs pass: macOS arm64 and Ubuntu x86_64 each execute 47 behavioral
+tests, two real MCP integrations, ten frozen task answers and all 21 fixed
+synthetic/RL/public-data trials, with checkpoint reloads. CI uses uv's managed
+interpreter from the pin. The [CPU receipt](../docs/goal/evidence/2026-10-14-linux-cpu-ci-validation.json)
+records exact code, profiles and check URLs. Accelerator/distributed environments
+remain separate tracked work.
 
 Inspect and reproduce the CPU qualification in a new empty workspace:
 

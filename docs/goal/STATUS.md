@@ -90,6 +90,19 @@ the [failed bootstrap receipt](evidence/2026-10-14-cpu-bootstrap-ci-attempt.json
 retains that result. CI now installs the same exact managed interpreter used
 locally. Versions, recipes and acceptance gates are unchanged; fresh CI follows.
 
+The managed-interpreter repair passed all ten checks at `3557672`. Downloaded
+artifacts and logs confirm both macOS arm64 and Ubuntu x86_64 execute 47 behavioral
+tests, two real MCP integrations, ten frozen answers through fourteen calls and
+all 21 fixed training trials per platform. All 42 reviewed CI trials reload and
+match source `ac0a7bf6...`; exact profiles, evidence files and check URLs are in
+the [CPU CI receipt](evidence/2026-10-14-linux-cpu-ci-validation.json).
+Both hosts reach 30/30 Iris test predictions per seed/recipe, with wine ridge
+RMSE 0.719 and MLP 0.666-0.677 versus 0.859 baseline. Small host differences are
+retained, with no bitwise/population or production claim. All 93 explicit cohorts'
+local/CI trials are retained with their source hashes; pytest fixtures are separate.
+PR #13 is ready for review, stacked on #12/#11/#10/#9. Full factory and standalone
+checks also pass. This evidence follow-up changes documentation only.
+
 ## Current executable laboratory
 
 - Locked Python 3.12 CPU environment; real ML, PyTorch MLP and tabular RL recipes.
@@ -186,8 +199,8 @@ uses owner browser confirmation/Trusted Publisher after qualification.
 
 Integrate the reviewed foundation and data slice under the existing owner review
 policy. Independently advance release-readiness evidence and missing MCP comparisons,
-remote canary rollout, Linux CPU validation, promotion/rollback and checkpoint
-resume, accelerator/deep-RL/foundation-model recipes, and practical education.
+remote canary rollout, promotion/rollback and checkpoint resume,
+accelerator/distributed/deep-RL/foundation-model recipes, and practical education.
 [BACKLOG.md](BACKLOG.md), [REQUIREMENTS.md](REQUIREMENTS.md) and
 [COVERAGE.md](COVERAGE.md) preserve every original and expanded objective.
 Scale through 100, 500 and at least 2,000 distinct maintained qualifying releases;
