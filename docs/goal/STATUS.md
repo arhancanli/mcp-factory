@@ -81,6 +81,15 @@ the initial nine-run source separate. All reloads pass, with fixed parameters.
 The new CI matrix requires both cohorts and all checks on each platform. Linux
 proof remains pending until those jobs finish; every larger requirement stays active.
 
+The implementation is signed at `75dd090` and open as stacked
+[PR #13](https://github.com/arhancanli/mcp-factory/pull/13). Its first Ubuntu job
+passed 47 tests, both real integrations, all 21 actual trials and the ten frozen
+task answers. Downloaded receipts verify Linux x86_64, Torch 2.14.1+cpu and no
+GPU packages. macOS failed at interpreter setup before application execution;
+the [failed bootstrap receipt](evidence/2026-10-14-cpu-bootstrap-ci-attempt.json)
+retains that result. CI now installs the same exact managed interpreter used
+locally. Versions, recipes and acceptance gates are unchanged; fresh CI follows.
+
 ## Current executable laboratory
 
 - Locked Python 3.12 CPU environment; real ML, PyTorch MLP and tabular RL recipes.

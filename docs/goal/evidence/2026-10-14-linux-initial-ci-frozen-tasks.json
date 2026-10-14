@@ -1,0 +1,22 @@
+{
+  "schema": "canlilabs.mcp-answer-verification.v1",
+  "verified_at": "2026-10-14T00:09:34.692Z",
+  "questions_sha256": "4e8be02148269ca890f9330522f1826e120a36f946b109e32cfa901494381f37",
+  "transport": "stdio",
+  "agent_benchmark_executed": false,
+  "task_answers_verified": 10,
+  "mcp_calls": 14,
+  "answers": [
+    "dl",
+    "7",
+    "600",
+    "21",
+    "60",
+    "7",
+    "1",
+    "CC0-1.0",
+    "591",
+    "1"
+  ],
+  "scope": "frozen cohort task answers and protocol execution; no incumbent or agent token comparison"
+}

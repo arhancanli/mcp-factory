@@ -1,0 +1,13 @@
+{
+  "schema": "canlilabs.ci-attempt.v1",
+  "head": "75dd090ba5fd358f7cca40b7781697cac904a9a4",
+  "job": "https://github.com/arhancanli/mcp-factory/actions/runs/38488428725/job/115607615373",
+  "conclusion": "failure",
+  "stage": "setup-python",
+  "cause": "CPython 3.12.13 ARM64 was unavailable in the GitHub Python installer for macOS 15.7.9; application tests and training were skipped.",
+  "log_sha256": "3cec939ad72eeaf253bb4324ed72f96d4ec6bd94b9813004f5dd0443a4669fd3",
+  "successful_linux_job": "https://github.com/arhancanli/mcp-factory/actions/runs/38488428725/job/115607615553",
+  "linux_tests": 47,
+  "linux_training_trials": 21,
+  "correction": "Use the pinned uv managed interpreter on both platforms; no version or application gate is relaxed."
+}

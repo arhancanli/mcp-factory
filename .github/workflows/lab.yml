@@ -29,16 +29,16 @@ jobs:
         with:
           node-version: 24
           cache: npm
-      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1
-        with:
-          python-version: "3.12.13"
       - uses: astral-sh/setup-uv@94527f2e458b27549849d47d273a16bec83a01e9
         with:
           version: "0.11.20"
           enable-cache: true
           cache-dependency-glob: lab/uv.lock
+      - name: Install the exact managed interpreter from the profile pin
+        working-directory: lab
+        run: uv python install
       - run: npm ci --ignore-scripts
-      - run: uv sync --frozen --project lab
+      - run: uv sync --managed-python --frozen --project lab
       - name: Verify the actual pinned CPU build and installed dependencies
         run: |
           mkdir -p .lab

@@ -41,3 +41,4 @@ Primary references checked on 2026-10-14 (owner timezone):
 - [GitHub Git trees](https://docs.github.com/en/rest/git/trees): content tree identifiers for standalone/factory parity, independent of commit messages or file-count claims.
 - [uv and PyTorch](https://docs.astral.sh/uv/guides/integration/pytorch/): explicit backend indexes and platform markers for CPU builds, keeping unrelated dependency resolution on PyPI.
 - [PyTorch local installation](https://pytorch.org/get-started/locally/): platform/backend-specific package installation; executed CPU-build inspection and training remain the qualification evidence.
+- [uv in GitHub Actions](https://docs.astral.sh/uv/guides/integration/github/): managed Python installation respects the project pin; used after GitHub's Python installer lacked the exact ARM macOS build.

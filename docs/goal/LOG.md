@@ -422,3 +422,19 @@ trials and twelve public-data trials. The immutable upload action preserves only
 public environment/trial/task JSON. No weights, rows or SQLite are uploaded.
 The workflow passes actionlint. Actual Linux execution is still pending, so no
 Linux, accelerator, production or new MCP release outcome is claimed yet.
+
+## 2026-10-14: real Linux success and macOS bootstrap repair
+
+Signed implementation 75dd090 is open as draft stacked PR #13. The first actual
+Ubuntu job passed all 47 behavioral tests, two real MCP integrations, nine
+ML/DL/RL trials, twelve registered UCI trials and ten frozen task answers through
+fourteen calls. Downloaded its actual artifact and checked Linux x86_64, Torch
+2.14.1+cpu, no CUDA packages, every successful trial and checkpoint reload.
+Retained all public receipts and exact job/log evidence.
+
+The macOS job failed before application checks: setup-python cannot provide
+CPython 3.12.13 ARM64 for this macOS runner. Retained that failed attempt.
+Changed the bootstrap to uv python install from the existing pin, followed by
+managed-only sync, matching local setup. The exact interpreter version, all
+application gates and model parameters remain unchanged. Actionlint and local
+managed installation pass. Fresh two-platform CI is required after this repair.
