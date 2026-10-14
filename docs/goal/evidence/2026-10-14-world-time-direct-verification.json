@@ -1,0 +1,1308 @@
+{
+  "schema": "canlilabs.direct-task-verification.v1",
+  "verified_at": "2026-10-14T01:51:42.856Z",
+  "source_sha256": "39323473ee73d632fd7aac1bc922eebdaa206674918d48cbf18ac367406117e6",
+  "tasks_sha256": "da80a9f49914ae614c5547dc21c0ead983518d25af5d74b7a307cab1819af9e5",
+  "runner_sha256": "43b3ed68c47bfa0115c479892128a65b5d8fc7095dadb6d2c2973ba9a92bd790",
+  "connector_sha256": "13e3bc9ef6b7d9105072ccce9468246e5e474e6a43303f91a9117af55b7b2175",
+  "transport": "stdio",
+  "agent_benchmark_executed": false,
+  "total_tasks": 24,
+  "correct": 24,
+  "mcp_calls": 37,
+  "rows": [
+    {
+      "id": "tokyo-ny",
+      "answer": "20:00",
+      "correct": true,
+      "observations": [
+        {
+          "tool": "world_time",
+          "arguments": {
+            "from": "Tokyo",
+            "time": "2026-10-15 09:00",
+            "places": [
+              "New York"
+            ]
+          },
+          "result": {
+            "utc": "2026-10-15 00:00",
+            "from": {
+              "place": "Tokyo, JP",
+              "zone": "Asia/Tokyo",
+              "date": "2026-10-15",
+              "time": "09:00",
+              "weekday": "Thursday",
+              "utc_offset": "+09:00",
+              "dst": false
+            },
+            "results": [
+              {
+                "place": "New York, US",
+                "zone": "America/New_York",
+                "date": "2026-10-14",
+                "time": "20:00",
+                "weekday": "Wednesday",
+                "utc_offset": "-04:00",
+                "dst": true,
+                "abbreviation": "EDT",
+                "day_change": "-1",
+                "next_change": "2026-11-01 02:00 to -05:00"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "dst-gap-weeks",
+      "answer": "14:00",
+      "correct": true,
+      "observations": [
+        {
+          "tool": "world_time",
+          "arguments": {
+            "from": "New York",
+            "time": "2026-03-16 10:00",
+            "places": [
+              "London"
+            ]
+          },
+          "result": {
+            "utc": "2026-03-16 14:00",
+            "from": {
+              "place": "New York, US",
+              "zone": "America/New_York",
+              "date": "2026-03-16",
+              "time": "10:00",
+              "weekday": "Monday",
+              "utc_offset": "-04:00",
+              "dst": true,
+              "abbreviation": "EDT"
+            },
+            "results": [
+              {
+                "place": "London, GB",
+                "zone": "Europe/London",
+                "date": "2026-03-16",
+                "time": "14:00",
+                "weekday": "Monday",
+                "utc_offset": "+00:00",
+                "dst": false,
+                "abbreviation": "GMT",
+                "next_change": "2026-03-29 01:00 to +01:00"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "skipped-time",
+      "answer": "no",
+      "correct": true,
+      "observations": [
+        {
+          "tool": "world_time",
+          "arguments": {
+            "from": "New York",
+            "time": "2026-03-08 02:30",
+            "places": [
+              "UTC"
+            ]
+          },
+          "result": {
+            "utc": "2026-03-08 07:30",
+            "from": {
+              "place": "New York, US",
+              "zone": "America/New_York",
+              "date": "2026-03-08",
+              "time": "03:30",
+              "weekday": "Sunday",
+              "utc_offset": "-04:00",
+              "dst": true,
+              "abbreviation": "EDT"
+            },
+            "status": "skipped",
+            "note": "02:30 does not exist in New York, US on 2026-03-08: clocks jump forward past it. Converted 03:30, the time a clock shows at that moment.",
+            "results": [
+              {
+                "place": "UTC",
+                "zone": "UTC",
+                "date": "2026-03-08",
+                "time": "07:30",
+                "weekday": "Sunday",
+                "utc_offset": "+00:00",
+                "dst": false,
+                "abbreviation": "UTC"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "kathmandu",
+      "answer": "+05:45",
+      "correct": true,
+      "observations": [
+        {
+          "tool": "world_time",
+          "arguments": {
+            "from": "UTC",
+            "time": "2026-10-15 00:00",
+            "places": [
+              "Kathmandu"
+            ]
+          },
+          "result": {
+            "utc": "2026-10-15 00:00",
+            "from": {
+              "place": "UTC",
+              "zone": "UTC",
+              "date": "2026-10-15",
+              "time": "00:00",
+              "weekday": "Thursday",
+              "utc_offset": "+00:00",
+              "dst": false,
+              "abbreviation": "UTC"
+            },
+            "results": [
+              {
+                "place": "Kathmandu, NP",
+                "zone": "Asia/Kathmandu",
+                "date": "2026-10-15",
+                "time": "05:45",
+                "weekday": "Thursday",
+                "utc_offset": "+05:45",
+                "dst": false
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "new-year-auckland",
+      "answer": "2027-01-01 15:00",
+      "correct": true,
+      "observations": [
+        {
+          "tool": "world_time",
+          "arguments": {
+            "from": "Los Angeles",
+            "time": "2026-12-31 18:00",
+            "places": [
+              "Auckland"
+            ]
+          },
+          "result": {
+            "utc": "2027-01-01 02:00",
+            "from": {
+              "place": "Los Angeles, California, US",
+              "zone": "America/Los_Angeles",
+              "date": "2026-12-31",
+              "time": "18:00",
+              "weekday": "Thursday",
+              "utc_offset": "-08:00",
+              "dst": false,
+              "abbreviation": "PST"
+            },
+            "results": [
+              {
+                "place": "Auckland, NZ",
+                "zone": "Pacific/Auckland",
+                "date": "2027-01-01",
+                "time": "15:00",
+                "weekday": "Friday",
+                "utc_offset": "+13:00",
+                "dst": true,
+                "abbreviation": "NZDT",
+                "day_change": "+1",
+                "next_change": "2027-04-04 03:00 to +12:00"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "uk-dst-end",
+      "answer": "2026-10-25",
+      "correct": true,
+      "observations": [
+        {
+          "tool": "world_time",
+          "arguments": {
+            "from": "UTC",
+            "time": "2026-07-01 12:00",
+            "places": [
+              "London"
+            ]
+          },
+          "result": {
+            "utc": "2026-07-01 12:00",
+            "from": {
+              "place": "UTC",
+              "zone": "UTC",
+              "date": "2026-07-01",
+              "time": "12:00",
+              "weekday": "Wednesday",
+              "utc_offset": "+00:00",
+              "dst": false,
+              "abbreviation": "UTC"
+            },
+            "results": [
+              {
+                "place": "London, GB",
+                "zone": "Europe/London",
+                "date": "2026-07-01",
+                "time": "13:00",
+                "weekday": "Wednesday",
+                "utc_offset": "+01:00",
+                "dst": true,
+                "abbreviation": "BST",
+                "next_change": "2026-10-25 02:00 to +00:00"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "bavaria-holiday",
+      "answer": "yes",
+      "correct": true,
+      "observations": [
+        {
+          "tool": "holidays",
+          "arguments": {
+            "where": "Munich",
+            "date": "2026-01-06"
+          },
+          "result": {
+            "results": [
+              {
+                "date": "2026-01-06",
+                "name": "Epiphany"
+              }
+            ],
+            "region": "Bayern, Germany",
+            "date": "2026-01-06",
+            "weekday": "Tuesday",
+            "working_day": false,
+            "weekend_days": [
+              "sat",
+              "sun"
+            ],
+            "next": [
+              {
+                "date": "2026-04-03",
+                "name": "Good Friday"
+              },
+              {
+                "date": "2026-04-06",
+                "name": "Easter Monday"
+              },
+              {
+                "date": "2026-05-01",
+                "name": "Labour Day"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "england-business",
+      "answer": "2027-01-06",
+      "correct": true,
+      "observations": [
+        {
+          "tool": "business_days",
+          "arguments": {
+            "where": "England",
+            "start": "2026-12-18",
+            "add": 10
+          },
+          "result": {
+            "region": "England, United Kingdom",
+            "weekend_days": [
+              "sat",
+              "sun"
+            ],
+            "start": "2026-12-18",
+            "start_weekday": "Friday",
+            "add": 10,
+            "result": "2027-01-06",
+            "result_weekday": "Wednesday",
+            "calendar_days": 19,
+            "holidays_skipped": [
+              {
+                "date": "2026-12-25",
+                "holiday": "Christmas Day"
+              },
+              {
+                "date": "2026-12-28",
+                "holiday": "Boxing Day"
+              },
+              {
+                "date": "2027-01-01",
+                "holiday": "New Year\u2019s Day"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "us-december",
+      "answer": "22",
+      "correct": true,
+      "observations": [
+        {
+          "tool": "business_days",
+          "arguments": {
+            "where": "US",
+            "start": "2026-12-01",
+            "end": "2026-12-31"
+          },
+          "result": {
+            "region": "United States of America",
+            "weekend_days": [
+              "sat",
+              "sun"
+            ],
+            "start": "2026-12-01",
+            "start_weekday": "Tuesday",
+            "end": "2026-12-31",
+            "business_days": 22,
+            "calendar_days": 31,
+            "counted": "both start and end dates are counted when they are working days",
+            "holidays_excluded": [
+              {
+                "date": "2026-12-25",
+                "holiday": "Christmas Day"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "weekday",
+      "answer": "sunday",
+      "correct": true,
+      "observations": [
+        {
+          "tool": "date_info",
+          "arguments": {
+            "date": "2027-03-14"
+          },
+          "result": {
+            "date": "2027-03-14",
+            "weekday": "Sunday",
+            "iso_week": "2027-W10",
+            "day_of_year": 73,
+            "quarter": "Q1",
+            "days_in_month": 31,
+            "leap_year": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "iso-week",
+      "answer": "53",
+      "correct": true,
+      "observations": [
+        {
+          "tool": "date_info",
+          "arguments": {
+            "date": "2027-01-01"
+          },
+          "result": {
+            "date": "2027-01-01",
+            "weekday": "Friday",
+            "iso_week": "2026-W53",
+            "day_of_year": 1,
+            "quarter": "Q1",
+            "days_in_month": 31,
+            "leap_year": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "month-end",
+      "answer": "2027-02-28",
+      "correct": true,
+      "observations": [
+        {
+          "tool": "date_info",
+          "arguments": {
+            "date": "2027-01-31",
+            "add": "+1 month"
+          },
+          "result": {
+            "date": "2027-01-31",
+            "weekday": "Sunday",
+            "iso_week": "2027-W04",
+            "day_of_year": 31,
+            "quarter": "Q1",
+            "days_in_month": 31,
+            "leap_year": false,
+            "result": {
+              "date": "2027-02-28",
+              "weekday": "Sunday"
+            },
+            "note": "Day 31 does not exist in the target month; used its last day."
+          }
+        }
+      ]
+    },
+    {
+      "id": "meeting",
+      "answer": "14:00",
+      "correct": true,
+      "observations": [
+        {
+          "tool": "meeting_slots",
+          "arguments": {
+            "people": [
+              "New York",
+              "London 08:00-18:00",
+              "Berlin"
+            ],
+            "date": "2026-12-22",
+            "days": 1,
+            "minutes": 60
+          },
+          "result": {
+            "slots": [
+              {
+                "utc_start": "2026-12-22 14:00",
+                "utc_end": "2026-12-22 16:00",
+                "local": [
+                  "New York, US: 2026-12-22 09:00-11:00",
+                  "London, GB: 2026-12-22 14:00-16:00",
+                  "Berlin, DE: 2026-12-22 15:00-17:00"
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "month-converted",
+      "answer": "2027-02-28 23:00",
+      "correct": true,
+      "observations": [
+        {
+          "tool": "date_info",
+          "arguments": {
+            "date": "2027-01-31",
+            "add": "+1 month"
+          },
+          "result": {
+            "date": "2027-01-31",
+            "weekday": "Sunday",
+            "iso_week": "2027-W04",
+            "day_of_year": 31,
+            "quarter": "Q1",
+            "days_in_month": 31,
+            "leap_year": false,
+            "result": {
+              "date": "2027-02-28",
+              "weekday": "Sunday"
+            },
+            "note": "Day 31 does not exist in the target month; used its last day."
+          }
+        },
+        {
+          "tool": "world_time",
+          "arguments": {
+            "from": "New York",
+            "time": "2027-02-28 09:00",
+            "places": [
+              "Tokyo"
+            ]
+          },
+          "result": {
+            "utc": "2027-02-28 14:00",
+            "from": {
+              "place": "New York, US",
+              "zone": "America/New_York",
+              "date": "2027-02-28",
+              "time": "09:00",
+              "weekday": "Sunday",
+              "utc_offset": "-05:00",
+              "dst": false,
+              "abbreviation": "EST"
+            },
+            "results": [
+              {
+                "place": "Tokyo, JP",
+                "zone": "Asia/Tokyo",
+                "date": "2027-02-28",
+                "time": "23:00",
+                "weekday": "Sunday",
+                "utc_offset": "+09:00",
+                "dst": false
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "business-converted",
+      "answer": "2027-01-06 04:00",
+      "correct": true,
+      "observations": [
+        {
+          "tool": "business_days",
+          "arguments": {
+            "where": "England",
+            "start": "2026-12-18",
+            "add": 10
+          },
+          "result": {
+            "region": "England, United Kingdom",
+            "weekend_days": [
+              "sat",
+              "sun"
+            ],
+            "start": "2026-12-18",
+            "start_weekday": "Friday",
+            "add": 10,
+            "result": "2027-01-06",
+            "result_weekday": "Wednesday",
+            "calendar_days": 19,
+            "holidays_skipped": [
+              {
+                "date": "2026-12-25",
+                "holiday": "Christmas Day"
+              },
+              {
+                "date": "2026-12-28",
+                "holiday": "Boxing Day"
+              },
+              {
+                "date": "2027-01-01",
+                "holiday": "New Year\u2019s Day"
+              }
+            ]
+          }
+        },
+        {
+          "tool": "world_time",
+          "arguments": {
+            "from": "London",
+            "time": "2027-01-06 09:00",
+            "places": [
+              "New York"
+            ]
+          },
+          "result": {
+            "utc": "2027-01-06 09:00",
+            "from": {
+              "place": "London, GB",
+              "zone": "Europe/London",
+              "date": "2027-01-06",
+              "time": "09:00",
+              "weekday": "Wednesday",
+              "utc_offset": "+00:00",
+              "dst": false,
+              "abbreviation": "GMT"
+            },
+            "results": [
+              {
+                "place": "New York, US",
+                "zone": "America/New_York",
+                "date": "2027-01-06",
+                "time": "04:00",
+                "weekday": "Wednesday",
+                "utc_offset": "-05:00",
+                "dst": false,
+                "abbreviation": "EST",
+                "next_change": "2027-03-14 02:00 to -04:00"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "meeting-tokyo",
+      "answer": "2026-12-22 23:00",
+      "correct": true,
+      "observations": [
+        {
+          "tool": "meeting_slots",
+          "arguments": {
+            "people": [
+              "New York",
+              "London 08:00-18:00",
+              "Berlin"
+            ],
+            "date": "2026-12-22",
+            "days": 1,
+            "minutes": 60
+          },
+          "result": {
+            "slots": [
+              {
+                "utc_start": "2026-12-22 14:00",
+                "utc_end": "2026-12-22 16:00",
+                "local": [
+                  "New York, US: 2026-12-22 09:00-11:00",
+                  "London, GB: 2026-12-22 14:00-16:00",
+                  "Berlin, DE: 2026-12-22 15:00-17:00"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "tool": "world_time",
+          "arguments": {
+            "from": "UTC",
+            "time": "2026-12-22 14:00",
+            "places": [
+              "Tokyo"
+            ]
+          },
+          "result": {
+            "utc": "2026-12-22 14:00",
+            "from": {
+              "place": "UTC",
+              "zone": "UTC",
+              "date": "2026-12-22",
+              "time": "14:00",
+              "weekday": "Tuesday",
+              "utc_offset": "+00:00",
+              "dst": false,
+              "abbreviation": "UTC"
+            },
+            "results": [
+              {
+                "place": "Tokyo, JP",
+                "zone": "Asia/Tokyo",
+                "date": "2026-12-22",
+                "time": "23:00",
+                "weekday": "Tuesday",
+                "utc_offset": "+09:00",
+                "dst": false
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "clamp-business-zone",
+      "answer": "2027-03-01 22:45",
+      "correct": true,
+      "observations": [
+        {
+          "tool": "date_info",
+          "arguments": {
+            "date": "2027-01-31",
+            "add": "+1 month"
+          },
+          "result": {
+            "date": "2027-01-31",
+            "weekday": "Sunday",
+            "iso_week": "2027-W04",
+            "day_of_year": 31,
+            "quarter": "Q1",
+            "days_in_month": 31,
+            "leap_year": false,
+            "result": {
+              "date": "2027-02-28",
+              "weekday": "Sunday"
+            },
+            "note": "Day 31 does not exist in the target month; used its last day."
+          }
+        },
+        {
+          "tool": "business_days",
+          "arguments": {
+            "where": "England",
+            "start": "2027-02-28",
+            "add": 1
+          },
+          "result": {
+            "region": "England, United Kingdom",
+            "weekend_days": [
+              "sat",
+              "sun"
+            ],
+            "start": "2027-02-28",
+            "start_weekday": "Sunday",
+            "add": 1,
+            "result": "2027-03-01",
+            "result_weekday": "Monday",
+            "calendar_days": 1
+          }
+        },
+        {
+          "tool": "world_time",
+          "arguments": {
+            "from": "London",
+            "time": "2027-03-01 17:00",
+            "places": [
+              "Kathmandu"
+            ]
+          },
+          "result": {
+            "utc": "2027-03-01 17:00",
+            "from": {
+              "place": "London, GB",
+              "zone": "Europe/London",
+              "date": "2027-03-01",
+              "time": "17:00",
+              "weekday": "Monday",
+              "utc_offset": "+00:00",
+              "dst": false,
+              "abbreviation": "GMT"
+            },
+            "results": [
+              {
+                "place": "Kathmandu, NP",
+                "zone": "Asia/Kathmandu",
+                "date": "2027-03-01",
+                "time": "22:45",
+                "weekday": "Monday",
+                "utc_offset": "+05:45",
+                "dst": false
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "holiday-return-zone",
+      "answer": "2026-01-07 08:00",
+      "correct": true,
+      "observations": [
+        {
+          "tool": "holidays",
+          "arguments": {
+            "where": "Munich",
+            "date": "2026-01-06"
+          },
+          "result": {
+            "results": [
+              {
+                "date": "2026-01-06",
+                "name": "Epiphany"
+              }
+            ],
+            "region": "Bayern, Germany",
+            "date": "2026-01-06",
+            "weekday": "Tuesday",
+            "working_day": false,
+            "weekend_days": [
+              "sat",
+              "sun"
+            ],
+            "next": [
+              {
+                "date": "2026-04-03",
+                "name": "Good Friday"
+              },
+              {
+                "date": "2026-04-06",
+                "name": "Easter Monday"
+              },
+              {
+                "date": "2026-05-01",
+                "name": "Labour Day"
+              }
+            ]
+          }
+        },
+        {
+          "tool": "business_days",
+          "arguments": {
+            "where": "Munich",
+            "start": "2026-01-06",
+            "add": 1
+          },
+          "result": {
+            "region": "Bayern, Germany",
+            "weekend_days": [
+              "sat",
+              "sun"
+            ],
+            "start": "2026-01-06",
+            "start_weekday": "Tuesday",
+            "add": 1,
+            "result": "2026-01-07",
+            "result_weekday": "Wednesday",
+            "calendar_days": 1
+          }
+        },
+        {
+          "tool": "world_time",
+          "arguments": {
+            "from": "Munich",
+            "time": "2026-01-07 09:00",
+            "places": [
+              "London"
+            ]
+          },
+          "result": {
+            "utc": "2026-01-07 08:00",
+            "from": {
+              "place": "Munich, DE",
+              "zone": "Europe/Berlin",
+              "date": "2026-01-07",
+              "time": "09:00",
+              "weekday": "Wednesday",
+              "utc_offset": "+01:00",
+              "dst": false,
+              "abbreviation": "CET"
+            },
+            "results": [
+              {
+                "place": "London, GB",
+                "zone": "Europe/London",
+                "date": "2026-01-07",
+                "time": "08:00",
+                "weekday": "Wednesday",
+                "utc_offset": "+00:00",
+                "dst": false,
+                "abbreviation": "GMT",
+                "next_change": "2026-03-29 01:00 to +01:00"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "reporting-week",
+      "answer": "2026-W53",
+      "correct": true,
+      "observations": [
+        {
+          "tool": "world_time",
+          "arguments": {
+            "from": "Auckland",
+            "time": "2027-01-01 00:30",
+            "places": [
+              "New York"
+            ]
+          },
+          "result": {
+            "utc": "2026-12-31 11:30",
+            "from": {
+              "place": "Auckland, NZ",
+              "zone": "Pacific/Auckland",
+              "date": "2027-01-01",
+              "time": "00:30",
+              "weekday": "Friday",
+              "utc_offset": "+13:00",
+              "dst": true,
+              "abbreviation": "NZDT"
+            },
+            "results": [
+              {
+                "place": "New York, US",
+                "zone": "America/New_York",
+                "date": "2026-12-31",
+                "time": "06:30",
+                "weekday": "Thursday",
+                "utc_offset": "-05:00",
+                "dst": false,
+                "abbreviation": "EST",
+                "day_change": "-1",
+                "next_change": "2027-03-14 02:00 to -04:00"
+              }
+            ]
+          }
+        },
+        {
+          "tool": "date_info",
+          "arguments": {
+            "date": "2026-12-31"
+          },
+          "result": {
+            "date": "2026-12-31",
+            "weekday": "Thursday",
+            "iso_week": "2026-W53",
+            "day_of_year": 365,
+            "quarter": "Q4",
+            "days_in_month": 31,
+            "leap_year": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "spring-shift",
+      "answer": "60",
+      "correct": true,
+      "observations": [
+        {
+          "tool": "world_time",
+          "arguments": {
+            "from": "New York",
+            "time": "2026-03-08 01:30",
+            "places": [
+              "UTC"
+            ]
+          },
+          "result": {
+            "utc": "2026-03-08 06:30",
+            "from": {
+              "place": "New York, US",
+              "zone": "America/New_York",
+              "date": "2026-03-08",
+              "time": "01:30",
+              "weekday": "Sunday",
+              "utc_offset": "-05:00",
+              "dst": false,
+              "abbreviation": "EST"
+            },
+            "results": [
+              {
+                "place": "UTC",
+                "zone": "UTC",
+                "date": "2026-03-08",
+                "time": "06:30",
+                "weekday": "Sunday",
+                "utc_offset": "+00:00",
+                "dst": false,
+                "abbreviation": "UTC"
+              }
+            ]
+          }
+        },
+        {
+          "tool": "world_time",
+          "arguments": {
+            "from": "New York",
+            "time": "2026-03-08 03:30",
+            "places": [
+              "UTC"
+            ]
+          },
+          "result": {
+            "utc": "2026-03-08 07:30",
+            "from": {
+              "place": "New York, US",
+              "zone": "America/New_York",
+              "date": "2026-03-08",
+              "time": "03:30",
+              "weekday": "Sunday",
+              "utc_offset": "-04:00",
+              "dst": true,
+              "abbreviation": "EDT"
+            },
+            "results": [
+              {
+                "place": "UTC",
+                "zone": "UTC",
+                "date": "2026-03-08",
+                "time": "07:30",
+                "weekday": "Sunday",
+                "utc_offset": "+00:00",
+                "dst": false,
+                "abbreviation": "UTC"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "autumn-shift",
+      "answer": "180",
+      "correct": true,
+      "observations": [
+        {
+          "tool": "world_time",
+          "arguments": {
+            "from": "New York",
+            "time": "2026-11-01 00:30",
+            "places": [
+              "UTC"
+            ]
+          },
+          "result": {
+            "utc": "2026-11-01 04:30",
+            "from": {
+              "place": "New York, US",
+              "zone": "America/New_York",
+              "date": "2026-11-01",
+              "time": "00:30",
+              "weekday": "Sunday",
+              "utc_offset": "-04:00",
+              "dst": true,
+              "abbreviation": "EDT"
+            },
+            "results": [
+              {
+                "place": "UTC",
+                "zone": "UTC",
+                "date": "2026-11-01",
+                "time": "04:30",
+                "weekday": "Sunday",
+                "utc_offset": "+00:00",
+                "dst": false,
+                "abbreviation": "UTC"
+              }
+            ]
+          }
+        },
+        {
+          "tool": "world_time",
+          "arguments": {
+            "from": "New York",
+            "time": "2026-11-01 02:30",
+            "places": [
+              "UTC"
+            ]
+          },
+          "result": {
+            "utc": "2026-11-01 07:30",
+            "from": {
+              "place": "New York, US",
+              "zone": "America/New_York",
+              "date": "2026-11-01",
+              "time": "02:30",
+              "weekday": "Sunday",
+              "utc_offset": "-05:00",
+              "dst": false,
+              "abbreviation": "EST"
+            },
+            "results": [
+              {
+                "place": "UTC",
+                "zone": "UTC",
+                "date": "2026-11-01",
+                "time": "07:30",
+                "weekday": "Sunday",
+                "utc_offset": "+00:00",
+                "dst": false,
+                "abbreviation": "UTC"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "sydney-shift",
+      "answer": "60",
+      "correct": true,
+      "observations": [
+        {
+          "tool": "world_time",
+          "arguments": {
+            "from": "Sydney",
+            "time": "2026-10-04 01:30",
+            "places": [
+              "UTC"
+            ]
+          },
+          "result": {
+            "utc": "2026-10-03 15:30",
+            "from": {
+              "place": "Sydney, New South Wales, AU",
+              "zone": "Australia/Sydney",
+              "date": "2026-10-04",
+              "time": "01:30",
+              "weekday": "Sunday",
+              "utc_offset": "+10:00",
+              "dst": false,
+              "abbreviation": "AEST"
+            },
+            "results": [
+              {
+                "place": "UTC",
+                "zone": "UTC",
+                "date": "2026-10-03",
+                "time": "15:30",
+                "weekday": "Saturday",
+                "utc_offset": "+00:00",
+                "dst": false,
+                "abbreviation": "UTC",
+                "day_change": "-1"
+              }
+            ]
+          }
+        },
+        {
+          "tool": "world_time",
+          "arguments": {
+            "from": "Sydney",
+            "time": "2026-10-04 03:30",
+            "places": [
+              "UTC"
+            ]
+          },
+          "result": {
+            "utc": "2026-10-03 16:30",
+            "from": {
+              "place": "Sydney, New South Wales, AU",
+              "zone": "Australia/Sydney",
+              "date": "2026-10-04",
+              "time": "03:30",
+              "weekday": "Sunday",
+              "utc_offset": "+11:00",
+              "dst": true,
+              "abbreviation": "AEDT"
+            },
+            "results": [
+              {
+                "place": "UTC",
+                "zone": "UTC",
+                "date": "2026-10-03",
+                "time": "16:30",
+                "weekday": "Saturday",
+                "utc_offset": "+00:00",
+                "dst": false,
+                "abbreviation": "UTC",
+                "day_change": "-1"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "meeting-report-week",
+      "answer": "2026-W12",
+      "correct": true,
+      "observations": [
+        {
+          "tool": "meeting_slots",
+          "arguments": {
+            "people": [
+              "New York",
+              "London 08:00-18:00",
+              "Berlin"
+            ],
+            "date": "2026-03-16",
+            "days": 1,
+            "minutes": 60
+          },
+          "result": {
+            "slots": [
+              {
+                "utc_start": "2026-03-16 13:00",
+                "utc_end": "2026-03-16 16:00",
+                "local": [
+                  "New York, US: 2026-03-16 09:00-12:00",
+                  "London, GB: 2026-03-16 13:00-16:00",
+                  "Berlin, DE: 2026-03-16 14:00-17:00"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "tool": "world_time",
+          "arguments": {
+            "from": "UTC",
+            "time": "2026-03-16 13:00",
+            "places": [
+              "Tokyo"
+            ]
+          },
+          "result": {
+            "utc": "2026-03-16 13:00",
+            "from": {
+              "place": "UTC",
+              "zone": "UTC",
+              "date": "2026-03-16",
+              "time": "13:00",
+              "weekday": "Monday",
+              "utc_offset": "+00:00",
+              "dst": false,
+              "abbreviation": "UTC"
+            },
+            "results": [
+              {
+                "place": "Tokyo, JP",
+                "zone": "Asia/Tokyo",
+                "date": "2026-03-16",
+                "time": "22:00",
+                "weekday": "Monday",
+                "utc_offset": "+09:00",
+                "dst": false
+              }
+            ]
+          }
+        },
+        {
+          "tool": "date_info",
+          "arguments": {
+            "date": "2026-03-16"
+          },
+          "result": {
+            "date": "2026-03-16",
+            "weekday": "Monday",
+            "iso_week": "2026-W12",
+            "day_of_year": 75,
+            "quarter": "Q1",
+            "days_in_month": 31,
+            "leap_year": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "scotland-oneoff",
+      "answer": "yes",
+      "correct": true,
+      "observations": [
+        {
+          "tool": "holidays",
+          "arguments": {
+            "where": "Scotland",
+            "date": "2026-06-15"
+          },
+          "result": {
+            "results": [
+              {
+                "date": "2026-06-15",
+                "name": "World Cup bank holiday"
+              }
+            ],
+            "region": "Scotland, United Kingdom",
+            "date": "2026-06-15",
+            "weekday": "Monday",
+            "working_day": false,
+            "weekend_days": [
+              "sat",
+              "sun"
+            ],
+            "next": [
+              {
+                "date": "2026-08-03",
+                "name": "Summer bank holiday"
+              },
+              {
+                "date": "2026-11-30",
+                "name": "St Andrew\u2019s Day"
+              },
+              {
+                "date": "2026-12-25",
+                "name": "Christmas Day"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "scope": "Fixed answer projections and real protocol calls; no agent accuracy, token comparison or strongest-server qualification."
+}

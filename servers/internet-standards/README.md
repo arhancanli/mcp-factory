@@ -194,9 +194,9 @@ Measured 2026-09-26 with gpt-5.4-mini, 10 fixed tasks graded by fixed checks (`b
 ## Performance
 
 <!-- perf:start -->
-Measured 2026-09-26 from Dubai, home connection against the live upstream, Node 24.19.0 (`bench/perf.json`, `scripts/perf.mjs` in the factory).
+Measured 2026-09-26 from Dubai, home connection against the live server, Node 24.19.0 (`bench/perf.json`, `scripts/perf.mjs` in the factory).
 
-| Call | First call | Repeat | Result size |
+| Call | First request after initialization | Repeat | Result size |
 | --- | --- | --- | --- |
 | rfc_info: RFC 2616, BCP 14, a draft name and a missing number | 1814 ms | 0.6 ms | 2,055 chars |
 | rfc_section: RFC 9110 section 12.5.1 with its errata | 1868 ms | 0.5 ms | 6,171 chars |
@@ -207,7 +207,7 @@ Measured 2026-09-26 from Dubai, home connection against the live upstream, Node 
 | iana_lookup: media type application/json | 278 ms | 0.6 ms | 206 chars |
 | iana_lookup: port 5432 | 480 ms | 1.1 ms | 497 chars |
 
-First call: a fresh server process, including the TLS connection and the upstream's own time. Repeat: the same call again, answered from the in-process cache, so it shows this server's own overhead.
+This legacy record times the first tool request after MCP initialization; it excludes process startup. Repeated requests use the same process and include server work plus any upstream I/O or cache effects. Remeasure before comparing cold-start performance.
 
 Tool definitions the model reads on every turn (name, description, input schema): 2,119 characters, against 3,643 for rfcxml-mcp, the most active RFC server. The full tool list, with the output schemas and annotations clients use to validate results, is 3,610 characters (3,636 for the alternative).
 <!-- perf:end -->

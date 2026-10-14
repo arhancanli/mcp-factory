@@ -1,7 +1,7 @@
 // src/calendar.mjs
 //
 // Holidays and weekends. Holidays come from date-holidays (rules for 207 countries and their
-// states and regions, ISC-licensed, data CC BY 3.0), evaluated offline for any year. Weekends come
+// states and regions, ISC code, shipped data notice CC BY-SA 3.0), evaluated offline for any year. Weekends come
 // from the Unicode CLDR week data built into Node (Saudi Arabia: Friday and Saturday; India:
 // Sunday), and can be overridden. Holidays on the Islamic calendar are astronomical estimates:
 // the official day follows a moon sighting and can differ by one, so they are marked estimated.
@@ -12,6 +12,21 @@ import { countryCode } from "./places.mjs";
 
 const require = createRequire(import.meta.url);
 const Holidays = require("date-holidays");
+const UK_SNAPSHOT = require("./data/uk-bank-holidays.json");
+
+export function ukDivision(region) {
+  if (region.country !== "GB") return undefined;
+  return region.state === "SCT" ? "scotland" : region.state === "NIR" ? "northern-ireland" : "england-and-wales";
+}
+
+export function ukSnapshotRows(region, year) {
+  const data = UK_SNAPSHOT.divisions[ukDivision(region)];
+  if (!data?.years.includes(year)) return undefined;
+  return data.events.filter((event) => event.date.startsWith(`${year}-`)).map((event) => ({
+    date: event.date, name: event.title, type: "public",
+    substitute: /substitute day/i.test(`${event.title} ${event.notes ?? ""}`) || undefined,
+  }));
+}
 
 const index = new Holidays();
 const COUNTRY_NAMES = index.getCountries("en");
@@ -51,6 +66,17 @@ const REGION_ALIASES = {
 };
 const COUNTRY_REGION = { england: ["GB", "ENG"], scotland: ["GB", "SCT"], wales: ["GB", "WLS"], "northern ireland": ["GB", "NIR"] };
 
+// city-timezones 1.3.4 uses council/district names for UK provinces, not home nations.
+// These aliases cover its Scottish, Welsh and Northern Irish province vocabulary.
+const UK_PROVINCES = {
+  SCT: ["Aberdeen", "Dumfries and Galloway", "Dundee", "Edinburgh", "Glasgow", "Highland", "Inverclyde", "Moray", "Perthshire and Kinross", "Perth and Kinross", "South Ayrshire"],
+  WLS: ["Cardiff", "Swansea"],
+  NIR: ["Belfast", "Derry", "Dungannon", "Omagh"],
+};
+for (const [state, provinces] of Object.entries(UK_PROVINCES)) {
+  for (const province of provinces) REGION_ALIASES.GB[fold(province)] = state;
+}
+
 /**
  * A country (and optional state) for the holiday rules, from codes ("US", "US-CA", "DE-BY"),
  * names ("Germany", "Bavaria", "England") or a place the caller already resolved.
@@ -84,7 +110,7 @@ export function resolveRegion(countryRaw, regionRaw) {
     );
   }
   const stateName = state ? index.getStates(country, "en")[state] : undefined;
-  return { country, state, label: stateName ? `${stateName}, ${COUNTRY_NAMES[country]}` : COUNTRY_NAMES[country] };
+  return { country, state, label: stateName ? `${stateName}, ${COUNTRY_NAMES[country]}` : country === "GB" ? "England and Wales (default UK calendar)" : COUNTRY_NAMES[country] };
 }
 
 /** A state code from a code or a name, or undefined when the country has no such region (national rules apply). */
@@ -109,7 +135,9 @@ export function holidaysIn(region, year, types) {
   const key = `${region.country}|${region.state ?? ""}|${year}`;
   if (!rulesCache.has(key)) {
     // A holiday starting late in the previous year can run into this one.
-    const rows = [...expand(region, year - 1), ...expand(region, year)].filter((r) => r.date.startsWith(`${year}-`));
+    let rows = [...expand(region, year - 1), ...expand(region, year)].filter((r) => r.date.startsWith(`${year}-`));
+    const official = ukSnapshotRows(region, year);
+    if (official) rows = [...rows.filter((row) => row.type !== "public"), ...official];
     const seen = new Set();
     rulesCache.set(
       key,

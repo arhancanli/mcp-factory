@@ -190,9 +190,9 @@ Measured 2026-09-26 with gpt-5.4-mini, 10 fixed tasks graded by fixed checks (`b
 ## Performance
 
 <!-- perf:start -->
-Measured 2026-09-26 from Dubai, home connection against the live upstream, Node 24.19.0 (`bench/perf.json`, `scripts/perf.mjs` in the factory).
+Measured 2026-09-26 from Dubai, home connection against the live server, Node 24.19.0 (`bench/perf.json`, `scripts/perf.mjs` in the factory).
 
-| Call | First call | Repeat | Result size |
+| Call | First request after initialization | Repeat | Result size |
 | --- | --- | --- | --- |
 | check_recalls: Fisher-Price Rock n Play sleeper | 2753 ms | 2.2 ms | 4,254 chars |
 | check_recalls: insulin pump (FDA devices) | 3083 ms | 3.5 ms | 7,563 chars |
@@ -201,7 +201,7 @@ Measured 2026-09-26 from Dubai, home connection against the live upstream, Node 
 | vehicle_recalls: a VIN with a wrong check digit | 988 ms | 0.3 ms | 6,764 chars |
 | recent_recalls: last 7 days | 2695 ms | 0.5 ms | 12,776 chars |
 
-First call: a fresh server process, including the TLS connection and the upstream's own time. Repeat: the same call again, answered from the in-process cache, so it shows this server's own overhead.
+This legacy record times the first tool request after MCP initialization; it excludes process startup. Repeated requests use the same process and include server work plus any upstream I/O or cache effects. Remeasure before comparing cold-start performance.
 
 Tool definitions the model reads on every turn (name, description, input schema): 1,765 characters, against 10,121 for @cyanheads/cpsc-recalls-mcp-server, the most downloaded recall server. The full tool list, with the output schemas and annotations clients use to validate results, is 3,187 characters (28,479 for the alternative).
 <!-- perf:end -->

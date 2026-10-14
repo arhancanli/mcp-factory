@@ -189,16 +189,16 @@ Measured 2026-09-26 with gpt-5.4-mini, 9 fixed tasks graded by fixed checks (`be
 ## Performance
 
 <!-- perf:start -->
-Measured 2026-09-26 from Dubai, home connection against the live upstream, Node 24.19.0 (`bench/perf.json`, `scripts/perf.mjs` in the factory).
+Measured 2026-09-26 from Dubai, home connection against the live server, Node 24.19.0 (`bench/perf.json`, `scripts/perf.mjs` in the factory).
 
-| Call | First call | Repeat | Result size |
+| Call | First request after initialization | Repeat | Result size |
 | --- | --- | --- | --- |
 | check_workflows: a workflow with 12 problems | 1028 ms | 1.1 ms | 3,383 chars |
 | check_workflows: a clean, pinned workflow | 648 ms | 0.6 ms | 117 chars |
 | action_versions: 3 actions, with and without refs | 1018 ms | 0.9 ms | 1,375 chars |
 | runner_labels: 4 labels | 251 ms | 0.3 ms | 293 chars |
 
-First call: a fresh server process, including the TLS connection and the upstream's own time. Repeat: the same call again, answered from the in-process cache, so it shows this server's own overhead.
+This legacy record times the first tool request after MCP initialization; it excludes process startup. Repeated requests use the same process and include server work plus any upstream I/O or cache effects. Remeasure before comparing cold-start performance.
 
 Tool definitions the model reads on every turn (name, description, input schema): 1,450 characters, against 1,105 for mcp-server-fetch reading GitHub (no workflow-checking server exists; this is what agents use today). The full tool list, with the output schemas and annotations clients use to validate results, is 2,689 characters (1,104 for the alternative).
 <!-- perf:end -->

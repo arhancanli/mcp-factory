@@ -213,9 +213,9 @@ below 2: its default install fails on SDK 2, where FastMCP was renamed.
 ## Performance
 
 <!-- perf:start -->
-Measured 2026-09-26 from Dubai, home connection against the live upstream, Node 24.19.0 (`bench/perf.json`, `scripts/perf.mjs` in the factory).
+Measured 2026-09-26 from Dubai, home connection against the live server, Node 24.19.0 (`bench/perf.json`, `scripts/perf.mjs` in the factory).
 
-| Call | First call | Repeat | Result size |
+| Call | First request after initialization | Repeat | Result size |
 | --- | --- | --- | --- |
 | prioritize_vulns: 8 ids (KEV, EPSS-only, advisory alias, unknown, not an id) | 2684 ms | 0.5 ms | 1,933 chars |
 | package_vulns: 4 packages (npm, Maven, PyPI, one clean) | 2863 ms | 3 ms | 6,102 chars |
@@ -226,7 +226,7 @@ Measured 2026-09-26 from Dubai, home connection against the live upstream, Node 
 | recent_exploited: Fortinet, ransomware only, 10 years | 647 ms | 0.5 ms | 795 chars |
 | recent_exploited: log4j, 10 years | 587 ms | 1.3 ms | 475 chars |
 
-First call: a fresh server process, including the TLS connection and the upstream's own time. Repeat: the same call again, answered from the in-process cache, so it shows this server's own overhead.
+This legacy record times the first tool request after MCP initialization; it excludes process startup. Repeated requests use the same process and include server work plus any upstream I/O or cache effects. Remeasure before comparing cold-start performance.
 
 Tool definitions the model reads on every turn (name, description, input schema): 2,298 characters, against 12,864 for mukul975/cve-mcp-server, the most-starred vulnerability server (28 tools). The full tool list, with the output schemas and annotations clients use to validate results, is 4,019 characters (16,964 for the alternative).
 <!-- perf:end -->

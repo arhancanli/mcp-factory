@@ -11,8 +11,7 @@ import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import path from "node:path";
 import { parseArgs } from "node:util";
 import Anthropic from "@anthropic-ai/sdk";
-import { Client } from "@modelcontextprotocol/sdk/client/index.js";
-import { StdioClientTransport } from "@modelcontextprotocol/sdk/client/stdio.js";
+import { connectMcp, assertConnectorUnchanged, MCP_CONNECTOR_SHA256 } from "./mcp-client.mjs";
 import { readJson, replaceBlock } from "../scripts/lib.mjs";
 import { grade, hash, identityHash, sourceSnapshot, summarize } from "../kit/release.mjs";
 
@@ -26,10 +25,7 @@ const MAX_TURNS = 8;
 export const toAnthropicTools = (tools) => tools.map((t) => ({ name: t.name, description: t.description ?? "", input_schema: t.inputSchema }));
 
 async function connect(spec, cwd) {
-  const transport = new StdioClientTransport({ command: spec.command, args: spec.args ?? [], env: { ...process.env, ...(spec.env ?? {}) }, cwd, stderr: "ignore" });
-  const client = new Client({ name: "factory-bench", version: "1" });
-  await client.connect(transport);
-  return client;
+  return connectMcp({ ...spec, cwd });
 }
 
 /**
@@ -158,7 +154,7 @@ if (process.argv[1] && path.resolve(process.argv[1]) === new URL(import.meta.url
   if (values.arm === "competitor") delete arms.ours;
 
   const anthropic = values.provider === "anthropic" ? new Anthropic() : null;
-  const result = { schema: "canlilabs.benchmark.v2", measured_at: new Date().toISOString(), date: new Date().toISOString().slice(0, 10), provider: values.provider, model: values.model, competitor_label: spec.competitor?.label ?? "", provenance: { source_sha256: source.sha256, tasks_sha256: identityHash(spec), competitor_sha256: identityHash(spec.competitor ?? null), runner_sha256: hash(readFileSync(new URL(import.meta.url))), node: process.version, system_sha256: hash(SYSTEM), max_turns: MAX_TURNS }, rows: {}, summary: {} };
+  const result = { schema: "canlilabs.benchmark.v2", measured_at: new Date().toISOString(), date: new Date().toISOString().slice(0, 10), provider: values.provider, model: values.model, competitor_label: spec.competitor?.label ?? "", provenance: { source_sha256: source.sha256, tasks_sha256: identityHash(spec), competitor_sha256: identityHash(spec.competitor ?? null), runner_sha256: hash(readFileSync(new URL(import.meta.url))), connector_sha256: MCP_CONNECTOR_SHA256, node: process.version, system_sha256: hash(SYSTEM), max_turns: MAX_TURNS }, rows: {}, summary: {} };
   for (const [arm, armSpec] of Object.entries(arms)) {
     const mcp = await connect(armSpec, dir);
     const { tools } = await mcp.listTools();
@@ -179,6 +175,8 @@ if (process.argv[1] && path.resolve(process.argv[1]) === new URL(import.meta.url
   }
   if (!values.dry) {
     if (sourceSnapshot(dir).sha256 !== source.sha256) throw new Error("Server source changed during benchmarking; keep the failed attempt and rerun the fixed corpus.");
+    if (hash(readFileSync(new URL(import.meta.url))) !== result.provenance.runner_sha256) throw new Error("Benchmark runner changed during execution.");
+    assertConnectorUnchanged();
     mkdirSync(path.join(dir, "bench/results"), { recursive: true });
     const id = result.measured_at.replace(/[:.]/g, "-");
     writeFileSync(path.join(dir, `bench/results/${id}-${values.model}.json`), `${JSON.stringify(result, null, 2)}\n`, { flag: "wx" });

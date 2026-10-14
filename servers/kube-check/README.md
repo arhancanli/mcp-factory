@@ -200,9 +200,9 @@ Not yet measured.
 ## Performance
 
 <!-- perf:start -->
-Measured 2026-09-27 from Dubai, home connection against the live upstream, Node 24.19.0 (`bench/perf.json`, `scripts/perf.mjs` in the factory).
+Measured 2026-09-27 from Dubai, home connection against the live server, Node 24.19.0 (`bench/perf.json`, `scripts/perf.mjs` in the factory).
 
-| Call | First call | Repeat | Result size |
+| Call | First request after initialization | Repeat | Result size |
 | --- | --- | --- | --- |
 | check_manifests: a Deployment with eight mistakes, a removed Ingress, CronJob and PodSecurityPolicy | 906 ms | 2.7 ms | 5,625 chars |
 | check_manifests: a clean Deployment, Service and Ingress under the restricted Pod Security level | 907 ms | 2.6 ms | 67 chars |
@@ -213,7 +213,7 @@ Measured 2026-09-27 from Dubai, home connection against the live upstream, Node 
 | field_help: a Deployment's rolling update surge | 1088 ms | 0.9 ms | 826 chars |
 | field_help: search a Pod's fields for 'termination grace' | 1015 ms | 1.9 ms | 1,085 chars |
 
-First call: a fresh server process, including the TLS connection and the upstream's own time. Repeat: the same call again, answered from the in-process cache, so it shows this server's own overhead.
+This legacy record times the first tool request after MCP initialization; it excludes process startup. Repeated requests use the same process and include server work plus any upstream I/O or cache effects. Remeasure before comparing cold-start performance.
 
 Tool definitions the model reads on every turn (name, description, input schema): 2,212 characters. The full tool list, with the output schemas and annotations clients use to validate results, is 3,614 characters.
 <!-- perf:end -->

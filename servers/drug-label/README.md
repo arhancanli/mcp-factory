@@ -196,9 +196,9 @@ Measured 2026-09-26 with gpt-5.4-mini, 10 fixed tasks graded by fixed checks (`b
 ## Performance
 
 <!-- perf:start -->
-Measured 2026-09-26 from Dubai, home connection against the live upstream, Node 24.19.0 (`bench/perf.json`, `scripts/perf.mjs` in the factory).
+Measured 2026-09-26 from Dubai, home connection against the live server, Node 24.19.0 (`bench/perf.json`, `scripts/perf.mjs` in the factory).
 
-| Call | First call | Repeat | Result size |
+| Call | First request after initialization | Repeat | Result size |
 | --- | --- | --- | --- |
 | find_drug: atorvastatin (brand and generic manufacturers ranked) | 3673 ms | 1.2 ms | 1,560 chars |
 | find_drug: a misspelled name | 4053 ms | 0.9 ms | 1,591 chars |
@@ -208,7 +208,7 @@ Measured 2026-09-26 from Dubai, home connection against the live upstream, Node 
 | label_section: metformin contraindications | 4468 ms | 0.6 ms | 1,257 chars |
 | recalls_shortages: metformin | 2352 ms | 0.7 ms | 4,766 chars |
 
-First call: a fresh server process, including the TLS connection and the upstream's own time. Repeat: the same call again, answered from the in-process cache, so it shows this server's own overhead.
+This legacy record times the first tool request after MCP initialization; it excludes process startup. Repeated requests use the same process and include server work plus any upstream I/O or cache effects. Remeasure before comparing cold-start performance.
 
 Tool definitions the model reads on every turn (name, description, input schema): 1,958 characters, against 23,915 for @ythalorossy/openfda, the most downloaded openFDA server. The full tool list, with the output schemas and annotations clients use to validate results, is 3,819 characters (24,351 for the alternative).
 <!-- perf:end -->

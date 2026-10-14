@@ -179,16 +179,16 @@ Measured 2026-09-26 with gpt-5.4-mini, 9 fixed tasks graded by fixed checks (`be
 ## Performance
 
 <!-- perf:start -->
-Measured 2026-09-26 from Dubai, home connection against the live upstream, Node 24.19.0 (`bench/perf.json`, `scripts/perf.mjs` in the factory).
+Measured 2026-09-26 from Dubai, home connection against the live server, Node 24.19.0 (`bench/perf.json`, `scripts/perf.mjs` in the factory).
 
-| Call | First call | Repeat | Result size |
+| Call | First request after initialization | Repeat | Result size |
 | --- | --- | --- | --- |
 | check_compatibility: 6 licenses in a GPL-2.0-only project | 2663 ms | 0.3 ms | 1,602 chars |
 | check_compatibility: a proprietary project, copyleft and content licenses | 5308 ms | 0.5 ms | 1,485 chars |
 | license_info: 6 licenses written informally | 2206 ms | 0.5 ms | 1,913 chars |
 | package_licenses: 4 packages against MIT | 3157 ms | 0.3 ms | 657 chars |
 
-First call: a fresh server process, including the TLS connection and the upstream's own time. Repeat: the same call again, answered from the in-process cache, so it shows this server's own overhead.
+This legacy record times the first tool request after MCP initialization; it excludes process startup. Repeated requests use the same process and include server work plus any upstream I/O or cache effects. Remeasure before comparing cold-start performance.
 
 Tool definitions the model reads on every turn (name, description, input schema): 1,720 characters, against 1,105 for mcp-server-fetch reading license sources (no license server exists; this is what agents use today). The full tool list, with the output schemas and annotations clients use to validate results, is 2,963 characters (1,104 for the alternative).
 <!-- perf:end -->

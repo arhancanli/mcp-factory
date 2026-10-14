@@ -173,9 +173,9 @@ Measured 2026-09-26 with gpt-5.4-mini, 9 fixed tasks graded by fixed checks (`be
 ## Performance
 
 <!-- perf:start -->
-Measured 2026-09-26 from Dubai, home connection against the live upstream, Node 24.19.0 (`bench/perf.json`, `scripts/perf.mjs` in the factory).
+Measured 2026-09-26 from Dubai, home connection against the live server, Node 24.19.0 (`bench/perf.json`, `scripts/perf.mjs` in the factory).
 
-| Call | First call | Repeat | Result size |
+| Call | First request after initialization | Repeat | Result size |
 | --- | --- | --- | --- |
 | changes_between: express 4.21.2 to 5.0.0 (History.md) | 1973 ms | 1.6 ms | 2,465 chars |
 | changes_between: requests 2.31.0 to 2.32.3 (HISTORY.md) | 2337 ms | 0.9 ms | 1,652 chars |
@@ -184,7 +184,7 @@ Measured 2026-09-26 from Dubai, home connection against the live upstream, Node 
 | release_notes: react 18.0.0 | 3603 ms | 8.1 ms | 1,673 chars |
 | search_changelog: react, useId | 3533 ms | 13.4 ms | 1,209 chars |
 
-First call: a fresh server process, including the TLS connection and the upstream's own time. Repeat: the same call again, answered from the in-process cache, so it shows this server's own overhead.
+This legacy record times the first tool request after MCP initialization; it excludes process startup. Repeated requests use the same process and include server work plus any upstream I/O or cache effects. Remeasure before comparing cold-start performance.
 
 Tool definitions the model reads on every turn (name, description, input schema): 1,792 characters, against 1,105 for mcp-server-fetch reading changelogs (no changelog server exists; this is what agents use today). The full tool list, with the output schemas and annotations clients use to validate results, is 2,732 characters (1,104 for the alternative).
 <!-- perf:end -->

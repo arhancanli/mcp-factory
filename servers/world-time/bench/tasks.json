@@ -1,22 +1,211 @@
 {
   "competitor": {
-    "label": "mcp-server-time, the official reference time server",
+    "label": "mcp-datetime 0.2.0, dated conversion and business/calendar tools",
     "command": "uvx",
-    "args": ["mcp-server-time"]
+    "args": [
+      "--python",
+      "3.12.13",
+      "--with",
+      "mcp==1.30.0",
+      "--with",
+      "python-dateutil==2.9.0.post0",
+      "--with",
+      "parsedatetime==2.6",
+      "--with",
+      "holidays==0.106",
+      "--with",
+      "tzdata==2026.5",
+      "--from",
+      "git+https://github.com/matt0733/get-date-time@7068460121e41918c3cfb0e3ce0dc785a6697ffd",
+      "mcp-datetime"
+    ],
+    "env": {
+      "PYTHONTZPATH": ""
+    },
+    "identity": {
+      "kind": "git",
+      "repository": "https://github.com/matt0733/get-date-time",
+      "commit": "7068460121e41918c3cfb0e3ce0dc785a6697ffd"
+    }
   },
   "tasks": [
-    { "id": "tokyo-ny", "prompt": "When it is 09:00 on 2026-10-15 in Tokyo, what time is it in New York? Give HH:MM in 24-hour time.", "expect": { "regex": "^\\W*20:00\\W*$" } },
-    { "id": "dst-gap-weeks", "prompt": "A call is set for 10:00 New York time on 2026-03-16. What time is that in London? Give HH:MM in 24-hour time.", "expect": { "regex": "^\\W*14:00\\W*$" } },
-    { "id": "skipped-time", "prompt": "Does the local time 02:30 on 2026-03-08 exist in New York? Answer yes or no.", "expect": { "regex": "^\\W*no\\b" } },
-    { "id": "kathmandu", "prompt": "What is Kathmandu's UTC offset? Give it as +HH:MM.", "expect": { "contains": ["+05:45"] } },
-    { "id": "new-year-auckland", "prompt": "When it is 18:00 on 2026-12-31 in Los Angeles, what is the date and time in Auckland? Give YYYY-MM-DD HH:MM.", "expect": { "contains": ["2027-01-01 15:00"] } },
-    { "id": "uk-dst-end", "prompt": "On what date does daylight saving time end in the United Kingdom in 2026? Give YYYY-MM-DD.", "expect": { "contains": ["2026-10-25"] } },
-    { "id": "bavaria-holiday", "prompt": "Is 2026-01-06 a public holiday in Bavaria, Germany? Answer yes or no.", "expect": { "regex": "^\\W*yes\\b" } },
-    { "id": "england-business", "prompt": "In England, what date is 10 business days after 2026-12-18, skipping weekends and bank holidays? Give YYYY-MM-DD.", "expect": { "contains": ["2027-01-06"] } },
-    { "id": "us-december", "prompt": "How many business days (Monday to Friday, excluding US federal public holidays) are there in December 2026 in the United States? Give the number only.", "expect": { "number": 22 } },
-    { "id": "weekday", "prompt": "What day of the week is 2027-03-14? Give the day name only.", "expect": { "regex": "^\\W*sunday\\W*$" } },
-    { "id": "iso-week", "prompt": "What is the ISO 8601 week number of 2027-01-01? Give the number only.", "expect": { "number": 53 } },
-    { "id": "month-end", "prompt": "What date is one calendar month after 2027-01-31, clamping to the end of the month? Give YYYY-MM-DD.", "expect": { "contains": ["2027-02-28"] } },
-    { "id": "meeting", "prompt": "On 2026-12-22, people in New York (09:00-17:00 local), London (08:00-18:00 local) and Berlin (09:00-17:00 local) need a 60-minute meeting inside everyone's hours. What is the earliest start time in UTC? Give HH:MM.", "expect": { "regex": "^\\W*14:00\\W*" } }
+    {
+      "id": "tokyo-ny",
+      "prompt": "When it is 09:00 on 2026-10-15 in Tokyo, what time is it in New York? Give HH:MM in 24-hour time.",
+      "expect": {
+        "regex": "^\\W*20:00\\W*$"
+      }
+    },
+    {
+      "id": "dst-gap-weeks",
+      "prompt": "A call is set for 10:00 New York time on 2026-03-16. What time is that in London? Give HH:MM in 24-hour time.",
+      "expect": {
+        "regex": "^\\W*14:00\\W*$"
+      }
+    },
+    {
+      "id": "skipped-time",
+      "prompt": "Does the local time 02:30 on 2026-03-08 exist in New York? Answer yes or no.",
+      "expect": {
+        "regex": "^\\W*no\\b"
+      }
+    },
+    {
+      "id": "kathmandu",
+      "prompt": "On 2026-10-15, what is Kathmandu's UTC offset? Give it as +HH:MM.",
+      "expect": {
+        "contains": [
+          "+05:45"
+        ]
+      }
+    },
+    {
+      "id": "new-year-auckland",
+      "prompt": "When it is 18:00 on 2026-12-31 in Los Angeles, what is the date and time in Auckland? Give YYYY-MM-DD HH:MM.",
+      "expect": {
+        "contains": [
+          "2027-01-01 15:00"
+        ]
+      }
+    },
+    {
+      "id": "uk-dst-end",
+      "prompt": "On what date does daylight saving time end in the United Kingdom in 2026? Give YYYY-MM-DD.",
+      "expect": {
+        "contains": [
+          "2026-10-25"
+        ]
+      }
+    },
+    {
+      "id": "bavaria-holiday",
+      "prompt": "Is 2026-01-06 a public holiday in Bavaria, Germany? Answer yes or no.",
+      "expect": {
+        "regex": "^\\W*yes\\b"
+      }
+    },
+    {
+      "id": "england-business",
+      "prompt": "In England, what date is 10 business days after 2026-12-18, skipping weekends and bank holidays? Give YYYY-MM-DD.",
+      "expect": {
+        "contains": [
+          "2027-01-06"
+        ]
+      }
+    },
+    {
+      "id": "us-december",
+      "prompt": "How many business days (Monday to Friday, excluding US federal public holidays) are there in December 2026 in the United States? Give the number only.",
+      "expect": {
+        "number": 22
+      }
+    },
+    {
+      "id": "weekday",
+      "prompt": "What day of the week is 2027-03-14? Give the day name only.",
+      "expect": {
+        "regex": "^\\W*sunday\\W*$"
+      }
+    },
+    {
+      "id": "iso-week",
+      "prompt": "What is the ISO 8601 week number of 2027-01-01? Give the number only.",
+      "expect": {
+        "number": 53
+      }
+    },
+    {
+      "id": "month-end",
+      "prompt": "What date is one calendar month after 2027-01-31, clamping to the end of the month? Give YYYY-MM-DD.",
+      "expect": {
+        "contains": [
+          "2027-02-28"
+        ]
+      }
+    },
+    {
+      "id": "meeting",
+      "prompt": "On 2026-12-22, people in New York (09:00-17:00 local), London (08:00-18:00 local) and Berlin (09:00-17:00 local) need a 60-minute meeting inside everyone's hours. What is the earliest start time in UTC? Give HH:MM.",
+      "expect": {
+        "regex": "^\\W*14:00\\W*"
+      }
+    },
+    {
+      "id": "month-converted",
+      "prompt": "One calendar month after 2027-01-31, clamping to month end, a call starts at 09:00 in New York. What is its date and time in Tokyo? Give YYYY-MM-DD HH:MM.",
+      "expect": {
+        "regex": "^\\W*2027-02-28 23:00\\W*$"
+      }
+    },
+    {
+      "id": "business-converted",
+      "prompt": "In England a deadline is 10 business days after 2026-12-18, excluding weekends and bank holidays. At 09:00 London time on that date, what date and time is it in New York? Give YYYY-MM-DD HH:MM.",
+      "expect": {
+        "regex": "^\\W*2027-01-06 04:00\\W*$"
+      }
+    },
+    {
+      "id": "meeting-tokyo",
+      "prompt": "On 2026-12-22, New York (09:00-17:00), London (08:00-18:00) and Berlin (09:00-17:00) need a 60-minute meeting within all working hours. What is the earliest start date and time in Tokyo? Give YYYY-MM-DD HH:MM.",
+      "expect": {
+        "regex": "^\\W*2026-12-22 23:00\\W*$"
+      }
+    },
+    {
+      "id": "clamp-business-zone",
+      "prompt": "Clamp one calendar month after 2027-01-31, then take the first England business day strictly after that date. At 17:00 London time that day, what is the local date and time in Kathmandu? Give YYYY-MM-DD HH:MM.",
+      "expect": {
+        "regex": "^\\W*2027-03-01 22:45\\W*$"
+      }
+    },
+    {
+      "id": "holiday-return-zone",
+      "prompt": "A Munich office is scheduled to reopen on 2026-01-06 at 09:00. If that date is a Bavarian public holiday, move reopening to its next business day. What is the resulting London date and time? Give YYYY-MM-DD HH:MM.",
+      "expect": {
+        "regex": "^\\W*2026-01-07 08:00\\W*$"
+      }
+    },
+    {
+      "id": "reporting-week",
+      "prompt": "At 00:30 in Auckland on 2027-01-01, a New York office labels its report using the ISO week of its own local date. What is that ISO year and week? Give YYYY-Www.",
+      "expect": {
+        "regex": "^\\W*2026-W53\\W*$"
+      }
+    },
+    {
+      "id": "spring-shift",
+      "prompt": "A New York shift on 2026-03-08 runs from 01:30 to 03:30 local time across the DST change. How many elapsed minutes does it last? Give the number only.",
+      "expect": {
+        "regex": "^\\W*60\\W*$"
+      }
+    },
+    {
+      "id": "autumn-shift",
+      "prompt": "A New York shift on 2026-11-01 runs from 00:30 to 02:30 local time across the DST change. How many elapsed minutes does it last? Give the number only.",
+      "expect": {
+        "regex": "^\\W*180\\W*$"
+      }
+    },
+    {
+      "id": "sydney-shift",
+      "prompt": "A Sydney shift on 2026-10-04 runs from 01:30 to 03:30 local time across the DST change. How many elapsed minutes does it last? Give the number only.",
+      "expect": {
+        "regex": "^\\W*60\\W*$"
+      }
+    },
+    {
+      "id": "meeting-report-week",
+      "prompt": "On 2026-03-16, New York (09:00-17:00), London (08:00-18:00) and Berlin (09:00-17:00) need a 60-minute meeting within working hours. A Tokyo office labels it using the ISO week of its own local start date. What is that ISO year and week? Give YYYY-Www.",
+      "expect": {
+        "regex": "^\\W*2026-W12\\W*$"
+      }
+    },
+    {
+      "id": "scotland-oneoff",
+      "prompt": "Was 2026-06-15 a bank holiday in Scotland? Answer yes or no.",
+      "expect": {
+        "regex": "^\\W*yes\\b"
+      }
+    }
   ]
 }

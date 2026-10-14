@@ -182,15 +182,15 @@ Not yet measured.
 ## Performance
 
 <!-- perf:start -->
-Measured 2026-09-27 from Dubai, home connection against the live upstream, Node 24.19.0 (`bench/perf.json`, `scripts/perf.mjs` in the factory).
+Measured 2026-09-27 from Dubai, home connection against the live server, Node 24.19.0 (`bench/perf.json`, `scripts/perf.mjs` in the factory).
 
-| Call | First call | Repeat | Result size |
+| Call | First request after initialization | Repeat | Result size |
 | --- | --- | --- | --- |
 | check_sql: eight statements against a schema with sample rows, on PostgreSQL | 827 ms | 7.7 ms | 1,855 chars |
 | check_sql: the same SQL on PostgreSQL and SQLite, compared | 825 ms | 4.1 ms | 1,918 chars |
 | check_sql: a migration step that cannot run inside a transaction | 892 ms | 2.9 ms | 692 chars |
 
-First call: a fresh server process, including the TLS connection and the upstream's own time. Repeat: the same call again, answered from the in-process cache, so it shows this server's own overhead.
+This legacy record times the first tool request after MCP initialization; it excludes process startup. Repeated requests use the same process and include server work plus any upstream I/O or cache effects. Remeasure before comparing cold-start performance.
 
 Tool definitions the model reads on every turn (name, description, input schema): 800 characters. The full tool list, with the output schemas and annotations clients use to validate results, is 1,357 characters.
 <!-- perf:end -->

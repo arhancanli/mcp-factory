@@ -214,15 +214,15 @@ Measured 2026-09-26 with gpt-5.4-mini, 10 fixed tasks graded by fixed checks (`b
 ## Performance
 
 <!-- perf:start -->
-Measured 2026-09-26 from Dubai, home connection against the live upstream, Node 24.19.0 (`bench/perf.json`, `scripts/perf.mjs` in the factory).
+Measured 2026-09-26 from Dubai, home connection against the live server, Node 24.19.0 (`bench/perf.json`, `scripts/perf.mjs` in the factory).
 
-| Call | First call | Repeat | Result size |
+| Call | First request after initialization | Repeat | Result size |
 | --- | --- | --- | --- |
 | check_project: Dockerfile, .nvmrc, a CI workflow, pyproject | 1853 ms | 2.6 ms | 3,869 chars |
 | check_versions: 6 named versions | 2154 ms | 3.1 ms | 1,694 chars |
 | product_lifecycle: Node.js | 892 ms | 1.2 ms | 997 chars |
 
-First call: a fresh server process, including the TLS connection and the upstream's own time. Repeat: the same call again, answered from the in-process cache, so it shows this server's own overhead.
+This legacy record times the first tool request after MCP initialization; it excludes process startup. Repeated requests use the same process and include server work plus any upstream I/O or cache effects. Remeasure before comparing cold-start performance.
 
 Tool definitions the model reads on every turn (name, description, input schema): 1,706 characters, against 6,734 for endoflife-mcp, the only published end-of-life server. The full tool list, with the output schemas and annotations clients use to validate results, is 3,165 characters (8,958 for the alternative).
 <!-- perf:end -->

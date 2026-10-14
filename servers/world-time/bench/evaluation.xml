@@ -1,0 +1,42 @@
+<evaluation>
+  <qa_pair>
+    <question>One calendar month after 2027-01-31, clamping to month end, a call starts at 09:00 in New York. What is its date and time in Tokyo? Give YYYY-MM-DD HH:MM.</question>
+    <answer>2027-02-28 23:00</answer>
+  </qa_pair>
+  <qa_pair>
+    <question>In England a deadline is 10 business days after 2026-12-18, excluding weekends and bank holidays. At 09:00 London time on that date, what date and time is it in New York? Give YYYY-MM-DD HH:MM.</question>
+    <answer>2027-01-06 04:00</answer>
+  </qa_pair>
+  <qa_pair>
+    <question>On 2026-12-22, New York (09:00-17:00), London (08:00-18:00) and Berlin (09:00-17:00) need a 60-minute meeting within all working hours. What is the earliest start date and time in Tokyo? Give YYYY-MM-DD HH:MM.</question>
+    <answer>2026-12-22 23:00</answer>
+  </qa_pair>
+  <qa_pair>
+    <question>Clamp one calendar month after 2027-01-31, then take the first England business day strictly after that date. At 17:00 London time that day, what is the local date and time in Kathmandu? Give YYYY-MM-DD HH:MM.</question>
+    <answer>2027-03-01 22:45</answer>
+  </qa_pair>
+  <qa_pair>
+    <question>A Munich office is scheduled to reopen on 2026-01-06 at 09:00. If that date is a Bavarian public holiday, move reopening to its next business day. What is the resulting London date and time? Give YYYY-MM-DD HH:MM.</question>
+    <answer>2026-01-07 08:00</answer>
+  </qa_pair>
+  <qa_pair>
+    <question>At 00:30 in Auckland on 2027-01-01, a New York office labels its report using the ISO week of its own local date. What is that ISO year and week? Give YYYY-Www.</question>
+    <answer>2026-W53</answer>
+  </qa_pair>
+  <qa_pair>
+    <question>A New York shift on 2026-03-08 runs from 01:30 to 03:30 local time across the DST change. How many elapsed minutes does it last? Give the number only.</question>
+    <answer>60</answer>
+  </qa_pair>
+  <qa_pair>
+    <question>A New York shift on 2026-11-01 runs from 00:30 to 02:30 local time across the DST change. How many elapsed minutes does it last? Give the number only.</question>
+    <answer>180</answer>
+  </qa_pair>
+  <qa_pair>
+    <question>A Sydney shift on 2026-10-04 runs from 01:30 to 03:30 local time across the DST change. How many elapsed minutes does it last? Give the number only.</question>
+    <answer>60</answer>
+  </qa_pair>
+  <qa_pair>
+    <question>On 2026-03-16, New York (09:00-17:00), London (08:00-18:00) and Berlin (09:00-17:00) need a 60-minute meeting within working hours. A Tokyo office labels it using the ISO week of its own local start date. What is that ISO year and week? Give YYYY-Www.</question>
+    <answer>2026-W12</answer>
+  </qa_pair>
+</evaluation>

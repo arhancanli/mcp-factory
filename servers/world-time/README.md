@@ -88,7 +88,7 @@ An agent calls `world_time` with:
 }
 ```
 
-and gets back (recorded from the live server on 2026-09-26):
+and gets back (recorded from the live server on 2026-10-14):
 
 ```json
 {
@@ -159,45 +159,53 @@ and gets back (recorded from the live server on 2026-09-26):
 ## Benchmark
 
 <!-- bench:start -->
-Measured 2026-09-26 with gpt-5.4-mini, 13 fixed tasks graded by fixed checks (`bench/tasks.json`, raw results in `bench/results/`).
-
-| Server | Correct | Input tokens | Output tokens | Tool calls | Median time |
-| --- | --- | --- | --- | --- | --- |
-| This server | 13/13 | 24880 | 573 | 14 | 1.9 s |
-| mcp-server-time, the official reference time server | 8/13 | 9843 | 565 | 15 | 1.7 s |
+The current 24-task paired agent comparison is pending. It uses a pinned broader
+`mcp-datetime` incumbent; ten tasks require multiple time/calendar operations.
+Historical agent results remain in `bench/results/` with their original labels
+and dates. They do not qualify the changed corpus or current source.
 <!-- bench:end -->
 
 ## Performance
 
 <!-- perf:start -->
-Measured 2026-09-26 from Dubai, home connection against the live upstream, Node 24.19.0 (`bench/perf.json`, `scripts/perf.mjs` in the factory).
+Measured 2026-10-14 from Dubai, local CPU; offline calendar tools against the live server, Node 24.19.0 (`bench/perf.json`, `scripts/perf.mjs` in the factory).
 
-| Call | First call | Repeat | Result size |
+| Call | First call including startup | Repeat | Result size |
 | --- | --- | --- | --- |
-| world_time: now in 5 places (city, ambiguous city, country, abbreviation, offset) | 7 ms | 1.5 ms | 1,123 chars |
-| world_time: a time the spring-forward change skips | 5 ms | 0.6 ms | 718 chars |
-| holidays: Saudi Arabia 2026 (multi-day Eid, estimated) | 7 ms | 0.3 ms | 918 chars |
-| business_days: 5 business days in Saudi Arabia across Eid | 7 ms | 0.2 ms | 450 chars |
-| meeting_slots: New York, London, Berlin over Christmas | 27 ms | 8.2 ms | 400 chars |
-| date_info: Jan 31 plus one month, days to Christmas | 2 ms | 0.2 ms | 269 chars |
+| world_time: now in 5 places (city, ambiguous city, country, abbreviation, offset) | 134.586 ms | 1.393 ms | 1,122 chars |
+| world_time: a time the spring-forward change skips | 122.656 ms | 0.659 ms | 718 chars |
+| holidays: Saudi Arabia 2026 (multi-day Eid, estimated) | 126.291 ms | 0.26 ms | 918 chars |
+| business_days: 5 business days in Saudi Arabia across Eid | 126.135 ms | 0.27 ms | 450 chars |
+| meeting_slots: New York, London, Berlin over Christmas | 145.098 ms | 8.387 ms | 364 chars |
+| date_info: Jan 31 plus one month, days to Christmas | 120.277 ms | 0.22 ms | 269 chars |
 
-First call: a fresh server process, including the TLS connection and the upstream's own time. Repeat: the same call again, answered from the in-process cache, so it shows this server's own overhead.
+First call includes the stdio process start, MCP initialization and first tool request. Startup and first-request timings are also recorded separately in perf.json. Repeated requests use the same process and include server work plus any upstream I/O or cache effects.
 
-Tool definitions the model reads on every turn (name, description, input schema): 2,924 characters, against 1,002 for mcp-server-time, the official reference time server. The full tool list, with the output schemas and annotations clients use to validate results, is 4,632 characters (1,208 for the alternative).
+Tool definitions the model reads on every turn (name, description, input schema): 2,924 characters, against 11,215 for mcp-datetime 0.2.0, dated conversion and business/calendar tools. The full tool list, with the output schemas and annotations clients use to validate results, is 4,632 characters (11,198 for the alternative).
 <!-- perf:end -->
 
 ## Data sources
 
 - Time zones: the [IANA time zone database](https://www.iana.org/time-zones), as shipped in Node's
   ICU.
-- Holidays: [date-holidays](https://github.com/commenthol/date-holidays) (ISC; holiday data
-  CC BY 3.0), rules for 207 countries and their states and regions.
+- Holidays: [date-holidays](https://github.com/commenthol/date-holidays) (ISC code;
+  its shipped data notice states CC BY-SA 3.0), rules for 207 countries and their
+  states and regions. Package metadata uses a different data identifier; retain
+  the dependency's actual licence and attribution files.
+- UK bank holidays for 2026-2028: reviewed [GOV.UK calendar](https://www.gov.uk/bank-holidays)
+  snapshot, licensed under OGL v3.0 with attribution in `src/data/NOTICE.md`.
+  One-off regional dates replace computed public-day rules for those years.
+  Outside this snapshot, the library's computed rules apply. The weekly canary
+  compares the reviewed regions and years with the published government dates.
 - Cities: [city-timezones](https://github.com/kevinroberts/city-timezones) (MIT), about 7,300
   cities with population, province and zone.
 - Weekends: [Unicode CLDR](https://cldr.unicode.org/) week data, as shipped in Node.
 
 Confirm holidays that matter legally with the official calendar: governments declare extra days
 off, and some holidays move.
+
+UK city councils in the pinned city database map to their home-nation calendars.
+An unspecified UK region uses the England and Wales calendar and names that choice.
 
 ## More MCP servers by Arhan Canli
 
