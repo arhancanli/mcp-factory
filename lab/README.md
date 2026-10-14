@@ -63,7 +63,54 @@ episodes and independent evaluation use separate seed ranges. Time-limit
 truncation allows bootstrapping; an absorbing terminal state does not. Evaluation
 reports reward, success rate, a 95% Wilson interval, episode length and a random
 policy baseline. This is a small functional environment; it does not demonstrate
-performance on difficult RL tasks or implement deep RL.
+performance on difficult RL tasks.
+
+The `dqn` recipe learns a neural action-value function on CartPole-v1 using the
+same locked CPU environment. A bounded 10,000-transition replay ring, target
+network, Huber loss and clipped gradients stabilize updates. Absorbing terminal
+transitions stop bootstrapping; external time limits retain their actual final
+observation and bootstrap target. The simulator version, implementation hash,
+reward convention and independent reset/action seeds are recorded. Training uses
+one CPU thread, 20,000 environment steps by default, a maximum 100,000 steps and
+a 300-second trial deadline. It adds no dependencies or model downloads.
+
+```sh
+uv run --project lab canlilabs --workspace .lab train dqn \
+  --seed 7 --training-steps 20000 --evaluation-episodes 50
+uv run --project lab canlilabs --workspace .lab predict <dqn-run-id> \
+  --rows '[[0,0,0,0]]'
+uv run --project lab python lab/scripts/validate-deep-rl.py \
+  --workspace .lab/deep-rl-example --receipt .lab/deep-rl-example.json
+```
+
+Checkpoint selection evaluates four evenly spaced training checkpoints on 20
+fixed validation resets and retains the earliest highest-return policy. Final
+test resets are separate from training and validation. A random policy uses
+the same final reset seeds with a separate action stream. Evaluation runs only
+the reloaded policy and reports all episode returns in a hash-verified artifact,
+mean/std/min/max returns and a paired bootstrap interval for improvement over
+random. That interval describes reset variation for one fixed policy; it does
+not estimate training-seed or task-population uncertainty. Learning curves retain
+every completed training episode, the partial episode at the step limit, sampled
+losses and every validation episode. Weights-only loading and artifact hashes
+protect the local inference path.
+
+The validation command fixes training seeds 7/19/43, 20,000 steps, 50 final
+evaluation episodes and functional criteria before its cohort runs: each policy
+must average at least 100 return and exceed random by more than 50. It preserves
+all attempts and raw final returns. These criteria establish functional learning
+on one small environment; they do not declare CartPole solved or establish the
+best RL algorithm. Hyperparameters are not tuned from final test outcomes.
+Both CPU CI platforms require this cohort in addition to the existing ML/DL/RL
+and public-data cohorts. The MCP pilot can list `dqn` and inspect bounded run
+metadata, without executing the policy or returning transition data/weights.
+
+The implementation follows the algorithmic guidance in the
+[PyTorch DQN tutorial](https://docs.pytorch.org/tutorials/intermediate/reinforcement_q_learning.html)
+and [Gymnasium time-limit guidance](https://gymnasium.farama.org/tutorials/gymnasium_basics/handling_time_limits/).
+[CartPole documentation](https://gymnasium.farama.org/environments/classic_control/cart_pole/)
+describes observations, actions and episode endings. Gymnasium's MIT-licensed
+simulator generates these trajectories; no external corpus is downloaded.
 
 Default runs are bounded: DL 30 epochs, RL 1,500 training episodes and 200 evaluation
 episodes. CLI limits cap epochs, episodes, seed range and prediction size. The

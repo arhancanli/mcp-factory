@@ -15,7 +15,7 @@ Change the queue when actual evidence changes its priority.
 | 7 | Extend validated CPU compute to accelerators and recovery | Linux CPU lock, guard and actual two-platform CI are validated in PR #13; next hardware-specific GPU profiles, checkpoint resume, distributed tests and documented budgets |
 | 8 | Grow the first measured server cohort | New scout records and independently useful task corpora; require original build/gate/benchmark/ship stations; changed/full packed CI is locally validated, but factory-gate scaling and real maintenance capacity are required before growing to 100 |
 | 9 | Search and route the collection | Ranked tool/server discovery with bounded pagination; test retrieval on held-out tasks; measure token cost and stale-version handling |
-| 10 | Extend research and teaching tracks | Add regression/ensembles, vision/text models, deep RL and foundation-model tuning, then every COVERAGE.md discipline with a recipe and evaluation |
+| 10 | Extend research and teaching tracks | CPU regression and DQN now have actual multi-seed/reload/baseline proof; add ensembles, vision/text, PPO/offline/model-based RL and foundation-model tuning, then every COVERAGE.md discipline with a recipe, evaluation and teaching path |
 
 The new candidate niches in priority 6 are proposals, not proven demand or
 benchmark wins. A strong official incumbent can cause rejection or change scope.

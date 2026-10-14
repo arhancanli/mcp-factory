@@ -40,8 +40,8 @@ async function read(ctx, command, args = []) {
 export const TOOLS = [
   defineTool({
     name: "lab_list_experiments", title: "List laboratory experiments",
-    description: "Lists experiment IDs, recipes and states from the configured local laboratory, including failed trials. Filter by ml, dl or rl. Results are paginated; use lab_get_experiment for metrics and provenance.",
-    input: { recipe: z.enum(["ml", "dl", "rl"]).optional(), limit: z.int().min(1).max(100).default(20), offset: z.int().min(0).max(1_000_000).default(0) },
+    description: "Lists experiment IDs, recipes and states from the configured local laboratory, including failed trials. Filter by ml, dl, rl or dqn. Results are paginated; use lab_get_experiment for metrics and provenance.",
+    input: { recipe: z.enum(["ml", "dl", "rl", "dqn"]).optional(), limit: z.int().min(1).max(100).default(20), offset: z.int().min(0).max(1_000_000).default(0) },
     output: { total_count: z.number(), items: z.array(z.looseObject({ run_id: z.string(), recipe: z.string(), state: z.string() })), has_more: z.boolean(), next_offset: z.number().nullable() },
     annotations,
     handler: ({ recipe, limit, offset }, ctx) => read(ctx, "list", ["--limit", String(limit), "--offset", String(offset), ...(recipe ? ["--recipe", recipe] : [])]),

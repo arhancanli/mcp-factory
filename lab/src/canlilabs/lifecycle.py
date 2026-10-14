@@ -14,6 +14,9 @@ def make_model_card(run_id, config, result):
         "intended_use": "local research and learning on the recorded evaluation protocol",
         "model": result["model"],
         "data": result.get("data"),
+        "environment": result.get("environment"),
+        "training": result.get("training"),
+        "evaluation_protocol_sha256": result.get("evaluation_protocol_sha256"),
         "metrics": result["metrics"],
         "config": config,
         "selection": result["model"].get("selection", "fixed parameters; no test-set tuning"),
@@ -45,7 +48,7 @@ def compare(workspace, run_ids):
         )
     protocols = []
     for record in successful:
-        if record["config"]["recipe"] == "rl":
+        if record["config"]["recipe"] in {"rl", "dqn"}:
             raise ValueError("RL comparisons need a separate environment/evaluation protocol.")
         data = record["result"]["data"]
         protocols.append(

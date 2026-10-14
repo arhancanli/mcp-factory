@@ -13,14 +13,15 @@ from .tabular import prepare_tabular, validate_options
 
 
 def validate_config(config):
-    if config["recipe"] not in {"ml", "dl", "rl"}:
-        raise ValueError("Choose ml, dl or rl.")
+    if config["recipe"] not in {"ml", "dl", "rl", "dqn"}:
+        raise ValueError("Choose ml, dl, rl or dqn.")
     if type(config["seed"]) is not int or not 0 <= config["seed"] <= 2**31 - 1:
         raise ValueError("Seed must be an integer from 0 to 2^31-1.")
     for name, low, high in [
         ("epochs", 1, 500),
         ("episodes", 1, 5000),
         ("evaluation_episodes", 20, 2000),
+        ("training_steps", 1024, 100_000),
     ]:
         value = config[name]
         if not isinstance(value, int) or isinstance(value, bool) or not low <= value <= high:
@@ -377,6 +378,7 @@ def train(
     epochs=30,
     episodes=1500,
     evaluation_episodes=200,
+    training_steps=20_000,
     dataset_id=None,
     task="classification",
     features=None,
@@ -391,12 +393,15 @@ def train(
         "epochs": epochs,
         "episodes": episodes,
         "evaluation_episodes": evaluation_episodes,
+        "training_steps": training_steps,
         "device": "cpu",
         "scope": "registered numeric CPU recipe" if dataset_id else "synthetic CPU smoke recipe",
     }
     validate_config(config)
+    if recipe == "dqn":
+        config["scope"] = "CartPole-v1 CPU deep reinforcement learning"
     if dataset_id:
-        if recipe == "rl":
+        if recipe in {"rl", "dqn"}:
             raise ValueError("Tabular datasets are for ml/dl; rl uses its versioned environment.")
         config.update(
             dataset_id=dataset_id,
@@ -421,11 +426,13 @@ def train(
     with ledger.active_run(config) as (run_id, directory):
         started = time.monotonic()
         try:
-            result = {"ml": train_ml, "dl": train_dl, "rl": train_rl}[recipe](
-                ledger.workspace,
-                directory,
-                config,
-            )
+            if recipe == "dqn":
+                from .deep_rl import train_dqn
+
+                trainer = train_dqn
+            else:
+                trainer = {"ml": train_ml, "dl": train_dl, "rl": train_rl}[recipe]
+            result = trainer(ledger.workspace, directory, config)
             result["duration_seconds"] = time.monotonic() - started
             write_json(directory / "model-card.json", make_model_card(run_id, config, result))
             result["artifacts"] = {
@@ -457,6 +464,10 @@ def predict(workspace, run_id, rows):
     recipe = record["config"]["recipe"]
     filename = record["result"]["model"]["checkpoint"]
     checkpoint = ledger.artifact(run_id, filename)
+    if recipe == "dqn":
+        from .deep_rl import predict_actions
+
+        return {"run_id": run_id, "actions": predict_actions(checkpoint, rows)}
     if recipe == "rl":
         states = np.asarray(rows)
         if states.ndim != 1 or not np.issubdtype(states.dtype, np.integer):

@@ -13,6 +13,30 @@ const LAB = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 const PYTHON = process.env.CANLILABS_PYTHON ?? path.join(LAB, ".venv", "bin/python");
 const digest = (filename) => createHash("sha256").update(readFileSync(filename)).digest("hex");
 
+test("real stdio filters actual DQN trials and reads bounded policy evidence without changing records", async (t) => {
+  const workspace = mkdtempSync(path.join(os.tmpdir(), "canlilabs-dqn-mcp-"));
+  t.after(() => rmSync(workspace, { recursive: true, force: true }));
+  const run = JSON.parse(execFileSync(PYTHON, ["-m", "canlilabs.cli", "--workspace", workspace, "train", "dqn", "--training-steps", "1024", "--evaluation-episodes", "20"], { encoding: "utf8", cwd: LAB, timeout: 60_000 }));
+  const database = path.join(workspace, "experiments.sqlite");
+  const before = digest(database);
+  const client = new Client({ name: "deep-rl-test", version: "1" });
+  t.after(() => client.close());
+  await client.connect(new StdioClientTransport({ command: process.execPath, args: [path.join(LAB, "mcp-server.mjs")], cwd: LAB, env: { CANLILABS_WORKSPACE: workspace, CANLILABS_PYTHON: PYTHON }, stderr: "ignore" }));
+  const tools = await client.listTools();
+  assert.equal(tools.tools.length, 3);
+  assert.ok(JSON.stringify(tools.tools).length < 6000);
+  const listing = await client.callTool({ name: "lab_list_experiments", arguments: { recipe: "dqn" } });
+  assert.equal(listing.structuredContent.total_count, 1);
+  assert.equal(listing.structuredContent.items[0].run_id, run.run_id);
+  const inspected = await client.callTool({ name: "lab_get_experiment", arguments: { run_id: run.run_id } });
+  assert.equal(inspected.structuredContent.result.model.kind, "dqn");
+  assert.equal(inspected.structuredContent.result.model.reload_verified, true);
+  assert.equal(inspected.structuredContent.result.environment.id, "CartPole-v1");
+  assert.ok(JSON.stringify(inspected.structuredContent).length < 10_000);
+  assert.equal(inspected.structuredContent.result.evaluation_episode_returns, undefined);
+  assert.equal(digest(database), before);
+});
+
 test("real stdio MCP reads trained metrics and verified dataset metadata without changing the ledger", async (t) => {
   const workspace = mkdtempSync(path.join(os.tmpdir(), "canlilabs-mcp-"));
   t.after(() => rmSync(workspace, { recursive: true, force: true }));
