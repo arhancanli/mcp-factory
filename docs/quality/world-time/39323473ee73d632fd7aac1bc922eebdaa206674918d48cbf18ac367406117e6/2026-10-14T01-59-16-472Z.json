@@ -1,0 +1,45 @@
+{
+  "schema": "canlilabs.quality.v1",
+  "measured_at": "2026-10-14T01:59:16.472Z",
+  "source_sha256": "39323473ee73d632fd7aac1bc922eebdaa206674918d48cbf18ac367406117e6",
+  "tree": "2c7b0e7107ede5b773a048f5f2fa73d76c3734c0",
+  "verifier_sha256": "4f5afd11d166b962fd8a37ede973e446c45443d363529c3e70c37afa47ddecc6",
+  "node": "v24.19.0",
+  "checks": {
+    "factory": {
+      "exit_code": 0,
+      "tests": 307,
+      "log": {
+        "path": "docs/quality/world-time/39323473ee73d632fd7aac1bc922eebdaa206674918d48cbf18ac367406117e6/2026-10-14T01-59-16-472Z-factory.log",
+        "sha256": "90d00b3e2bf13fb85b98be4ab145685d2456cfb902f5d8bc0269863c44b14b3f"
+      }
+    },
+    "standalone": {
+      "name": "world-time",
+      "tree": "2c7b0e7107ede5b773a048f5f2fa73d76c3734c0",
+      "tests": 14,
+      "initialize": true,
+      "tools_list": true,
+      "packed_integrity": "sha512-x6KoekDnyawlzfaCBAnpv0yTGYmhaAUCEwbJFra/8CambEvgfTu0HwxehZ7aAnxStvAEwdIT+qTDflT9RTEPSQ==",
+      "exit_code": 0,
+      "log": {
+        "path": "docs/quality/world-time/39323473ee73d632fd7aac1bc922eebdaa206674918d48cbf18ac367406117e6/2026-10-14T01-59-16-472Z-standalone.log",
+        "sha256": "208c2df2c171f4a06a0731eb222a815c47d2839e9c52181c13b93befae3cf8b4"
+      }
+    },
+    "audit": {
+      "exit_code": 0,
+      "log": {
+        "path": "docs/quality/world-time/39323473ee73d632fd7aac1bc922eebdaa206674918d48cbf18ac367406117e6/2026-10-14T01-59-16-472Z-audit.log",
+        "sha256": "add3f38450d284fc286461a6c891d4ce0d2f931af3c7e6d8b9c4e186a8ab470f"
+      }
+    },
+    "canary": {
+      "exit_code": 0,
+      "log": {
+        "path": "docs/quality/world-time/39323473ee73d632fd7aac1bc922eebdaa206674918d48cbf18ac367406117e6/2026-10-14T01-59-16-472Z-canary.log",
+        "sha256": "8aa3c4d34908b24c4175a40c03354935ae9428e5aad523cffb4d097563418a3a"
+      }
+    }
+  }
+}

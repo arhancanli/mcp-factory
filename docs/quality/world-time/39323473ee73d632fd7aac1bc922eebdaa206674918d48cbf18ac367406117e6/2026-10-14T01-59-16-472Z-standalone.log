@@ -1,0 +1,26 @@
+
+> world-time-mcp@0.1.0 test
+> node --test test/*.test.mjs
+
+✔ DST: gaps and repeats in the southern hemisphere and at Lord Howe Island's half-hour change (4.611209ms)
+✔ offsets: quarter-hour zones, DST flags, fixed offsets (1.798791ms)
+✔ clock and duration parsing (0.487917ms)
+✔ places: zones, legacy links, offsets, abbreviations, qualified cities, states (3.164834ms)
+✔ weekends: CLDR per country, overridable (0.173833ms)
+✔ holidays: regions by code and name, partial days noted but not closing, ISO weeks at year ends (10.417041ms)
+✔ world_time now: cities, ambiguous names, countries with several zones, abbreviations, offsets, next change (22.752042ms)
+✔ world_time converting: skipped and repeated times are flagged, day changes shown (5.173292ms)
+✔ holidays: a year's list, one date's status, multi-day and estimated Islamic holidays, regions (28.361667ms)
+✔ business_days: the local weekend and holidays are skipped; counting includes both ends (6.177709ms)
+✔ meeting_slots: overlap windows across zones, holidays skipped; the closest time when none fits (20.200041ms)
+✔ date_info: weekday, ISO week 53, month-end clamping, durations in words or ISO 8601 (2.268042ms)
+✔ official Scottish one-off holiday changes holiday, business-day and meeting answers (32.73175ms)
+✔ UK snapshots stay regional, preserve other observances and do not erase unpublished years (1.346334ms)
+ℹ tests 14
+ℹ suites 0
+ℹ pass 14
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 227.279333

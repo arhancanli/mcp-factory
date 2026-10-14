@@ -1,0 +1,10 @@
+✔ live: today, this year's DST change in New York, this year's holidays (14.456416ms)
+✔ live: reviewed UK regional calendars match the published government dates (137.5545ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 2
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 300.773833

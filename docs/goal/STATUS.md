@@ -2,6 +2,18 @@
 
 Updated: 2026-10-14 (Asia/Dubai). Overall goal: active; incomplete.
 
+Current review: [PR #14](https://github.com/arhancanli/mcp-factory/pull/14),
+open, ready and unmerged, stacked on #13 through #9. All eight checks pass on
+owner-signed implementation `361cdb5`. The [cohort CI receipt](evidence/2026-10-14-current-mcp-cohort-ci-validation.json)
+verifies 307 factory checks and 272 independent server tests across all 21 exact
+committed package trees, with real packed initialize/tools-list calls.
+World Time's local/CI tarballs have identical integrity; its four-station technical
+receipt binds source `39323473...` and full tree `2c7b0e7...`, including 14 server
+tests, audit and both live canaries. Direct corpus and performance use that same
+source. Current paired paid agent evidence and publication remain pending; the
+qualified maintained-release count remains zero. This evidence follow-up changes
+no runtime code. The previous goal turn made concrete progress.
+
 Repository: `arhancanli/mcp-factory`. Actual `origin/main`: `e52f29f`.
 Active worktree: `/Users/arhancanli/canlilabs-cohort-20261014`.
 Branch: `codex/canlilabs-current-mcp-cohort-20261014`, based on validated CPU head

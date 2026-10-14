@@ -1,5 +1,20 @@
 # Decision and execution log
 
+## 2026-10-14: current MCP technical evidence and review complete
+
+Re-read continuity and freshly checked PR #14 at signed head 361cdb5. All eight
+checks pass. Downloaded actual Node 24 and independent package logs: 307 factory
+checks, 272 server tests, all 21 exact trees, packed initialization and tool lists.
+The World Time technical qualifier completes factory/standalone/audit/canary
+stations. Verified every raw log hash and matching direct/performance/source
+fingerprints 39323473..., full tree 2c7b0e7..., and identical local/CI tarball
+integrity. Retained the qualifier and dated CI receipt, marked PR #14 ready.
+
+No paid agent API call, release, owner merge or launch occurred. Direct fixed
+answers and measured schema sizes cannot close the paired-agent station. All 25
+requirements and the minimum 2,000 distinct maintained-release objective remain
+active. This final evidence update changes no laboratory or server runtime.
+
 ## 2026-10-14: current MCP cohort qualification
 
 Re-read continuity and checked actual Git/PR/main state. PR #13's final head
