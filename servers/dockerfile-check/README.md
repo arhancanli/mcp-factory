@@ -191,16 +191,16 @@ Not yet measured.
 ## Performance
 
 <!-- perf:start -->
-Measured 2026-09-27 from Dubai, home connection against the live upstream, Node 24.19.0 (`bench/perf.json`, `scripts/perf.mjs` in the factory).
+Measured 2026-09-27 from Dubai, home connection against the live server, Node 24.19.0 (`bench/perf.json`, `scripts/perf.mjs` in the factory).
 
-| Call | First call | Repeat | Result size |
+| Call | First request after initialization | Repeat | Result size |
 | --- | --- | --- | --- |
 | check_dockerfile: a three-stage Dockerfile with twelve problems | 1983 ms | 1.3 ms | 4,787 chars |
 | check_dockerfile: a clean two-stage Node.js build | 836 ms | 1.6 ms | 443 chars |
 | check_dockerfile: an amd64-only base image built for linux/arm64 | 777 ms | 0.8 ms | 873 chars |
 | image_info: nine references across seven registries | 2286 ms | 1.5 ms | 3,174 chars |
 
-First call: a fresh server process, including the TLS connection and the upstream's own time. Repeat: the same call again, answered from the in-process cache, so it shows this server's own overhead.
+This legacy record times the first tool request after MCP initialization; it excludes process startup. Repeated requests use the same process and include server work plus any upstream I/O or cache effects. Remeasure before comparing cold-start performance.
 
 Tool definitions the model reads on every turn (name, description, input schema): 1,429 characters. The full tool list, with the output schemas and annotations clients use to validate results, is 2,364 characters.
 <!-- perf:end -->

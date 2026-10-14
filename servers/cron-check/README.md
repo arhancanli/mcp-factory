@@ -192,15 +192,15 @@ Measured 2026-09-26 with gpt-5.4-mini, 10 fixed tasks graded by fixed checks (`b
 ## Performance
 
 <!-- perf:start -->
-Measured 2026-09-26 from Dubai, home connection against the live upstream, Node 24.19.0 (`bench/perf.json`, `scripts/perf.mjs` in the factory).
+Measured 2026-09-26 from Dubai, home connection against the live server, Node 24.19.0 (`bench/perf.json`, `scripts/perf.mjs` in the factory).
 
-| Call | First call | Repeat | Result size |
+| Call | First request after initialization | Repeat | Result size |
 | --- | --- | --- | --- |
 | explain_cron: 10 expressions across dialects | 13 ms | 4 ms | 2,248 chars |
 | next_runs: 02:30 daily in New York across the spring-forward change | 8 ms | 0.4 ms | 452 chars |
 | convert_cron: weekdays at 09:00 to AWS EventBridge | 4 ms | 0.4 ms | 187 chars |
 
-First call: a fresh server process, including the TLS connection and the upstream's own time. Repeat: the same call again, answered from the in-process cache, so it shows this server's own overhead.
+This legacy record times the first tool request after MCP initialization; it excludes process startup. Repeated requests use the same process and include server work plus any upstream I/O or cache effects. Remeasure before comparing cold-start performance.
 
 Tool definitions the model reads on every turn (name, description, input schema): 1,872 characters, against 834 for @pipeworx/mcp-crontab, a published cron MCP server. The full tool list, with the output schemas and annotations clients use to validate results, is 3,017 characters (832 for the alternative).
 <!-- perf:end -->

@@ -207,9 +207,9 @@ Not yet measured.
 ## Performance
 
 <!-- perf:start -->
-Measured 2026-09-27 from Dubai, home connection against the live upstream, Node 24.19.0 (`bench/perf.json`, `scripts/perf.mjs` in the factory).
+Measured 2026-09-27 from Dubai, home connection against the live server, Node 24.19.0 (`bench/perf.json`, `scripts/perf.mjs` in the factory).
 
-| Call | First call | Repeat | Result size |
+| Call | First request after initialization | Repeat | Result size |
 | --- | --- | --- | --- |
 | validate_config: tsconfig, a workflow, a compose file and pyproject.toml with typical mistakes | 1705 ms | 8.2 ms | 2,846 chars |
 | validate_config: a clean workflow, and a manifest.json three schemas claim | 976 ms | 1.9 ms | 560 chars |
@@ -218,7 +218,7 @@ Measured 2026-09-27 from Dubai, home connection against the live upstream, Node 
 | config_help: search a workflow's settings for 'timeout' | 344 ms | 2.7 ms | 372 chars |
 | find_schema: a file path and words | 229 ms | 1.6 ms | 313 chars |
 
-First call: a fresh server process, including the TLS connection and the upstream's own time. Repeat: the same call again, answered from the in-process cache, so it shows this server's own overhead.
+This legacy record times the first tool request after MCP initialization; it excludes process startup. Repeated requests use the same process and include server work plus any upstream I/O or cache effects. Remeasure before comparing cold-start performance.
 
 Tool definitions the model reads on every turn (name, description, input schema): 2,029 characters, against 1,105 for mcp-server-fetch reading SchemaStore (no config-validation MCP server exists; this is what agents use today). The full tool list, with the output schemas and annotations clients use to validate results, is 3,283 characters (1,104 for the alternative).
 <!-- perf:end -->

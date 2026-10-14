@@ -185,16 +185,16 @@ Not yet measured.
 ## Performance
 
 <!-- perf:start -->
-Measured 2026-09-27 from Dubai, home connection against the live upstream, Node 24.19.0 (`bench/perf.json`, `scripts/perf.mjs` in the factory).
+Measured 2026-09-27 from Dubai, home connection against the live server, Node 24.19.0 (`bench/perf.json`, `scripts/perf.mjs` in the factory).
 
-| Call | First call | Repeat | Result size |
+| Call | First request after initialization | Repeat | Result size |
 | --- | --- | --- | --- |
 | test_regex: Python-style named groups and \d across four engines | 983 ms | 3.8 ms | 1,576 chars |
 | test_regex: a lookbehind, which RE2 refuses | 859 ms | 0.6 ms | 750 chars |
 | check_redos: nested repetition, measured on the engines | 2991 ms | 0.3 ms | 915 chars |
 | check_redos: an email pattern that is safe | 68 ms | 0.3 ms | 128 chars |
 
-First call: a fresh server process, including the TLS connection and the upstream's own time. Repeat: the same call again, answered from the in-process cache, so it shows this server's own overhead.
+This legacy record times the first tool request after MCP initialization; it excludes process startup. Repeated requests use the same process and include server work plus any upstream I/O or cache effects. Remeasure before comparing cold-start performance.
 
 Tool definitions the model reads on every turn (name, description, input schema): 1,490 characters, against 1,251 for @jkumonpm/regex-tester-mcp, a published regex MCP server (JavaScript engine only). The full tool list, with the output schemas and annotations clients use to validate results, is 2,124 characters (1,439 for the alternative).
 <!-- perf:end -->

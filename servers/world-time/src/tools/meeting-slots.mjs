@@ -27,7 +27,8 @@ export const meetingSlots = defineTool({
       const where = resolvePlace(p.place);
       let region;
       try {
-        region = where.country ? resolveRegion(where.country, where.province ? stateCode(where.country, where.province) : undefined) : undefined;
+        try { region = resolveRegion(p.place); }
+        catch { region = where.country ? resolveRegion(where.country, where.province ? stateCode(where.country, where.province) : undefined) : undefined; }
       } catch {
         region = undefined; // no holiday rules for this country: weekends only
       }

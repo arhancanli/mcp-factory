@@ -1,0 +1,380 @@
+{
+  "schema": "canlilabs.uk-bank-holidays.v1",
+  "source": "https://www.gov.uk/bank-holidays.json",
+  "observed_at": "2026-10-14T01:26:19.133808+00:00",
+  "source_sha256": "538b3482c28b85ecd2db606a0d5ae6ad17248900b6498700ce0a48d26a3ecde6",
+  "license": "OGL-UK-3.0",
+  "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+  "divisions": {
+    "england-and-wales": {
+      "years": [
+        2026,
+        2027,
+        2028
+      ],
+      "events": [
+        {
+          "date": "2026-01-01",
+          "title": "New Year\u2019s Day"
+        },
+        {
+          "date": "2026-04-03",
+          "title": "Good Friday"
+        },
+        {
+          "date": "2026-04-06",
+          "title": "Easter Monday"
+        },
+        {
+          "date": "2026-05-04",
+          "title": "Early May bank holiday"
+        },
+        {
+          "date": "2026-05-25",
+          "title": "Spring bank holiday"
+        },
+        {
+          "date": "2026-08-31",
+          "title": "Summer bank holiday"
+        },
+        {
+          "date": "2026-12-25",
+          "title": "Christmas Day"
+        },
+        {
+          "date": "2026-12-28",
+          "title": "Boxing Day",
+          "notes": "Substitute day"
+        },
+        {
+          "date": "2027-01-01",
+          "title": "New Year\u2019s Day"
+        },
+        {
+          "date": "2027-03-26",
+          "title": "Good Friday"
+        },
+        {
+          "date": "2027-03-29",
+          "title": "Easter Monday"
+        },
+        {
+          "date": "2027-05-03",
+          "title": "Early May bank holiday"
+        },
+        {
+          "date": "2027-05-31",
+          "title": "Spring bank holiday"
+        },
+        {
+          "date": "2027-08-30",
+          "title": "Summer bank holiday"
+        },
+        {
+          "date": "2027-12-27",
+          "title": "Christmas Day",
+          "notes": "Substitute day"
+        },
+        {
+          "date": "2027-12-28",
+          "title": "Boxing Day",
+          "notes": "Substitute day"
+        },
+        {
+          "date": "2028-01-03",
+          "title": "New Year\u2019s Day",
+          "notes": "Substitute day"
+        },
+        {
+          "date": "2028-04-14",
+          "title": "Good Friday"
+        },
+        {
+          "date": "2028-04-17",
+          "title": "Easter Monday"
+        },
+        {
+          "date": "2028-05-01",
+          "title": "Early May bank holiday"
+        },
+        {
+          "date": "2028-05-29",
+          "title": "Spring bank holiday"
+        },
+        {
+          "date": "2028-08-28",
+          "title": "Summer bank holiday"
+        },
+        {
+          "date": "2028-12-25",
+          "title": "Christmas Day"
+        },
+        {
+          "date": "2028-12-26",
+          "title": "Boxing Day"
+        }
+      ]
+    },
+    "scotland": {
+      "years": [
+        2026,
+        2027,
+        2028
+      ],
+      "events": [
+        {
+          "date": "2026-01-01",
+          "title": "New Year\u2019s Day"
+        },
+        {
+          "date": "2026-01-02",
+          "title": "2nd January"
+        },
+        {
+          "date": "2026-04-03",
+          "title": "Good Friday"
+        },
+        {
+          "date": "2026-05-04",
+          "title": "Early May bank holiday"
+        },
+        {
+          "date": "2026-05-25",
+          "title": "Spring bank holiday"
+        },
+        {
+          "date": "2026-06-15",
+          "title": "World Cup bank holiday"
+        },
+        {
+          "date": "2026-08-03",
+          "title": "Summer bank holiday"
+        },
+        {
+          "date": "2026-11-30",
+          "title": "St Andrew\u2019s Day"
+        },
+        {
+          "date": "2026-12-25",
+          "title": "Christmas Day"
+        },
+        {
+          "date": "2026-12-28",
+          "title": "Boxing Day",
+          "notes": "Substitute day"
+        },
+        {
+          "date": "2027-01-01",
+          "title": "New Year\u2019s Day"
+        },
+        {
+          "date": "2027-01-04",
+          "title": "2nd January",
+          "notes": "Substitute day"
+        },
+        {
+          "date": "2027-03-26",
+          "title": "Good Friday"
+        },
+        {
+          "date": "2027-05-03",
+          "title": "Early May bank holiday"
+        },
+        {
+          "date": "2027-05-31",
+          "title": "Spring bank holiday"
+        },
+        {
+          "date": "2027-08-02",
+          "title": "Summer bank holiday"
+        },
+        {
+          "date": "2027-11-30",
+          "title": "St Andrew\u2019s Day"
+        },
+        {
+          "date": "2027-12-27",
+          "title": "Christmas Day",
+          "notes": "Substitute day"
+        },
+        {
+          "date": "2027-12-28",
+          "title": "Boxing Day",
+          "notes": "Substitute day"
+        },
+        {
+          "date": "2028-01-03",
+          "title": "New Year\u2019s Day",
+          "notes": "Substitute day"
+        },
+        {
+          "date": "2028-01-04",
+          "title": "2nd January",
+          "notes": "Substitute day"
+        },
+        {
+          "date": "2028-04-14",
+          "title": "Good Friday"
+        },
+        {
+          "date": "2028-05-01",
+          "title": "Early May bank holiday"
+        },
+        {
+          "date": "2028-05-29",
+          "title": "Spring bank holiday"
+        },
+        {
+          "date": "2028-08-07",
+          "title": "Summer bank holiday"
+        },
+        {
+          "date": "2028-11-30",
+          "title": "St Andrew\u2019s Day"
+        },
+        {
+          "date": "2028-12-25",
+          "title": "Christmas Day"
+        },
+        {
+          "date": "2028-12-26",
+          "title": "Boxing Day"
+        }
+      ]
+    },
+    "northern-ireland": {
+      "years": [
+        2026,
+        2027,
+        2028
+      ],
+      "events": [
+        {
+          "date": "2026-01-01",
+          "title": "New Year\u2019s Day"
+        },
+        {
+          "date": "2026-03-17",
+          "title": "St Patrick\u2019s Day"
+        },
+        {
+          "date": "2026-04-03",
+          "title": "Good Friday"
+        },
+        {
+          "date": "2026-04-06",
+          "title": "Easter Monday"
+        },
+        {
+          "date": "2026-05-04",
+          "title": "Early May bank holiday"
+        },
+        {
+          "date": "2026-05-25",
+          "title": "Spring bank holiday"
+        },
+        {
+          "date": "2026-07-13",
+          "title": "Battle of the Boyne (Orangemen\u2019s Day)",
+          "notes": "Substitute day"
+        },
+        {
+          "date": "2026-08-31",
+          "title": "Summer bank holiday"
+        },
+        {
+          "date": "2026-12-25",
+          "title": "Christmas Day"
+        },
+        {
+          "date": "2026-12-28",
+          "title": "Boxing Day",
+          "notes": "Substitute day"
+        },
+        {
+          "date": "2027-01-01",
+          "title": "New Year\u2019s Day"
+        },
+        {
+          "date": "2027-03-17",
+          "title": "St Patrick\u2019s Day"
+        },
+        {
+          "date": "2027-03-26",
+          "title": "Good Friday"
+        },
+        {
+          "date": "2027-03-29",
+          "title": "Easter Monday"
+        },
+        {
+          "date": "2027-05-03",
+          "title": "Early May bank holiday"
+        },
+        {
+          "date": "2027-05-31",
+          "title": "Spring bank holiday"
+        },
+        {
+          "date": "2027-07-12",
+          "title": "Battle of the Boyne (Orangemen\u2019s Day)"
+        },
+        {
+          "date": "2027-08-30",
+          "title": "Summer bank holiday"
+        },
+        {
+          "date": "2027-12-27",
+          "title": "Christmas Day",
+          "notes": "Substitute day"
+        },
+        {
+          "date": "2027-12-28",
+          "title": "Boxing Day",
+          "notes": "Substitute day"
+        },
+        {
+          "date": "2028-01-03",
+          "title": "New Year\u2019s Day",
+          "notes": "Substitute day"
+        },
+        {
+          "date": "2028-03-17",
+          "title": "St Patrick\u2019s Day"
+        },
+        {
+          "date": "2028-04-14",
+          "title": "Good Friday"
+        },
+        {
+          "date": "2028-04-17",
+          "title": "Easter Monday"
+        },
+        {
+          "date": "2028-05-01",
+          "title": "Early May bank holiday"
+        },
+        {
+          "date": "2028-05-29",
+          "title": "Spring bank holiday"
+        },
+        {
+          "date": "2028-07-12",
+          "title": "Battle of the Boyne (Orangemen\u2019s Day)"
+        },
+        {
+          "date": "2028-08-28",
+          "title": "Summer bank holiday"
+        },
+        {
+          "date": "2028-12-25",
+          "title": "Christmas Day"
+        },
+        {
+          "date": "2028-12-26",
+          "title": "Boxing Day"
+        }
+      ]
+    }
+  }
+}

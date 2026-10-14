@@ -1,50 +1,113 @@
 {
-  "measured_on": "2026-09-26",
-  "where": "Dubai, home connection",
+  "schema": "canlilabs.performance.v2",
+  "timing_scope": "startup_initialize_first_call",
+  "measured_at": "2026-10-14T01:51:44.367Z",
+  "provenance": {
+    "source_sha256": "39323473ee73d632fd7aac1bc922eebdaa206674918d48cbf18ac367406117e6",
+    "competitor_sha256": "07f4d78dbaaf5ba4c2965d83e93f9ecb8b81ddd8cf9ad66597abae8258edbee7",
+    "runner_sha256": "715b67d4943a3ac09ac77c642305f88530f95a163c1b5a03283acd60ef6cf22a",
+    "connector_sha256": "13e3bc9ef6b7d9105072ccce9468246e5e474e6a43303f91a9117af55b7b2175"
+  },
+  "measured_on": "2026-10-14",
+  "where": "Dubai, local CPU; offline calendar tools",
   "node": "v24.19.0",
   "runs": 5,
   "tool_definition_chars": 2924,
   "tools_list_chars": 4632,
   "competitor": {
-    "label": "mcp-server-time, the official reference time server",
-    "tool_definition_chars": 1002,
-    "tools_list_chars": 1208
+    "label": "mcp-datetime 0.2.0, dated conversion and business/calendar tools",
+    "tool_definition_chars": 11215,
+    "tools_list_chars": 11198
   },
   "scenarios": [
     {
       "call": "world_time: now in 5 places (city, ambiguous city, country, abbreviation, offset)",
-      "first_call_ms": 7,
-      "repeat_ms": 1.5,
-      "result_chars": 1123
+      "first_call_ms": 134.586,
+      "startup_initialize_ms": 127.917,
+      "first_request_ms": 6.658,
+      "repeat_ms": 1.393,
+      "repeat_samples_ms": [
+        1.4982920000000206,
+        1.3932079999999871,
+        1.7227919999999983,
+        1.1584159999999883,
+        1.1812909999999874
+      ],
+      "result_chars": 1122
     },
     {
       "call": "world_time: a time the spring-forward change skips",
-      "first_call_ms": 5,
-      "repeat_ms": 0.6,
+      "first_call_ms": 122.656,
+      "startup_initialize_ms": 117.895,
+      "first_request_ms": 4.759,
+      "repeat_ms": 0.659,
+      "repeat_samples_ms": [
+        0.8359169999999949,
+        0.7051670000000172,
+        0.6117080000000215,
+        0.6593330000000037,
+        0.5575420000000122
+      ],
       "result_chars": 718
     },
     {
       "call": "holidays: Saudi Arabia 2026 (multi-day Eid, estimated)",
-      "first_call_ms": 7,
-      "repeat_ms": 0.3,
+      "first_call_ms": 126.291,
+      "startup_initialize_ms": 119.193,
+      "first_request_ms": 7.095,
+      "repeat_ms": 0.26,
+      "repeat_samples_ms": [
+        0.33637499999997544,
+        0.18866700000000947,
+        0.1617909999999938,
+        0.26741699999996627,
+        0.2602080000000342
+      ],
       "result_chars": 918
     },
     {
       "call": "business_days: 5 business days in Saudi Arabia across Eid",
-      "first_call_ms": 7,
-      "repeat_ms": 0.2,
+      "first_call_ms": 126.135,
+      "startup_initialize_ms": 119.08,
+      "first_request_ms": 7.052,
+      "repeat_ms": 0.27,
+      "repeat_samples_ms": [
+        0.27537499999994,
+        0.17695800000001327,
+        0.28254100000003746,
+        0.2695840000000089,
+        0.21812499999998636
+      ],
       "result_chars": 450
     },
     {
       "call": "meeting_slots: New York, London, Berlin over Christmas",
-      "first_call_ms": 27,
-      "repeat_ms": 8.2,
-      "result_chars": 400
+      "first_call_ms": 145.098,
+      "startup_initialize_ms": 118.628,
+      "first_request_ms": 26.468,
+      "repeat_ms": 8.387,
+      "repeat_samples_ms": [
+        9.226791999999932,
+        8.38733400000001,
+        8.519874999999956,
+        7.951958999999988,
+        7.89650000000006
+      ],
+      "result_chars": 364
     },
     {
       "call": "date_info: Jan 31 plus one month, days to Christmas",
-      "first_call_ms": 2,
-      "repeat_ms": 0.2,
+      "first_call_ms": 120.277,
+      "startup_initialize_ms": 118.651,
+      "first_request_ms": 1.624,
+      "repeat_ms": 0.22,
+      "repeat_samples_ms": [
+        0.25816599999996015,
+        0.19237499999997,
+        0.15133300000002237,
+        0.21983400000010533,
+        0.24675000000002
+      ],
       "result_chars": 269
     }
   ],

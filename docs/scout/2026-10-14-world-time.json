@@ -1,0 +1,75 @@
+{
+  "schema": "canlilabs.scout.v1",
+  "server": "world-time",
+  "reviewed_at": "2026-10-14T01:46:20.248181+00:00",
+  "demand": [
+    {
+      "url": "https://pypistats.org/api/packages/mcp-server-time/recent",
+      "observed_at": "2026-10-14T01:46:20.248181+00:00",
+      "signal": "PyPI Stats reports 589169 package downloads in the recent month, 144729 week and 22799 day; these are reported downloads, not unique users."
+    },
+    {
+      "url": "https://github.com/andybrandt/mcp-simple-timeserver",
+      "observed_at": "2026-10-14T01:46:20.248181+00:00",
+      "signal": "34 stars and 15 forks observed; time, holiday and business-day calendar tools are published."
+    }
+  ],
+  "source": {
+    "url": "https://github.com/commenthol/date-holidays",
+    "license": "date-holidays: ISC code; shipped holiday data notice CC BY-SA 3.0 (package metadata differs). city-timezones: MIT. UK snapshot: OGL-UK-3.0 with attribution. IANA/ICU and CLDR data retain upstream notices.",
+    "cost": "Offline runtime; no API key, subscription or per-call API charge. Optional weekly government calendar drift check is a public read.",
+    "rate_limits": "No runtime upstream requests. Input, date span, tool-list and result bounds enforced locally; the weekly calendar check has a 10-second deadline and 1 MiB cap."
+  },
+  "incumbent": {
+    "url": "https://github.com/matt0733/get-date-time/tree/7068460121e41918c3cfb0e3ce0dc785a6697ffd",
+    "identity": {
+      "kind": "git",
+      "repository": "https://github.com/matt0733/get-date-time",
+      "commit": "7068460121e41918c3cfb0e3ce0dc785a6697ffd"
+    },
+    "selection_reason": "The strongest relevant executable option in the reviewed set by overlap with dated conversion, calendar arithmetic and business-day workflows. Its 17 native tools cover substantially more of this corpus than the official two-tool time reference, the narrower Go time utilities, or the holiday/business-only server. Selected by relevant coverage, not its zero-star popularity. It launches unmodified from an immutable commit with explicit compatible dependency and interpreter pins. All 17 tools remain enabled; this corpus excludes its financial-market features. Agent-level performance and superiority remain unproven."
+  },
+  "candidates": [
+    {
+      "repository": "modelcontextprotocol/servers/src/time",
+      "identity": {
+        "kind": "pypi",
+        "name": "mcp-server-time",
+        "version": "2026.10.10"
+      },
+      "scope": "Current time and current-date HH:MM conversion; no dated conversion or calendar/business tools. Retain as an official secondary reference."
+    },
+    {
+      "repository": "andybrandt/mcp-simple-timeserver",
+      "commit": "9508ba5a70bd90c3250d3346f37bbb4391df093c",
+      "version": "3.3.2",
+      "stars": 34,
+      "scope": "Current location/cultural calendars, NTP, public holidays and time-distance business counts; no general dated timezone conversion or duration-add tool in its published interface."
+    },
+    {
+      "repository": "fbdo/business-day-mcp",
+      "commit": "07cb4f64033388bbb0a6f9eacdfa5a4665be0704",
+      "stars": 0,
+      "scope": "Country/subdivision holiday and business-day workflows; no general dated timezone/calendar conversions."
+    },
+    {
+      "repository": "TheoBrigitte/mcp-time",
+      "commit": "275571e41cb5da687c623df96023f292d18ca563",
+      "stars": 25,
+      "scope": "Time formats, relative dates, conversion and duration utilities; no holiday/business calendar tools in the reviewed interface."
+    },
+    {
+      "repository": "matt0733/get-date-time",
+      "commit": "7068460121e41918c3cfb0e3ce0dc785a6697ffd",
+      "stars": 0,
+      "license": "MIT, verified in the source LICENSE despite GitHub NOASSERTION metadata",
+      "scope": "Selected broader dated conversion/calendar/business-day baseline."
+    }
+  ],
+  "winnability_evidence": {
+    "native_tool_lists": "Five tools / 2924 model-visible characters versus 17 / 11215 in the actual dry protocol run; this is schema size, not agent tokens.",
+    "correctness": "24 fixed direct answers and 37 real stdio calls pass; ten added tasks require multiple calls. No paid agent comparison executed.",
+    "concrete_repairs": "Official Scottish 2026-06-15 holiday, city home-nation calendars, real startup timing, failed-repeat rejection and parent credential isolation.",
+    "required_next": "Current paired agent outcomes and technical/full-tree/artifact qualification before any best or publication claim."
+  }
+}

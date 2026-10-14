@@ -147,9 +147,9 @@ Measured 2026-09-26 with gpt-5.4-mini, 10 fixed tasks graded by fixed checks (`b
 ## Performance
 
 <!-- perf:start -->
-Measured 2026-09-26 from Dubai, home connection against the live upstream, Node 24.19.0 (`bench/perf.json`, `scripts/perf.mjs` in the factory).
+Measured 2026-09-26 from Dubai, home connection against the live server, Node 24.19.0 (`bench/perf.json`, `scripts/perf.mjs` in the factory).
 
-| Call | First call | Repeat | Result size |
+| Call | First request after initialization | Repeat | Result size |
 | --- | --- | --- | --- |
 | read_page: RFC 9110 (435,000 chars) with a query | 1527 ms | 18.1 ms | 2,085 chars |
 | read_page: RFC 9309 from the start (long: outline and next_start) | 992 ms | 0.4 ms | 9,829 chars |
@@ -159,7 +159,7 @@ Measured 2026-09-26 from Dubai, home connection against the live upstream, Node 
 | read_page: one section of RFC 9309 (2.5. Limits) | 907 ms | 0.2 ms | 306 chars |
 | page_links: Python functools docs, links about itertools | 1083 ms | 0.4 ms | 504 chars |
 
-First call: a fresh server process, including the TLS connection and the upstream's own time. Repeat: the same call again, answered from the in-process cache, so it shows this server's own overhead.
+This legacy record times the first tool request after MCP initialization; it excludes process startup. Repeated requests use the same process and include server work plus any upstream I/O or cache effects. Remeasure before comparing cold-start performance.
 
 Tool definitions the model reads on every turn (name, description, input schema): 2,290 characters, against 1,105 for mcp-server-fetch, the official reference fetch server. The full tool list, with the output schemas and annotations clients use to validate results, is 3,635 characters (1,104 for the alternative).
 <!-- perf:end -->

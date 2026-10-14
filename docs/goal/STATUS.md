@@ -2,10 +2,22 @@
 
 Updated: 2026-10-14 (Asia/Dubai). Overall goal: active; incomplete.
 
+Current review: [PR #14](https://github.com/arhancanli/mcp-factory/pull/14),
+open, ready and unmerged, stacked on #13 through #9. All eight checks pass on
+owner-signed implementation `361cdb5`. The [cohort CI receipt](evidence/2026-10-14-current-mcp-cohort-ci-validation.json)
+verifies 307 factory checks and 272 independent server tests across all 21 exact
+committed package trees, with real packed initialize/tools-list calls.
+World Time's local/CI tarballs have identical integrity; its four-station technical
+receipt binds source `39323473...` and full tree `2c7b0e7...`, including 14 server
+tests, audit and both live canaries. Direct corpus and performance use that same
+source. Current paired paid agent evidence and publication remain pending; the
+qualified maintained-release count remains zero. This evidence follow-up changes
+no runtime code. The previous goal turn made concrete progress.
+
 Repository: `arhancanli/mcp-factory`. Actual `origin/main`: `e52f29f`.
-Active worktree: `/Users/arhancanli/canlilabs-linux-20261014`.
-Branch: `codex/canlilabs-linux-cpu-20261014`, based on validated capacity head
-`6d6a655`. The original checkout remains clean on main. Foundation
+Active worktree: `/Users/arhancanli/canlilabs-cohort-20261014`.
+Branch: `codex/canlilabs-current-mcp-cohort-20261014`, based on validated CPU head
+`0dbf8b7`. The original checkout remains clean on main. Foundation
 [PR #9](https://github.com/arhancanli/mcp-factory/pull/9) is open, ready for review
 and unmerged; all seven checks passed on its final head. The data/lifecycle slice
 is owner-signed at `9bda49c` and open as stacked
@@ -102,6 +114,32 @@ retained, with no bitwise/population or production claim. All 93 explicit cohort
 local/CI trials are retained with their source hashes; pytest fixtures are separate.
 PR #13 is ready for review, stacked on #12/#11/#10/#9. Full factory and standalone
 checks also pass. This evidence follow-up changes documentation only.
+
+Fresh inspection confirms PR #13 is open, ready and unmerged, with all ten checks
+passing on final evidence head `0dbf8b7`. The prior turn is progress. The next
+independent MCP cohort slice refreshes real incumbent coverage/demand, pins
+executable comparison identities, verifies fixed task answers and records current
+live performance. Research has found broader date/calendar competitors than the
+historical unpinned official time baseline. The performance timer also excludes
+startup/initialize despite its description; this measurement is being corrected.
+Paired paid agent runs and publication still require their existing gates. All
+laboratory and maintained-release objectives remain intact.
+
+This cohort now uses pinned broader `mcp-datetime` 0.2.0, with its 17 native
+tools successfully initialized/listed. The [current scout](../scout/2026-10-14-world-time.json)
+records candidate coverage, dated reported demand and source/rights/cost facts.
+The [fixed direct verification](evidence/2026-10-14-world-time-direct-verification.json)
+passes 24/24 answers through 37 real stdio calls, including ten complex independent
+questions. Current performance includes actual startup and initialization,
+separate request time and raw repeat samples. All 307 factory checks pass.
+
+Source review corrected a real Scottish one-off holiday omission and UK city
+home-nation mapping. Attributed government snapshots, substitution notes and
+two live calendar/clock canaries pass, as do all fourteen server tests. Shared
+peer launch now isolates parent credentials and closes under timeouts/errors.
+Legacy reports retain their original data and corrected request-only timing
+description. Current paired-agent evidence and final packed/review/publication
+gates still remain; no best or maintained release count is asserted.
 
 ## Current executable laboratory
 

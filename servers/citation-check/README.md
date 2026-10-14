@@ -211,9 +211,9 @@ Measured 2026-09-26 with gpt-5.4-mini, 10 fixed tasks graded by fixed checks (`b
 ## Performance
 
 <!-- perf:start -->
-Measured 2026-09-27 from Dubai, home connection against the live upstream, Node 24.19.0 (`bench/perf.json`, `scripts/perf.mjs` in the factory).
+Measured 2026-09-27 from Dubai, home connection against the live server, Node 24.19.0 (`bench/perf.json`, `scripts/perf.mjs` in the factory).
 
-| Call | First call | Repeat | Result size |
+| Call | First request after initialization | Repeat | Result size |
 | --- | --- | --- | --- |
 | check_references: 6 citations (retracted, invented, wrong year, borrowed DOI, arXiv-only) | 7075 ms | 4.3 ms | 2,894 chars |
 | check_references: 2 BibTeX entries with corrected BibTeX | 5143 ms | 0.8 ms | 1,059 chars |
@@ -224,7 +224,7 @@ Measured 2026-09-27 from Dubai, home connection against the live upstream, Node 
 | lookup_work: a 2017 paper the indexes also file under a later repost's DOI | 5692 ms | 2 ms | 717 chars |
 | lookup_work: a famous paper's title plus search words | 3739 ms | 6.6 ms | 1,356 chars |
 
-First call: a fresh server process, including the TLS connection and the upstream's own time. Repeat: the same call again, answered from the in-process cache, so it shows this server's own overhead.
+This legacy record times the first tool request after MCP initialization; it excludes process startup. Repeated requests use the same process and include server work plus any upstream I/O or cache effects. Remeasure before comparing cold-start performance.
 
 Tool definitions the model reads on every turn (name, description, input schema): 1,523 characters, against 2,550 for doi-mcp, the most starred citation verifier. The full tool list, with the output schemas and annotations clients use to validate results, is 2,979 characters (2,913 for the alternative).
 <!-- perf:end -->

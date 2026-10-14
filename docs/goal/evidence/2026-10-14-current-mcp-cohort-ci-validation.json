@@ -1,0 +1,265 @@
+{
+  "schema": "canlilabs.ci-validation.v1",
+  "checked_at": "2026-10-14T04:45:39.536134+00:00",
+  "tested_commit": "361cdb56af7444943a67de4ff45e15e81e51f624",
+  "pull_request": "https://github.com/arhancanli/mcp-factory/pull/14",
+  "scope": "Current World Time corpus, pinned calendar incumbent, UK one-off/regional correction and honest cold performance/credential isolation. Technical qualification only; paired paid agent and release qualification remain pending. Laboratory runtime unchanged.",
+  "checks": [
+    {
+      "name": "Plan independent package checks",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/arhancanli/mcp-factory/actions/runs/38498383346/job/115639272113"
+    },
+    {
+      "name": "analyze",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/arhancanli/mcp-factory/actions/runs/38498383402/job/115639272769"
+    },
+    {
+      "name": "Gate on Node 20",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/arhancanli/mcp-factory/actions/runs/38498383346/job/115639272375"
+    },
+    {
+      "name": "Gate on Node 22",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/arhancanli/mcp-factory/actions/runs/38498383346/job/115639272513"
+    },
+    {
+      "name": "Gate on Node 24",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/arhancanli/mcp-factory/actions/runs/38498383346/job/115639272419"
+    },
+    {
+      "name": "Standalone package shard 1",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/arhancanli/mcp-factory/actions/runs/38498383346/job/115639327775"
+    },
+    {
+      "name": "Every server works as its own repository",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/arhancanli/mcp-factory/actions/runs/38498383346/job/115640065328"
+    },
+    {
+      "name": "CodeQL",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/arhancanli/mcp-factory/runs/115639683704"
+    }
+  ],
+  "factory_tests": 307,
+  "standalone_packages": [
+    {
+      "name": "actions-check",
+      "tree": "ba9ecd7e06df5ff3c33c8e920f5493f5e07d1c52",
+      "tests": 8,
+      "initialize": true,
+      "tools_list": true,
+      "packed_integrity": "sha512-qjDNxjb75Wu2bB4puKAboMadvFkyO5BDrGpRBmoc2fd3Xj4vaorUdcONxmke3AWFmCPlP9+7rNv0zAi/S7VEyw==",
+      "duration_ms": 5484
+    },
+    {
+      "name": "citation-check",
+      "tree": "79d21887fa4bd7eba43648106a8a44895bb3b05d",
+      "tests": 24,
+      "initialize": true,
+      "tools_list": true,
+      "packed_integrity": "sha512-+gT13tNOZNPclfTkjrTPf0Qhs0OuQa4qMqyrFjRnbc/Qw7z3uzxOARS0diRCxzoWXIPRMSHQHUu0gtf62YY+ZQ==",
+      "duration_ms": 15559
+    },
+    {
+      "name": "config-check",
+      "tree": "80416339796c9b61810649badfa6665da192d8e6",
+      "tests": 23,
+      "initialize": true,
+      "tools_list": true,
+      "packed_integrity": "sha512-k8Rx6ke93tRSkVefYN8Fb95HmzwfyFySBtVauKYCg4YxDPIZit1rL8nsdg3kI/qfoPDqZ5jLTvxGV2jZ59w+UA==",
+      "duration_ms": 6453
+    },
+    {
+      "name": "contact-check",
+      "tree": "63f2d42f2841343a2ea0d09c633fdedd20d91104",
+      "tests": 6,
+      "initialize": true,
+      "tools_list": true,
+      "packed_integrity": "sha512-6nvJLj9PCVu/vZUuwrin/0mzHz6lp0dgGSuTF+alorQOB2dxu1VgvK4T16BWlvQw9YWTDLyajUlDs8r3eYGc4A==",
+      "duration_ms": 4858
+    },
+    {
+      "name": "cron-check",
+      "tree": "fa6849ebed5df7a4478eed4c20bbd3957fb1de5f",
+      "tests": 6,
+      "initialize": true,
+      "tools_list": true,
+      "packed_integrity": "sha512-kwGt12if68t1jPdcsC1F42VKHFs8QONj4DVWE9nLgEduk6r2gM1uCtEX7L2Qc2QX4MTHLXfhCylVw8JeTstxVQ==",
+      "duration_ms": 4193
+    },
+    {
+      "name": "dockerfile-check",
+      "tree": "20ca7215b7b03e77c668e3935d2baba60e50bdc6",
+      "tests": 10,
+      "initialize": true,
+      "tools_list": true,
+      "packed_integrity": "sha512-sr2O/FZFUmjJsL6nEomtMu4wD063zgOazvlBrD3YsxWVF2P1Jmpllm5+Cc00YC5olAldp5GHwWKkP+enC55aMg==",
+      "duration_ms": 4224
+    },
+    {
+      "name": "domain-health",
+      "tree": "d0c78553de227d17c052f62fc3286bdb78159f51",
+      "tests": 11,
+      "initialize": true,
+      "tools_list": true,
+      "packed_integrity": "sha512-60lt5oCiB6UePJTp34zhxmYe6dIUiLHk9WI+zzU4lrSVJVV02vo0y2ksoqNx4pH/Vc+PZhQRzcIy1LjYz/fVMA==",
+      "duration_ms": 7597
+    },
+    {
+      "name": "drug-label",
+      "tree": "dbef05abcc3dda4326279cd302023ca13e4ee8cc",
+      "tests": 13,
+      "initialize": true,
+      "tools_list": true,
+      "packed_integrity": "sha512-Bd/uMvb4ihOzq0DDdgZm05FGL93HW07Ajea/d+hBIq6bBdhBOfpgoabD2nm+tgt9Tsbh/QKbd5M1N/H/VNrv1Q==",
+      "duration_ms": 5436
+    },
+    {
+      "name": "end-of-life",
+      "tree": "f6037f979fd675d6dd134de6e00e7714c574b5c3",
+      "tests": 9,
+      "initialize": true,
+      "tools_list": true,
+      "packed_integrity": "sha512-+vrn7Gh5q/YAKVRAhKOGaUt3Rbb39LsNwYQ7IGK+vBGCiTWo1lIIhPeZUZcvv3wOCjCBML1Tfe1CRrVs7bfehw==",
+      "duration_ms": 5420
+    },
+    {
+      "name": "internet-standards",
+      "tree": "a1f1dd9583c568be62ced2873aae4b66098be53b",
+      "tests": 19,
+      "initialize": true,
+      "tools_list": true,
+      "packed_integrity": "sha512-caZa69mzkhvmRkBv3L4lujdUkROwvkLgjTgTwugnLRToQY7jcNGlU3TCf8/xkHRDZdZ2p8kJ0NUHZ9iMQiyJVg==",
+      "duration_ms": 4242
+    },
+    {
+      "name": "kube-check",
+      "tree": "11baa60876d55b04d872e356c7db7f26c30f5903",
+      "tests": 16,
+      "initialize": true,
+      "tools_list": true,
+      "packed_integrity": "sha512-1vE0gtSQpSxdD02j+MMKw6PTdIgz19opQU3Ue6V9DRY1wEDF3YqELzoFqKu+kuerfPfVTt8CxO0lg25LqrH94A==",
+      "duration_ms": 5416
+    },
+    {
+      "name": "license-check",
+      "tree": "8223156129e9f314395961a7260cce0d3d01fe66",
+      "tests": 7,
+      "initialize": true,
+      "tools_list": true,
+      "packed_integrity": "sha512-Mw5J0s7l2KwD0djjld4b3J+/35u6R5NUYb1StCh9ZeU+8r/0DgJ1aejm+rgE++eODXUGMX9VusGsIAk0JkgnEg==",
+      "duration_ms": 4158
+    },
+    {
+      "name": "package-truth",
+      "tree": "31a77a6a99beb7b7048d9b727fbe5cfec4fcf431",
+      "tests": 25,
+      "initialize": true,
+      "tools_list": true,
+      "packed_integrity": "sha512-VthbusqHAeDpXV2TVeLb4r3jhGGHknscTBeDIXPNKo0NpQDG6NthLvVb0UBeSA3CoKjX4A55jlMePGK5M+RRpQ==",
+      "duration_ms": 4194
+    },
+    {
+      "name": "recall-check",
+      "tree": "501661b3d66edaf1be97b5bb445c016b841fbb0a",
+      "tests": 16,
+      "initialize": true,
+      "tools_list": true,
+      "packed_integrity": "sha512-8ja/M0m8NmMVyO4k0ecPR8NiRrs5bO29U2kZq4E6I0Q4dR6BEXKI9oDyljb0m5+jswWTbmvadvWedm1DuplQoQ==",
+      "duration_ms": 8451
+    },
+    {
+      "name": "regex-check",
+      "tree": "218d1e71ba498bbed2edc3b4543fb8f1830a89e4",
+      "tests": 11,
+      "initialize": true,
+      "tools_list": true,
+      "packed_integrity": "sha512-/LJLmU72lnoyiGKVf6T3DfhTlQ7QxqVLWNYURzT1R2lQxgKdm4Bl60nanOr1tAzYrMBD6BCdnRzjNKdRArz8Tw==",
+      "duration_ms": 14657
+    },
+    {
+      "name": "release-notes",
+      "tree": "ed4199e378eb19a89d58f97a842e5638da0bd834",
+      "tests": 10,
+      "initialize": true,
+      "tools_list": true,
+      "packed_integrity": "sha512-76TSlStpaU/arrFCFOO0C4t4mDRDvfcYEdPvmSeF2gIfL5VOnYFEd2aM3jIs6cnxgcBlQhkI7lq/y7GNIgbkHQ==",
+      "duration_ms": 8202
+    },
+    {
+      "name": "satellite-imagery",
+      "tree": "7b40c454978afe3f0b936cfeaca3a4b14bb2c18e",
+      "tests": 11,
+      "initialize": true,
+      "tools_list": true,
+      "packed_integrity": "sha512-G5sj/Nll75mya/c9clN7fO13BbhBOgezPiCpcip3MkuN7ccY/Qj0ffOW2m+YBXxZQUAE1tKnNS2GUDfJfXmWgw==",
+      "duration_ms": 4262
+    },
+    {
+      "name": "sql-check",
+      "tree": "7f0ee5bd9354cbdd04951113808af13ad695aae7",
+      "tests": 11,
+      "initialize": true,
+      "tools_list": true,
+      "packed_integrity": "sha512-xM3J1NAgmbBxveUTTpzgMCMqQYm11P3ZPmjbXJlLij/8oSzsZXCIoRtxR3UCh4c5WnjCxZYJ+sdfZqM4Xop4Fw==",
+      "duration_ms": 15766
+    },
+    {
+      "name": "vuln-priority",
+      "tree": "d490915bf03d75ed2eab42e8266c220cfad96b3f",
+      "tests": 12,
+      "initialize": true,
+      "tools_list": true,
+      "packed_integrity": "sha512-Rsk623+RJtTd/jtcrhFbakrOXJogKZPBishGLArP/+L97v1FFuRY+y3lUmoOWok4y6JNdMVEmMfAvY6OgewWTQ==",
+      "duration_ms": 4991
+    },
+    {
+      "name": "web-reader",
+      "tree": "7e2cbebb9db5155890b8093db4b836432fdcf591",
+      "tests": 10,
+      "initialize": true,
+      "tools_list": true,
+      "packed_integrity": "sha512-r+HWNWuknsB52C/8iEJiImcV3QzJsOO+pBWL10/fReoGZ7O+FUEbhXXw9W2s92uvv+2yIZmZy4F5hbfhE/yTww==",
+      "duration_ms": 8625
+    },
+    {
+      "name": "world-time",
+      "tree": "2c7b0e7107ede5b773a048f5f2fa73d76c3734c0",
+      "tests": 14,
+      "initialize": true,
+      "tools_list": true,
+      "packed_integrity": "sha512-x6KoekDnyawlzfaCBAnpv0yTGYmhaAUCEwbJFra/8CambEvgfTu0HwxehZ7aAnxStvAEwdIT+qTDflT9RTEPSQ==",
+      "duration_ms": 5909
+    }
+  ],
+  "standalone_tests": 272,
+  "verified_standalone_trees": 21,
+  "serial_package_elapsed_ms": 148097,
+  "quality_receipt": "docs/quality/world-time/39323473ee73d632fd7aac1bc922eebdaa206674918d48cbf18ac367406117e6/2026-10-14T01-59-16-472Z.json",
+  "world_time_source_sha256": "39323473ee73d632fd7aac1bc922eebdaa206674918d48cbf18ac367406117e6",
+  "world_time_local_ci_tarball_integrity_match": true,
+  "direct_corpus": {
+    "correct": 24,
+    "tasks": 24,
+    "calls": 37,
+    "agent_benchmark_executed": false
+  },
+  "raw_log_sha256": {
+    "canlilabs-cohort-ci-standalone.log": "97b3192cd9df65e73b9a51d270d00bef892e66f316ad187c54c16d0840f576e3",
+    "canlilabs-cohort-ci-node24.log": "2eafbcf21d4437699cc2de1868307510b124c8ae10a835955f018401bc2425ce"
+  }
+}

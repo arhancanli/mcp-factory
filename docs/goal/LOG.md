@@ -1,5 +1,34 @@
 # Decision and execution log
 
+## 2026-10-14: current MCP technical evidence and review complete
+
+Re-read continuity and freshly checked PR #14 at signed head 361cdb5. All eight
+checks pass. Downloaded actual Node 24 and independent package logs: 307 factory
+checks, 272 server tests, all 21 exact trees, packed initialization and tool lists.
+The World Time technical qualifier completes factory/standalone/audit/canary
+stations. Verified every raw log hash and matching direct/performance/source
+fingerprints 39323473..., full tree 2c7b0e7..., and identical local/CI tarball
+integrity. Retained the qualifier and dated CI receipt, marked PR #14 ready.
+
+No paid agent API call, release, owner merge or launch occurred. Direct fixed
+answers and measured schema sizes cannot close the paired-agent station. All 25
+requirements and the minimum 2,000 distinct maintained-release objective remain
+active. This final evidence update changes no laboratory or server runtime.
+
+## 2026-10-14: current MCP cohort qualification
+
+Re-read continuity and checked actual Git/PR/main state. PR #13's final head
+0dbf8b7 is clean, ready, open and passes all ten checks. Main remains e52f29f.
+The previous turn made real progress: two-platform CPU training, protocol/task
+execution and source-matched receipts. Created an isolated worktree/branch on
+that validated head. The next MCP slice refreshes strongest relevant incumbents,
+fixed independent task evidence and current performance before any release claim.
+Found that the historical reference-time baseline is unpinned and broader
+date/calendar alternatives now exist. Also found that perf.mjs starts timing
+after MCP initialization while describing startup as included. Fix this actual
+measurement gap and preserve older reports. No paid agent call or release is
+authorized by a passing direct-tool check. Every owner requirement stays active.
+
 ## 2026-10-14: independent Linux CPU laboratory slice
 
 Re-read the five continuity records and checked the actual clean capacity branch
@@ -464,3 +493,42 @@ Linux CPU is now validated; accelerators/distributed training, checkpoint resume
 model promotion/rollback, deeper RL/foundation models, education, current MCP
 qualification/publication/discovery/adoption and the maintained release floor
 remain required. Overall goal stays active.
+
+## 2026-10-14: current corpus, source corrections and measured timing
+
+Reviewed five current time/calendar implementations using immutable source and
+primary metadata. Selected broader mcp-datetime 0.2.0 at commit 7068460...,
+pinning Python, its direct dependencies and packaged time-zone data. A real
+dry run initializes it and lists all 17 native tools, 11,215 model-visible
+characters, against five/2,924 for World Time. These are schema sizes, not
+agent-token results or a global superiority claim. Structured scout retains
+reported demand, source/rights/cost facts and candidate selection reasoning.
+
+Added ten independent multi-operation questions and an official Scottish
+one-off regression to the fixed corpus: 24/24 direct answers over 37 actual
+stdio calls. Independent Python/IANA calculations and official calendar/clock
+references check the expected values. The direct verifier's initial grading
+argument mismatch was corrected; no agent result was invented.
+
+The published government calendar exposed a real missed Scottish 15 June 2026
+holiday and UK city councils incorrectly using the national/default calendar.
+Added attributed OGL regional snapshots for 2026-2028 and city/province aliases.
+Holiday, business-day and meeting regressions pass. The first full suite also
+caught omitted substitution notes from government JSON; preserving those notes
+repairs that regression. All fourteen World Time tests and both live canaries
+pass, including bounded HTTPS drift comparison against all reviewed UK years.
+
+Performance now measures actual process startup plus initialization and first
+request, records repeat samples and a proper even-sample median, rejects
+failed repeats and closes peers under errors/deadlines. A test caught concurrent
+close completion during initialization timeout; the connector now awaits it.
+Five meaningful measurement/environment tests pass. The shared peer connector
+no longer copies the whole parent environment, including provider credentials.
+Only system essentials and declared peer values pass. Provider behavior stays
+unchanged and no paid call was made. Legacy reports are retained and their
+request-only timing scope is now stated across generated READMEs.
+
+All 307 factory checks pass on the final local source. Current live performance,
+fixed source identity and direct-corpus proof are retained. Paid paired-agent
+evidence, final full-tree packed qualification, reviewed owner integration and
+publication remain required. All 25 objectives and release floor stay active.

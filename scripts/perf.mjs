@@ -14,23 +14,24 @@ import { mkdirSync, readFileSync, writeFileSync, existsSync } from "node:fs";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
 import { parseArgs } from "node:util";
-import { Client } from "@modelcontextprotocol/sdk/client/index.js";
-import { StdioClientTransport } from "@modelcontextprotocol/sdk/client/stdio.js";
+import { connectMcp, assertConnectorUnchanged, MCP_CONNECTOR_SHA256 } from "../bench/mcp-client.mjs";
 import { ROOT, readJson } from "./lib.mjs";
 import { hash, identityHash, sourceSnapshot } from "../kit/release.mjs";
+
+const RUNNER_SHA256 = hash(readFileSync(new URL(import.meta.url)));
 
 // What a client sends the model for each tool: name, description and input schema (output schemas
 // and annotations are for the client, not the model).
 export const modelVisibleChars = (tools) => JSON.stringify(tools.map((t) => ({ name: t.name, description: t.description ?? "", input_schema: t.inputSchema }))).length;
 export const listChars = (tools) => JSON.stringify(tools).length;
 
-async function connect(command, args, cwd) {
-  const client = new Client({ name: "factory-perf", version: "1" });
-  await client.connect(new StdioClientTransport({ command, args, cwd, stderr: "ignore" }));
-  return client;
-}
+const connect = (command, args, cwd, timeoutMs = 15_000, env) => connectMcp({ command, args, cwd, timeoutMs, env });
 
-const median = (xs) => [...xs].sort((a, b) => a - b)[Math.floor(xs.length / 2)];
+const median = (xs) => {
+  const ordered = [...xs].sort((a, b) => a - b);
+  const middle = Math.floor(ordered.length / 2);
+  return ordered.length % 2 ? ordered[middle] : (ordered[middle - 1] + ordered[middle]) / 2;
+};
 
 async function timed(fn) {
   const t = performance.now();
@@ -44,8 +45,39 @@ export function scenarioLabel(s) {
   return `${s.tool} ${brief}`;
 }
 
+/** Actual cold start includes spawning and MCP initialization; failed repeats are not timings. */
+export async function measureCall({ command, args = [], cwd, env }, scenario, { runs = 5, timeoutMs = 15_000 } = {}) {
+  if (!Number.isSafeInteger(runs) || runs < 1 || runs > 20) throw new Error("Choose 1-20 repeat measurements.");
+  if (!Number.isSafeInteger(timeoutMs) || timeoutMs < 50 || timeoutMs > 120_000) throw new Error("Choose a 50-120000 ms request deadline.");
+  const start = performance.now();
+  const client = await connect(command, args, cwd, timeoutMs, env);
+  try {
+    const initialized = performance.now();
+    const call = async () => {
+      const out = await client.callTool({ name: scenario.tool, arguments: scenario.args }, undefined, { timeout: timeoutMs });
+      if (out.isError) throw new Error(`${scenarioLabel(scenario)} returned a tool error; no performance result was recorded.`);
+      return out;
+    };
+    const first = await timed(call);
+    const coldStart = performance.now() - start;
+    const repeats = [];
+    for (let index = 0; index < runs; index++) repeats.push((await timed(call)).ms);
+    return {
+      call: scenarioLabel(scenario),
+      first_call_ms: Number(coldStart.toFixed(3)),
+      startup_initialize_ms: Number((initialized - start).toFixed(3)),
+      first_request_ms: Number(first.ms.toFixed(3)),
+      repeat_ms: Number(median(repeats).toFixed(3)),
+      repeat_samples_ms: repeats,
+      result_chars: (first.out.content ?? []).map((c) => c.text ?? "").join("").length,
+      first_result: first.out,
+    };
+  } finally { await client.close(); }
+}
+
 export async function measure(name, { runs = 5, where = "Dubai, home connection" } = {}) {
   if (!Number.isSafeInteger(runs) || runs < 1 || runs > 20) throw new Error("Choose 1-20 repeat measurements.");
+  if (typeof name !== "string" || !/^[a-z][a-z0-9-]{1,40}$/.test(name)) throw new Error("Choose a valid server name.");
   const dir = path.join(ROOT, "servers", name);
   const entry = path.join(dir, "src/server.mjs");
   const source = sourceSnapshot(dir);
@@ -55,39 +87,34 @@ export async function measure(name, { runs = 5, where = "Dubai, home connection"
   // Scenarios marked expectError exist for the golden tests (for example, an invented identifier);
   // they are not typical calls, so they are not timed.
   for (const s of SCENARIOS.filter((x) => !x.expectError)) {
-    const client = await connect(process.execPath, [entry], dir);
-    const first = await timed(() => client.callTool({ name: s.tool, arguments: s.args }));
-    if (first.out.isError) throw new Error(`${scenarioLabel(s)} returned an error: ${first.out.content?.[0]?.text}`);
-    const repeats = [];
-    for (let i = 0; i < runs; i++) repeats.push((await timed(() => client.callTool({ name: s.tool, arguments: s.args }))).ms);
-    await client.close();
+    const { first_result, ...measurement } = await measureCall({ command: process.execPath, args: [entry], cwd: dir }, s, { runs });
     if (!example && (s.example || SCENARIOS.every((x) => !x.example))) {
-      example = { call: scenarioLabel(s), tool: s.tool, arguments: s.args, result: (first.out.content ?? []).map((c) => c.text ?? "").join("") };
+      example = { call: scenarioLabel(s), tool: s.tool, arguments: s.args, result: (first_result.content ?? []).map((c) => c.text ?? "").join("") };
     }
-    scenarios.push({
-      call: scenarioLabel(s),
-      first_call_ms: Math.round(first.ms),
-      repeat_ms: Number(median(repeats).toFixed(1)),
-      result_chars: (first.out.content ?? []).map((c) => c.text ?? "").join("").length,
-    });
+    scenarios.push(measurement);
   }
   const ours = await connect(process.execPath, [entry], dir);
-  const oursTools = (await ours.listTools()).tools;
-  await ours.close();
+  let oursTools;
+  try { oursTools = (await ours.listTools(undefined, { timeout: 15_000 })).tools; }
+  finally { await ours.close(); }
   let competitor = null;
   const tasksFile = path.join(dir, "bench/tasks.json");
   const spec = existsSync(tasksFile) ? readJson(tasksFile).competitor : null;
   if (spec) {
-    const c = await connect(spec.command, spec.args ?? [], dir);
-    const tools = (await c.listTools()).tools;
-    competitor = { label: spec.label, tool_definition_chars: modelVisibleChars(tools), tools_list_chars: listChars(tools) };
-    await c.close();
+    const c = await connect(spec.command, spec.args ?? [], dir, 15_000, spec.env);
+    try {
+      const tools = (await c.listTools(undefined, { timeout: 15_000 })).tools;
+      competitor = { label: spec.label, tool_definition_chars: modelVisibleChars(tools), tools_list_chars: listChars(tools) };
+    } finally { await c.close(); }
   }
   if (sourceSnapshot(dir).sha256 !== source.sha256) throw new Error("Server source changed during performance measurement.");
+  if (hash(readFileSync(new URL(import.meta.url))) !== RUNNER_SHA256) throw new Error("Performance runner changed during measurement.");
+  assertConnectorUnchanged();
   return {
     schema: "canlilabs.performance.v2",
+    timing_scope: "startup_initialize_first_call",
     measured_at: new Date().toISOString(),
-    provenance: { source_sha256: source.sha256, competitor_sha256: identityHash(spec ?? null), runner_sha256: hash(readFileSync(new URL(import.meta.url))) },
+    provenance: { source_sha256: source.sha256, competitor_sha256: identityHash(spec ?? null), runner_sha256: RUNNER_SHA256, connector_sha256: MCP_CONNECTOR_SHA256 },
     measured_on: new Date().toISOString().slice(0, 10),
     where,
     node: process.version,
@@ -129,14 +156,16 @@ export function renderExample(perf) {
 /** The README's Performance block, from bench/perf.json. */
 export function renderPerf(perf) {
   if (!perf) return "Not yet measured.";
+  const includesStartup = perf.timing_scope === "startup_initialize_first_call";
   const lines = [
-    `Measured ${perf.measured_on} from ${perf.where} against the live upstream, Node ${perf.node.replace(/^v/, "")} (\`bench/perf.json\`, \`scripts/perf.mjs\` in the factory).`,
+    `Measured ${perf.measured_on} from ${perf.where} against the live server, Node ${perf.node.replace(/^v/, "")} (\`bench/perf.json\`, \`scripts/perf.mjs\` in the factory).`,
     "",
-    "| Call | First call | Repeat | Result size |",
+    `| Call | ${includesStartup ? "First call including startup" : "First request after initialization"} | Repeat | Result size |`,
     "| --- | --- | --- | --- |",
     ...perf.scenarios.map((s) => `| ${s.call.replace(/\|/g, "\\|")} | ${s.first_call_ms} ms | ${s.repeat_ms} ms | ${s.result_chars.toLocaleString("en-US")} chars |`),
     "",
-    "First call: a fresh server process, including the TLS connection and the upstream's own time. Repeat: the same call again, answered from the in-process cache, so it shows this server's own overhead.",
+    includesStartup ? "First call includes the stdio process start, MCP initialization and first tool request. Startup and first-request timings are also recorded separately in perf.json. Repeated requests use the same process and include server work plus any upstream I/O or cache effects."
+      : "This legacy record times the first tool request after MCP initialization; it excludes process startup. Repeated requests use the same process and include server work plus any upstream I/O or cache effects. Remeasure before comparing cold-start performance.",
     "",
     `Tool definitions the model reads on every turn (name, description, input schema): ${perf.tool_definition_chars.toLocaleString("en-US")} characters` +
       (perf.competitor ? `, against ${perf.competitor.tool_definition_chars.toLocaleString("en-US")} for ${perf.competitor.label}.` : ".") +
