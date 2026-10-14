@@ -98,7 +98,7 @@ test("a statement that never ends is stopped at the time limit, and the engine i
     assert.equal(res.isError, true);
     assert.match(res.content[0].text, /Statement 2 of the SQL did not finish within 3 s/);
     assert.ok(Date.now() - t0 < 8000);
-    assert.equal(await Promise.race([exited, new Promise((done) => setTimeout(() => done(false), 3000))]), true, "the stuck engine's thread is ended, not left spinning");
+    assert.equal(await Promise.race([exited, new Promise((done) => setTimeout(() => done(false), 3000))]), true, "the stuck engine and supervisor processes exit, not left spinning");
     slowCtx.timeoutMs = DEFAULT_TIMEOUT_MS;
     const after = await call(slow, "check_sql", { sql: "SELECT 42 AS answer;" });
     assert.deepEqual(after.data.results[0].statements[0].rows, [[42]]);

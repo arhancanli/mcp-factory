@@ -1,0 +1,39 @@
+{
+  "schema": "canlilabs.benchmark-preparation.v1",
+  "checked_at": "2026-10-14T05:46:03.508849+00:00",
+  "model_api_executed": false,
+  "scope": "Actual MCP dry initialization plus SDK fetch-fixture control tests; no real agent run or release.",
+  "factory_tests": 317,
+  "benchmark_tests": 13,
+  "plan": "docs/goal/evidence/2026-10-14-world-time-budgeted-plan.json",
+  "plan_sha256": "22a4a7395eff6f603c11b798dd668958d7dd5ea8d253c4331568a9e8d95e60c9",
+  "provenance": {
+    "source_sha256": "39323473ee73d632fd7aac1bc922eebdaa206674918d48cbf18ac367406117e6",
+    "tasks_sha256": "da80a9f49914ae614c5547dc21c0ead983518d25af5d74b7a307cab1819af9e5",
+    "competitor_sha256": "07f4d78dbaaf5ba4c2965d83e93f9ecb8b81ddd8cf9ad66597abae8258edbee7",
+    "runner_sha256": "002cc48188299654f7e95c7d12b3c28713147b03c5225bbabca1bd0a982ac30b",
+    "connector_sha256": "13e3bc9ef6b7d9105072ccce9468246e5e474e6a43303f91a9117af55b7b2175",
+    "budget_runner_sha256": "5e88c258847236fea479c7ea2d463da050cba8457ccdb27c572ce01411fed8bc",
+    "journal_runner_sha256": "551f866b13079161bd8ed50bb05a2e959db37a1237d2e2047768eb68ea68085a",
+    "node": "v24.19.0",
+    "system_sha256": "5f05b8e536844ff18168fef626472662433c01265a1ae2a6322e0b2f7e75daf6",
+    "max_turns": 8,
+    "max_output_tokens": 4000
+  },
+  "raw_log_sha256": {
+    "factory": "1871d2589247629b876d5a0b4dbaa583177ed9832866b6e4de0a1d8a96a7b90a",
+    "benchmark": "11628d01b166679afd78573cf3656f08e013e6da1b7d5f7c8949ce61443a988f",
+    "real_dry_mcp": "a4c7dda3c837afc792cea4ebc47ccb2f344b96a4dd98a2beb7a37792e3b06109",
+    "benchmark_reviewed_current_source": "99b82e4dcdcb8177876333d23fb03e6a5fe9dc6a457a5c6cc7656150d965a074"
+  },
+  "proposed_paid_attempt": {
+    "currency": "USD",
+    "ceiling": 50,
+    "tasks": 24,
+    "arms": 2,
+    "model": "claude-opus-4-8",
+    "approved": false
+  },
+  "tested_implementation": "4d918771ffa28dc86c4564ee05f0a5dd8fb071fb",
+  "focused_log_scope": "The earlier focused log preceded the final journal completion ordering; the reviewed focused run and 317-test factory run use the committed implementation."
+}

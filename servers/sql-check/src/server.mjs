@@ -17,7 +17,7 @@ export const TOOLS = [checkSqlTool];
 
 export const INSTRUCTIONS = "Use check_sql with the dialect (postgres or sqlite, or both to test portability), the schema (CREATE TABLE statements, migrations, optional INSERTs of sample rows) and the SQL to check. Every call starts from an empty in-memory database; statements run inside a transaction that is rolled back, and queries return up to 20 rows.";
 
-// Offline: the engines run in a worker thread (src/engines.mjs), started ahead of the first call
+// Offline: the engines run in supervised child processes, started ahead of the first call
 // when the server runs for a client. timeoutMs is per call.
 export function createContext({ timeoutMs, warmEngines = false } = {}) {
   const ctx = { timeoutMs: timeoutMs ?? (Number(process.env.SQL_CHECK_TIMEOUT_MS) || undefined) };

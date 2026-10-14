@@ -1,5 +1,73 @@
 # Decision and execution log
 
+## 2026-10-14: native SQL failure contained during benchmark review
+
+The first remote Node 24 gate at 4d91877 passes 316/317, then SQL Check's existing
+runaway-query cancellation aborts its process in V8 ThreadIsolation/Wasm allocation
+cleanup (SIGTRAP), on actual Node 24.21.0. Node 20, all independent packages and
+CodeQL pass; matrix fail-fast cancels Node 22. Retained the exact failed job,
+fatal check and log hash. No benchmark-budget test or paid API call failed.
+
+Replace the SQL engine thread with a supervised child process. The supervisor
+executes no WebAssembly, enforces deadlines and kills/reaps the busy engine on
+parent disconnect. Preserve the three-second runaway/exit/replacement assertions
+and ten-second production default; bound configured deadlines at 120 seconds.
+Keep dialect queues separate from disposable engines so a queued call uses a
+live replacement. Restrict child environment to system/locale essentials, retain
+the 512 MiB JavaScript heap limit and describe its actual scope (not total RSS).
+
+All fourteen local SQL checks now pass, including actual native-signal containment,
+queued timeout recovery and a killed MCP parent with a running infinite query.
+A misplaced cleanup edit was caught and corrected before validation. Real stdio
+also initializes, lists and executes SELECT 42. Performance remeasurement exposed
+the old unpinned SQLite reference failing on current Python/MCP APIs. Primary
+PyPI identifies the archived 2025.4.25 release; pin it and the compatible existing
+Python/MCP versions, label it as historical and keep current strongest SQL
+comparison explicitly pending. No weak reference substitutes for that requirement.
+Fresh measured performance, packed validation and full CI are still required.
+
+## 2026-10-14: bounded runner and concrete free preparation validated
+
+Implemented integer-USD request reservations covering the published full-context
+ceiling, highest cache-write rate, bounded output and 20% margin. Verified usage
+refunds unused exposure; unknown or unpriced responses retain the reservation and
+stop. Budget mode pins the first-party endpoint/standard-only/global parameters,
+uses the existing SDK with no automatic retries and a request timeout, and rejects
+environment header overrides. Both provider paths/defaults remain; unpriced legacy
+execution requires an explicit unbudgeted invocation. No provider was migrated.
+
+An exclusive flushed journal persists reservations before API calls, settlements
+and completed rows, survives a killed process and refuses resetting an existing
+attempt. A test exposed source invalidation when the journal was inside source;
+the runner now rejects that location before any paid call. Partial API/budget
+attempts produce no new complete benchmark/README and always close the peer.
+Anthropic rows now retain actual tool choices and explicit argument truncation.
+All 13 benchmark tests and 317 full factory checks pass. SDK responses in tests
+are synthetic fetch fixtures in temporary Git repos, not paid or niche results.
+
+The real free World Time plan initializes/lists five/2,924 native tool/schema
+characters and the pinned incumbent's 17/11,215. It records all 24 task IDs,
+source 39323473..., every helper hash and the proposed fixed journal. No model
+client/request or journal was created. Current credentials were inspected only
+as availability booleans; no value was printed or stored. Prepared one USD 50
+attempt at the existing Opus 4.8 default, with approval still pending under SPEC.
+All 25 objectives and the release floor remain active; qualification count stays
+zero. Remote CI and a signed review are required before the approval request.
+
+## 2026-10-14: bounded paid benchmark preparation
+
+Re-read continuity and inspected actual Git/PR state. PR #15's final signed
+head fcbecc7 is open, ready, unmerged and passes all ten checks. Main remains
+e52f29f; the previous goal turn made real progress. Created an isolated worktree
+on that verified head. All 25 requirements and the maintained release floor remain.
+
+The current paired-agent loop has eight turns/4,000 output tokens per request,
+but no spend cap and saves only after the full run. Add conservative per-request
+reservations, validated usage/refunds, no automatic request retries and durable
+incremental task evidence. Preserve both existing provider paths and the default
+model; this is no provider migration. Use current primary pricing/API docs and
+offline tests before requesting the original owner-only paid API approval.
+
 ## 2026-10-14: deep RL learned and validated on both CPU platforms
 
 Committed fixed DQN hyperparameters and functional learning criteria in signed
