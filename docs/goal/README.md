@@ -1,6 +1,6 @@
 # CanliLabs goal
 
-Owner: Arhan Canli. Expanded: 2026-10-13. Status: active.
+Owner: Arhan Canli. Expanded: 2026-10-13 and 2026-10-20 (rename pending, invention lab, stars, open-source reimplementations; see REQUIREMENTS E2). Status: active.
 
 Build CanliLabs into an AI research and engineering laboratory with thousands of
 useful MCP servers and reproducible systems for data, machine learning, deep

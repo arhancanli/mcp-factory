@@ -1,6 +1,6 @@
 # Requirements and completion evidence
 
-Source O: original `docs/SPEC.md`. Source E: owner expansion on 2026-10-13.
+Source O: original `docs/SPEC.md`. Source E: owner expansion on 2026-10-13. Source E2: owner expansion on 2026-10-20.
 Status is deliberately evidence-based. Infrastructure that enables a requirement
 does not by itself complete it. The acceptance targets below are engineering
 criteria chosen to make the owner's ambitions reviewable.
@@ -32,6 +32,12 @@ criteria chosen to make the owner's ambitions reviewable.
 | L09 | E | Research education and accessible workflows | Progressive ML/DL/RL learning paths, working tutorials, notebooks or CLI recipes, explanations, exercises and reproducible examples | Working CLI examples documented; full curriculum pending |
 | L10 | E | Model delivery and production operations | Reloaded-model inference, evaluation-based promotion, rollback, documented deployment, health/latency/cost checks and monitoring | Local inference with original labels and variable feature counts plus verified model cards validated; promotion/production pending |
 | L11 | E | Connect the laboratory with MCP | Narrow tools for dataset inspection, experiments, evaluations and model discovery; permissions and resource limits; conformance and task tests | Three read-only tools, split/rights/profile and real DQN metadata/filtering verified by three stdio integrations; ten frozen answers validated on both CPU hosts; agent comparisons/release pending |
+| B01 | E2 | Rename CanliLabs under one umbrella brand for the lab, invention lab and open-source work | Owner-chosen name; repository, package scope, config and site renamed with redirects; no broken installs | Planned; awaiting owner's name |
+| I01 | E2 | Invention lab: groundbreaking discoveries in mathematics, physics and algorithms | Propose, automatically verify, keep-best engine; each track has an automatic checker (code or Lean for maths, tests and benchmarks for algorithms, simulators for physics); at least one published best-known result beaten with a rerunnable checker | Planned |
+| I02 | E2 | Build the best model in the world in at least one niche | Specialist model trained on the lab's own verified attempts; measured first place on a named public leaderboard or benchmark against the strongest current entry | Planned |
+| A01 | E2 | Millions of GitHub stars across all CanliLabs repositories | Dated star counts per repository; ladder 1,000, 10,000, 100,000, 1,000,000; only legitimate adoption (no bought, exchanged or automated stars) | Planned; 1 star on mcp-factory at 2026-10-20 |
+| O01 | E2 | Open-source reimplementations of popular software to show strength and gain popularity | Per project: clean-room reimplementation from public documentation, protocols and observed behaviour only; no copied proprietary code, assets or keys; no DRM circumvention; licence and legal check recorded before publication | Planned |
+| F01 | E2 | Fund later high-budget stages through the owner's other startups, with cross-marketing | Written funding decision per stage in the owner's stated amounts; sponsor credits and cross-links between CanliLabs and sibling products | Planned; later stage |
 
 Every closure must link to actual artifacts, code/version, execution environment,
 measurement date, passing checks, and material limitations. A local CPU smoke run

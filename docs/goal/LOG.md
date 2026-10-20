@@ -646,3 +646,17 @@ All 307 factory checks pass on the final local source. Current live performance,
 fixed source identity and direct-corpus proof are retained. Paid paired-agent
 evidence, final full-tree packed qualification, reviewed owner integration and
 publication remain required. All 25 objectives and release floor stay active.
+
+## 2026-10-20: owner expansion E2
+
+The owner expanded the goal in chat. CanliLabs will be renamed (name pending),
+and becomes the umbrella for an invention lab that seeks machine-verified
+discoveries in maths, physics and algorithms and later trains its own
+specialist model. The MCP goals stay: the best servers in every niche, at
+thousands of qualifying releases. New aims: millions of GitHub stars across all
+repositories, open-source reimplementations of popular software in other
+branches, and later funding plus cross-marketing from the owner's other startups.
+Recorded as B01, I01, I02, A01, O01 and F01 and phases P10 to P12. "Reverse
+engineering" is recorded as clean-room reimplementation only. Stars count only
+from legitimate adoption. Nothing was renamed, released or spent. The repository
+had 1 star, 21 source servers, 0 qualifying releases and open owner reviews #9 to #16.
