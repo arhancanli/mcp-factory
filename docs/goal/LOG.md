@@ -660,3 +660,11 @@ Recorded as B01, I01, I02, A01, O01 and F01 and phases P10 to P12. "Reverse
 engineering" is recorded as clean-room reimplementation only. Stars count only
 from legitimate adoption. Nothing was renamed, released or spent. The repository
 had 1 star, 21 source servers, 0 qualifying releases and open owner reviews #9 to #16.
+
+## 2026-10-20: owner expansion E3
+
+The owner added: serious breakthroughs in every niche (S01), public competitions
+against the lab's baselines (C01), hundreds of specialised models (H01) and the
+lab's own ARC-style AI testing and ranking system (R01). Name candidates with free
+.com, .ai and GitHub names were Quantavane and Heliovane (teravane.com is taken).
+The name, budget and the go for stage 0 are still waiting on the owner.

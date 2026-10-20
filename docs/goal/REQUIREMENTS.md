@@ -1,6 +1,6 @@
 # Requirements and completion evidence
 
-Source O: original `docs/SPEC.md`. Source E: owner expansion on 2026-10-13. Source E2: owner expansion on 2026-10-20.
+Source O: original `docs/SPEC.md`. Source E: owner expansion on 2026-10-13. Source E2 and E3: owner expansions on 2026-10-20.
 Status is deliberately evidence-based. Infrastructure that enables a requirement
 does not by itself complete it. The acceptance targets below are engineering
 criteria chosen to make the owner's ambitions reviewable.
@@ -38,6 +38,10 @@ criteria chosen to make the owner's ambitions reviewable.
 | A01 | E2 | Millions of GitHub stars across all CanliLabs repositories | Dated star counts per repository; ladder 1,000, 10,000, 100,000, 1,000,000; only legitimate adoption (no bought, exchanged or automated stars) | Planned; 1 star on mcp-factory at 2026-10-20 |
 | O01 | E2 | Open-source reimplementations of popular software to show strength and gain popularity | Per project: clean-room reimplementation from public documentation, protocols and observed behaviour only; no copied proprietary code, assets or keys; no DRM circumvention; licence and legal check recorded before publication | Planned |
 | F01 | E2 | Fund later high-budget stages through the owner's other startups, with cross-marketing | Written funding decision per stage in the owner's stated amounts; sponsor credits and cross-links between CanliLabs and sibling products | Planned; later stage |
+| S01 | E3 | Serious breakthroughs in every niche the lab works in | Per niche: a result that beats the published state of the art or settles an open question, with a rerunnable checker and independent confirmation or peer review | Planned |
+| C01 | E3 | Public competitions where people try to beat the lab's baselines | Hosted competitions with published baselines, hidden test sets, a scoring server and dated leaderboards; real outside entries | Planned |
+| H01 | E3 | Hundreds of specialised models built by the lab | Each model beats a stated baseline on a held-out test, ships a model card and licence, and is counted from release receipts; no duplicates | Planned |
+| R01 | E3 | The lab's own AI testing and ranking system, like ARC | Benchmark with a private held-out set, human baseline, contamination resistance, versioned seasons and a public leaderboard of real model entries | Planned |
 
 Every closure must link to actual artifacts, code/version, execution environment,
 measurement date, passing checks, and material limitations. A local CPU smoke run
