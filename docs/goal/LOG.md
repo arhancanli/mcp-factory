@@ -668,3 +668,6 @@ against the lab's baselines (C01), hundreds of specialised models (H01) and the
 lab's own ARC-style AI testing and ranking system (R01). Name candidates with free
 .com, .ai and GitHub names were Quantavane and Heliovane (teravane.com is taken).
 The name, budget and the go for stage 0 are still waiting on the owner.
+Also added: an always-on invention loop run by the lab's own models (V01) and
+industry flagship models (X01). Flagship industries are to start where the owner's
+companies hold data and checkers.
