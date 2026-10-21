@@ -760,3 +760,11 @@ pricing rule. Until funding or credits exist, the lab builds and runs at $0 with
   institutes, engine, model factory, talent pipeline, open layer, data), vertically integrated industry companies,
   the sister companies as a shared backbone, a startup studio, and consumer, media, education and finance companies,
   with existing projects placed. Proposed top: the Canli holding, pending owner confirmation.
+
+## 2026-10-21 — owner correction: think bigger, Quantavane is everything
+
+- Owner: "you cant think as big as me"; forget the basic mapping of side projects and the structural questions.
+  Every science layer, even maths and physics, becomes its own Quantavane company, as does every sector; this also
+  diversifies Cirrun's revenue across many customers. Marketing means a HubSpot-scale platform, plus Higgsfield-scale
+  generative platforms. My scope: Quantavane, and Quantavane powering everything with its models. GROUP.md rewritten
+  accordingly; Y01 updated and Y02 (platform companies) added.

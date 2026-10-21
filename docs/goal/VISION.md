@@ -62,6 +62,11 @@ can be checked soonest.
 - Lab models power the sister startups; Cirrun's free user models are Quantavane models; replace a sibling's model
   only on a measured win; fair written inter-company pricing.
 - Hire top researchers; compete on Kaggle and similar as Quantavane.
+- Quantavane powers everything with its models, and every science and sector is its own Quantavane company: science
+  companies (even Mathematics and Physics) and vertically integrated industry companies, each the best in the world,
+  each its own Cirrun customer so Cirrun's revenue is diversified (see [GROUP.md](GROUP.md)).
+- Platform companies on Quantavane models: a HubSpot-scale marketing and CRM platform and Higgsfield-scale generative
+  platforms.
 - Moonshots across every branch once big (talking to animals, biotech and more; see [MOONSHOTS.md](MOONSHOTS.md)).
 - Spin-out startups where a track has a verified result and a paying customer (post-quantum security, chip design;
   formal verification inside TraceAxiom; quant finance inside CanliCapital).
