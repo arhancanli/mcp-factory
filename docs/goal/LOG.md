@@ -743,3 +743,10 @@ pricing rule. Until funding or credits exist, the lab builds and runs at $0 with
   further branches each labelled by how results are proven; ten landmark aims spread across fields.
 - Found and fixed: Cloudflare's zone tells browsers to cache JS and CSS for 4 hours, so returning visitors saw new
   HTML with old scripts. Deploys now go through `npm run deploy`, which stamps content hashes on asset links.
+
+## 2026-10-21 — owner direction: vertically integrated companies in every sector
+
+- Owner: every sector and branch becomes a vertically integrated company (engine to labs to factories to products),
+  Quantavane keeps adding sectors, and the aim is to become the biggest in the world and lead humanity. Site work
+  paused at the owner's request ("dont worry about the site for now lets plan"); the companies chapter and hub scene
+  are local and unpublished in quantavane-site. Recorded as Y01; the full plan is being agreed with the owner.
