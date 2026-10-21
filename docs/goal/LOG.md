@@ -768,3 +768,11 @@ pricing rule. Until funding or credits exist, the lab builds and runs at $0 with
   diversifies Cirrun's revenue across many customers. Marketing means a HubSpot-scale platform, plus Higgsfield-scale
   generative platforms. My scope: Quantavane, and Quantavane powering everything with its models. GROUP.md rewritten
   accordingly; Y01 updated and Y02 (platform companies) added.
+
+## 2026-10-21 — Quantavane goals, integration and the always-on training system
+
+- Owner: focus on Quantavane and how big we make it; every company vertically integrated into Quantavane and into
+  the sister companies when needed; the best approach for each; a constantly improving training system using
+  whichever model is best per job; reach points no one thought possible. Written in QUANTAVANE.md: goal ladder
+  (2027, 2030, 2036, 2046), seven integration links per company, the always-on training loop, self-improvement and
+  building our own stack, and a $0 first step (training system v1 in the engine). Recorded as Q01, T01, U01.

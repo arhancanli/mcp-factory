@@ -3,7 +3,8 @@
 Owner, 2026-10-21: "I'm planning on leading humanity here." Quantavane becomes everything we dream it will be: its
 models power every company, and every science and every sector gets its own Quantavane company, each the best in
 the world at what it does. This replaces the earlier draft of this file (which mapped smaller side projects and
-asked basic structural questions; the owner set those aside).
+asked basic structural questions; the owner set those aside). Goals, integration and the training system:
+[QUANTAVANE.md](QUANTAVANE.md).
 
 ## The core: Quantavane models
 
