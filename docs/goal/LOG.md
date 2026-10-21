@@ -701,3 +701,11 @@ pretrained models, then frontier scale.
 Also added: employ top researchers (P01) and compete as Quantavane in every Kaggle competition and similar
 venues (K01).
 Also added: later discovery branches with very large ambition, including biotech and animal communication (B02).
+
+## 2026-10-21: compute plan
+
+Owner: Quantavane's compute comes first from cloud credits, then runs fully on Cirrun, and Quantavane pays Cirrun
+for it as a customer, adding to Cirrun's revenue. Credits must be used under each programme's terms: credits granted
+to one company cover that company's own work, so Quantavane applies for its own credits once it is a company, or
+the work is run as the credited company's own project. Payments to Cirrun follow the written, fair inter-company
+pricing rule. Until funding or credits exist, the lab builds and runs at $0 with free and local models.
