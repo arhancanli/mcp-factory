@@ -686,3 +686,10 @@ grants, compute credits and prizes immediately (AI for Math Fund, Emergent Ventu
 credits, AIMO prizes when open), and approach angel investors once the first verified result exists. Investment
 needs a company with the owner's parents as signatories. Once Cirrun reaches full scale, including Cirrun Host
 supply, the lab runs its compute on Cirrun.
+
+## 2026-10-21: sibling startups as first customers
+
+The owner wants the group vertically integrated: Quantavane's models power GIMBIX, Cirrun, TraceAxiom and
+CanliCapital, and those companies pay for them as customers. Each model must beat what the sibling uses today on
+that sibling's own tests before it replaces it. Inter-company pricing must be written down and at fair rates. Revenue
+from sibling companies is reported separately from outside revenue.
