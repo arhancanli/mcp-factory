@@ -750,3 +750,13 @@ pricing rule. Until funding or credits exist, the lab builds and runs at $0 with
   Quantavane keeps adding sectors, and the aim is to become the biggest in the world and lead humanity. Site work
   paused at the owner's request ("dont worry about the site for now lets plan"); the companies chapter and hub scene
   are local and unpublished in quantavane-site. Recorded as Y01; the full plan is being agreed with the owner.
+
+## 2026-10-21 — the whole group in one picture
+
+- Owner: remember every science and sector; under Quantavane go research initiatives, recruitment pipelines, and
+  model branches for each of the owner's startups; alongside, many more startups across the branches powered by the
+  sister companies and their networks; eventually marketing companies, social media platforms, education enterprises
+  and more ("we are trying to get everything here"). Written up in GROUP.md: Quantavane as the brain (research
+  institutes, engine, model factory, talent pipeline, open layer, data), vertically integrated industry companies,
+  the sister companies as a shared backbone, a startup studio, and consumer, media, education and finance companies,
+  with existing projects placed. Proposed top: the Canli holding, pending owner confirmation.
