@@ -722,3 +722,14 @@ pricing rule. Until funding or credits exist, the lab builds and runs at $0 with
   tolerance 1e-7) and 2.63586276 (AlphaEvolve, zero tolerance). A 300-attempt run is going in the background.
 - No record claimed. Next: stronger free proposer if owner provides a free-tier key, then less-crowded target problems
   with cited best-known values.
+
+## 2026-10-21 — vision across every branch, live
+
+- Owner: the vision must be big and hard across all branches and industries, each with its own approach, keeping
+  every earlier ask. Recorded in VISION.md (12 landmark goals, full list of owner asks) and BRANCHES.md (21 branches:
+  goal, how candidates are proposed, checker, data, partners, first step, industries).
+- Owner approved deploying. quantavane.com updated (site commit ce2e30b): Branches grid with how each field proves
+  results, goal line per core chapter, landmark aims, balanced road and FAQ; share image, touch icon, robots and
+  sitemap, real 404 and thanks pages, strict CSP and HSTS. Verified live: no console errors, fonts and film load, a
+  real sign-up saved with hashed IP and was then deleted (list empty).
+- Engine fix 1ee4b33: migrated copies keep their solution (19 tests pass). Circle packing remains a calibration run.
