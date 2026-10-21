@@ -39,3 +39,17 @@ Projects in every branch of MOONSHOTS.md running.
 
 **2036: the engine for the world's science.** Quantavane is the leading lab for verified discovery, with its own
 frontier models, its own compute through Cirrun, and a group of companies built on top.
+
+## Money needed, stage by stage (estimates, 2026-10-21)
+
+| Stage | Years | Raise or find | Main uses |
+| --- | --- | --- | --- |
+| Prove the engine | 2026-27 | about $10k to $20k (grants, sibling revenue) | Model calls, domains, company setup |
+| Get known | 2028 | $250k to $1M (grants, angels, prizes) | Compute, part-time researchers |
+| Build the team | 2029 | $3M to $8M seed | 8 to 15 people, about $1M to $2M compute |
+| Own models | 2030 | $30M to $80M Series A | Mid-size training runs ($5M to $20M), 30 to 50 people |
+| Many branches, institute | 2031-32 | $300M to $1B | Lab partners, campus, 100 to 300 staff, bigger runs |
+| Frontier | 2033-36 | $10B to $30B+ cumulative, plus revenue | Frontier training runs and data centres (partly via Cirrun) |
+
+Each stage is raised only after the previous stage's results exist. Comparable labs raised similar totals on the way
+to frontier scale.
