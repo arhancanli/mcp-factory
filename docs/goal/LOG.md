@@ -810,3 +810,12 @@ pricing rule. Until funding or credits exist, the lab builds and runs at $0 with
   less-crowded problems for a first verified result, forming the company, free compute now, young-founder funding,
   UAE partners, open source and a live attempt feed, talent programme, competing as Quantavane, early outside
   revenue, and the always-on training system.
+
+## 2026-10-21 — owner decision: bootstrap, no small equity rounds
+
+- Owner: small funding would give up major equity for no reason. Bootstrap with cloud and other credits until Cirrun
+  steps in; as Quantavane grows Cirrun grows, as Cirrun grows more companies launch, and the sister companies grow
+  with it. Angels, accelerators and small equity rounds are off the table. Noted for the owner: Emergent Ventures and
+  the Thiel Fellowship are grants that take no equity, so they fit the bootstrap plan if wanted; credit programmes
+  need the company formed; the loop needs outside customers, because money moving between group companies adds no new
+  money. Any future raise only late, large and on the owner's terms with founder control.
