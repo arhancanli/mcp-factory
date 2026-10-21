@@ -82,3 +82,27 @@ years; laws of physics found directly in data; every company's models measurably
 Build the first version of the training system inside the engine: a model registry, hidden tests per problem, a
 router that sends each problem to whichever model is measurably winning, and champion/challenger promotion with
 everything logged. It runs on free local models now and takes stronger ones as the owner's infrastructure arrives.
+
+## Growing faster (2026-10-21, ranked by impact)
+
+1. **First verified result sooner:** run the engine on 20+ less-crowded problems in parallel instead of one
+   (published bound tables in combinatorics and coding theory, packing tables, Erdős problems with exact statements,
+   integer sequences that ask for more terms), with the strongest free models available. Check the literature and
+   contact record holders before any announcement; in 2025 a major lab had to walk back "solved Erdős problems" that
+   were already in the literature.
+2. **Form the company (parents sign):** it unlocks cloud credit programmes, grants that need an entity, a bank account,
+   contracts and clean IP ownership, with founder-controlled shares from day one.
+3. **Free compute and models now:** TPU Research Cloud, free API tiers, compute grants; then startup credits once the
+   company exists; Quantavane is Cirrun's first heavy customer.
+4. **Young-founder funding:** send Emergent Ventures (draft ready); then the Thiel Fellowship, Z Fellows and 1517
+   Fund after the first result; angels next.
+5. **The UAE advantage:** MBZUAI and TII for research partners, talent and compute; Hub71 and the Dubai AI Campus for
+   company support; the Gulf's sovereign AI push for later capital.
+6. **Attention that compounds:** open-source the engine early, a live public feed of the engine's attempts on
+   quantavane.com, the Open Problems Benchmark launched early so labs report on it, small prize competitions.
+7. **Talent from day one:** the young researchers programme now (olympiad alumni, the Lean community, Kaggle
+   grandmasters), credited as co-authors; record holders and professors as advisers who check results.
+8. **Compete as Quantavane:** AIMO progress prizes, ARC Prize and Kaggle under the Quantavane name.
+9. **Early outside revenue:** paid optimisation projects with checkable gains, and the first specialist model APIs
+   on Cirrun, pulled forward from 2028 to 2027.
+10. **Always on:** the training system and the multi-problem engine running every hour, improving every day.

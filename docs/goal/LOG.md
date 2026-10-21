@@ -803,3 +803,10 @@ pricing rule. Until funding or credits exist, the lab builds and runs at $0 with
   valued around $500B in late 2025, ten years after founding; Anthropic around $183B in September 2025, four years
   after founding. What decides the tier: an early verified breakthrough, the first serious rounds around 2028-29,
   early top researchers, our models measurably winning in the sciences, and a first company with real revenue.
+
+## 2026-10-21 — growing faster
+
+- Owner asked what else makes Quantavane grow faster. Ranked list added to QUANTAVANE.md: parallel engine runs on
+  less-crowded problems for a first verified result, forming the company, free compute now, young-founder funding,
+  UAE partners, open source and a live attempt feed, talent programme, competing as Quantavane, early outside
+  revenue, and the always-on training system.
