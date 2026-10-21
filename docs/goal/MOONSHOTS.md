@@ -26,3 +26,16 @@ long-term candidates, not commitments with dates. They start only after the core
 | Robotics | Controllers that learn new physical skills fast | Real-robot trials |
 | Oceans | Map and understand ocean ecosystems from sound and sensor data | Predictions checked against new surveys |
 | Engineering | Antennas, optics and structures nobody has designed | Simulation, then prototypes |
+
+## Spin-out candidates (owner, 2026-10-21)
+
+Quantavane powers sister startups built on its tracks. A track becomes its own company when it has a verified
+result and a paying customer; until then it stays a lab track or a feature of an existing company.
+
+| Area | Home | Note |
+| --- | --- | --- |
+| Post-quantum cryptography and cyber-defence | New startup candidate | Proofs cover implementations and reductions, not "unbreakable" claims; vulnerability finding stays defensive with responsible disclosure |
+| Chip design (EDA) | New startup candidate, later | Logic is checkable in simulation; timing, power and fabrication need partners; incumbents are Synopsys and Cadence |
+| Formal software verification | TraceAxiom | Product line inside TraceAxiom, not a separate company |
+| Quantitative finance | CanliCapital and ALPHAC | Already exists; the checker must be untouched out-of-sample data, since backtests alone are where overfitting lives |
+| Compiler and database optimisation | Quantavane algorithms track, deployed in Cirrun | Results upstreamed to open projects where possible |
