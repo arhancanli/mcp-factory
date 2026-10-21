@@ -786,3 +786,11 @@ pricing rule. Until funding or credits exist, the lab builds and runs at $0 with
   the group owns pieces of every industry. GROUP.md now has the internal supply web, the sister integration, the
   startups powered and the margin logic; QUANTAVANE.md's 2046 target ties to every sector; Y02 reworded, J01 and J02
   added.
+
+## 2026-10-21 — frontier lab, best talent, vision upgrades
+
+- Owner: on top of everything, become the frontier lab in the world, hire the best talent, grow significantly, keep
+  everything top of the top, and make the vision better with real reasoning. Added to VISION.md: the frontier path
+  through checkable training signal and real-world data; superhuman discovery that people can check; the north star
+  "verified progress per day"; top-of-the-top as a measured rule; the talent offer; open versus closed; a library of
+  everything proven; national partnerships; safety as a strength. Recorded as Z02, P02, R02.

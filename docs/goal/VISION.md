@@ -50,6 +50,42 @@ computation unlike human designs), new chemistry, new rules of life, and open ex
 computing get the deepest programmes on the site (eight tracks each) because they are where the biggest breakthroughs
 can be checked soonest.
 
+## Vision upgrades (2026-10-21, owner asked for the best reasoning on making the vision stronger)
+
+**How Quantavane becomes the frontier lab.** Not by out-spending others on internet text, which every lab has. The
+next jumps in AI come from training against results that can be checked (that is how today's reasoning models were
+made, using maths and code). Quantavane owns the largest supply of checkable training signal in the world: checkers
+for every field, plus real measurements from its labs and factories in every sector. Add the cheapest compute
+anywhere (Cirrun, with our own chips and power), and distribution through every Quantavane company and every startup
+it powers. Order: frontier in each science first (the best maths prover, the best materials model, the best chip
+designer), then our own pretrained models, then frontier general models.
+
+**Superhuman discovery that people can check.** As AI passes human experts, the hard question becomes "how do we
+trust it?" Quantavane's answer is built in: every claim comes with its proof or its measurement. That makes
+Quantavane the lab governments, scientists and companies trust most as AI gets more powerful.
+
+**One north star for the whole group: verified progress per day,** the count of checked improvements (records,
+discoveries, better products) produced every day across every company. It measures "leading humanity" directly.
+
+**"Top of the top" as an operating rule.** Every company names the best competitor in its field and the yardstick
+it is measured on, and is measured against it every quarter: lead it, or fix the approach.
+
+**Talent no other lab can offer.** Top researchers can lead or found a Quantavane company in their own field, with
+real equity; the most compute per researcher; open publication of proven results; Quantavane Fellows and prizes for
+open problems; competitions as the hiring funnel; research hubs in the world's talent centres.
+
+**Open where it spreads, closed where it compounds.** The engine, specialist models, benchmarks and the attempt
+archive are open, for reach, stars and talent. Flagship weights and the real-world data stay inside.
+
+**A library of everything proven.** Every verified theorem, material property, measurement and algorithm goes into one
+open, machine-checkable library that every model trains on: a public good, and the foundation for every next search.
+
+**Partnerships with nations.** Countries building their own AI capacity, starting with the Gulf where the UAE is
+building one of the world's largest AI campuses, can run a national discovery engine with Quantavane.
+
+**Safety and trust as a strength.** A frontier-grade safety programme (model evaluations, red-teaming, staged
+release rules) attracts the best researchers and earns regulators' trust in every sector the group enters.
+
 ## Everything the owner has asked for (kept together so nothing is lost)
 
 - Invention lab with machine-verified discoveries; an always-on invention loop run by the lab's own models.
