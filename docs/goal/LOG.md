@@ -709,3 +709,16 @@ for it as a customer, adding to Cirrun's revenue. Credits must be used under eac
 to one company cover that company's own work, so Quantavane applies for its own credits once it is a company, or
 the work is run as the credited company's own project. Payments to Cirrun follow the written, fair inter-company
 pricing rule. Until funding or credits exist, the lab builds and runs at $0 with free and local models.
+
+## 2026-10-21 — Quantavane live; P10 engine started at $0
+
+- Owner bought quantavane.com through Cloudflare Registrar. Site moved from Vercel to Cloudflare Pages (free,
+  commercial use allowed); waitlist stores in Cloudflare D1. Live on quantavane.com and www, tested end to end
+  (repo ~/quantavane-site, commits 5416b53 and 55e32c2; no git remote yet).
+- Owner said go on P10. Engine built in ~/quantavane-engine (commit 39011ca): macOS-sandboxed candidates (no network,
+  no private reads, temp-only writes, CPU cap), exact rational checker, SQLite archive of every attempt, islands with
+  migration, spending ledger with hard cap, local Gemma 4 12B through Ollama at $0. 15 tests pass.
+- Smoke run on circle_packing_26: seed 2.1667 to 2.5614 in 6 verified attempts. Best known 2.635983283 (ShinkaEvolve,
+  tolerance 1e-7) and 2.63586276 (AlphaEvolve, zero tolerance). A 300-attempt run is going in the background.
+- No record claimed. Next: stronger free proposer if owner provides a free-tier key, then less-crowded target problems
+  with cited best-known values.
