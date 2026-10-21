@@ -794,3 +794,12 @@ pricing rule. Until funding or credits exist, the lab builds and runs at $0 with
   through checkable training signal and real-world data; superhuman discovery that people can check; the north star
   "verified progress per day"; top-of-the-top as a measured rule; the talent offer; open versus closed; a library of
   everything proven; national partnerships; safety as a strength. Recorded as Z02, P02, R02.
+
+## 2026-10-21 — ten-year size estimate given to the owner
+
+- Asked how big Quantavane will be in 10 years. Answer, consistent with the earlier funding table ($10-30B+ raised
+  by 2033-36): if the plan lands, about $100-300B by 2036; if it becomes a top frontier lab and the companies take
+  off, $500B to $1T+; if it stays a strong discovery lab without reaching the frontier, $1-10B. Anchors: OpenAI was
+  valued around $500B in late 2025, ten years after founding; Anthropic around $183B in September 2025, four years
+  after founding. What decides the tier: an early verified breakthrough, the first serious rounds around 2028-29,
+  early top researchers, our models measurably winning in the sciences, and a first company with real revenue.
