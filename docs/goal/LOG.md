@@ -700,3 +700,4 @@ powering all sibling startups (Z01). The path is staged by funding: tuned open-w
 pretrained models, then frontier scale.
 Also added: employ top researchers (P01) and compete as Quantavane in every Kaggle competition and similar
 venues (K01).
+Also added: later discovery branches with very large ambition, including biotech and animal communication (B02).
