@@ -29,11 +29,47 @@ Materials, Bio and Medicine, Silicon, Energy, Robotics, Space, Food, Health and 
 whole loop, from models to its own labs, plants and factories to the products, climbing one rung at a time: partner
 labs, own automated lab, own pilot plant, own full-scale production.
 
-## Platform companies: Quantavane models in front of millions
+## Integration inside Quantavane: the companies supply each other
 
-- **A marketing and CRM platform at HubSpot scale,** where the AI does the marketing work, not just records it.
-- **Generative platforms at Higgsfield scale:** video, images, audio and 3D, all on Quantavane models.
-- More platforms wherever Quantavane models can be the best product in a category.
+Roughly one Quantavane company per sector, all wired to each other as well as to the models:
+- Materials supplies semiconductor and battery materials to Silicon and Energy.
+- Silicon supplies AI chips to Cirrun's data centres and to Robotics.
+- Energy powers Cirrun's data centres and every factory in the group.
+- Chemistry supplies molecules to Bio and Medicine, and fertiliser chemistry to Food.
+- Physics supplies simulation to Engineering, Space and Energy.
+- Mathematics supplies optimisation and verification to Silicon, logistics and finance.
+- Computing supplies algorithms and compilers to Cirrun and to every model.
+- Robotics builds the automated labs and factories for every industrial company.
+
+Every sale between them stays inside the group, at written market prices.
+
+## Integration with the sister companies
+
+Cirrun runs all compute (and gets cheaper than anyone because Silicon's chips and Energy's power feed it), GIMBIX
+routes every request to the best model at the lowest cost, TraceAxiom checks every AI action that touches real
+systems, and CanliCapital covers markets and capital.
+
+## The startups Quantavane powers with the best models and AI in the world
+
+- The HubSpot-style marketing and CRM platform, where AI does the marketing work.
+- The Higgsfield-style generative platform for video, images, audio and 3D.
+- Our own social media platforms.
+- The education companies.
+- The startup factory, and every startup it creates, each on Quantavane models from day one.
+
+Each is a customer of Quantavane models and Cirrun compute, and each sends data back that improves the models.
+
+## Why this gives the highest gross and net margins
+
+- **The group keeps the margin at every step.** What other companies pay suppliers for compute, models, chips,
+  materials and energy, the group pays itself.
+- **One engine and one model family serve every company,** so their large fixed cost is spread across the whole
+  group, and each extra company costs little to power.
+- **Profit is made at the high-value end:** models and software platforms, medicines and leading chips, which are
+  among the highest-margin products in the world. Factories exist to feed those products and remove suppliers'
+  markups; on their own they carry thinner margins, so they are never the profit centre.
+- **Prices between companies are written and at market rates,** so every company's margin is real and the group's
+  margins hold up to any investor's review.
 
 ## Why this structure wins
 

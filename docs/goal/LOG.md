@@ -776,3 +776,13 @@ pricing rule. Until funding or credits exist, the lab builds and runs at $0 with
   whichever model is best per job; reach points no one thought possible. Written in QUANTAVANE.md: goal ladder
   (2027, 2030, 2036, 2046), seven integration links per company, the always-on training loop, self-improvement and
   building our own stack, and a $0 first step (training system v1 in the engine). Recorded as Q01, T01, U01.
+
+## 2026-10-21 — the full point: a company per sector, integrated, powering every startup, highest margins
+
+- Owner: Quantavane has roughly as many companies as there are sectors; vertical integration inside Quantavane and
+  with the sister companies; scale to production later; Quantavane makes the best models and AI in the world for the
+  startups the owner opens (HubSpot-style platform, Higgsfield-style generative platform, own social media
+  platforms, education companies, the startup factory); and this gives the highest gross and net margins because
+  the group owns pieces of every industry. GROUP.md now has the internal supply web, the sister integration, the
+  startups powered and the margin logic; QUANTAVANE.md's 2046 target ties to every sector; Y02 reworded, J01 and J02
+  added.

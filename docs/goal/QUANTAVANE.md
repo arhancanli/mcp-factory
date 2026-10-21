@@ -19,7 +19,8 @@ customers.
 first designed medicine in human trials; materials and chips built from our designs and measured above the record;
 Quantavane models used by hundreds of millions of people.
 
-**2046, leading humanity.** A Quantavane company leading every major industry; most of the world's verified
+**2046, leading humanity.** A Quantavane company in nearly every sector of the world economy (the standard
+industry map investors use, GICS, lists about 160 sub-industries), each leading its industry; most of the world's verified
 discoveries; famous open problems settled and new laws of nature found; models used by billions; the most valuable
 company in the world.
 
