@@ -695,3 +695,6 @@ that sibling's own tests before it replaces it. Inter-company pricing must be wr
 from sibling companies is reported separately from outside revenue.
 The owner confirmed that the free models Cirrun gives its users are the models this lab produces, and that lab
 models must take every sibling startup to the next level. Recorded as X02.
+The owner set the ultimate aim of Quantavane's own flagship general models, at the scale of Anthropic and OpenAI,
+powering all sibling startups (Z01). The path is staged by funding: tuned open-weight models first, then own
+pretrained models, then frontier scale.

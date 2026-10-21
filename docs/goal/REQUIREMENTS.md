@@ -45,6 +45,7 @@ criteria chosen to make the owner's ambitions reviewable.
 | V01 | E3 | Run the lab's own models continuously to produce inventions | Always-on loop using lab models; every invention claim has an automatic checker or physical/simulated test, a dated record and a human-reviewed write-up; patent filings name the owner as inventor | Planned |
 | X01 | E3 | Flagship models that power specific industries better than anything else | Per industry: named tasks and data, measured win against the strongest available general and specialist models, licence and deployment evidence, a real user or customer | Planned |
 | X02 | E3 | Lab models that take each sibling startup to the next level (GIMBIX, Cirrun, TraceAxiom, CanliCapital); Cirrun's free user models are produced here | Per startup: named model, the metric it must move, the current baseline on that startup's own tests, a measured win before rollout, and dated adoption | Planned |
+| Z01 | E3 | Ultimately build Quantavane's own flagship general models, like the largest Anthropic and OpenAI models, and run every sibling startup on them | Staged: tuned open-weight models, then own pretrained mid-size models, then frontier scale; each stage funded in owner-stated amounts, measured on public benchmarks against current leaders, and deployed across the sibling startups with measured gains | Planned; long term |
 
 Every closure must link to actual artifacts, code/version, execution environment,
 measurement date, passing checks, and material limitations. A local CPU smoke run
