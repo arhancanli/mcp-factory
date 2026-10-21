@@ -8,6 +8,14 @@ search that runs against them, and the models trained on everything the search l
 better at the next one. No branch is the whole story: every branch gets its own checker and its own way of working
 (see [BRANCHES.md](BRANCHES.md)).
 
+## Every field at full depth (owner, 2026-10-21)
+
+No single field is the spotlight. The core sciences each get a full programme with six named tracks, their own method,
+a hard goal and a stated checker: mathematics, computing, physics, chemistry and materials, biology and medicine,
+engineering and space. Every other branch (climate and Earth, oceans, astronomy, food and farming, brains, diagnosis,
+animal communication, lost languages, finance, security, logistics and industry, AI itself) gets its own goal and
+its own kind of proof. Maths and computing start first because their checkers are instant.
+
 ## The landmark goals (hard on purpose)
 
 Each is a target, counted only with evidence. None is lowered because an early run looks weak; trial runs on free

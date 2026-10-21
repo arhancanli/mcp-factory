@@ -733,3 +733,13 @@ pricing rule. Until funding or credits exist, the lab builds and runs at $0 with
   sitemap, real 404 and thanks pages, strict CSP and HSTS. Verified live: no console errors, fonts and film load, a
   real sign-up saved with hashed IP and was then deleted (list empty).
 - Engine fix 1ee4b33: migrated copies keep their solution (19 tests pass). Circle packing remains a calibration run.
+
+## 2026-10-21 — every field at full depth
+
+- Owner: biology had the spotlight; the lab must be heavy and refined in every branch, especially maths, physics and
+  all of STEM. Site rebuilt (quantavane-site defd0ca, then the build step): six field chapters at equal depth
+  (maths, computing, physics, chemistry and materials, biology and medicine, engineering and space), each with six
+  named programmes, its method, a goal and a checker; new film scenes (carbon-60 molecule, meshing gears); twelve
+  further branches each labelled by how results are proven; ten landmark aims spread across fields.
+- Found and fixed: Cloudflare's zone tells browsers to cache JS and CSS for 4 hours, so returning visitors saw new
+  HTML with old scripts. Deploys now go through `npm run deploy`, which stamps content hashes on asset links.
