@@ -46,6 +46,8 @@ criteria chosen to make the owner's ambitions reviewable.
 | X01 | E3 | Flagship models that power specific industries better than anything else | Per industry: named tasks and data, measured win against the strongest available general and specialist models, licence and deployment evidence, a real user or customer | Planned |
 | X02 | E3 | Lab models that take each sibling startup to the next level (GIMBIX, Cirrun, TraceAxiom, CanliCapital); Cirrun's free user models are produced here | Per startup: named model, the metric it must move, the current baseline on that startup's own tests, a measured win before rollout, and dated adoption | Planned |
 | Z01 | E3 | Ultimately build Quantavane's own flagship general models, like the largest Anthropic and OpenAI models, and run every sibling startup on them | Staged: tuned open-weight models, then own pretrained mid-size models, then frontier scale; each stage funded in owner-stated amounts, measured on public benchmarks against current leaders, and deployed across the sibling startups with measured gains | Planned; long term |
+| P01 | E3 | Employ top researchers | Hiring plan funded in owner-stated amounts; employment through the company with parents signing; named hires with research track records | Planned; after funding |
+| K01 | E3 | Compete in every Kaggle competition and similar venues (AIMO, ARC Prize, research challenges) as Quantavane | Team entries under the Quantavane name, dated leaderboard results kept with losses, prize money tracked as revenue, write-ups of methods | Planned |
 
 Every closure must link to actual artifacts, code/version, execution environment,
 measurement date, passing checks, and material limitations. A local CPU smoke run

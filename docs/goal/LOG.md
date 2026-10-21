@@ -698,3 +698,5 @@ models must take every sibling startup to the next level. Recorded as X02.
 The owner set the ultimate aim of Quantavane's own flagship general models, at the scale of Anthropic and OpenAI,
 powering all sibling startups (Z01). The path is staged by funding: tuned open-weight models first, then own
 pretrained models, then frontier scale.
+Also added: employ top researchers (P01) and compete as Quantavane in every Kaggle competition and similar
+venues (K01).
