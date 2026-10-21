@@ -693,3 +693,5 @@ The owner wants the group vertically integrated: Quantavane's models power GIMBI
 CanliCapital, and those companies pay for them as customers. Each model must beat what the sibling uses today on
 that sibling's own tests before it replaces it. Inter-company pricing must be written down and at fair rates. Revenue
 from sibling companies is reported separately from outside revenue.
+The owner confirmed that the free models Cirrun gives its users are the models this lab produces, and that lab
+models must take every sibling startup to the next level. Recorded as X02.

@@ -44,6 +44,7 @@ criteria chosen to make the owner's ambitions reviewable.
 | R01 | E3 | The lab's own AI testing and ranking system, like ARC | Benchmark with a private held-out set, human baseline, contamination resistance, versioned seasons and a public leaderboard of real model entries | Planned |
 | V01 | E3 | Run the lab's own models continuously to produce inventions | Always-on loop using lab models; every invention claim has an automatic checker or physical/simulated test, a dated record and a human-reviewed write-up; patent filings name the owner as inventor | Planned |
 | X01 | E3 | Flagship models that power specific industries better than anything else | Per industry: named tasks and data, measured win against the strongest available general and specialist models, licence and deployment evidence, a real user or customer | Planned |
+| X02 | E3 | Lab models that take each sibling startup to the next level (GIMBIX, Cirrun, TraceAxiom, CanliCapital); Cirrun's free user models are produced here | Per startup: named model, the metric it must move, the current baseline on that startup's own tests, a measured win before rollout, and dated adoption | Planned |
 
 Every closure must link to actual artifacts, code/version, execution environment,
 measurement date, passing checks, and material limitations. A local CPU smoke run
