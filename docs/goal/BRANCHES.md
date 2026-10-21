@@ -11,12 +11,16 @@ checker passes.
 Propose: evolved construction programs, and model-written Lean proofs. Checker: exact code (rational arithmetic) and
 Lean. Data: every attempt, plus Mathlib. Partners: the mathematicians holding current records, credited before any
 announcement. First step: less-crowded problems with a published best-known value; then Erdős problems with Lean
-statements. Serves: research, cryptography, chip verification.
+statements. Frontier: conjectures and structures found by the engine, proved before they are called theorems; long
+attacks on the hardest problems, starting with the parts a computer can settle. Serves: research, cryptography,
+chip verification.
 
 **Algorithms and computing.** Landmark: a Quantavane algorithm upstream in software that runs on a billion devices.
 Propose: evolved kernels, schedulers and compressors. Checker: correctness tests plus benchmarks on fixed hardware
 against the best public implementation. Data: open benchmark suites. Partners: maintainers of the libraries we
-improve. First step: sorting, hashing and compression kernels; results deployed in Cirrun first. Serves: cloud,
+improve. First step: sorting, hashing and compression kernels; results deployed in Cirrun first. Frontier: new
+algorithm families and models of computation, complexity bounds with proofs, AI training methods found by search.
+Serves: cloud,
 databases, compilers, every software company.
 
 **AI itself.** Landmark: the Open Problems Benchmark becomes what AI labs report; Quantavane models first on named
@@ -44,6 +48,8 @@ project. Serves: every developer; drives stars and adoption.
 
 **Physics.** Landmark: new exact solutions and better bounds in fundamental physics. Propose: symbolic derivations
 and numerical constructions. Checker: symbolic verification plus independent numerical check. Partners: theorists.
+Frontier: laws found directly in data that must predict later measurements; theory-space search in particle
+physics and cosmology checked against every existing measurement.
 
 **Engineering and design.** Landmark: antennas, optics and structures nobody has drawn, built and measured above the
 record. Checker: open electromagnetic and structural simulators, then prototypes from partners or makerspaces.

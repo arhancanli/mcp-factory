@@ -29,8 +29,9 @@ infrastructure never define the lab's scores (owner, 2026-10-21).
 5. **A designed medicine in human trials** with partners and regulators.
 6. **Two-way exchange with another species**, checked by playback experiments.
 7. **A lost script read**, with readings that hold on newly found inscriptions.
-8. **Our own frontier models**, from hundreds of specialists to flagship general models, and flagship industry
-   models that beat everything else in their industry.
+8. **Thousands of models used across the world**: discovery models, thousands of specialists, industry flagships,
+   general flagships at the frontier, and the models that power every sister startup, released open or through an
+   API on Cirrun, each only after beating the best alternative on a test it has never seen.
 9. **The benchmark AI labs report against**: the Open Problems Benchmark, with hidden answers and real entries.
 10. **The open-source home of AI tools**: thousands of best-in-class MCP servers, clean-room open reimplementations,
     and millions of GitHub stars from real adoption.
@@ -39,6 +40,16 @@ infrastructure never define the lab's scores (owner, 2026-10-21).
 12. **A group of companies built on it**: GIMBIX, Cirrun, TraceAxiom, CanliCapital and new spin-outs running on
     Quantavane models and Cirrun compute.
 
+## New rules, not just new records (owner, 2026-10-21)
+
+The engine doesn't only beat records. It also explores without a target: it finds patterns in mathematics and in
+data, proposes the rule behind them, and keeps only rules that survive a proof or a prediction on data they were
+never fitted to. Targets: new mathematics (conjectures found by the engine, then proved), new laws of physics
+(equations found in data that predict later measurements), new ways to compute (algorithm families and models of
+computation unlike human designs), new chemistry, new rules of life, and open exploration. Maths, physics and
+computing get the deepest programmes on the site (eight tracks each) because they are where the biggest breakthroughs
+can be checked soonest.
+
 ## Everything the owner has asked for (kept together so nothing is lost)
 
 - Invention lab with machine-verified discoveries; an always-on invention loop run by the lab's own models.
@@ -46,7 +57,7 @@ infrastructure never define the lab's scores (owner, 2026-10-21).
 - MCP servers: the best in every niche, thousands of them (the original CanliLabs goal, kept).
 - Millions of GitHub stars, legitimate adoption only.
 - Clean-room open-source reimplementations of popular software.
-- Own competitions against our baselines; hundreds of specialised models; own ARC-style benchmark.
+- Own competitions against our baselines; thousands of specialised models; own ARC-style benchmark.
 - Flagship industry models; own flagship general models like Anthropic's and OpenAI's.
 - Lab models power the sister startups; Cirrun's free user models are Quantavane models; replace a sibling's model
   only on a measured win; fair written inter-company pricing.
