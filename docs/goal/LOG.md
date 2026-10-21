@@ -671,3 +671,10 @@ The name, budget and the go for stage 0 are still waiting on the owner.
 Also added: an always-on invention loop run by the lab's own models (V01) and
 industry flagship models (X01). Flagship industries are to start where the owner's
 companies hold data and checkers.
+
+## 2026-10-21: name chosen and pre-launch site
+
+The owner chose Quantavane (quantavane.com, .ai and GitHub name free on 2026-10-21, not yet registered). A
+pre-launch site with a live in-browser propose, check, keep demo, waitlist and problem form is in
+`~/quantavane-site` (local only, not deployed). The outreach plan is `~/quantavane-site/docs/OUTREACH.md`.
+Repository rename, domain registration, waitlist storage and deployment are waiting on the owner.
