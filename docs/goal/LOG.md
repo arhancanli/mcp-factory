@@ -678,3 +678,11 @@ The owner chose Quantavane (quantavane.com, .ai and GitHub name free on 2026-10-
 pre-launch site with a live in-browser propose, check, keep demo, waitlist and problem form is in
 `~/quantavane-site` (local only, not deployed). The outreach plan is `~/quantavane-site/docs/OUTREACH.md`.
 Repository rename, domain registration, waitlist storage and deployment are waiting on the owner.
+
+## 2026-10-21: funding direction
+
+The owner wants Quantavane to pursue funding now rather than bootstrapping alone. Plan: apply for non-dilutive
+grants, compute credits and prizes immediately (AI for Math Fund, Emergent Ventures, TPU Research Cloud, research
+credits, AIMO prizes when open), and approach angel investors once the first verified result exists. Investment
+needs a company with the owner's parents as signatories. Once Cirrun reaches full scale, including Cirrun Host
+supply, the lab runs its compute on Cirrun.
