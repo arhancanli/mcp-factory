@@ -832,3 +832,13 @@ pricing rule. Until funding or credits exist, the lab builds and runs at $0 with
   2031, benchmark reported by major labs 2029, 1M stars by 2034). QUANTAVANE.md accelerator 4, GROUP.md's capital
   line and VISION.md's owner-asks line updated to the bootstrap decision. Next: owner's go on month 1 build work
   (training system v1 and the engine on 20 problems at $0); company formation with parents.
+
+## 2026-10-22 — size by 2045
+
+- Owner asked how big Quantavane gets by 2045. Answer, extending the 10-21 ten-year tiers: plan lands as written
+  about $1-3T (the 2036 path compounding nine more years); frontier lab plus companies leading their industries
+  about $10T+ (the most-valuable-company range by then: NVIDIA passed $5T in late 2025 and markets roughly triple
+  over 20 years); a strong discovery lab that never reaches the frontier about $10-50B. Top tiers in 2045: about
+  140 companies, billions of users, 10,000+ verified discoveries, own chips, power, labs and factories, $150B-$500B+
+  yearly revenue, 100,000+ people. Deciders: frontier by 2033-36 and staying there; industry companies leading at
+  full scale; keeping the best people; funding frontier compute while keeping control.
