@@ -1,0 +1,118 @@
+{
+  "schema": "canlilabs.benchmark-plan.v1",
+  "prepared_at": "2026-10-14T05:41:44.736Z",
+  "model": "claude-opus-4-8",
+  "provider": "anthropic",
+  "source_sha256": "39323473ee73d632fd7aac1bc922eebdaa206674918d48cbf18ac367406117e6",
+  "package_tree": "2c7b0e7107ede5b773a048f5f2fa73d76c3734c0",
+  "incumbent": {
+    "label": "mcp-datetime 0.2.0, dated conversion and business/calendar tools",
+    "command": "uvx",
+    "args": [
+      "--python",
+      "3.12.13",
+      "--with",
+      "mcp==1.30.0",
+      "--with",
+      "python-dateutil==2.9.0.post0",
+      "--with",
+      "parsedatetime==2.6",
+      "--with",
+      "holidays==0.106",
+      "--with",
+      "tzdata==2026.5",
+      "--from",
+      "git+https://github.com/matt0733/get-date-time@7068460121e41918c3cfb0e3ce0dc785a6697ffd",
+      "mcp-datetime"
+    ],
+    "env": {
+      "PYTHONTZPATH": ""
+    },
+    "identity": {
+      "kind": "git",
+      "repository": "https://github.com/matt0733/get-date-time",
+      "commit": "7068460121e41918c3cfb0e3ce0dc785a6697ffd"
+    }
+  },
+  "provenance": {
+    "source_sha256": "39323473ee73d632fd7aac1bc922eebdaa206674918d48cbf18ac367406117e6",
+    "tasks_sha256": "da80a9f49914ae614c5547dc21c0ead983518d25af5d74b7a307cab1819af9e5",
+    "competitor_sha256": "07f4d78dbaaf5ba4c2965d83e93f9ecb8b81ddd8cf9ad66597abae8258edbee7",
+    "runner_sha256": "002cc48188299654f7e95c7d12b3c28713147b03c5225bbabca1bd0a982ac30b",
+    "connector_sha256": "13e3bc9ef6b7d9105072ccce9468246e5e474e6a43303f91a9117af55b7b2175",
+    "budget_runner_sha256": "5e88c258847236fea479c7ea2d463da050cba8457ccdb27c572ce01411fed8bc",
+    "journal_runner_sha256": "551f866b13079161bd8ed50bb05a2e959db37a1237d2e2047768eb68ea68085a",
+    "node": "v24.19.0",
+    "system_sha256": "5f05b8e536844ff18168fef626472662433c01265a1ae2a6322e0b2f7e75daf6",
+    "max_turns": 8,
+    "max_output_tokens": 4000
+  },
+  "task_ids": [
+    "tokyo-ny",
+    "dst-gap-weeks",
+    "skipped-time",
+    "kathmandu",
+    "new-year-auckland",
+    "uk-dst-end",
+    "bavaria-holiday",
+    "england-business",
+    "us-december",
+    "weekday",
+    "iso-week",
+    "month-end",
+    "meeting",
+    "month-converted",
+    "business-converted",
+    "meeting-tokyo",
+    "clamp-business-zone",
+    "holiday-return-zone",
+    "reporting-week",
+    "spring-shift",
+    "autumn-shift",
+    "sydney-shift",
+    "meeting-report-week",
+    "scotland-oneoff"
+  ],
+  "selected_arms": [
+    "ours",
+    "competitor"
+  ],
+  "maximum_model_requests": 384,
+  "budget": {
+    "schema": "canlilabs.request-budget.v1",
+    "profile": {
+      "provider": "anthropic",
+      "model": "claude-opus-4-8",
+      "currency": "USD",
+      "checked_at": "2026-10-14",
+      "valid_until": "2026-10-21T00:00:00Z",
+      "source": "https://platform.claude.com/docs/en/models/opus-4-8/overview",
+      "context_token_ceiling": 1048576,
+      "max_output_tokens": 4000,
+      "input_usd_per_million": 5,
+      "output_usd_per_million": 25,
+      "cache_write_ceiling_usd_per_million": 10,
+      "cache_read_usd_per_million": 0.5,
+      "margin_numerator": 6,
+      "margin_denominator": 5
+    },
+    "limit_micro_usd": 50000000,
+    "verified_usage_ceiling_micro_usd": 0,
+    "unresolved_reservations_micro_usd": 0,
+    "remaining_micro_usd": 50000000,
+    "request_reservation_micro_usd": 12702912,
+    "requests": 0
+  },
+  "journal": "/Users/arhancanli/canlilabs-benchmark-20261014/docs/goal/evidence/2026-10-14-world-time-paid-attempt.jsonl",
+  "tools": {
+    "ours": {
+      "count": 5,
+      "model_visible_chars": 2924
+    },
+    "competitor": {
+      "count": 17,
+      "model_visible_chars": 11215
+    }
+  },
+  "agent_benchmark_executed": false
+}

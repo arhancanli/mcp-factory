@@ -9,8 +9,31 @@ remain in [REQUIREMENTS.md](REQUIREMENTS.md).
 
 Repository: `arhancanli/mcp-factory`. Actual `origin/main`: `e52f29f`.
 The original `/Users/arhancanli/mcp-factory` checkout remains clean on main.
-Active worktree: `/Users/arhancanli/canlilabs-deep-rl-20261014`.
-Branch: `codex/canlilabs-deep-rl-20261014`, based on cohort evidence `694161f`.
+Active worktree: `/Users/arhancanli/canlilabs-benchmark-20261014`.
+Branch: `codex/canlilabs-benchmark-budget-20261014`, based on DQN evidence `fcbecc7`.
+All ten checks pass on that final DQN head. The next independent slice makes
+the real MCP comparison bounded by a priced request reservation and durable
+incremental evidence. Paid execution remains unapproved; no model API call is
+made while preparing and testing the runner.
+The bounded runner now passes 317 local factory checks, including ten new
+financial/control tests (13 benchmark tests total). The
+[run packet](BENCHMARK-RUN.md) proposes one USD 50 World Time paired attempt,
+with a fresh real two-peer dry plan and zero model calls. Request reservations,
+validated usage refunds, retained unknown charges, exclusive flushed journals,
+no automatic retries and peer cleanup are exercised with the actual SDK using
+synthetic fetch fixtures. No simulator output is a real agent benchmark.
+Signed review/remote CI follow; the paid action remains unapproved.
+The implementation is open as draft [PR #16](https://github.com/arhancanli/mcp-factory/pull/16)
+on signed `4d91877`, stacked on #15. Its first remote run passes Node 20, every
+packed package and CodeQL, but SQL Check's old runaway-query thread cancellation
+triggers a native V8 SIGTRAP on Node 24.21.0; matrix fail-fast cancels Node 22.
+The [failed attempt receipt](evidence/2026-10-14-benchmark-native-ci-attempt.json)
+retains that exact failure. Supervised SQL child processes now pass fourteen
+local tests, including a native engine signal, queued timeout recovery and parent
+SIGKILL cleanup. The original three-second runaway test remains. Current cold
+performance is remeasured against a pinned, explicitly historical SQLite reference;
+old performance/tasks are archived and the strongest-current SQL review remains
+required. Full packed/matrix validation on this repair follows before paid approval.
 
 Fresh inspection confirms every review below is open, ready and unmerged, with
 all required checks passing at the listed head. Commits use the owner's signing
@@ -27,7 +50,7 @@ posts retain the original [SPEC.md](../SPEC.md) policy.
 | [#12](https://github.com/arhancanli/mcp-factory/pull/12) | Changed/full package CI and bounded sharding | `6d6a655` | 8/8 |
 | [#13](https://github.com/arhancanli/mcp-factory/pull/13) | Actual Linux/macOS locked CPU execution | `0dbf8b7` | 10/10 |
 | [#14](https://github.com/arhancanli/mcp-factory/pull/14) | Current calendar/scout/corpus/performance | `694161f` | 8/8 |
-| [#15](https://github.com/arhancanli/mcp-factory/pull/15) | Bounded CPU DQN and held-out policy evidence | `8347d7c` | 10/10 |
+| [#15](https://github.com/arhancanli/mcp-factory/pull/15) | Bounded CPU DQN and held-out policy evidence | `fcbecc7` | 10/10 |
 
 Each PR after #9 is stacked on its predecessor. No review, npm/Registry release,
 directory submission, paid agent call or launch has been merged/published here.

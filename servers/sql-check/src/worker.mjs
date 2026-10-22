@@ -1,12 +1,11 @@
 // src/worker.mjs
 //
-// The engines, in a worker thread so that a statement that never ends (an unbounded recursive
-// query) can be stopped by terminating the thread (src/engines.mjs). PostgreSQL is PGlite: the
+// The engines run in an isolated child process, stopped by its supervisor when a
+// statement never ends. PostgreSQL is PGlite: the
 // real server compiled to WebAssembly, in memory, kept warm between jobs; each job runs inside one
 // transaction that is rolled back, every statement inside its own savepoint, and the session is
 // discarded afterwards. SQLite is sql.js: a new in-memory database per job. Neither can reach the
 // host's files or network: their file systems are in memory.
-import { parentPort } from "node:worker_threads";
 import { splitStatements } from "./split.mjs";
 
 // Statements that would end the sandbox's own transaction are not run.
@@ -139,13 +138,14 @@ async function sqlite(job, progress) {
   }
 }
 
-parentPort.on("message", async (job) => {
-  const progress = (phase, index) => parentPort.postMessage({ id: job.id, progress: { phase, index } });
+process.on("message", async (job) => {
+  const send = (message) => { if (process.connected) process.send(message, () => {}); };
+  const progress = (phase, index) => send({ id: job.id, progress: { phase, index } });
   try {
     const result = job.dialect === "postgres" ? await postgres(job, progress) : await sqlite(job, progress);
     if (job.dialect === "postgres") result.version = (await pg.query("SHOW server_version")).rows[0].server_version;
-    parentPort.postMessage({ id: job.id, result });
+    send({ id: job.id, result });
   } catch (e) {
-    parentPort.postMessage({ id: job.id, error: String(e?.message ?? e) });
+    send({ id: job.id, error: String(e?.message ?? e) });
   }
 });

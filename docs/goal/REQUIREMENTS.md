@@ -1,6 +1,7 @@
 # Requirements and completion evidence
 
-Source O: original `docs/SPEC.md`. Source E: owner expansion on 2026-10-13.
+Source O: original `docs/SPEC.md`. Source E: owner expansion on 2026-10-13. The owner's expansions from 2026-10-20 (E2, E3: the
+lab renamed Quantavane and its invention lab) are kept in the owner's private records since 2026-10-22.
 Status is deliberately evidence-based. Infrastructure that enables a requirement
 does not by itself complete it. The acceptance targets below are engineering
 criteria chosen to make the owner's ambitions reviewable.
@@ -9,7 +10,7 @@ criteria chosen to make the owner's ambitions reviewable.
 | --- | --- | --- | --- | --- |
 | G01 | E | Preserve all goals and structured continuity | Requirement ledger, phases, verified status, decision log, repository continuity instructions, registered active goal | Complete; continued upkeep required |
 | M01 | O,E | Thousands of distinct useful MCP servers across niches | At least 2,000 maintained published versions; distinct scout evidence and task coverage; count derived from release receipts | Planned |
-| M02 | O,E | Be the best available in each niche | Fixed independent tasks against the strongest current alternative; no accuracy regression; lower token use or measured additional coverage; dated raw results and uncertainty | In progress |
+| M02 | O,E | Be the best available in each niche | Fixed independent tasks against the strongest current alternative; no accuracy regression; lower token use or measured additional coverage; dated raw results and uncertainty | Current World Time fixed/scout/performance/technical evidence exists; bounded paired-agent runner and exclusive request/task journal validated offline, real two-peer USD 50 plan prepared; paid comparison still needs owner approval/execution |
 | M03 | O | Scout demand and winnability before building | Per-niche demand, incumbent, licences, API cost/rate limits, rejection reasons, task corpus; periodic refresh | World Time current structured scout, broader pinned incumbent and 24 fixed answers verified; wider cohort refresh and paid agent proof remain |
 | M04 | O | Small, stable tool lists and compact results | Bounded inputs, output schemas, accurate annotations, stable lists within budgets, explicit truncation, cache and cost measurements | Local gate revalidated; ongoing measurement required |
 | M05 | O | Correctness and protocol compatibility | Recorded golden tests, negative cases, real SDK stdio and HTTP client calls, weekly canaries, packaged-install tests | Implemented; gaps under audit |
@@ -32,6 +33,7 @@ criteria chosen to make the owner's ambitions reviewable.
 | L09 | E | Research education and accessible workflows | Progressive ML/DL/RL learning paths, working tutorials, notebooks or CLI recipes, explanations, exercises and reproducible examples | Working CLI examples documented; full curriculum pending |
 | L10 | E | Model delivery and production operations | Reloaded-model inference, evaluation-based promotion, rollback, documented deployment, health/latency/cost checks and monitoring | Local inference with original labels and variable feature counts plus verified model cards validated; promotion/production pending |
 | L11 | E | Connect the laboratory with MCP | Narrow tools for dataset inspection, experiments, evaluations and model discovery; permissions and resource limits; conformance and task tests | Three read-only tools, split/rights/profile and real DQN metadata/filtering verified by three stdio integrations; ten frozen answers validated on both CPU hosts; agent comparisons/release pending |
+| E2-E3 | E2, E3 | Quantavane objectives (owner expansions from 2026-10-20) | Kept in the owner's private records | Moved 2026-10-22 |
 
 Every closure must link to actual artifacts, code/version, execution environment,
 measurement date, passing checks, and material limitations. A local CPU smoke run

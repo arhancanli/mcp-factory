@@ -1,0 +1,24 @@
+{
+  "schema": "canlilabs.ci-attempt.v1",
+  "checked_at": "2026-10-14T06:02:57.824753+00:00",
+  "tested_commit": "4d918771ffa28dc86c4564ee05f0a5dd8fb071fb",
+  "pull_request": "https://github.com/arhancanli/mcp-factory/pull/16",
+  "run": "https://github.com/arhancanli/mcp-factory/actions/runs/38518677508",
+  "node24_job": "https://github.com/arhancanli/mcp-factory/actions/runs/38518677508/job/115703148771",
+  "node24": {
+    "version": "24.21.0",
+    "factory_pass": 316,
+    "factory_fail": 1,
+    "cause": "SQL Check runaway-query cancellation triggers a native V8 ThreadIsolation UnregisterWasmAllocation fatal check and SIGTRAP.",
+    "fatal_check": "jit_page_->allocations_.erase(addr) == 1",
+    "raw_log_sha256": "024dcbf3fd1016c3808ad124954987b9cfc083411bf8ab4fefa782c9784bafc4"
+  },
+  "other_checks": {
+    "node20": "success",
+    "node22": "cancelled by matrix fail-fast",
+    "standalone_packages": "success",
+    "codeql": "success"
+  },
+  "model_api_executed": false,
+  "next_action": "Contain engine execution in child processes with bounded cancellation and parent-death cleanup, preserving the runaway deadline, exit and replacement assertions."
+}

@@ -1,0 +1,83 @@
+{
+ "competitor": {
+  "label": "mcp-server-sqlite, the reference SQLite MCP server (no server runs PostgreSQL without a database)",
+  "command": "uvx",
+  "args": [
+   "mcp-server-sqlite",
+   "--db-path",
+   "/tmp/sql-check-bench.db"
+  ]
+ },
+ "tasks": [
+  {
+   "id": "round-float",
+   "prompt": "In PostgreSQL, what does SELECT round(2.5::double precision) return? Answer with the number only.",
+   "expect": {
+    "number": 2
+   }
+  },
+  {
+   "id": "int-division",
+   "prompt": "In PostgreSQL, what does SELECT 7 / 2 return? Answer with the value only.",
+   "expect": {
+    "number": 3
+   }
+  },
+  {
+   "id": "bad-date",
+   "prompt": "Does PostgreSQL accept SELECT '2026-02-30'::date without an error? Answer yes or no.",
+   "expect": {
+    "regex": "^\\W*no\\b"
+   }
+  },
+  {
+   "id": "sqlite-right-join",
+   "prompt": "Does SQLite 3.49 accept a RIGHT JOIN? Answer yes or no.",
+   "expect": {
+    "regex": "^\\W*yes\\b"
+   }
+  },
+  {
+   "id": "concat-null",
+   "prompt": "In PostgreSQL, what does SELECT 'a' || NULL return? Answer with the value, or NULL.",
+   "expect": {
+    "regex": "^\\W*null\\b"
+   }
+  },
+  {
+   "id": "between-timestamp",
+   "prompt": "In PostgreSQL, is TIMESTAMP '2026-09-30 15:00' BETWEEN '2026-09-01' AND '2026-09-30' true? Answer yes or no.",
+   "expect": {
+    "regex": "^\\W*no\\b"
+   }
+  },
+  {
+   "id": "sqlite-text-order",
+   "prompt": "An SQLite table has a TEXT column n holding '10', '9' and '100'. Which value comes first with ORDER BY n? Answer with the value only.",
+   "expect": {
+    "regex": "^\\W*10\\W*$"
+   }
+  },
+  {
+   "id": "not-in-null",
+   "prompt": "In PostgreSQL, how many rows does this return? SELECT x FROM (VALUES (1), (2)) v(x) WHERE x NOT IN (SELECT y FROM (VALUES (2), (NULL)) n(y)). Answer with the number only.",
+   "expect": {
+    "number": 0
+   }
+  },
+  {
+   "id": "group-by",
+   "prompt": "Given this PostgreSQL schema:\n\nCREATE TABLE users (id int PRIMARY KEY, email text NOT NULL);\nCREATE TABLE orders (id int PRIMARY KEY, user_id int REFERENCES users(id), total numeric NOT NULL);\n\ndoes PostgreSQL accept this query? Answer yes or no.\n\nSELECT u.email, o.total FROM users u JOIN orders o ON o.user_id = u.id GROUP BY u.email;",
+   "expect": {
+    "regex": "^\\W*no\\b"
+   }
+  },
+  {
+   "id": "concurrently",
+   "prompt": "Can CREATE INDEX CONCURRENTLY run inside a transaction block in PostgreSQL? Answer yes or no.",
+   "expect": {
+    "regex": "^\\W*no\\b"
+   }
+  }
+ ]
+}

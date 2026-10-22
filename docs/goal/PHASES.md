@@ -16,6 +16,7 @@ parallel after the recovered baseline. No phase waives an original factory gate.
 | P7 | 2,000 maintained servers | At least 2,000 qualifying distinct releases; sustainable upstream monitoring; per-server quality evidence and genuine task coverage | Planned |
 | P8 | Complete training and research coverage | COVERAGE.md recipes, robust evaluation, foundation-model tuning, accelerator/distributed recipes, documented compute needs | CPU DQN/replay/target network and three-seed held-out evaluation validated locally and on macOS/Linux in PR #15; wider coverage pending |
 | P9 | Operational delivery and sustained outcomes | Model promotion/rollback/serving verified; real adoption and maintenance evidence; all requirement closures independently checked | Planned |
+| P10-P12 | Quantavane invention lab, tracks, open source and stars | Kept in the owner's private records | Moved 2026-10-22 |
 
 Immediate implementation slice: preserve continuity, produce a factual baseline,
 fix the shared HTTP protection, and implement the CPU lab. Use free local compute

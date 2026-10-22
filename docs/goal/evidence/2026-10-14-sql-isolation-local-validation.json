@@ -1,0 +1,38 @@
+{
+  "schema": "canlilabs.sql-isolation-local-validation.v1",
+  "checked_at": "2026-10-14T06:34:48.780547+00:00",
+  "node": "v24.19.0",
+  "source_sha256": "f5a32f6ea4f59ed730ccf1773a0e55e996510e701422cc5b4d0a2feffb819450",
+  "checks": {
+    "factory_tests": 317,
+    "sql_tests": 14,
+    "real_stdio_initialize": true,
+    "real_stdio_tool_list": true,
+    "real_stdio_query": "SELECT 42 returned 42",
+    "native_engine_signal_contained": true,
+    "queued_timeout_recovery": true,
+    "killed_parent_busy_child_cleanup": true,
+    "original_runaway_limit_ms": 3000,
+    "default_job_limit_ms": 10000
+  },
+  "performance": "servers/sql-check/bench/perf.json",
+  "performance_sha256": "c1382a551a2e332ed148b41ecff6b0a54d109e1c8d77a2db380785f477278261",
+  "historical_reference": {
+    "package": "mcp-server-sqlite",
+    "version": "2025.4.25",
+    "python": "3.12.13",
+    "mcp": "1.30.0",
+    "primary_metadata": "https://pypi.org/project/mcp-server-sqlite/",
+    "archived": true,
+    "strongest_current_comparison_verified": false
+  },
+  "raw_log_sha256": {
+    "factory": "f9cd601140c3860a61c2c79ebe1fa299b3e84db9cda69009de76e313338ab665",
+    "sql": "8de4a4e0be9a6049a1b98c094c9dce308fbd57855b2af72271c53b9f600742d9"
+  },
+  "limitations": [
+    "Local macOS validation; repaired exact packed tree and actual Linux Node matrix still pending.",
+    "JavaScript heap limit is not WebAssembly/total-RSS protection.",
+    "No paid model API call or release."
+  ]
+}
