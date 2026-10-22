@@ -1,6 +1,7 @@
 # CanliLabs goal
 
-Owner: Arhan Canli. Expanded: 2026-10-13 and 2026-10-20 (rename pending, invention lab, stars, open-source reimplementations; see REQUIREMENTS E2). Status: active.
+Owner: Arhan Canli. Expanded: 2026-10-13. The 2026-10-20 expansion (the lab renamed Quantavane, with its invention
+lab) is kept in the owner's private records since 2026-10-22. Status: active.
 
 Build CanliLabs into an AI research and engineering laboratory with thousands of
 useful MCP servers and reproducible systems for data, machine learning, deep
