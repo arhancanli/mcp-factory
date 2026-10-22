@@ -842,3 +842,27 @@ pricing rule. Until funding or credits exist, the lab builds and runs at $0 with
   140 companies, billions of users, 10,000+ verified discoveries, own chips, power, labs and factories, $150B-$500B+
   yearly revenue, 100,000+ people. Deciders: frontier by 2033-36 and staying there; industry companies leading at
   full scale; keeping the best people; funding frontier compute while keeping control.
+
+## 2026-10-22 — month 1 started: the lab runs on real records
+
+- Owner: "lets start". Owner handles Stripe Atlas and the credit applications this week; I build and run the engine.
+  Asked whether to set up the outreach system: answer, outreach v1 lives inside the engine (claim packets with a
+  drafted note to the table maintainer, owner approves and submits); wider outreach (talent, customers, partners)
+  once there is a first result and the company exists.
+- Record source found: the La Jolla Covering Repository froze on 2026-03-01 (servers off in August 2026); its final
+  data is on Zenodo (doi:10.5281/zenodo.19735294, CC BY 4.0, 9,482 entries, improvements to April 2026). Later
+  improvements live on coveringrepository.com (Giovanni Acerbi), which blocks scripted access, so every candidate is
+  checked there by hand before any claim. Colbourn's covering-array tables now sit behind an ASU login; Brouwer's
+  tables were down; both skipped for now.
+- Targets: 30 covering designs nobody has improved since 1996-2014 (large blocks, 18-111 blocks, general
+  constructions), 20 live and 10 held back as hidden tests. Record coverings streamed from the 4.2 GB file without
+  saving it (the Mac has about 8.6 GB free); the engine's exact checker accepts every one at exactly its record size.
+- Engine (~/quantavane-engine, commit 26ea76b and later): covering-design checker (exact, plus a separate
+  plain-Python recheck for claims), two searches per problem on separate islands (an annealer that starts from the
+  record and tries to remove a block, vectorised to score every swap at once; and a symmetric search over cyclic
+  orbits), the multi-problem lab (model proposals plus re-runs on spare CPU), training system v1 (model registry,
+  Thompson-sampling router, hidden tests from loose starts, champion/challenger with logged decisions) and claim
+  packets. 30 tests pass.
+- Honest early read: from a record covering minus one block, the annealer repairs about half of the uncovered
+  subsets and stalls; random starts and short symmetric searches do worse. These records are strong; the lab runs
+  around the clock and stronger models arrive with the owner's credits.
