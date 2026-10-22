@@ -94,8 +94,9 @@ everything logged. It runs on free local models now and takes stronger ones as t
    contracts and clean IP ownership, with founder-controlled shares from day one.
 3. **Free compute and models now:** TPU Research Cloud, free API tiers, compute grants; then startup credits once the
    company exists; Quantavane is Cirrun's first heavy customer.
-4. **Young-founder funding:** send Emergent Ventures (draft ready); then the Thiel Fellowship, Z Fellows and 1517
-   Fund after the first result; angels next.
+4. **Money without giving up equity (owner decision, 2026-10-21):** no angels, accelerators or small equity rounds.
+   Credits, prizes and outside revenue fund the lab; Emergent Ventures and the Thiel Fellowship are grants that take
+   no equity, optional and the owner's call.
 5. **The UAE advantage:** MBZUAI and TII for research partners, talent and compute; Hub71 and the Dubai AI Campus for
    company support; the Gulf's sovereign AI push for later capital.
 6. **Attention that compounds:** open-source the engine early, a live public feed of the engine's attempts on

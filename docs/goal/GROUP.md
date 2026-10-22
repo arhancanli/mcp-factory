@@ -81,7 +81,8 @@ Each is a customer of Quantavane models and Cirrun compute, and each sends data 
   earns from dozens of independent accounts instead of one. Generative platforms are among the heaviest compute users
   there are. Each company pays Cirrun's normal written prices, Cirrun reports group revenue on its own line, and as
   each company raises outside money its spending counts as genuinely diversified revenue.
-- **Each company raises its own capital** while Quantavane keeps control; founder-controlled shares at the top.
+- **Each company can raise its own capital later,** only large and on the owner's terms (never small rounds), while
+  Quantavane keeps control; founder-controlled shares at the top.
 
 ## Rules that hold everywhere
 

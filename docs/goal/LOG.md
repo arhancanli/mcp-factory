@@ -819,3 +819,16 @@ pricing rule. Until funding or credits exist, the lab builds and runs at $0 with
   the Thiel Fellowship are grants that take no equity, so they fit the bootstrap plan if wanted; credit programmes
   need the company formed; the loop needs outside customers, because money moving between group companies adds no new
   money. Any future raise only late, large and on the owner's terms with founder control.
+
+## 2026-10-22 — ten-year plan, month by month
+
+- Owner asked what we must do to reach all the ultimate goals, broken down month by month for ten years.
+  TEN_YEAR_PLAN.md rewritten as 120 dated months (Nov 2026 – Oct 2036), each year with an end-of-year scoreboard
+  (companies, verified discoveries, specialist models, people, revenue, MCP servers, stars). Money path follows the
+  2026-10-21 bootstrap decision: the old angel/pre-seed (2028), seed (2029) and Series A (2030) rounds are gone;
+  frontier scale is funded by group revenue, compute partnerships with nations, debt for data centres and plants,
+  and only if the owner chooses, one late large raise or listing with founder-controlled shares. Checked against the
+  10-21 version, QUANTAVANE.md's ladder and VISION.md's landmarks: no target moved later (famous open problem still
+  2031, benchmark reported by major labs 2029, 1M stars by 2034). QUANTAVANE.md accelerator 4, GROUP.md's capital
+  line and VISION.md's owner-asks line updated to the bootstrap decision. Next: owner's go on month 1 build work
+  (training system v1 and the engine on 20 problems at $0); company formation with parents.

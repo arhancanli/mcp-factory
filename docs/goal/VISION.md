@@ -106,8 +106,8 @@ release rules) attracts the best researchers and earns regulators' trust in ever
 - Moonshots across every branch once big (talking to animals, biotech and more; see [MOONSHOTS.md](MOONSHOTS.md)).
 - Spin-out startups where a track has a verified result and a paying customer (post-quantum security, chip design;
   formal verification inside TraceAxiom; quant finance inside CanliCapital).
-- Ten-year plan and funding ([TEN_YEAR_PLAN.md](TEN_YEAR_PLAN.md)); lab spending comes from won funding, never out of
-  pocket; grants and credits first.
+- Ten-year plan, month by month ([TEN_YEAR_PLAN.md](TEN_YEAR_PLAN.md)); bootstrap on credits, prizes and outside
+  revenue with no small equity rounds; lab spending comes from won funding, never out of pocket.
 - Compute: credits obtained by the companies first (within each programme's terms), then fully on Cirrun, with
   Quantavane paying Cirrun at a written fair price.
 - Cinematic, readable site at quantavane.com; owner approves every public word.
